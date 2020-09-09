@@ -12,7 +12,7 @@ namespace Program3
 {
     public partial class Form1 : Form
     {
-        static string bTod(String n)
+        static string bTod(String n) //Function to convert base.
         {
             String num = n;
             String a;
@@ -52,7 +52,7 @@ namespace Program3
         {
 
            
-            textBox2.Text = (bTod(textBox1.Text));
+            textBox2.Text = (bTod(textBox1.Text)); // Displays function result in a text box
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace Program3
 
             
             {
-                textBox1.Text = textBox1.Text + "0";
+                textBox1.Text = textBox1.Text + "0"; // User keypress 0
             }
         }
 
@@ -69,7 +69,7 @@ namespace Program3
         {
             if (textBox1.Text == null)
             {
-                textBox1.Text = "1";
+                textBox1.Text = "1"; // User Keypress 1
             }
             else
             {
