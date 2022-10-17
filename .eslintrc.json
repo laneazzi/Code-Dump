@@ -25,7 +25,12 @@
   },
   "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier", "import"],
   "rules": {
-    "prettier/prettier": ["warn"],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "react/prop-types": "off",
     "react/display-name": "off",
     "react-hooks/rules-of-hooks": "warn",
