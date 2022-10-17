@@ -1,0 +1,120 @@
+.login {
+  display: flex;
+  justify-content: flex-end;
+
+  a {
+    padding: 0;
+  }
+
+  &__content {
+    background: $white;
+    margin-top: 100px;
+    padding: 45px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 618px;
+
+    &_logo {
+      @extend%flex-center-column;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    &_form {
+      @extend%flex-column;
+      gap: 30px;
+
+      input {
+        border-radius: 8px;
+        padding: 8px 15px;
+        border-color: $input-border-color;
+        padding: 15px 0 15px 22px;
+        font-size: 24px;
+        line-height: 29px;
+
+        &::placeholder {
+          color: $input-text-color;
+          font-family: $inter;
+        }
+      }
+
+      button {
+        border-radius: 8px;
+        padding: 12px 0 15px 0;
+        color: white;
+        background: $red;
+        min-width: 100%;
+        font-size: 24px;
+        margin: 0;
+        line-height: 29px;
+        font-family: $inter;
+      }
+    }
+
+    &_keep {
+      @extend%flex-between;
+      margin: 23px 11px 40px;
+      color: #95aec7;
+      font-size: 20px;
+      line-height: 24px;
+
+      &_save {
+        @extend%flex-align;
+        gap: 10px;
+
+        &_btn {
+          input {
+            width: 36px;
+            height: 36px;
+          }
+        }
+      }
+
+      &_item {
+        @extend%flex-align;
+      }
+
+      a {
+        font-weight: 400;
+        justify-content: flex-end;
+        font-size: 20px;
+        line-height: 24px;
+      }
+
+      &_forgot {
+        white-space: nowrap;
+
+        &_txt {
+          border-bottom: 1px solid $dark-aqua;
+          text-transform: capitalize;
+        }
+      }
+    }
+
+    &_sign {
+      padding: 35px 0 5px 0;
+      @extend%flex-center-column;
+      border-top: 1px solid $dark-aqua;
+      gap: 11px;
+
+      &_answer {
+        font-size: 24px;
+        line-height: 29px;
+      }
+
+      &_item {
+        text-decoration: underline;
+        min-width: 100%;
+        text-transform: capitalize !important;
+        text-align: center;
+
+        &_txt {
+          font-size: 22px;
+          line-height: 27px;
+          color: $red;
+          border-bottom: 1px solid $red;
+        }
+      }
+    }
+  }
+}

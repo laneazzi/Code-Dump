@@ -46,17 +46,17 @@
   }
 
   &__error {
-    border-color: var(--danger) !important;
+    border-color: $red !important;
 
     &__text {
       margin-top: 4px;
-      color: var(--danger);
+      color: $red;
       @extend %text-14;
     }
   }
 
   &__right_icon {
-    right: 16px;
+    right: 21px;
     cursor: pointer;
     position: absolute;
     top: calc(50% - 12px);

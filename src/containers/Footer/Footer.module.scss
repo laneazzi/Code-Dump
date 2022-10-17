@@ -1,0 +1,76 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  &__content {
+    margin: 0 auto;
+    max-width: 1752px;
+    color: white;
+    padding: 32.5px 0;
+    border-top: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+
+    &_logo {
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 27px;
+    }
+
+    &_links {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .link {
+        padding: 0 25px;
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 27px;
+
+        &_globe {
+          margin-right: 7px;
+        }
+
+        &_arrow {
+          margin-left: 6px;
+        }
+
+        &:not(:last-child) {
+          border-right: 2px solid $white;
+        }
+      }
+    }
+
+    &_privacy {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &_item {
+        font-weight: 400 !important;
+        font-size: 22px !important;
+        line-height: 27px !important;
+        max-width: max-content;
+        width: 100%;
+
+        &:not(:last-child) {
+          padding-right: 25px;
+        }
+
+        &:last-child {
+          padding-left: 25px;
+        }
+
+        &:not(:last-child) {
+          border-right: 2px solid $white;
+        }
+      }
+    }
+  }
+}

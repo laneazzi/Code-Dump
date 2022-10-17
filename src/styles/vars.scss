@@ -9,11 +9,19 @@ $wide-l: 1440px;
 
 //Font Families
 $font: 'Roboto', sans-serif;
+$inter: 'Inter';
 
 // @extends
 %flex-center {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+%flex-center-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   justify-content: center;
 }
 

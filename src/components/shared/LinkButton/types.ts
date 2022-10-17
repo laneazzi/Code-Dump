@@ -1,5 +1,5 @@
 export interface ILink {
-  children: JSX.Element | string;
+  children: React.ReactNode | string;
   className?: string;
   to: string;
   size?: 's' | 'm' | 'l';

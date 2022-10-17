@@ -10,7 +10,7 @@ const Typography: React.FC<ITypographyProps & React.HTMLAttributes<HTMLOrSVGElem
   tagName = 'p',
   className = '',
   align = 'left',
-  type = 'Regular',
+  type = '',
   variant = 'Text',
   color,
   ...rest
