@@ -12,5 +12,5 @@ export enum Routes {
   Contacts = '/contacts',
   SignUpFor = '/sign-up',
   TermsOfUse = '/terms-of-use',
-  PrivacyPolice = '/privacy-police',
+  PrivacyPolicy = '/privacy-police',
 }

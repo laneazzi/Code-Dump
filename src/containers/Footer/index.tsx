@@ -27,7 +27,7 @@ const Footer = () => {
           </LinkButton>
         </div>
         <div className={styles.footer__content_privacy}>
-          <LinkButton className={styles.footer__content_privacy_item} to='/privacypolice'>
+          <LinkButton className={styles.footer__content_privacy_item} to='/PrivacyPolicy'>
             Privacy Police
           </LinkButton>
           <LinkButton className={styles.footer__content_privacy_item} to='/termsofuse'>

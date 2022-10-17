@@ -6,7 +6,7 @@ import {
   Error,
   Contacts,
   TermsOfUse,
-  PrivacyPolice,
+  PrivacyPolicy,
 } from '../containers';
 import { RoutesProps, Routes } from '../types';
 
@@ -33,8 +33,8 @@ const routes: RoutesProps[] = [
     component: <Help />,
   },
   {
-    path: Routes.PrivacyPolice,
-    component: <PrivacyPolice />,
+    path: Routes.PrivacyPolicy,
+    component: <PrivacyPolicy />,
   },
   {
     path: Routes.TermsOfUse,
