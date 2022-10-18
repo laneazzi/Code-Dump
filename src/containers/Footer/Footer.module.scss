@@ -1,37 +1,51 @@
 .footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-
   &__content {
-    margin: 0 auto;
-    max-width: 1752px;
+    margin: auto 84px;
+    max-width: 100%;
     color: white;
     padding: 32.5px 0;
     border-top: 1px solid white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @extend%flex-between;
     background: transparent;
 
+    @include breakpoint(wide) {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    @include breakpoint(wide-l) {
+      max-width: 100%;
+      margin: 0 16px;
+    }
+
+    @include breakpoint(tablet-m) {
+      gap: 10px;
+    }
+
     &_logo {
-      font-weight: 400;
-      font-size: 22px;
-      line-height: 27px;
+      @extend%text-22;
+      @include breakpoint(wide-l) {
+        font-size: 18px !important;
+      }
     }
 
     &_links {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      @extend%flex-between;
+
+      @include breakpoint(tablet-m) {
+        flex-direction: column;
+        gap: 10px;
+      }
 
       .link {
         padding: 0 25px;
-        display: flex;
-        align-items: center;
-        font-weight: 400;
-        font-size: 22px;
-        line-height: 27px;
+        @extend%flex-align;
+        @extend%text-22;
+
+        @include breakpoint(wide-l) {
+          font-size: 18px !important;
+        }
 
         &_globe {
           margin-right: 7px;
@@ -43,21 +57,29 @@
 
         &:not(:last-child) {
           border-right: 2px solid $white;
+
+          @include breakpoint(tablet-m) {
+            border: none;
+          }
         }
       }
     }
 
     &_privacy {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      @extend%flex-between;
+
+      @include breakpoint(tablet-m) {
+        gap: 5px;
+      }
 
       &_item {
-        font-weight: 400 !important;
-        font-size: 22px !important;
-        line-height: 27px !important;
+        @extend%text-22;
         max-width: max-content;
         width: 100%;
+
+        @include breakpoint(wide) {
+          font-size: 18px !important;
+        }
 
         &:not(:last-child) {
           padding-right: 25px;
@@ -69,6 +91,10 @@
 
         &:not(:last-child) {
           border-right: 2px solid $white;
+
+          @include breakpoint(tablet-m) {
+            border: none;
+          }
         }
       }
     }

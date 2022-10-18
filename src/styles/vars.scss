@@ -68,6 +68,12 @@ $inter: 'Inter';
   align-items: center;
 }
 
+%flex-end-center {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 %text-ellipsis {
   overflow: hidden;
   white-space: nowrap;

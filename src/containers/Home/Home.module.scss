@@ -1,5 +1,5 @@
 .home {
-  position: relative;
+  @extend%flex-column;
   min-height: 100vh;
   font-family: $inter !important;
 

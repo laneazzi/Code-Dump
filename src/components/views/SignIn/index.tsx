@@ -1,37 +1,39 @@
-import React, { useCallback, useRef } from 'react';
+import { FC, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Routes } from 'types';
-import Form from 'components/forms/Form';
 import signIn from 'constants/forms/signinForm';
 import { ReelBudLogoIcon, ReelBudTextIcon } from 'assets/icons';
 import { Checkbox, LinkButton, RadioButton, Typography } from 'components/shared';
 
-import styles from './Login.module.scss';
+import { SignInForm } from '../../forms';
+import { EIsActiveType } from '../../../types/global';
 
-const LogIn: React.FC = () => {
+import styles from './SignIn.module.scss';
+
+interface ISignInProps {
+  toggleActive: (value: string, bool: boolean) => void;
+}
+
+const SignIn: FC<ISignInProps> = ({ toggleActive }) => {
   const navigate = useNavigate();
+
   const signInRef = useRef<any>(null);
 
-  const handleSignInFormSubmit = useCallback(
-    (values: any) => {
-      // eslint-disable-next-line no-console
-      console.log(values, 'values');
-      navigate(Routes.Home);
+  const handleSignInFormSubmit = useCallback(() => {
+    navigate(Routes.Home);
 
-      signInRef.current.onSubmitFailed();
-    },
-    [navigate],
-  );
+    signInRef.current.onSubmitFailed();
+  }, [navigate]);
 
   return (
-    <div className={`${styles.login} container`}>
+    <div className={`${styles.login} container__all`}>
       <div className={styles.login__content}>
         <div className={styles.login__content_logo}>
           <ReelBudLogoIcon className={styles.login__content_logo_item} />
           <ReelBudTextIcon className={styles.login__content_logo_item} />
         </div>
-        <Form
+        <SignInForm
           className={styles.login__content_form}
           ref={signInRef}
           form={signIn}
@@ -45,7 +47,11 @@ const LogIn: React.FC = () => {
             <Typography>Keep Logged in</Typography>
           </div>
 
-          <LinkButton to={Routes.Home} className={styles.login__content_keep_forgot}>
+          <LinkButton
+            to={Routes.Home}
+            className={styles.login__content_keep_forgot}
+            onClick={() => toggleActive(EIsActiveType.RECOVERY, true)}
+          >
             <Typography className={styles.login__content_keep_forgot_txt}>
               Forgot Password?
             </Typography>
@@ -56,7 +62,11 @@ const LogIn: React.FC = () => {
           <Typography className={styles.login__content_sign_answer}>
             Don’t have an account yet?
           </Typography>
-          <LinkButton to={Routes.SignUpFor} className={styles.login__content_sign_item}>
+          <LinkButton
+            to='#'
+            className={styles.login__content_sign_item}
+            onClick={() => toggleActive(EIsActiveType.REGISTRATION, true)}
+          >
             <Typography tagName='span' className={styles.login__content_sign_item_txt}>
               Sign Up For Factzz
               <Checkbox />
@@ -68,4 +78,4 @@ const LogIn: React.FC = () => {
   );
 };
 
-export default LogIn;
+export default SignIn;

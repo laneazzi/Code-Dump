@@ -1,6 +1,5 @@
 import React, { useMemo, useState, useCallback } from 'react';
 import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
 
 import { EyeHideIcon, EyeShowIcon } from 'assets/icons';
 
@@ -8,8 +7,6 @@ import Typography from '../Typography';
 
 import { IInputProps } from './types';
 import styles from './Input.module.scss';
-
-import '../../../i18';
 
 const Input = React.forwardRef<any, IInputProps>(
   (
@@ -33,8 +30,6 @@ const Input = React.forwardRef<any, IInputProps>(
     },
     ref,
   ) => {
-    const { t } = useTranslation();
-
     const inputClasses = classNames(styles.container, {
       [className]: className,
       [styles.container__error]: !!error,

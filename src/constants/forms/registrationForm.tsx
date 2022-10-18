@@ -16,6 +16,13 @@ const fields: Field[] = [
     RightIcon: EyeShowIcon,
     RightToggledIcon: EyeHideIcon,
   },
+  {
+    name: 'confirmedPassword',
+    type: 'password',
+    placeholder: 'Confirm Password...',
+    RightIcon: EyeShowIcon,
+    RightToggledIcon: EyeHideIcon,
+  },
 ];
 
 const schema = yup.object().shape({
@@ -27,6 +34,7 @@ const schema = yup.object().shape({
     .string()
     .required('The Password is required')
     .min(5, 'Password is too short - should be 8 chars minimum.'),
+  confirmedPassword: yup.string().oneOf([yup.ref('password'), null], 'Passwords must be same'),
 });
 
 const signInForm: Form = {

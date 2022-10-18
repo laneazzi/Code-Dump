@@ -1,7 +1,5 @@
 .radio {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend%flex-center;
   border: 1px solid #ccc;
   padding: 7px;
   background: $white;
@@ -10,6 +8,12 @@
   border-radius: 50%;
   box-shadow: 1px 1px 1px #ccc inset;
   cursor: pointer;
+
+  @include breakpoint(tablet-m) {
+    width: 25px;
+    height: 25px;
+    padding: 3px;
+  }
 
   &__btn {
     background: #ccc;

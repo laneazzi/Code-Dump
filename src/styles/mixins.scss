@@ -27,5 +27,9 @@
     @media (max-width: $wide-l) {
       @content;
     }
+  } @else if $devices == wide-l-max {
+    @media (max-width: $wide) {
+      @content;
+    }
   }
 }
