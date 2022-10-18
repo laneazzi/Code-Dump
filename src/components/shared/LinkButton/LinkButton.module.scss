@@ -1,10 +1,5 @@
 .btn {
-  width: 100%;
-  padding: 10px 0;
-  border-radius: 4px;
-  @extend %flex-center;
-  @extend %text-14;
-
+  text-transform: capitalize !important;
   &__small {
     max-width: 168px;
   }

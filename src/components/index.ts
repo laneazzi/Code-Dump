@@ -1,3 +1,3 @@
-export * from './layouts';
+export * from './views';
 export * from './shared';
-// export * from './views';
+export * from './layouts';

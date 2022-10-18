@@ -6,10 +6,10 @@ import { RouterProvider } from './routes';
 
 import './styles/index.global.scss';
 
-const ReelbudApp = () => (
+const ReelBudApp = () => (
   <Provider store={store}>
     <RouterProvider />
   </Provider>
 );
 
-export default ReelbudApp;
+export default ReelBudApp;

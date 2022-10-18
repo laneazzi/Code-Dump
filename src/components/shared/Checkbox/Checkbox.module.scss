@@ -64,7 +64,7 @@
     left: 0;
     bottom: 0;
     position: absolute;
-    color: var(--danger);
+    color: $red;
     transform: translate(0, 100%);
     @extend %text-10;
   }

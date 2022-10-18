@@ -1,7 +1,7 @@
 import React, { ForwardedRef } from 'react';
 import classNames from 'classnames';
 
-import { CheckIcon } from 'assets/icons';
+import { EyeShowIcon } from 'assets/icons';
 
 import styles from './Checkbox.module.scss';
 import { ICheckbox } from './types';
@@ -33,7 +33,7 @@ const Checkbox = React.forwardRef(
           type='checkbox'
           defaultChecked={defaultChecked}
         />
-        <CheckIcon className={styles.icon} />
+        <EyeShowIcon className={styles.icon} />
         <label htmlFor={id} className={styles['checkbox-label']}>
           {text}
         </label>

@@ -1,1 +1,15 @@
+.home {
+  position: relative;
+  min-height: 100vh;
+  font-family: $inter !important;
 
+  &__video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}

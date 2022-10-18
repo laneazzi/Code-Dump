@@ -2,8 +2,7 @@ import React, { useMemo, useState, useCallback } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import { EyeOpenIcon } from 'assets/icons';
-import { EyeCloseIcon } from 'assets/icons';
+import { EyeHideIcon, EyeShowIcon } from 'assets/icons';
 
 import Typography from '../Typography';
 
@@ -18,10 +17,10 @@ const Input = React.forwardRef<any, IInputProps>(
       name,
       error,
       disabled,
-      isDisabledError = false,
-      RightIcon = EyeOpenIcon,
-      RightToggledIcon = EyeCloseIcon,
+      RightIcon = EyeShowIcon,
+      RightToggledIcon = EyeHideIcon,
       placeholder,
+      isDisabledError,
       type = 'text',
       className = '',
       defaultValue,
@@ -69,9 +68,12 @@ const Input = React.forwardRef<any, IInputProps>(
     return (
       <>
         <div className={inputInnerClasses}>
-          <label htmlFor={name} className={styles.container__inner__label}>
-            {label}
-          </label>
+          {label && (
+            <label htmlFor={name} className={styles.container__inner__label}>
+              {label}
+            </label>
+          )}
+
           <div className={styles.input}>
             <input
               {...rest}
