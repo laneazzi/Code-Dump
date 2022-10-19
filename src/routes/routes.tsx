@@ -1,13 +1,4 @@
-import {
-  Help,
-  Home,
-  Forum,
-  About,
-  Error,
-  Contacts,
-  TermsOfUse,
-  PrivacyPolicy,
-} from '../containers';
+import { Help, Home, About, Error, Contacts, TermsOfUse, PrivacyPolicy } from '../containers';
 import { RoutesProps, Routes } from '../types';
 
 const routes: RoutesProps[] = [
@@ -39,10 +30,6 @@ const routes: RoutesProps[] = [
   {
     path: Routes.TermsOfUse,
     component: <TermsOfUse />,
-  },
-  {
-    path: Routes.Forum,
-    component: <Forum />,
   },
 ];
 

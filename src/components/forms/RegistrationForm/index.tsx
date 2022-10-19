@@ -5,11 +5,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import Input from '../../shared/Input';
 import Button from '../../shared/Button';
+import { IFormProps } from '../FormTypes';
 
-import { IFormProps } from './types';
-import styles from './Form.module.scss';
-
-const Form = forwardRef<any, IFormProps>(
+const RegistrationForm = forwardRef<any, IFormProps>(
   ({ form: { fields, schema }, onSubmit, submitText, className = '' }, ref) => {
     const {
       register,
@@ -20,7 +18,7 @@ const Form = forwardRef<any, IFormProps>(
       resolver: yupResolver(schema),
     });
 
-    const formClasses = classNames(styles.container, {
+    const formClasses = classNames('form', {
       [className]: className,
     });
 
@@ -30,7 +28,7 @@ const Form = forwardRef<any, IFormProps>(
           return (
             <Input
               haveRightIcon={rest.type === 'password'}
-              key={name}
+              key={rest.placeholder}
               {...rest}
               {...register(name as string)}
               error={errors[name as string]?.message as string}
@@ -56,7 +54,7 @@ const Form = forwardRef<any, IFormProps>(
     return (
       <form className={formClasses} onSubmit={handleSubmit(onSubmit)}>
         {renderFields}
-        <Button type='submit' className={styles.container__button}>
+        <Button type='submit' className='button'>
           {submitText}
         </Button>
       </form>
@@ -64,4 +62,4 @@ const Form = forwardRef<any, IFormProps>(
   },
 );
 
-export default Form;
+export default RegistrationForm;

@@ -1,4 +1,19 @@
-.container {
-  max-width: 1692px;
+.container__all {
+  max-width: 100%;
+  margin: 0 144px;
+
+  @media (max-width: 1800px) {
+    max-width: 100%;
+    margin: 0 40px;
+  }
+
+  @media (max-width: 1200px) {
+    max-width: 100%;
+    margin: 0 16px;
+  }
+}
+
+.container__global {
+  max-width: 1705px;
   margin: 0 auto;
 }

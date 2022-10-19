@@ -1,0 +1,160 @@
+.login {
+  @extend%flex-end-center;
+  flex: 1 1 auto;
+
+  @include breakpoint(tablet-l) {
+    justify-content: center;
+  }
+
+  &__content {
+    background: $white;
+    padding: 45px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 618px;
+    margin: 25px 0;
+
+    @include breakpoint(tablet-l) {
+      margin: 20px 0;
+    }
+
+    @include breakpoint(tablet-m) {
+      padding: 15px;
+    }
+
+    &_logo {
+      @extend%flex-center-column;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    &_form {
+      @extend%flex-column;
+      gap: 30px;
+
+      @include breakpoint(tablet-m) {
+        gap: 15px;
+      }
+
+      input {
+        border-radius: 8px;
+        border-color: $input-border-color;
+        padding: 15px 46px 15px 22px;
+        @extend%text-24;
+
+        @include breakpoint(tablet-m) {
+          font-size: 18px;
+        }
+
+        &::placeholder {
+          color: $input-text-color;
+          font-family: $inter;
+        }
+      }
+
+      button {
+        border-radius: 8px;
+        padding: 12px 0 15px 0;
+        color: white;
+        background: $red;
+        min-width: 100%;
+        margin: 0;
+        font-family: $inter;
+        @extend%text-24;
+
+        @include breakpoint(tablet-m) {
+          font-size: 18px;
+        }
+      }
+    }
+
+    &_keep {
+      @extend%flex-between;
+      margin: 23px 11px 40px;
+      color: #95aec7;
+      @extend%text-22;
+
+      @include breakpoint(mobile-m) {
+        flex-direction: column !important;
+      }
+
+      @include breakpoint(tablet-m) {
+        font-size: 16px;
+      }
+
+      @media (max-width: 450px) {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      &_save {
+        @extend%flex-align;
+        gap: 10px;
+
+        &_btn {
+          input {
+            width: 36px;
+            height: 36px;
+          }
+        }
+      }
+
+      &_item {
+        @extend%flex-align;
+      }
+
+      a {
+        font-weight: 400;
+        justify-content: flex-end;
+        font-size: 20px;
+        line-height: 24px;
+
+        @include breakpoint(tablet-m) {
+          font-size: 16px;
+        }
+      }
+
+      &_forgot {
+        white-space: nowrap;
+
+        &_txt {
+          border-bottom: 1px solid $dark-aqua;
+          text-transform: capitalize;
+        }
+      }
+    }
+
+    &_sign {
+      padding-top: 35px;
+      @extend%flex-center-column;
+      border-top: 1px solid $dark-aqua;
+      gap: 11px;
+
+      &_answer {
+        cursor: pointer;
+        @extend%text-24;
+
+        @include breakpoint(tablet-m) {
+          font-size: 18px;
+        }
+      }
+
+      &_item {
+        text-decoration: underline;
+        min-width: 100%;
+        text-transform: capitalize !important;
+        text-align: center;
+
+        &_txt {
+          @extend%text-22;
+          color: $red;
+          border-bottom: 1px solid $red;
+
+          @include breakpoint(tablet-m) {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}

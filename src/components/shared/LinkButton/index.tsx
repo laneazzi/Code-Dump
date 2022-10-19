@@ -11,6 +11,7 @@ const LinkButton = ({
   className,
   color = 'primary',
   size = 's',
+  onClick,
 }: ILink): JSX.Element => {
   const btnClassNames = classNames(className, styles.btn, {
     [styles.btn__small]: size === 's',
@@ -21,7 +22,7 @@ const LinkButton = ({
   });
 
   return (
-    <Link className={btnClassNames} to={to}>
+    <Link className={btnClassNames} to={to} onClick={onClick}>
       {children}
     </Link>
   );
