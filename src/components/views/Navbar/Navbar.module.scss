@@ -1,0 +1,49 @@
+.navbar {
+  @extend %flex-center-column;
+
+  position: fixed;
+
+  &__logo {
+    padding-bottom: 35px;
+    @extend %flex-center;
+
+    &_icon {
+      width: 65px;
+      height: 48px;
+    }
+  }
+
+  &__links {
+    padding: 60px 0;
+    border-top: 1px solid $dark-aqua-opacity;
+    border-bottom: 1px solid $dark-aqua-opacity;
+    gap: 52px;
+    width: 100%;
+    @extend %flex-center-column;
+
+    &_item {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      @extend %flex-center;
+
+      &_active {
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        background: #0e2760;
+        @extend %flex-center;
+
+        svg {
+          path {
+            fill: #ffffff;
+          }
+        }
+      }
+    }
+  }
+  &__logout {
+    margin-top: 40px;
+    cursor: pointer;
+  }
+}

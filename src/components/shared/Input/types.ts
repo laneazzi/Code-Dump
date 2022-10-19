@@ -10,6 +10,7 @@ export interface IInputProps {
   disabled?: boolean;
   placeholder?: string;
   haveRightIcon?: boolean;
+  anyIcon?: boolean;
   innerClassName?: string;
   labelClassName?: string;
   isDisabledError?: boolean;

@@ -5,8 +5,8 @@
     color: white;
     padding: 32.5px 0;
     border-top: 1px solid white;
-    @extend%flex-between;
     background: transparent;
+    @extend %flex-between;
 
     @include breakpoint(wide) {
       display: flex;
@@ -24,14 +24,14 @@
     }
 
     &_logo {
-      @extend%text-22;
+      @extend %text-22;
       @include breakpoint(wide-l) {
         font-size: 18px !important;
       }
     }
 
     &_links {
-      @extend%flex-between;
+      @extend %flex-between;
 
       @include breakpoint(tablet-m) {
         flex-direction: column;
@@ -40,8 +40,8 @@
 
       .link {
         padding: 0 25px;
-        @extend%flex-align;
-        @extend%text-22;
+        @extend %flex-align;
+        @extend %text-22;
 
         @include breakpoint(wide-l) {
           font-size: 18px !important;
@@ -66,14 +66,14 @@
     }
 
     &_privacy {
-      @extend%flex-between;
+      @extend %flex-between;
 
       @include breakpoint(tablet-m) {
         gap: 5px;
       }
 
       &_item {
-        @extend%text-22;
+        @extend %text-22;
         max-width: max-content;
         width: 100%;
 
