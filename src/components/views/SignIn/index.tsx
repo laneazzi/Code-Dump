@@ -11,9 +11,9 @@ import { EIsActiveType } from '../../../types/global';
 
 import styles from './SignIn.module.scss';
 
-interface ISignInProps {
+type ISignInProps = {
   toggleActive: (value: string, bool: boolean) => void;
-}
+};
 
 const SignIn: FC<ISignInProps> = ({ toggleActive }) => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const SignIn: FC<ISignInProps> = ({ toggleActive }) => {
   const signInRef = useRef<any>(null);
 
   const handleSignInFormSubmit = useCallback(() => {
-    navigate(Routes.Home);
+    navigate(Routes.Forum);
 
     signInRef.current.onSubmitFailed();
   }, [navigate]);

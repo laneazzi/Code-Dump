@@ -1,6 +1,6 @@
 .login {
-  @extend%flex-end-center;
   flex: 1 1 auto;
+  @extend %flex-end-center;
 
   @include breakpoint(wide) {
     justify-content: center;
@@ -23,13 +23,13 @@
     }
 
     &_logo {
-      @extend%flex-center-column;
+      @extend %flex-center-column;
       gap: 16px;
       margin-bottom: 30px;
     }
 
     &_form {
-      @extend%flex-column;
+      @extend %flex-column;
       gap: 30px;
 
       @include breakpoint(tablet-m) {
@@ -40,7 +40,7 @@
         border-radius: 8px;
         border-color: $input-border-color;
         padding: 15px 46px 15px 22px;
-        @extend%text-24;
+        @extend %text-24;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
@@ -60,7 +60,7 @@
         min-width: 100%;
         margin: 0;
         font-family: $inter;
-        @extend%text-24;
+        @extend %text-24;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
@@ -70,13 +70,13 @@
 
     &_sign {
       padding-top: 35px;
-      @extend%flex-center-column;
+      @extend %flex-center-column;
       border-top: 1px solid $dark-aqua;
       gap: 11px;
 
       &_answer {
         cursor: pointer;
-        @extend%text-24;
+        @extend %text-24;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
@@ -90,7 +90,7 @@
         text-align: center;
 
         &_txt {
-          @extend%text-22;
+          @extend %text-22;
           color: $red;
           border-bottom: 1px solid $red;
 

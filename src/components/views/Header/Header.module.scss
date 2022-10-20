@@ -1,0 +1,64 @@
+.header {
+  padding: 0 40px 18px 40px;
+  border-bottom: 1px solid $dark-aqua-opacity;
+  @extend %flex-between;
+
+  &__title {
+    margin-right: 234px;
+    gap: 18px;
+    @extend %flex-align;
+
+    span {
+      color: #252849;
+      @extend %text-24;
+      text-transform: capitalize;
+    }
+  }
+
+  &__field {
+    margin-right: 178px;
+    border: 1px solid $input-border-opacity;
+    background: $input-background-opacity;
+    border-radius: 8px;
+
+    div {
+      padding: 15px 22px;
+      @extend %flex-between;
+
+      svg {
+        position: relative;
+        right: 0;
+        width: 21px;
+        height: 21px;
+      }
+    }
+
+    &_block {
+      background: transparent;
+      font-family: 'Inter';
+      border: none;
+      width: 100%;
+      padding: 0px;
+      width: 432px;
+      @extend %text-24;
+
+      &::placeholder {
+        color: #95aec7;
+      }
+    }
+  }
+
+  &__user {
+    gap: 36px;
+    @extend %flex-align;
+
+    &_frame {
+      @extend %flex-align;
+      gap: 10px;
+
+      &_border {
+        border: 3px solid $dark-aqua-opacity !important;
+      }
+    }
+  }
+}

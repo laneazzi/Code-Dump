@@ -1,8 +1,14 @@
 export { default as Help } from './Help';
 export { default as Home } from './Home';
+export { default as Forum } from './Forum';
 export { default as About } from './About';
 export { default as Error } from './Error';
+export { default as Lives } from './Lives';
+export { default as Events } from './Events';
+export { default as Search } from './Search';
 export { default as Footer } from './Footer';
+export { default as Profile } from './Profile';
 export { default as Contacts } from './Contacts';
 export { default as TermsOfUse } from './TermsOfUse';
+export { default as Tournament } from './Tournament';
 export { default as PrivacyPolicy } from './PrivacyPolicy';

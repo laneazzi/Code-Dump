@@ -10,9 +10,9 @@ import { RegistrationForm } from '../../forms';
 
 import styles from './Registration.module.scss';
 
-interface IUserRegistrationProps {
+type IUserRegistrationProps = {
   toggleActive: (value: string) => void;
-}
+};
 
 const Registration: FC<IUserRegistrationProps> = ({ toggleActive }) => {
   const navigate = useNavigate();

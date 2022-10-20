@@ -23,6 +23,7 @@ const Input = React.forwardRef<any, IInputProps>(
       defaultValue,
       innerClassName = '',
       haveRightIcon = false,
+      anyIcon = false,
       label,
       isSmall,
       onChange,
@@ -82,7 +83,7 @@ const Input = React.forwardRef<any, IInputProps>(
               onChange={onChange}
               type={isToggledIcon ? 'text' : type}
             />
-            {haveRightIcon && (
+            {(haveRightIcon || anyIcon) && (
               <RightIconComponent
                 role='button'
                 className={styles.container__right_icon}

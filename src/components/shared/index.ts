@@ -6,3 +6,6 @@ export { default as Checkbox } from './Checkbox';
 export { default as Typography } from './Typography';
 export { default as LinkButton } from './LinkButton';
 export { default as RadioButton } from './RadioButton';
+export { default as UserImgFrame } from './UserImgFrame';
+export { default as ForumCard } from './Cards/ForumCard';
+export { default as TodayTopCard } from './Cards/TodayTopCard';

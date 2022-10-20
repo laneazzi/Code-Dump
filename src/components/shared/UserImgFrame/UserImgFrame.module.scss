@@ -1,0 +1,26 @@
+.frame {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  @extend %flex-center;
+  position: relative;
+  z-index: 1;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    padding: 4px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+}

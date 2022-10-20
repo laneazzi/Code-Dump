@@ -18,6 +18,12 @@ $inter: 'Inter';
   justify-content: center;
 }
 
+%flex-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 %flex-center-column {
   display: flex;
   align-items: center;

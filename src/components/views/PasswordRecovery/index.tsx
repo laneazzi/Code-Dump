@@ -11,9 +11,9 @@ import { EIsActiveType } from '../../../types/global';
 
 import styles from './PasswordRecovery.module.scss';
 
-interface IRecoveryProps {
+type IRecoveryProps = {
   toggleActive: (value: string) => void;
-}
+};
 
 const PasswordRecovery: FC<IRecoveryProps> = ({ toggleActive }) => {
   const navigate = useNavigate();

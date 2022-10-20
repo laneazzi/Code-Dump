@@ -1,0 +1,24 @@
+.layout {
+  display: grid;
+  grid-template-areas:
+    'nav  head'
+    'nav  main'
+    'nav  main';
+  grid-template-columns: minmax(0, 80px) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 83px) minmax(0, 1fr);
+  gap: 0px 133px;
+  margin: 53px 85px 0 83px;
+
+  &__navbar {
+    grid-area: nav;
+  }
+
+  &__header {
+    grid-area: head;
+  }
+
+  &__main {
+    grid-area: main;
+    margin: 0 57px 63px 57px;
+  }
+}
