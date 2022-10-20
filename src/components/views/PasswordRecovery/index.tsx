@@ -21,7 +21,7 @@ const PasswordRecovery: FC<IRecoveryProps> = ({ toggleActive }) => {
   const passwordRecoveryRef = useRef<any>(null);
 
   const handleSignInFormSubmit = useCallback(() => {
-    navigate(Routes.Home);
+    navigate(Routes.LogIn);
 
     passwordRecoveryRef.current.onSubmitFailed();
   }, [navigate]);

@@ -5,12 +5,12 @@ export type RoutesProps = {
 };
 
 export enum Routes {
-  Home = '/',
+  LogIn = '/',
   Error = '*',
   Help = '/help',
   About = '/about',
   Lives = '/lives',
-  Forum = '/forum',
+  Home = '/home',
   Search = '/search',
   Events = '/events',
   Profile = '/profile',
