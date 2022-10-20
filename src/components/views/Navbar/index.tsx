@@ -33,10 +33,12 @@ const Navbar: FC<INavBarProps> = ({ className }) => {
         <div className={styles.navbar__logo}>
           <ReelBudLogoIcon className={styles.navbar__logo_icon} />
         </div>
-
-        <div className={styles.navbar__links}>{linkItems}</div>
-
-        <LogOutIcon className={styles.navbar__logout} onClick={logOut} />
+        <div className={styles.navbar__wrapper}>
+          <div className={styles.navbar__links}>{linkItems}</div>
+          <div className={styles.navbar__logout__wrapper}>
+            <LogOutIcon className={styles.navbar__logout} onClick={logOut} />
+          </div>
+        </div>
       </nav>
     </div>
   );

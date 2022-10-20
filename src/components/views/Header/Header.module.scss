@@ -2,9 +2,9 @@
   padding: 0 40px 18px 40px;
   border-bottom: 1px solid $dark-aqua-opacity;
   @extend %flex-between;
+  gap: 16px;
 
   &__title {
-    margin-right: 234px;
     gap: 18px;
     @extend %flex-align;
 
@@ -16,10 +16,11 @@
   }
 
   &__field {
-    margin-right: 178px;
     border: 1px solid $input-border-opacity;
     background: $input-background-opacity;
     border-radius: 8px;
+    max-width: 499px;
+    width: 100%;
 
     div {
       padding: 15px 22px;

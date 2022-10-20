@@ -15,11 +15,12 @@ const Seo: React.FC<TSeoProps> = ({ children, withLayout }) => {
       {withLayout ? (
         <div className={styles.layout}>
           <Navbar className={styles.layout__navbar} />
-          <div className={styles.layout__header}>
-            <Header />
+          <div className={styles.layout__wrapper}>
+            <div className={styles.layout__header}>
+              <Header />
+            </div>
+            <div className={styles.layout__main}>{children}</div>
           </div>
-
-          <div className={styles.layout__main}>{children}</div>
         </div>
       ) : (
         <>{children}</>
