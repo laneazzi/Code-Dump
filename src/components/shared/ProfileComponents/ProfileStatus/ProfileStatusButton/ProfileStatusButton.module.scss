@@ -1,0 +1,29 @@
+.status {
+  width: 42px;
+  height: 24px;
+  background: #ccc;
+  border-radius: 10px;
+  position: relative;
+  border-radius: 16px;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &__active {
+    background: #f43149;
+
+    &_btn {
+      left: 22px !important;
+    }
+  }
+
+  &__btn {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 6px;
+    top: 5px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+}

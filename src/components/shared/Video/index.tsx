@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 type IVideoProps = {
   src: string;
@@ -6,10 +6,21 @@ type IVideoProps = {
   muted?: boolean;
   className: string;
   autoPlay?: boolean;
+  controls?: boolean;
 };
 
-const Video: FC<IVideoProps> = ({ src, autoPlay, muted, loop, className }) => {
-  return <video src={src} autoPlay={autoPlay} muted={muted} loop={loop} className={className} />;
-};
+const Video = React.forwardRef<any, IVideoProps>(
+  ({ src, autoPlay, muted, loop, className, controls }, ref) => (
+    <video
+      ref={ref}
+      src={src}
+      loop={loop}
+      muted={muted}
+      controls={controls}
+      autoPlay={autoPlay}
+      className={className}
+    />
+  ),
+);
 
 export default Video;

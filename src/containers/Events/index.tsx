@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 
 import { EventCard } from 'components';
 import { highPostImg } from 'assets/img';
 import Filter from 'components/shared/Filter/Filter';
 import { TFilter } from 'components/shared/Filter/types';
+import { EventCardIcon } from 'assets/icons';
 
 const Events = () => {
   const event = {
@@ -24,7 +25,7 @@ const Events = () => {
     <Fragment>
       <Filter filterItems={filterItems} />
       <div>
-        <EventCard event={event} />
+        <EventCard event={event} icon={<EventCardIcon />} />
       </div>
     </Fragment>
   );

@@ -24,7 +24,7 @@ const FilterBy: React.FC<any> = () => {
         <FilterIcon />
         <Typography>Filter By</Typography>
       </div>
-      <div className={dropDownClasses}>Upcoming filter selects</div>
+      <div className={dropDownClasses}></div>
     </div>
   );
 };

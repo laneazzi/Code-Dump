@@ -1,0 +1,25 @@
+.container {
+  background: rgba(96, 128, 160, 0.05);
+  border-radius: 16px;
+
+  &__content {
+    padding: 35px 136px 35px 36px;
+
+    &_title {
+      font-family: $Open-Sans;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 38px;
+      color: #252849;
+      margin-bottom: 10px;
+    }
+
+    &_description {
+      font-family: $Open-Sans;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 33px;
+      color: #252849;
+    }
+  }
+}
