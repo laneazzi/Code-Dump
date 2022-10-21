@@ -21,7 +21,7 @@ const SignIn: FC<ISignInProps> = ({ toggleActive }) => {
   const signInRef = useRef<any>(null);
 
   const handleSignInFormSubmit = useCallback(() => {
-    navigate(Routes.Forum);
+    navigate(Routes.Home);
 
     signInRef.current.onSubmitFailed();
   }, [navigate]);
@@ -48,7 +48,7 @@ const SignIn: FC<ISignInProps> = ({ toggleActive }) => {
           </div>
 
           <LinkButton
-            to={Routes.Home}
+            to={Routes.LogIn}
             className={styles.login__content_keep_forgot}
             onClick={() => toggleActive(EIsActiveType.RECOVERY, true)}
           >

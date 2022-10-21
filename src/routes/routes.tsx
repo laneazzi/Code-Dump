@@ -23,7 +23,7 @@ export const routes: RoutesProps[] = [
   },
 
   {
-    path: Routes.Home,
+    path: Routes.LogIn,
     withLayout: false,
     component: <Home />,
   },
@@ -53,7 +53,7 @@ export const routes: RoutesProps[] = [
     component: <TermsOfUse />,
   },
   {
-    path: Routes.Forum,
+    path: Routes.Home,
     withLayout: true,
     component: <Forum />,
   },

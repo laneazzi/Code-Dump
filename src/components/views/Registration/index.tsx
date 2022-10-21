@@ -20,7 +20,7 @@ const Registration: FC<IUserRegistrationProps> = ({ toggleActive }) => {
   const registrationFormRef = useRef<any>(null);
 
   const handleSignInFormSubmit = useCallback(() => {
-    navigate(Routes.Home);
+    navigate(Routes.LogIn);
 
     registrationFormRef.current.onSubmitFailed();
   }, [navigate]);
