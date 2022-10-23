@@ -1,0 +1,40 @@
+.container {
+  @extend %flex-between;
+  padding: 95px 0 0 32px;
+
+  &__filters {
+    @extend %flex-align;
+    gap: 23px;
+    cursor: pointer;
+
+    &_btn {
+      @extend %flex-center;
+      font-family: $Open-Sans;
+      font-weight: 400;
+      font-size: 24px;
+      color: $white;
+      line-height: 33px;
+      padding: 12px 24px;
+      border-radius: 16px;
+      background: $dark-aqua-opacity;
+    }
+
+    &_add {
+      @extend %flex-align;
+      gap: 9px;
+      font-size: 24px;
+      cursor: pointer;
+      font-weight: 400;
+      color: #ffffff;
+      line-height: 33px;
+      border-radius: 16px;
+      background: #f43149;
+      font-family: $Open-Sans;
+      padding: 10px 18px 10px 19px;
+
+      input {
+        display: none;
+      }
+    }
+  }
+}

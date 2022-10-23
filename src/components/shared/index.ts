@@ -7,6 +7,8 @@ export { default as Typography } from './Typography';
 export { default as LinkButton } from './LinkButton';
 export { default as RadioButton } from './RadioButton';
 export { default as UserImgFrame } from './UserImgFrame';
+export { default as VideoCard } from './Cards/VideoCard';
 export { default as EventCard } from './Cards/EventCard';
 export { default as ForumCard } from './Cards/ForumCard';
 export { default as TodayTopCard } from './Cards/TodayTopCard';
+export { default as LiveVideoCard } from './Cards/LiveVideoCard';

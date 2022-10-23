@@ -1,7 +1,3 @@
-import React from 'react';
-
-const Lives = () => {
-  return <div>Lives</div>;
-};
+const Lives = () => <div>Lives</div>;
 
 export default Lives;

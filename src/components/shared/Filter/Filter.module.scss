@@ -58,10 +58,10 @@
       border-radius: 8px;
       padding: 0;
       padding: 11.5px 26px;
-      border: 1px solid #cecece;
       z-index: 1;
-      background: #0e2760;
+      background: $white;
       visibility: hidden;
+      border: 1px solid #cecece;
       transition: all 0.3s ease-in;
     }
 

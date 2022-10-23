@@ -6,12 +6,13 @@ import {
   ProfileIcon,
   TournamentIcon,
 } from 'assets/icons';
+import { Routes } from 'types';
 
 export const navBarLinks = [
-  { id: 1, icon: <ForumIcon />, url: '/forum' },
-  { id: 2, icon: <SearchIcon />, url: '/search' },
-  { id: 3, icon: <EventsIcon />, url: '/events' },
-  { id: 4, icon: <TournamentIcon />, url: '/tournament' },
-  { id: 5, icon: <LivesIcon />, url: '/lives' },
-  { id: 6, icon: <ProfileIcon />, url: '/profile' },
+  { id: 1, icon: <ForumIcon />, url: Routes.Home },
+  { id: 2, icon: <SearchIcon />, url: Routes.Search },
+  { id: 3, icon: <EventsIcon />, url: Routes.Events },
+  { id: 4, icon: <TournamentIcon />, url: Routes.Tournament },
+  { id: 5, icon: <LivesIcon />, url: Routes.Lives },
+  { id: 6, icon: <ProfileIcon />, url: Routes.Profile },
 ];

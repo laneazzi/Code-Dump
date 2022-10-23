@@ -1,0 +1,27 @@
+.video {
+  position: relative;
+  max-width: 459px;
+  height: 298px;
+  border-radius: 16px;
+
+  &__item {
+    height: 100%;
+    position: relative;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 22px;
+    right: 25px;
+    cursor: pointer;
+
+    &:last-child {
+      fill: $white;
+      width: 40px;
+      height: 41px;
+    }
+  }
+}
