@@ -1,0 +1,28 @@
+.container {
+  width: 99px;
+  height: 100px;
+  position: relative;
+
+  &__item {
+    position: absolute;
+    top: 70px;
+    right: 4px;
+  }
+  &__live {
+    position: absolute;
+    right: 8px;
+    top: 75px;
+  }
+
+  &__img {
+    position: absolute;
+    width: 81px;
+    height: 81px;
+    top: 9px;
+    left: 9px;
+    border: none;
+    div {
+      padding: 3px;
+    }
+  }
+}

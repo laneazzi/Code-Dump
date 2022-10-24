@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import Footer from 'containers/Footer';
-import { Video, Recovery, Registration, SignIn } from 'components';
+import { Video, Recovery, Registration, SignIn, EventFile } from 'components';
 
 import { EIsActiveType, TIsActiveType } from '../../types/global';
 
@@ -41,6 +41,8 @@ const Home = () => {
       )}
       {isActive[EIsActiveType.REGISTRATION] && <Registration toggleActive={toggleActive} />}
       <Footer />
+
+      <EventFile />
     </div>
   );
 };

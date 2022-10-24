@@ -1,0 +1,37 @@
+.container {
+  width: 100%;
+  max-width: 258px;
+  border-radius: 16px;
+  border: 1px solid #dfe5f4;
+  padding: 19px 23.5px 22px 19.5px;
+
+  &__content {
+    &_title {
+      margin-bottom: 14px;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+      color: #252849;
+    }
+
+    &_hours {
+      @extend %flex-between;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 29px;
+      color: #252849;
+
+      p {
+        @extend %flex-align;
+      }
+
+      &_icon {
+        margin-left: 3px;
+      }
+    }
+  }
+}

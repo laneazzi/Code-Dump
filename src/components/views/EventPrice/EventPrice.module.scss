@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+  max-width: 258px;
+  border-radius: 16px;
+  border: 1px solid #dfe5f4;
+  padding: 19.5px 0 22.5px 18.5px;
+
+  &__content {
+    &_title {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+      color: #252849;
+      margin-bottom: 14px;
+    }
+
+    &_info {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 29px;
+      color: #252849;
+    }
+  }
+}
