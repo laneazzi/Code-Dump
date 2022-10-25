@@ -1,17 +1,17 @@
-import classNames from 'classnames';
 import { FC, useState } from 'react';
+import classNames from 'classnames';
 
-import { ArrowIcon } from 'assets/icons';
+import { BlueArrowIcon } from 'assets/icons';
 import { Option } from 'types/global/options';
 
 import styles from './CreateEventDropDown.module.scss';
 
 type TEventDropDwonProps = {
-  title?: string;
+  title: string;
   optionList?: Option[];
 };
 
-const EventDropDown: FC<TEventDropDwonProps> = ({ title, optionList }) => {
+const EventDropDown: FC<TEventDropDwonProps> = ({ title }) => {
   const [isDrop, setIsDrop] = useState<boolean>(false);
 
   const showMenu = () => setIsDrop(!isDrop);
@@ -30,7 +30,7 @@ const EventDropDown: FC<TEventDropDwonProps> = ({ title, optionList }) => {
         <div className={styles.container__content_title}>{title}</div>
         <div className={styles.container__content_main}>
           <span className={styles.container__content_main_head}>Select</span>
-          <ArrowIcon className={styles.container__content_main_icon} />
+          <BlueArrowIcon className={styles.container__content_main_icon} />
         </div>
       </div>
       <div className={eventListClasses}>

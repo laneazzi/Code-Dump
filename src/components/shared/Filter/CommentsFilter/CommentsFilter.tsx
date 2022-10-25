@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import classNames from 'classnames';
 
-import { ArrowIcon } from 'assets/icons';
+import { BlueArrowIcon } from 'assets/icons';
 
 import styles from './CommentsFilter.module.scss';
 
@@ -27,7 +27,7 @@ const CommentsFilter: FC<TCommentsFilterProps> = ({ commentsCount }) => {
       <div className={styles.container__count}>({commentsCount}) Comments</div>
       <div className={styles.container__sort}>
         <p className={styles.container__sort_title} onClick={openSortMenu}>
-          Sort By: Most voted <ArrowIcon className={arrowClasses} />
+          Sort By: Most voted <BlueArrowIcon className={arrowClasses} />
         </p>
         <div className={menuClasses}>
           <p>Example</p>

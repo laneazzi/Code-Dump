@@ -50,6 +50,7 @@ export { ReactComponent as EventCardIcon } from './EventCardIcon.svg';
 export { ReactComponent as ActiveSaveIcon } from './ActiveSavedIcon.svg';
 export { ReactComponent as FilterByDropIcon } from './filterByDropIcon.svg';
 export { ReactComponent as TournamentCardIcon } from './TournamentIcon.svg';
+export { ReactComponent as BlueArrowIcon } from './CommentsFilterArrow.svg';
 export { ReactComponent as LiveEllipseBackIcon } from './liveElipseBack.svg';
 export { ReactComponent as EventCardSaveIcon } from './EventCardSaveIcon.svg';
 export { ReactComponent as MessageSettingsIcon } from './commentSettings.svg';
