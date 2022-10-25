@@ -39,9 +39,9 @@
       }
 
       .link {
-        padding: 0 25px;
         @extend %flex-align;
         @extend %text-22;
+        padding: 0 25px;
 
         @include breakpoint(wide-l) {
           font-size: 18px !important;

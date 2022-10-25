@@ -25,50 +25,49 @@
 
 .filter {
   color: $white;
+  z-index: 3;
   cursor: pointer;
+  user-select: none;
   border-radius: 8px;
+  position: relative;
   padding: 11.5px 26px;
   background: #0e2760;
-  user-select: none;
-  position: relative;
-  z-index: 3;
 
   &__content {
-    display: flex;
-    align-items: center;
+    @extend %flex-align;
     gap: 16px;
-    position: relative;
     z-index: 3;
+    position: relative;
 
     p {
       font-weight: 400;
       font-size: 24px;
       color: #ffffff;
       line-height: 33px;
-      font-style: normal;
       font-family: $Open-Sans;
     }
 
     &__close {
       right: 0;
       top: 70px;
-      height: 0;
+      z-index: 1;
+      height: 424px;
       width: 334px;
+      display: none;
       position: absolute;
       border-radius: 8px;
-      padding: 0;
-      padding: 11.5px 26px;
-      z-index: 1;
       background: $white;
-      visibility: hidden;
       border: 1px solid #cecece;
-      transition: all 0.3s ease-in;
+      padding: 23px 27px 24px 27px;
+
+      &_list {
+        @extend %flex-center-column;
+        gap: 23px;
+      }
     }
 
     &__open {
-      height: 424px;
-      transition: height 0.3s ease-out;
-      visibility: visible;
+      display: block;
     }
   }
 }

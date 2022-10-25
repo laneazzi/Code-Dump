@@ -1,0 +1,34 @@
+.container {
+  @extend %flex-align;
+
+  &__info {
+    margin-left: 15px;
+    margin-right: 71px;
+
+    &_username {
+      @extend %flex-align;
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 33px;
+      margin-bottom: 5px;
+      color: #252849;
+      gap: 10px;
+    }
+
+    &_description {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 30px;
+      color: #252849;
+    }
+  }
+
+  &__watches {
+    @extend %flex-align;
+    gap: 14px;
+  }
+}

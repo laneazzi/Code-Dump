@@ -1,0 +1,67 @@
+.container {
+  &__content {
+    p {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+      color: #252849;
+
+      &:first-child {
+        margin-bottom: 14px;
+      }
+
+      &:last-child {
+        font-size: 24px;
+        line-height: 29px;
+      }
+    }
+    &__wrapper {
+      @extend %flex-justify-between;
+      border: 1px solid #dfe5f4;
+      max-width: 538px;
+      width: 100%;
+      border-radius: 8px;
+      padding: 19px 32px 22px 19px;
+    }
+
+    &__file {
+      position: relative;
+      @extend %flex-align;
+      img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+      }
+
+      &__label {
+        @extend %flex-align;
+        cursor: pointer;
+
+        input {
+          display: none;
+        }
+      }
+
+      &_close {
+        position: absolute;
+        top: 2px;
+        right: -6px;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+
+        path {
+          transition: 0.3s;
+        }
+
+        &:hover {
+          path {
+            fill: red;
+          }
+        }
+      }
+    }
+  }
+}

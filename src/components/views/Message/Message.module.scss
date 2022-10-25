@@ -1,0 +1,59 @@
+.container {
+  &__content {
+    @extend %flex-align;
+    gap: 13px;
+
+    &_user {
+      &_img {
+        width: 69px;
+        height: 69px;
+        border: 4px solid rgba(149, 174, 199, 0.3);
+
+        div {
+          padding: 3px !important;
+        }
+      }
+    }
+
+    &_box {
+      svg {
+        height: 20px;
+      }
+
+      &_info {
+        @extend %flex-align;
+        gap: 10px;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 23px;
+        line-height: 31px;
+        color: #000000;
+        margin-bottom: 5px;
+      }
+
+      &_icons {
+        @extend %flex-align;
+        gap: 42px;
+
+        div {
+          @extend %flex-align;
+          font-family: 'Open Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 27px;
+          color: #6080a0;
+        }
+
+        &_replies {
+          gap: 11px;
+        }
+
+        &_reply {
+          gap: 7px;
+        }
+      }
+    }
+  }
+}

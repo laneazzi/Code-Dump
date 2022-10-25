@@ -1,5 +1,5 @@
 import { UseFormHandleSubmit } from 'react-hook-form/dist/types/form';
-import {FieldValues, UseFormProps as UseReactHookFormProps, UseFormReturn} from 'react-hook-form';
+import { FieldValues, UseFormProps as UseReactHookFormProps, UseFormReturn } from 'react-hook-form';
 
 export type FormFieldNames = 'email';
 
