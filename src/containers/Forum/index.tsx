@@ -1,8 +1,6 @@
-import React from 'react';
-
-import { ForumCard, TodayTopCard, Typography } from 'components';
 import { forumCardsData } from 'constants/Cards/forumCards';
 import { todayTopCards } from 'constants/Cards/todayTopCards';
+import { ForumCard, TodayTopCard, Typography } from 'components';
 
 import styles from './Forum.module.scss';
 

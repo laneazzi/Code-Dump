@@ -1,32 +1,48 @@
 .container {
+  width: 100%;
+  max-width: 258px;
+  border-radius: 16px;
   border: 1px solid #dfe5f4;
   padding: 19.5px 17px 22.5px 18.5px;
-  border-radius: 16px;
-  max-width: 258px;
-  width: 100%;
+
+  &__large {
+    max-width: 280px;
+  }
 
   &__content {
     &_title {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 400;
       font-size: 20px;
-      line-height: 24px;
+      font-weight: 400;
       color: #252849;
+      line-height: 24px;
+      font-family: $inter;
       margin-bottom: 14px;
     }
 
     &_main {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 29px;
-      color: #252849;
       @extend %flex-between;
+      font-size: 24px;
+      color: #252849;
+      font-weight: 400;
+      line-height: 29px;
+      position: relative;
+      font-family: $inter;
+
+      .datepicker {
+        right: 0;
+        width: auto;
+        z-index: 5;
+        position: absolute;
+        cursor: pointer;
+
+        &__calendar {
+          font-family: $inter;
+        }
+      }
 
       &_icon {
         cursor: pointer;
+        width: none;
       }
     }
   }

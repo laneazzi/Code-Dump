@@ -10,8 +10,8 @@ type TMessageProps = {
   type?: string;
   username: string;
   commentary: string;
-  shareCount: number;
-  publishedTime: string;
+  shareCount?: number;
+  publishedTime?: string;
 };
 
 const Message: FC<TMessageProps> = ({

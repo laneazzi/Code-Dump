@@ -1,5 +1,4 @@
-export type Option = {
+export type TOption = {
   id: number;
-  label: string;
   value: string;
 };

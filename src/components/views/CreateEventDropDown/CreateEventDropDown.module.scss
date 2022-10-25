@@ -1,10 +1,13 @@
 .container {
+  width: 100%;
   max-width: 258px;
-  position: relative;
   transition: 0.3s;
   overflow: hidden;
-  width: 100%;
-  // filter: drop-shadow(6px 6px 24px rgba(0, 0, 0, 0.051));
+  position: relative;
+
+  &__large {
+    max-width: 280px;
+  }
 
   &_open {
     overflow: visible;
@@ -19,27 +22,25 @@
   }
 
   &__content {
-    padding: 19.5px 21px 21.5px 18px;
-    border: 1px solid #cccc;
-    position: relative;
     z-index: 5;
     width: 100%;
+    position: relative;
     border-radius: 16px;
+    border: 1px solid $dark-aqua-opacity;
+    padding: 19.5px 21px 21.5px 18px;
 
     &_title {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 400;
+      font-family: $inter;
       font-size: 20px;
-      line-height: 24px;
       color: #252849;
+      line-height: 24px;
+      font-weight: 400;
       margin-bottom: 14px;
     }
 
     &_main {
       @extend %flex-between;
-      font-family: 'Inter';
-      font-style: normal;
+      font-family: $inter;
       font-weight: 400;
       font-size: 24px;
       line-height: 29px;
@@ -52,28 +53,45 @@
     }
 
     &_list {
-      background: white;
-      border: 1px solid #ccc;
-      position: absolute;
-      min-width: 100%;
       left: 0;
-      transition: 0.3s;
-      z-index: 3;
-      height: 0px;
+      z-index: 6;
       opacity: 0;
+      min-width: 100%;
+      transition: 0.3s;
+      background: $white;
+      position: absolute;
       visibility: hidden;
+      border: 1px solid #ccc;
 
       &_inner {
-        @extend %flex-column;
-        gap: 5px;
-        padding: 10px;
+        color: black;
+        overflow-y: scroll;
+        max-height: 131px;
+        background: $white;
+        border-radius: 0 0 16px 16px;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        &_item {
+          font-size: 18px;
+          transition: 0.3s;
+          font-family: $Open-Sans;
+          padding: 19.5px 21px 21.5px 18px;
+
+          &:hover {
+            color: $white;
+            background: #252849;
+          }
+        }
       }
 
       &_active {
-        border-radius: 0 0 16px 16px;
-        height: 90px;
         opacity: 1;
+        max-height: 100px;
         visibility: visible;
+        border-radius: 0 0 16px 16px;
       }
     }
   }
