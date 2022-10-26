@@ -7,7 +7,7 @@
       &_img {
         width: 69px;
         height: 69px;
-        border: 4px solid rgba(149, 174, 199, 0.3);
+        border: 4px solid $blue-gray-opacity-03;
 
         div {
           padding: 3px !important;
@@ -22,12 +22,9 @@
 
       &_info {
         @extend %flex-align;
+        @extend %font-23-bold;
         gap: 10px;
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 23px;
-        line-height: 31px;
+        font-family: $Open-Sans;
         color: #000000;
         margin-bottom: 5px;
       }
@@ -38,12 +35,9 @@
 
         div {
           @extend %flex-align;
-          font-family: 'Open Sans';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 20px;
-          line-height: 27px;
-          color: #6080a0;
+          @extend %font-20-large;
+          color: $gray;
+          font-family: $Open-Sans;
         }
 
         &_replies {

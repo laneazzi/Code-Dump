@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 
-import { GuyImg } from 'assets/img';
 import { MessageIcon } from 'assets/icons';
 import Typography from 'components/shared/Typography';
 import UserImgFrame from 'components/shared/UserImgFrame';
 
-import styles from './PeopleCard.module.scss';
 import { TPeopleCard } from './types';
+import styles from './PeopleCard.module.scss';
 
 type TPeopleCardProps = {
   people: TPeopleCard;

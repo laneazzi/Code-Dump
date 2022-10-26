@@ -25,8 +25,8 @@
 
   &__links {
     padding: 60px 0;
-    border-top: 1px solid $dark-aqua-opacity;
-    border-bottom: 1px solid $dark-aqua-opacity;
+    border-top: 1px solid $blue-gray-opacity-02;
+    border-bottom: 1px solid $blue-gray-opacity-02;
     gap: 52px;
     width: 100%;
     @extend %flex-center-column;
@@ -46,7 +46,7 @@
 
         svg {
           path {
-            fill: #ffffff;
+            fill: $white;
           }
         }
       }

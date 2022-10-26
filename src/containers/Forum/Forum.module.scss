@@ -10,20 +10,20 @@
 
   &__top {
     &_content {
-      padding: 28px 32px;
-      max-width: 520px;
+      @extend %flex-column;
+      gap: 23px;
       width: 100%;
-      background: rgba(149, 174, 199, 0.1);
+      max-width: 520px;
       border-radius: 16px;
+      padding: 25px 31px 28px 31px;
+      background: $blue-gray-opacity-01;
 
       &_title {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: normal;
-        font-size: 24px;
-        line-height: 29px;
+        @extend %font-24;
+        color: $gray;
+        margin-bottom: 4px;
         letter-spacing: 0.5;
-        color: #6080a0;
+        font-family: $inter;
       }
     }
   }

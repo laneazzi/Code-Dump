@@ -1,7 +1,7 @@
 .container {
+  position: relative;
   width: 99px;
   height: 100px;
-  position: relative;
 
   &__item {
     position: absolute;
@@ -16,11 +16,12 @@
 
   &__img {
     position: absolute;
-    width: 81px;
-    height: 81px;
     top: 9px;
     left: 9px;
+    width: 81px;
+    height: 81px;
     border: none;
+
     div {
       padding: 3px;
     }

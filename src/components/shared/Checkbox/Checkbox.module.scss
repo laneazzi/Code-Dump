@@ -16,10 +16,11 @@
 
 .checkbox {
   &-wrapper {
-    position: relative;
     @extend %flex-align;
+    position: relative;
 
     input {
+      @extend %flex-center;
       margin: 0;
       width: 100%;
       height: 18px;
@@ -30,7 +31,6 @@
       border-radius: 4px;
       color: var(--checkbox-input);
       border: 2px solid transparent;
-      @extend %flex-center;
     }
 
     input {
@@ -55,17 +55,17 @@
   }
 
   &-label {
+    @extend %font-12;
     margin-left: 4px;
     color: var(--checkbox-color);
-    @extend %text-12;
   }
 
   &-errorMsg {
+    @extend %font-10;
     left: 0;
     bottom: 0;
     position: absolute;
-    color: $red;
+    color: $red-light;
     transform: translate(0, 100%);
-    @extend %text-10;
   }
 }

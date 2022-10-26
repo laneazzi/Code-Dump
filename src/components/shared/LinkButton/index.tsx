@@ -1,9 +1,8 @@
-import React from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
-import styles from './LinkButton.module.scss';
 import { ILink } from './types';
+import styles from './LinkButton.module.scss';
 
 const LinkButton = ({
   children,

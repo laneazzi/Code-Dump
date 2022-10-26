@@ -7,23 +7,17 @@
 
     &_username {
       @extend %flex-align;
-      font-family: 'Open Sans';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 33px;
-      margin-bottom: 5px;
-      color: #252849;
+      @extend %font-24-large-bold;
       gap: 10px;
+      color: $blue-dark;
+      margin-bottom: 5px;
+      font-family: $Open-Sans;
     }
 
     &_description {
-      font-family: 'Open Sans';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 22px;
-      line-height: 30px;
-      color: #252849;
+      @extend %font-22-large;
+      color: $blue-dark;
+      font-family: $Open-Sans;
     }
   }
 

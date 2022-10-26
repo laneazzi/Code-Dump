@@ -3,8 +3,8 @@ import classNames from 'classnames';
 
 import { EyeShowIcon } from 'assets/icons';
 
-import styles from './Checkbox.module.scss';
 import { ICheckbox } from './types';
+import styles from './Checkbox.module.scss';
 
 const Checkbox = React.forwardRef(
   (

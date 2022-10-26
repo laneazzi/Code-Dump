@@ -1,5 +1,5 @@
+import { FC, useState } from 'react';
 import classNames from 'classnames';
-import React, { FC, useState } from 'react';
 
 import FilterBy from './filterBy';
 import { TFilter } from './types';

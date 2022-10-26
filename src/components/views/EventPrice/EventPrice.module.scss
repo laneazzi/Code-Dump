@@ -7,22 +7,16 @@
 
   &__content {
     &_title {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 24px;
-      color: #252849;
+      @extend %font-20;
+      color: $blue-dark;
+      font-family: $inter;
       margin-bottom: 14px;
     }
 
     &_info {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 29px;
-      color: #252849;
+      @extend %font-24;
+      color: $blue-dark;
+      font-family: $inter;
     }
   }
 }

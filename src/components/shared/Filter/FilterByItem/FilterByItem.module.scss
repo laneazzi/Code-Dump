@@ -5,22 +5,17 @@
   min-height: 110px;
   border-radius: 16px;
   padding: 20px 22px 23px 19px;
-  border: 1px solid $dark-aqua-opacity;
+  border: 1px solid $blue-gray-opacity-02;
 
   &__title {
+    @extend %font-20;
+    color: $blue-dark;
     font-family: $Inter;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-
-    color: #252849;
   }
 
   &__main {
-    font-family: $Inter;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 29px;
+    @extend %font-24;
     @extend %flex-between;
+    font-family: $Inter;
   }
 }

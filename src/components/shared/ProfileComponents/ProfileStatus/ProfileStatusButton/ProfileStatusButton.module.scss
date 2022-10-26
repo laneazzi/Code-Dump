@@ -1,15 +1,15 @@
 .status {
   width: 42px;
   height: 24px;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
   background: #ccc;
   border-radius: 10px;
-  position: relative;
   border-radius: 16px;
-  transition: 0.3s;
-  cursor: pointer;
 
   &__active {
-    background: #f43149;
+    background: $red-light;
 
     &_btn {
       left: 22px !important;
@@ -17,13 +17,13 @@
   }
 
   &__btn {
-    width: 14px;
-    height: 14px;
     position: absolute;
     left: 6px;
     top: 5px;
-    background: white;
-    border-radius: 50%;
+    width: 14px;
+    height: 14px;
     transition: 0.3s;
+    border-radius: 50%;
+    background: white;
   }
 }

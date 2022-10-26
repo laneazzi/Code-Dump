@@ -1,19 +1,16 @@
 .container {
-  border-radius: 40px;
-  background: rgba(96, 128, 160, 0.1);
-  padding: 12px 19px 11px 19px;
-  max-width: 211px;
   width: 100%;
+  max-width: 211px;
+  border-radius: 40px;
+  padding: 12px 19px 11px 19px;
+  background: $gray-opacity-1;
 
   &__content {
+    @extend %font-22-large;
     @extend %flex-align;
     gap: 3px;
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 30px;
-    color: #6080a0;
+    color: $gray;
     white-space: nowrap;
+    font-family: $Open-Sans;
   }
 }

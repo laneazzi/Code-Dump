@@ -1,12 +1,12 @@
 .video {
   position: relative;
-  max-width: 459px;
   height: 298px;
+  max-width: 459px;
   border-radius: 16px;
 
   &__item {
-    height: 100%;
     position: relative;
+    height: 100%;
     max-width: 100%;
     object-fit: cover;
     border-radius: 16px;
