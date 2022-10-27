@@ -1,13 +1,8 @@
 .container {
   @extend %flex-between;
+  @extend %font-24-large;
+  color: $blue-dark;
   font-family: $Open-Sans;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 33px;
-  color: #252849;
-
-  &__count {
-  }
 
   &__sort {
     position: relative;

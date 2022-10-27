@@ -1,26 +1,28 @@
 .header {
-  padding: 0 40px 18px 40px;
-  border-bottom: 1px solid $dark-aqua-opacity;
   @extend %flex-between;
+  position: relative;
   gap: 16px;
+  z-index: 10;
+  padding: 0 40px 18px 40px;
+  border-bottom: 1px solid $blue-gray-opacity-02;
 
   &__title {
-    gap: 18px;
     @extend %flex-align;
+    gap: 18px;
 
     span {
-      color: #252849;
-      @extend %text-24;
+      @extend %font-24;
+      color: $blue-dark;
       text-transform: capitalize;
     }
   }
 
   &__field {
-    border: 1px solid $input-border-opacity;
-    background: $input-background-opacity;
-    border-radius: 8px;
-    max-width: 499px;
     width: 100%;
+    max-width: 499px;
+    border-radius: 8px;
+    background: $input-background-opacity;
+    border: 1px solid $input-border-opacity;
 
     div {
       padding: 15px 22px;
@@ -35,16 +37,16 @@
     }
 
     &_block {
-      background: transparent;
-      font-family: 'Inter';
-      border: none;
+      @extend %font-24;
       width: 100%;
+      border: none;
       padding: 0px;
       width: 432px;
-      @extend %text-24;
+      font-family: $inter;
+      background: transparent;
 
       &::placeholder {
-        color: #95aec7;
+        color: $blue-gray;
       }
     }
   }
@@ -55,11 +57,52 @@
 
     &_frame {
       @extend %flex-align;
+      cursor: pointer;
       gap: 10px;
 
       &_border {
-        border: 3px solid $dark-aqua-opacity !important;
+        border: 3px solid $blue-gray-opacity-02 !important;
       }
+
+      &_arrow {
+        transition: 0.1s;
+        &_rotate {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &_add {
+      cursor: pointer;
+    }
+
+    &_ring {
+      cursor: pointer;
+    }
+  }
+
+  &__events {
+    position: absolute;
+    top: 100px;
+    z-index: 50;
+    right: 188px;
+    display: none;
+    overflow: hidden;
+
+    &_active {
+      display: block;
+    }
+  }
+
+  &__user_dropdown {
+    position: absolute;
+    right: 0;
+    top: 100px;
+    z-index: 50;
+    display: none;
+
+    &_active {
+      display: block;
     }
   }
 }

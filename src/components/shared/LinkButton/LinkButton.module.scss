@@ -10,10 +10,10 @@
     max-width: 116px;
   }
   &__primary {
+    @extend %font-14-bold;
     background: transparent;
     color: var(--link-color);
-    border: 1px solid var(--link-border);
     text-transform: uppercase;
-    @extend %text-14-bold;
+    border: 1px solid var(--link-border);
   }
 }

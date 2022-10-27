@@ -1,8 +1,6 @@
-import React from 'react';
-
-import { ArrowIcon, GlobeIcon } from 'assets/icons';
-import { LinkButton } from 'components';
 import { Routes } from 'types';
+import { LinkButton } from 'components';
+import { ArrowIcon, GlobeIcon } from 'assets/icons';
 
 import styles from './Footer.module.scss';
 

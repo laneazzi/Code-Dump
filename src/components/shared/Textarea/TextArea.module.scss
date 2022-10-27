@@ -1,24 +1,21 @@
 .container {
-  max-width: 538px;
   width: 100%;
-  border: 1px solid #dfe5f4;
-  border-radius: 8px;
   padding: 20px;
+  max-width: 538px;
+  border-radius: 8px;
+  border: 1px solid #dfe5f4;
 
   &__content {
+    @extend %font-24-large;
     border: none;
     width: 100%;
-    height: 165.5px;
     resize: none;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 29px;
-    color: #252849;
+    height: 165.5px;
+    color: $blue-dark;
+    font-family: $inter;
 
     &::placeholder {
-      color: #252849;
+      color: $blue-dark;
     }
 
     &::-webkit-scrollbar {
@@ -27,12 +24,9 @@
   }
 
   &__title {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    color: #252849;
+    @extend %font-20;
+    color: $blue-dark;
+    font-family: $inter;
     margin-bottom: 14px;
   }
 }

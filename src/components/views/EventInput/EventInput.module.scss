@@ -1,38 +1,34 @@
 .container {
-  max-width: 538px;
   width: 100%;
+  max-width: 538px;
   border-radius: 8px;
   padding: 19px 0px 22px 19px;
   border: 1px solid #dfe5f4;
 
   &__min {
-    max-width: 258px !important;
     width: 100%;
+    max-width: 258px !important;
   }
 
   &__content {
+    @extend %font-24;
     border: none;
     width: 100%;
     height: 30px;
     resize: none;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    color: #252849;
-    margin-bottom: 0px;
     padding: 0px;
+    color: $blue-dark;
+    margin-bottom: 0px;
+    font-family: $inter;
 
     &::placeholder {
-      color: #252849;
+      color: $blue-dark;
     }
   }
 
   &__title {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
+    @extend %font-20;
+    font-family: $inter;
     margin-bottom: 14px;
   }
 }

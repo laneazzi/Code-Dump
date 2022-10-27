@@ -11,6 +11,6 @@ export { default as EventInput } from './EventInput';
 export { default as HourPicker } from './HourPicker';
 export { default as Registration } from './Registration';
 export { default as Recovery } from './PasswordRecovery';
-export { default as EventDropDown } from './EventDropDwon';
+export { default as HeaderDropDown } from './HeaderDropDown';
 export { default as DatePickerSelect } from './DatePickerSelect';
 export { default as CreateEventDropDown } from './CreateEventDropDown';

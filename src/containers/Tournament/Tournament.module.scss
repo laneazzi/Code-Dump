@@ -1,0 +1,5 @@
+.tournament {
+  display: grid;
+  gap: 32px 55px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}

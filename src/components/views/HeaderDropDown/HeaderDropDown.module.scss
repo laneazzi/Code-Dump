@@ -2,7 +2,7 @@
   max-width: 384px;
   width: 100%;
   border-radius: 16px;
-  background: #ffffff;
+  background: $white;
   border: 1px solid #ccc;
 
   &__content {
@@ -11,14 +11,11 @@
     padding: 40px 36px 38px 34px;
 
     &_item {
+      @extend %font-24;
       @extend %flex-align;
       gap: 20px;
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 29px;
-      color: #252849;
+      font-family: $inter;
+      color: $blue-dark;
       white-space: nowrap;
     }
   }

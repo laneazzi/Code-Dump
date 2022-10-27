@@ -13,10 +13,8 @@
 
     &_head {
       @extend %flex-between;
-      font-size: 24px;
-      color: #6080a0;
-      font-weight: 400;
-      line-height: 33px;
+      @extend %font-24-large;
+      color: $gray;
       padding-bottom: 31px;
       font-family: $Open-Sans;
       border-bottom: 1px solid #cccc;

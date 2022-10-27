@@ -1,18 +1,19 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 
-import { EventCardSaveIcon } from 'assets/icons';
 import Typography from 'components/shared/Typography';
+import { EEventTypes } from 'types/global/eventTypes';
+import { EventCardIcon, EventCardSaveIcon, TournamentCardIcon } from 'assets/icons';
 
 import { TEventCard } from './types';
 import styles from './EventCard.module.scss';
 
 type TEventCardProps = {
   event: TEventCard;
-  icon?: React.ReactNode;
+  type: EEventTypes;
 };
 
-const EventCard: FC<TEventCardProps> = ({ event, icon }) => {
+const EventCard: FC<TEventCardProps> = ({ event, type }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
 
   const savedIconClassNames = classNames(styles.card__info_icon_item, {
@@ -32,7 +33,11 @@ const EventCard: FC<TEventCardProps> = ({ event, icon }) => {
           <EventCardSaveIcon onClick={saveEvent} className={savedIconClassNames} />
         </div>
         <div className={styles.card__info_description}>
-          {icon}
+          {type === EEventTypes.EVENT ? (
+            <EventCardIcon />
+          ) : type === EEventTypes.TOURNAMENT ? (
+            <TournamentCardIcon />
+          ) : null}
           <div className={styles.card__info_description_main}>
             <Typography tagName='p' className={styles.card__info_description_main_title}>
               {event.eventTitle}

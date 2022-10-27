@@ -26,25 +26,21 @@
     width: 100%;
     position: relative;
     border-radius: 16px;
-    border: 1px solid $dark-aqua-opacity;
     padding: 19.5px 21px 21.5px 18px;
+    border: 1px solid $blue-gray-opacity-02;
 
     &_title {
+      @extend %font-20;
       font-family: $inter;
-      font-size: 20px;
-      color: #252849;
-      line-height: 24px;
-      font-weight: 400;
+      color: $blue-dark;
       margin-bottom: 14px;
     }
 
     &_main {
+      @extend %font-24;
       @extend %flex-between;
       font-family: $inter;
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 29px;
-      color: #252849;
+      color: $blue-dark;
 
       &_icon {
         transition: 0.3s;
@@ -82,7 +78,7 @@
 
           &:hover {
             color: $white;
-            background: #252849;
+            background: $blue-dark;
           }
         }
       }

@@ -37,30 +37,30 @@
       }
 
       input {
+        @extend %font-24;
         border-radius: 8px;
-        border-color: $input-border-color;
+        border-color: $light-gray;
         padding: 15px 46px 15px 22px;
-        @extend %text-24;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
         }
 
         &::placeholder {
-          color: $input-text-color;
+          color: $blue-dark;
           font-family: $inter;
         }
       }
 
       button {
+        @extend %font-24;
         border-radius: 8px;
-        padding: 12px 0 15px 0;
         color: white;
-        background: $red;
+        background: $red-light;
+        padding: 12px 0 15px 0;
         min-width: 100%;
         margin: 0;
         font-family: $inter;
-        @extend %text-24;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
@@ -71,12 +71,12 @@
     &_sign {
       padding-top: 35px;
       @extend %flex-center-column;
-      border-top: 1px solid $dark-aqua;
+      border-top: 1px solid $blue-gray;
       gap: 11px;
 
       &_answer {
         cursor: pointer;
-        @extend %text-24;
+        @extend %font-24;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
@@ -90,9 +90,9 @@
         text-align: center;
 
         &_txt {
-          @extend %text-22;
-          color: $red;
-          border-bottom: 1px solid $red;
+          @extend %font-22;
+          color: $red-light;
+          border-bottom: 1px solid $red-light;
 
           @include breakpoint(tablet-m) {
             font-size: 18px;

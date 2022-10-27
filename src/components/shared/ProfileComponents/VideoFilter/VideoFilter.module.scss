@@ -1,6 +1,5 @@
 .container {
   @extend %flex-between;
-  padding: 95px 0 0 32px;
 
   &__filters {
     @extend %flex-align;
@@ -9,26 +8,22 @@
 
     &_btn {
       @extend %flex-center;
+      @extend %font-24-large;
       font-family: $Open-Sans;
-      font-weight: 400;
-      font-size: 24px;
       color: $white;
-      line-height: 33px;
       padding: 12px 24px;
       border-radius: 16px;
-      background: $dark-aqua-opacity;
+      background: $blue-gray-opacity-02;
     }
 
     &_add {
       @extend %flex-align;
+      @extend %font-24-large;
       gap: 9px;
-      font-size: 24px;
+      color: $white;
       cursor: pointer;
-      font-weight: 400;
-      color: #ffffff;
-      line-height: 33px;
       border-radius: 16px;
-      background: #f43149;
+      background: $red-light;
       font-family: $Open-Sans;
       padding: 10px 18px 10px 19px;
 

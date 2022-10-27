@@ -1,19 +1,13 @@
-import React, { Fragment } from 'react';
+import { Fragment, useMemo } from 'react';
 
-import PeopleCard from 'components/shared/Cards/PeopleCard';
-import { TPeopleCard } from 'components/shared/Cards/PeopleCard/types';
-import { GuyImg } from 'assets/img';
+import { userSearchCase } from 'utils/localBackend';
 import Filter from 'components/shared/Filter/Filter';
 import { TFilter } from 'components/shared/Filter/types';
+import PeopleCard from 'components/shared/Cards/PeopleCard';
+
+import styles from './Search.module.scss';
 
 const Search = () => {
-  const peopleData: TPeopleCard = {
-    id: 1,
-    userImg: GuyImg,
-    userName: 'Username',
-    userStatus: false,
-  };
-
   const filterItems: TFilter[] = [
     { id: 0, name: 'People' },
     { id: 1, name: 'Fish' },
@@ -21,12 +15,15 @@ const Search = () => {
     { id: 3, name: 'Locations' },
   ];
 
+  const users = useMemo(
+    () => userSearchCase.map((user) => <PeopleCard key={user.id} people={user} />),
+    [],
+  );
+
   return (
     <Fragment>
       <Filter filterItems={filterItems} />
-      <div>
-        <PeopleCard people={peopleData} />
-      </div>
+      <div className={styles.search}>{users}</div>
     </Fragment>
   );
 };

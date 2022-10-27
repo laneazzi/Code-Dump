@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-import { LogOutIcon, ReelBudLogoIcon } from 'assets/icons';
+import { ReelBudLogoIcon } from 'assets/icons';
 import { navBarLinks } from 'constants/navBar';
 
 import styles from './Navbar.module.scss';
@@ -11,10 +11,6 @@ type INavBarProps = {
 };
 
 const Navbar: FC<INavBarProps> = ({ className }) => {
-  const navigate = useNavigate();
-
-  const logOut = () => navigate('/');
-
   const linkItems = navBarLinks.map((link) => (
     <NavLink
       key={link.id}
@@ -35,9 +31,6 @@ const Navbar: FC<INavBarProps> = ({ className }) => {
         </div>
         <div className={styles.navbar__wrapper}>
           <div className={styles.navbar__links}>{linkItems}</div>
-          <div className={styles.navbar__logout__wrapper}>
-            <LogOutIcon className={styles.navbar__logout} onClick={logOut} />
-          </div>
         </div>
       </nav>
     </div>

@@ -1,18 +1,18 @@
 .login {
-  flex: 1 1 auto;
   @extend %flex-end-center;
+  flex: 1 1 auto;
 
   @include breakpoint(tablet-l) {
     justify-content: center;
   }
 
   &__content {
-    background: $white;
-    padding: 45px;
-    border-radius: 20px;
     width: 100%;
-    max-width: 618px;
+    padding: 45px;
     margin: 25px 0;
+    max-width: 618px;
+    background: $white;
+    border-radius: 20px;
 
     @include breakpoint(tablet-l) {
       margin: 20px 0;
@@ -37,17 +37,17 @@
       }
 
       input {
+        @extend %font-24;
         border-radius: 8px;
-        border-color: $input-border-color;
         padding: 15px 46px 15px 22px;
-        @extend %text-24;
+        border-color: $light-gray;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
         }
 
         &::placeholder {
-          color: $input-text-color;
+          color: $blue-dark;
           font-family: $inter;
         }
       }
@@ -56,11 +56,11 @@
         border-radius: 8px;
         padding: 12px 0 15px 0;
         color: white;
-        background: $red;
+        background: $red-light;
         min-width: 100%;
         margin: 0;
         font-family: $inter;
-        @extend %text-24;
+        @extend %font-24;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
@@ -70,9 +70,9 @@
 
     &_keep {
       margin: 23px 11px 40px;
-      color: #95aec7;
+      color: $blue-gray;
       @extend %flex-between;
-      @extend %text-22;
+      @extend %font-22;
 
       @include breakpoint(mobile-m) {
         flex-direction: column !important;
@@ -104,10 +104,8 @@
       }
 
       a {
-        font-weight: 400;
+        @extend %font-20;
         justify-content: flex-end;
-        font-size: 20px;
-        line-height: 24px;
 
         @include breakpoint(tablet-m) {
           font-size: 16px;
@@ -118,7 +116,7 @@
         white-space: nowrap;
 
         &_txt {
-          border-bottom: 1px solid $dark-aqua;
+          border-bottom: 1px solid $blue-gray;
           text-transform: capitalize;
         }
       }
@@ -126,13 +124,13 @@
 
     &_sign {
       padding-top: 35px;
-      border-top: 1px solid $dark-aqua;
+      border-top: 1px solid $blue-gray;
       gap: 11px;
       @extend %flex-center-column;
 
       &_answer {
         cursor: pointer;
-        @extend %text-24;
+        @extend %font-24;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
@@ -146,9 +144,9 @@
         text-align: center;
 
         &_txt {
-          @extend %text-22;
-          color: $red;
-          border-bottom: 1px solid $red;
+          @extend %font-22;
+          color: $red-light;
+          border-bottom: 1px solid $red-light;
 
           @include breakpoint(tablet-m) {
             font-size: 18px;

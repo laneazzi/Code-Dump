@@ -1,9 +1,9 @@
 .container {
   width: 100%;
   max-width: 854px;
-  border-radius: 12px;
+  border-radius: 16px;
   font-family: $inter;
-  background: #ffffff;
+  background: $white;
   padding: 34px 34px 26px 34px;
   filter: drop-shadow(0px 0px 28px rgba(0, 0, 0, 0.031));
 
@@ -20,7 +20,7 @@
         height: 69px;
         border-radius: 50%;
         margin-right: 14px;
-        border: 4px solid $dark-aqua-opacity;
+        border-color: $blue-gray-opacity-02;
       }
 
       &__selects {
@@ -28,33 +28,29 @@
         max-width: 200px;
         width: 100%;
 
+        &_icon {
+          width: 23px;
+          height: 30px;
+          cursor: pointer;
+        }
+
         &__time {
-          color: #95aec7;
+          color: $blue-gray;
         }
       }
 
       &__title {
-        p {
-          &:first-child {
-            //@todo add extend
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 600;
-            font-size: 20px;
-            line-height: 27px;
-            color: #3f3d56;
-
-            &:last-child {
-              //@todo add extend
-              font-family: 'Inter';
-              font-weight: 400;
-              font-size: 19px;
-              line-height: 23px;
-              color: #2a462d;
-            }
-          }
+        &_nick {
+          @extend %font-19;
+          color: $green;
+          font-family: $inter;
         }
-        &_icon {
+
+        &_username {
           @extend %flex-align;
+          @extend %font-20-large-bold;
+          font-family: $Open-Sans;
+          color: $dark-blue-magenta;
 
           svg {
             margin-left: 8px;
@@ -64,9 +60,8 @@
     }
 
     &__text {
-      font-weight: 400;
-      font-size: 21px;
-      color: #2a462d;
+      @extend %font-21;
+      color: $green;
     }
 
     &__image {
@@ -77,7 +72,7 @@
       @extend %flex-around;
 
       p {
-        color: #6080a0;
+        color: $gray;
         margin: 0 10px;
       }
 

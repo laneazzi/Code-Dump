@@ -1,23 +1,23 @@
 .container {
-  max-width: 491px;
   width: 100%;
-  border: 1px solid rgba(149, 174, 199, 0.4);
+  max-width: 491px;
   border-radius: 16px;
   padding: 18px 25px 20px 23px;
+  border: 1px solid $blue-gray-opacity-02;
 
   &__content {
     @extend %flex-align;
 
     &_img {
+      @extend %flex-center;
       width: 135px;
       height: 100px;
       margin-right: 14px;
-      @extend %flex-center;
 
       &_item {
         width: 100%;
         height: 100%;
-        border: 4px solid rgba(149, 174, 199, 0.4);
+        border: 4px solid $blue-gray-opacity-02;
       }
     }
 
@@ -32,22 +32,18 @@
 
     &__user {
       &_name {
+        @extend %font-25-bold;
         font-family: $Open-Sans;
-        font-weight: 600;
-        font-size: 25px;
-        line-height: 34px;
-        color: #6080a0;
+        color: $gray;
       }
 
       &_status {
-        font-weight: 400;
-        font-size: 23px;
-        line-height: 31px;
+        @extend %font-23;
+        color: $gray;
         font-family: $Open-Sans;
-        color: #6080a0;
 
         &_active {
-          color: #f43149;
+          color: $red-light;
         }
       }
     }

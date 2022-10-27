@@ -1,32 +1,34 @@
 import {
-  AddNewPostIcon,
   EventsIcon,
-  HelpCenterIcon,
   LivesIcon,
   LogOutIcon,
   ProfileIcon,
-  SaveIcon,
+  FavoritedIcon,
+  AddNewPostIcon,
+  HelpCenterIcon,
   SettingsIcon,
   TournamentIcon,
 } from 'assets/icons';
+import { Routes } from 'types';
 
 export type THeaderDropDown = {
   id: number;
+  path?: string;
   description: string;
   icon: React.ReactNode;
 };
 
-export const createDropDown: THeaderDropDown[] = [
+export const EventDropDownItems: THeaderDropDown[] = [
   { id: 1, icon: <AddNewPostIcon />, description: 'New Post' },
   { id: 2, icon: <LivesIcon />, description: 'New Live Stream' },
   { id: 3, icon: <EventsIcon />, description: 'Create Event' },
   { id: 4, icon: <TournamentIcon />, description: 'Create Tournament' },
 ];
 
-export const createProfileDropDown: THeaderDropDown[] = [
-  { id: 1, icon: <ProfileIcon />, description: 'Profile' },
-  { id: 2, icon: <SaveIcon />, description: 'Favorited' },
+export const ProfileDropDownItems: THeaderDropDown[] = [
+  { id: 1, icon: <ProfileIcon />, description: 'Profile', path: Routes.Home },
+  { id: 2, icon: <FavoritedIcon />, description: 'Favorited' },
   { id: 3, icon: <HelpCenterIcon />, description: 'Help Center' },
-  { id: 5, icon: <LogOutIcon />, description: 'Logout' },
+  { id: 5, icon: <LogOutIcon />, description: 'Logout', path: Routes.LogIn },
   { id: 4, icon: <SettingsIcon />, description: 'Settings' },
 ];

@@ -1,8 +1,8 @@
 import { SyntheticEvent } from 'react';
 import classNames from 'classnames';
 
-import styles from './Button.module.scss';
 import { IButton } from './types';
+import styles from './Button.module.scss';
 
 const Button = ({
   children,

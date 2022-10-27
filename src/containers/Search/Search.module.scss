@@ -1,0 +1,5 @@
+.search {
+  display: grid;
+  gap: 32px 56px;
+  grid-template-columns: repeat(3, minmax(0, 491px));
+}

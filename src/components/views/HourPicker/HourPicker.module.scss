@@ -8,24 +8,19 @@
 
   &__content {
     &_title {
+      @extend %font-20;
+      color: $blue-dark;
       margin-bottom: 14px;
       font-family: $inter;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 24px;
-      color: #252849;
     }
 
     &_hours {
+      @extend %font-24;
       @extend %flex-between;
-      font-family: $inter;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 29px;
-      color: #252849;
       max-height: 29px;
       max-width: 213px;
+      color: $blue-dark;
+      font-family: $inter;
 
       &_item {
         @extend %flex-align;
@@ -37,7 +32,7 @@
         &_minute,
         &_type {
           border-bottom: none;
-          border: 1px solid $dark-aqua-opacity;
+          border: 1px solid $blue-gray-opacity-02;
         }
         &_hour {
           .container__content_hours_icon {
@@ -85,7 +80,7 @@
           background: $white;
           min-width: calc(100% + 2px);
           border-radius: 0 0 16px 16px;
-          border: 1px solid $dark-aqua-opacity;
+          border: 1px solid $blue-gray-opacity-02;
 
           p {
             @extend %flex-center-column;
