@@ -76,19 +76,18 @@ const Header = () => {
       />
 
       <div className={styles.header__user}>
-        <AddIcon
-          className={styles.header__user_add}
-          onClick={toggleEventsDropDown}
-          ref={eventRef}
-        />
+        <div ref={eventRef} onClick={toggleEventsDropDown}>
+          <AddIcon className={styles.header__user_add} />
+          <HeaderDropDown dropDownList={EventDropDownItems} className={eventDropDownClasses} />
+        </div>
+
         <NotificationsIcon className={styles.header__user_ring} />
         <div className={styles.header__user_frame} onClick={toggleUserDropDown} ref={userRef}>
           <HeaderArrowIcon className={headerArrowClasses} />
           <UserImgFrame img={UserImg} className={styles.header__user_frame_border} />
+          <HeaderDropDown dropDownList={ProfileDropDownItems} className={userDropDownClasses} />
         </div>
       </div>
-      <HeaderDropDown dropDownList={EventDropDownItems} className={eventDropDownClasses} />
-      <HeaderDropDown dropDownList={ProfileDropDownItems} className={userDropDownClasses} />
     </header>
   );
 };

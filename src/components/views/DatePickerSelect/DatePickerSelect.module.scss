@@ -6,6 +6,7 @@
   padding: 19.5px 17px 22.5px 18.5px;
 
   &__large {
+    z-index: 1;
     max-width: 280px;
   }
 
@@ -20,15 +21,16 @@
     &_main {
       @extend %font-24;
       @extend %flex-between;
-      color: $blue-dark;
       position: relative;
+      z-index: 100;
+      color: $blue-dark;
       font-family: $inter;
 
       .datepicker {
-        right: 0;
-        width: auto;
-        z-index: 5;
         position: absolute;
+        right: 0;
+        z-index: 5;
+        width: auto;
         cursor: pointer;
 
         &__calendar {

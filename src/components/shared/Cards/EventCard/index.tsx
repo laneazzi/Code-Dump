@@ -1,8 +1,8 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import classNames from 'classnames';
 
+import { EventTypes } from 'types/global/eventTypes';
 import Typography from 'components/shared/Typography';
-import { EEventTypes } from 'types/global/eventTypes';
 import { EventCardIcon, EventCardSaveIcon, TournamentCardIcon } from 'assets/icons';
 
 import { TEventCard } from './types';
@@ -10,7 +10,7 @@ import styles from './EventCard.module.scss';
 
 type TEventCardProps = {
   event: TEventCard;
-  type: EEventTypes;
+  type: EventTypes;
 };
 
 const EventCard: FC<TEventCardProps> = ({ event, type }) => {
@@ -25,7 +25,7 @@ const EventCard: FC<TEventCardProps> = ({ event, type }) => {
   return (
     <div className={styles.card}>
       <div className={styles.card__background}>
-        <img src={event.img} alt='img' className={styles.card__background_img} />
+        <img src={event.img} alt='background' className={styles.card__background_img} />
         <div className={styles.card__background_color} />
       </div>
       <div className={styles.card__info}>
@@ -33,9 +33,9 @@ const EventCard: FC<TEventCardProps> = ({ event, type }) => {
           <EventCardSaveIcon onClick={saveEvent} className={savedIconClassNames} />
         </div>
         <div className={styles.card__info_description}>
-          {type === EEventTypes.EVENT ? (
+          {type === EventTypes.EVENT ? (
             <EventCardIcon />
-          ) : type === EEventTypes.TOURNAMENT ? (
+          ) : type === EventTypes.TOURNAMENT ? (
             <TournamentCardIcon />
           ) : null}
           <div className={styles.card__info_description_main}>

@@ -4,7 +4,7 @@
   gap: 16px;
   z-index: 10;
   padding: 0 40px 18px 40px;
-  border-bottom: 1px solid $blue-gray-opacity-02;
+  border-bottom: 1px solid $norland-blue-2;
 
   &__title {
     @extend %flex-align;
@@ -21,12 +21,12 @@
     width: 100%;
     max-width: 499px;
     border-radius: 8px;
-    background: $input-background-opacity;
-    border: 1px solid $input-border-opacity;
+    background-color: $light-gray;
+    border: 1px solid $faded-bluestone-light;
 
     div {
-      padding: 15px 22px;
       @extend %flex-between;
+      padding: 15px 22px;
 
       svg {
         position: relative;
@@ -43,7 +43,7 @@
       padding: 0px;
       width: 432px;
       font-family: $inter;
-      background: transparent;
+      background-color: transparent;
 
       &::placeholder {
         color: $blue-gray;
@@ -52,8 +52,8 @@
   }
 
   &__user {
-    gap: 36px;
     @extend %flex-align;
+    gap: 36px;
 
     &_frame {
       @extend %flex-align;
@@ -61,7 +61,7 @@
       gap: 10px;
 
       &_border {
-        border: 3px solid $blue-gray-opacity-02 !important;
+        border: 3px solid $norland-blue-2 !important;
       }
 
       &_arrow {

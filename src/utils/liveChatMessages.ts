@@ -1,5 +1,5 @@
-import { TMessage } from 'types/global/messagesTypes';
 import { GuyImg, GuyImgTwo, UserImg } from 'assets/img';
+import { TMessage } from 'types/global/messagesTypes';
 
 export const messages: TMessage[] = [
   { id: 1, message: 'Hello', userImg: GuyImg, userName: 'John' },

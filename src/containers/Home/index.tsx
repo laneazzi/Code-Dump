@@ -3,14 +3,14 @@ import { useState } from 'react';
 import Footer from 'containers/Footer';
 import { Video, Recovery, Registration, SignIn } from 'components';
 
-import { EIsActiveType, TIsActiveType } from '../../types/global';
+import { IsActiveType, TIsActiveType } from '../../types/global';
 
 import styles from './Home.module.scss';
 
 const Home = () => {
   const [isActive, setIsActive] = useState<TIsActiveType>({
-    [EIsActiveType.RECOVERY]: false,
-    [EIsActiveType.REGISTRATION]: false,
+    [IsActiveType.RECOVERY]: false,
+    [IsActiveType.REGISTRATION]: false,
   });
 
   const toggleActive = (value: string) => {
@@ -18,8 +18,8 @@ const Home = () => {
     if (value === '') {
       setIsActive({
         ...isActive,
-        [EIsActiveType.RECOVERY]: false,
-        [EIsActiveType.REGISTRATION]: false,
+        [IsActiveType.RECOVERY]: false,
+        [IsActiveType.REGISTRATION]: false,
       });
     }
   };
@@ -33,13 +33,13 @@ const Home = () => {
         src={'./login.mp4'}
         className={styles.home__video}
       />
-      {!isActive[EIsActiveType.RECOVERY] && !isActive[EIsActiveType.REGISTRATION] && (
+      {!isActive[IsActiveType.RECOVERY] && !isActive[IsActiveType.REGISTRATION] && (
         <SignIn toggleActive={toggleActive} />
       )}
-      {isActive[EIsActiveType.RECOVERY] && !isActive[EIsActiveType.REGISTRATION] && (
+      {isActive[IsActiveType.RECOVERY] && !isActive[IsActiveType.REGISTRATION] && (
         <Recovery toggleActive={toggleActive} />
       )}
-      {isActive[EIsActiveType.REGISTRATION] && <Registration toggleActive={toggleActive} />}
+      {isActive[IsActiveType.REGISTRATION] && <Registration toggleActive={toggleActive} />}
       <Footer />
     </div>
   );

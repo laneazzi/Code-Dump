@@ -13,7 +13,7 @@ type TLiveCardProps = {
 const LiveVideoCard: FC<TLiveCardProps> = ({ video }) => (
   <div className={styles.card}>
     <div className={styles.card__background}>
-      <img src={video.img} alt='img' className={styles.card__background_img} />
+      <img src={video.img} alt='background' className={styles.card__background_img} />
       <div className={styles.card__background_color} />
     </div>
     <div className={styles.card__info}>

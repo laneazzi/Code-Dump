@@ -11,8 +11,8 @@
     padding: 45px;
     margin: 25px 0;
     max-width: 618px;
-    background: $white;
     border-radius: 20px;
+    background-color: $white;
 
     @include breakpoint(tablet-l) {
       margin: 20px 0;
@@ -23,14 +23,14 @@
     }
 
     &_logo {
+      @extend %flex-center-column;
       gap: 14px;
       margin-bottom: 30px;
-      @extend %flex-center-column;
     }
 
     &_form {
-      gap: 30px;
       @extend %flex-column;
+      gap: 30px;
 
       @include breakpoint(tablet-m) {
         gap: 15px;
@@ -39,8 +39,8 @@
       input {
         @extend %font-24;
         border-radius: 8px;
+        border-color: $light-gray-fade;
         padding: 15px 46px 15px 22px;
-        border-color: $light-gray;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
@@ -53,14 +53,14 @@
       }
 
       button {
-        border-radius: 8px;
-        padding: 12px 0 15px 0;
-        color: white;
-        background: $red-light;
-        min-width: 100%;
-        margin: 0;
-        font-family: $inter;
         @extend %font-24;
+        margin: 0;
+        color: white;
+        min-width: 100%;
+        border-radius: 8px;
+        font-family: $inter;
+        padding: 12px 0 15px 0;
+        background-color: $red-light;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
@@ -69,10 +69,10 @@
     }
 
     &_keep {
-      margin: 23px 11px 40px;
-      color: $blue-gray;
-      @extend %flex-between;
       @extend %font-22;
+      @extend %flex-between;
+      color: $blue-gray;
+      margin: 23px 11px 40px;
 
       @include breakpoint(mobile-m) {
         flex-direction: column !important;
@@ -88,8 +88,8 @@
       }
 
       &_save {
-        gap: 10px;
         @extend %flex-align;
+        gap: 10px;
 
         &_btn {
           input {
@@ -116,21 +116,21 @@
         white-space: nowrap;
 
         &_txt {
-          border-bottom: 1px solid $blue-gray;
           text-transform: capitalize;
+          border-bottom: 1px solid $blue-gray;
         }
       }
     }
 
     &_sign {
+      @extend %flex-center-column;
+      gap: 11px;
       padding-top: 35px;
       border-top: 1px solid $blue-gray;
-      gap: 11px;
-      @extend %flex-center-column;
 
       &_answer {
-        cursor: pointer;
         @extend %font-24;
+        cursor: pointer;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
@@ -138,10 +138,10 @@
       }
 
       &_item {
-        text-decoration: underline;
         min-width: 100%;
-        text-transform: capitalize !important;
         text-align: center;
+        text-decoration: underline;
+        text-transform: capitalize !important;
 
         &_txt {
           @extend %font-22;

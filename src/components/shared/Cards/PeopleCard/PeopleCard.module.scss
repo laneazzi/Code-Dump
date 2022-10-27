@@ -3,7 +3,7 @@
   max-width: 491px;
   border-radius: 16px;
   padding: 18px 25px 20px 23px;
-  border: 1px solid $blue-gray-opacity-02;
+  border: 1px solid $norland-blue-2;
 
   &__content {
     @extend %flex-align;
@@ -17,7 +17,7 @@
       &_item {
         width: 100%;
         height: 100%;
-        border: 4px solid $blue-gray-opacity-02;
+        border: 4px solid $norland-blue-2;
       }
     }
 

@@ -16,11 +16,11 @@ import { TForumCards } from 'constants/Cards/forumCards/types';
 
 import styles from './ForumCard.module.scss';
 
-type IForumCardProps = {
+type TForumCardProps = {
   card: TForumCards;
 };
 
-const ForumCard: FC<IForumCardProps> = ({ card }) => {
+const ForumCard: FC<TForumCardProps> = ({ card }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
 
   const takePost = () => setIsSaved(!isSaved);
@@ -44,17 +44,9 @@ const ForumCard: FC<IForumCardProps> = ({ card }) => {
           <Typography className={styles.container__content__header__selects__time}>
             {card.postedTime}
           </Typography>
-          {isSaved ? (
-            <SaveActiveIcon
-              onClick={takePost}
-              className={styles.container__content__header__selects_icon}
-            />
-          ) : (
-            <SaveIcon
-              onClick={takePost}
-              className={styles.container__content__header__selects_icon}
-            />
-          )}
+          <div className={styles.container__content__header__selects_icon} onClick={takePost}>
+            {isSaved ? <SaveActiveIcon /> : <SaveIcon />}
+          </div>
           <OptionsIcon />
         </div>
       </div>

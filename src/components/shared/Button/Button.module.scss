@@ -1,8 +1,8 @@
 .btn {
+  @extend %font-14-bold;
   width: 100%;
   padding: 9px;
   border-radius: 4px;
-  @extend %font-14-bold;
 
   &__small {
     max-width: 116px;
@@ -18,14 +18,14 @@
 
   &__primary {
     color: var(--button-color);
-    background: var(--button-background);
     border: 1px solid var(--button-border);
+    background-color: var(--button-background);
   }
 
   &__secondary {
     color: var(--button-color);
-    background: var(--button-background-secondary);
     border: 1px solid var(--button-border-secondary);
+    background-color: var(--button-background-secondary);
   }
 
   &:disabled {

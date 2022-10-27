@@ -8,7 +8,7 @@ type TProfileSideImgProps = {
 
 const ProfileSideImg: FC<TProfileSideImgProps> = ({ img }) => (
   <div className={styles.container}>
-    <img src={img} alt='img' />
+    <img src={img} alt='user background' />
   </div>
 );
 export default ProfileSideImg;

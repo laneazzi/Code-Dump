@@ -1,6 +1,6 @@
 import React from 'react';
 
-type IVideoProps = {
+type TVideoProps = {
   src: string;
   loop?: boolean;
   muted?: boolean;
@@ -9,7 +9,7 @@ type IVideoProps = {
   controls?: boolean;
 };
 
-const Video = React.forwardRef<any, IVideoProps>(
+const Video = React.forwardRef<any, TVideoProps>(
   ({ src, autoPlay, muted, loop, className, controls }, ref) => (
     <video
       ref={ref}

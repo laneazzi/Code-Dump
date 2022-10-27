@@ -9,7 +9,7 @@
     border-radius: 16px;
     border: 1px solid #cccc;
     padding: 18px 19px 15px 20px;
-    background: $gray-opacity-1;
+    background-color: $bluestone;
 
     div {
       width: 100%;
@@ -23,7 +23,7 @@
         color: $blue-gray;
         padding-right: 5px;
         font-family: $Open-Sans;
-        background: transparent;
+        background-color: transparent;
 
         &::placeholder {
           color: $blue-gray;

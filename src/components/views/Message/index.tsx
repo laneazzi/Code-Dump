@@ -1,49 +1,39 @@
 import { FC } from 'react';
 
 import { UserImgFrame } from 'components/shared';
+import { TMessage } from 'types/global/messagesTypes';
 import { MessageSettingsIcon, ShareDownIcon, ShareIcon, ShareUpIcon } from 'assets/icons';
 
 import styles from './Message.module.scss';
 
 type TMessageProps = {
-  img: string;
+  user: TMessage;
   type?: string;
-  username: string;
-  commentary: string;
-  shareCount?: number;
-  publishedTime?: string;
 };
 
-const Message: FC<TMessageProps> = ({
-  img,
-  type,
-  username,
-  commentary,
-  shareCount,
-  publishedTime,
-}) => (
+const Message: FC<TMessageProps> = ({ user, type }) => (
   <div className={styles.container}>
     <div className={styles.container__content}>
       <div className={styles.container__content_user}>
-        <UserImgFrame img={img} className={styles.container__content_user_img} />
+        <UserImgFrame img={user.userImg} className={styles.container__content_user_img} />
       </div>
       <div className={styles.container__content_box}>
         <div className={styles.container__content_box_info}>
-          <p className={styles.container__content_box_info_username}>{username}</p>
-          <p className={styles.container__content_box_info_commentary}>{commentary}</p>
+          <p className={styles.container__content_box_info_username}>{user.userName}</p>
+          <p className={styles.container__content_box_info_commentary}>{user.message}</p>
         </div>
         {type === 'comment' && (
           <div className={styles.container__content_box_icons}>
             <div className={styles.container__content_box_icons_replies}>
               <ShareUpIcon />
-              {shareCount}
+              {user.shareCount}
               <ShareDownIcon />
             </div>
             <div className={styles.container__content_box_icons_reply}>
               <ShareIcon />
               Reply
             </div>
-            <div>{publishedTime}</div>
+            <div>{user.publishedTime}</div>
             <div>
               <MessageSettingsIcon />
             </div>

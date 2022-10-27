@@ -7,15 +7,15 @@ import { ReelBudLogoIcon, ReelBudTextIcon } from 'assets/icons';
 import { Checkbox, LinkButton, RadioButton, Typography } from 'components/shared';
 
 import { SignInForm } from '../../forms';
-import { EIsActiveType } from '../../../types/global';
+import { IsActiveType } from '../../../types/global';
 
 import styles from './SignIn.module.scss';
 
-type ISignInProps = {
+type TSignInProps = {
   toggleActive: (value: string, bool: boolean) => void;
 };
 
-const SignIn: FC<ISignInProps> = ({ toggleActive }) => {
+const SignIn: FC<TSignInProps> = ({ toggleActive }) => {
   const navigate = useNavigate();
 
   const signInRef = useRef<any>(null);
@@ -50,7 +50,7 @@ const SignIn: FC<ISignInProps> = ({ toggleActive }) => {
           <LinkButton
             to={Routes.LogIn}
             className={styles.login__content_keep_forgot}
-            onClick={() => toggleActive(EIsActiveType.RECOVERY, true)}
+            onClick={() => toggleActive(IsActiveType.RECOVERY, true)}
           >
             <Typography className={styles.login__content_keep_forgot_txt}>
               Forgot Password?
@@ -65,7 +65,7 @@ const SignIn: FC<ISignInProps> = ({ toggleActive }) => {
           <LinkButton
             to='#'
             className={styles.login__content_sign_item}
-            onClick={() => toggleActive(EIsActiveType.REGISTRATION, true)}
+            onClick={() => toggleActive(IsActiveType.REGISTRATION, true)}
           >
             <Typography tagName='span' className={styles.login__content_sign_item_txt}>
               Sign Up For Factzz

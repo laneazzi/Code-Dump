@@ -1,7 +1,7 @@
 .home {
   @extend %flex-column;
   min-height: 100vh;
-  font-family: $inter !important;
+  font-family: $inter;
 
   &__video {
     position: fixed;
