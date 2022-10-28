@@ -1,8 +1,7 @@
 import { FC } from 'react';
 
 import { ShareLiveIcon, Verify } from 'assets/icons';
-import { UserLiveFrame } from 'components/shared';
-import WatchCount from 'components/shared/WatchCount';
+import { Typography, UserLiveFrame, WatchesCount } from 'components/shared';
 
 import styles from './LiveUser.module.scss';
 
@@ -16,16 +15,19 @@ type TUserLiveProps = {
 
 const LiveUser: FC<TUserLiveProps> = ({ img, count, username, isVerified, videoDescription }) => (
   <div className={styles.container}>
-    <UserLiveFrame img={img} />
-
-    <div className={styles.container__info}>
-      <div className={styles.container__info_username}>
-        {username} {isVerified && <Verify />}
+    <div className={styles.container__user}>
+      <UserLiveFrame img={img} />
+      <div className={styles.container__user_description}>
+        <Typography className={styles.container__user_description_username}>
+          {username} {isVerified && <Verify />}
+        </Typography>
+        <Typography className={styles.container__user_description_subtitle}>
+          {videoDescription}
+        </Typography>
       </div>
-      <div className={styles.container__info_description}>{videoDescription}</div>
     </div>
     <div className={styles.container__watches}>
-      <WatchCount count={count} />
+      <WatchesCount count={count} />
       <ShareLiveIcon />
     </div>
   </div>

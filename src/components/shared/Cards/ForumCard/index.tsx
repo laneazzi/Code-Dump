@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { Typography, UserImgFrame } from 'components/shared';
 import {
@@ -18,16 +18,21 @@ import styles from './ForumCard.module.scss';
 
 type TForumCardProps = {
   card: TForumCards;
+  openPost?: (post: TForumCards) => void;
 };
 
-const ForumCard: FC<TForumCardProps> = ({ card }) => {
+const ForumCard: FC<TForumCardProps> = ({ card, openPost }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
 
   const takePost = () => setIsSaved(!isSaved);
 
+  const handlePropagation = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
+
   return (
-    <div className={styles.container}>
-      <div className={styles.container__content}>
+    <div className={styles.container} onClick={() => openPost?.(card)}>
+      <div className={styles.container__content} onClick={handlePropagation}>
         <div className={styles.container__content__header}>
           <UserImgFrame img={GuyImg} className={styles.container__content__header__box} />
           <div className={styles.container__content__header__title}>

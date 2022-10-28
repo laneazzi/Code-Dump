@@ -13,7 +13,7 @@ type TTodayTopCardProps = {
 
 const TodayTopCard: FC<TTodayTopCardProps> = ({ card }) => (
   <div className={styles.top__card}>
-    <div>
+    <div className={styles.top__card_img}>
       <img src={card.postImg} alt='post' />
     </div>
     <div className={styles.top__card_absolute}>

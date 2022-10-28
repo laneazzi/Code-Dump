@@ -1,0 +1,10 @@
+.container {
+  @extend %flex-justify-between;
+  gap: 86px;
+  margin-bottom: 100px;
+
+  &__main {
+    @extend %flex-column;
+    gap: 56px;
+  }
+}

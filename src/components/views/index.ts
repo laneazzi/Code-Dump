@@ -10,6 +10,7 @@ export { default as CardsList } from './CardsList';
 export { default as EventPrice } from './EventPrice';
 export { default as EventInput } from './EventInput';
 export { default as HourPicker } from './HourPicker';
+export { default as CommentsList } from './CommentsList';
 export { default as Registration } from './Registration';
 export { default as Recovery } from './PasswordRecovery';
 export { default as HeaderDropDown } from './HeaderDropDown';

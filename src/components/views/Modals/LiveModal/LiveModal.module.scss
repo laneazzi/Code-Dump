@@ -1,0 +1,13 @@
+.container {
+  @extend %flex-justify-between;
+  gap: 24px;
+  width: 1577px;
+
+  &__live {
+    @extend %flex-column;
+    gap: 31px;
+    border-radius: 16px;
+    background-color: $white;
+    padding: 31px 29px 38px 29px;
+  }
+}

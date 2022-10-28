@@ -12,15 +12,6 @@ const ChatField = () => {
     setMessage(e.target.value);
   };
 
-  const postComment = () => {
-    if (message.trim()) {
-      const comment = {
-        id: Date.now().toString(),
-        value: message,
-      };
-    }
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.container__content}>
@@ -32,7 +23,8 @@ const ChatField = () => {
         />
         <SmileIcon />
       </div>
-      <div className={styles.container__icon} onClick={postComment}>
+
+      <div className={styles.container__icon}>
         <SendIcon className={styles.container__icon_item} />
       </div>
     </div>

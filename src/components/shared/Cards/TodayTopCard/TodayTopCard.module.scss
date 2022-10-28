@@ -2,6 +2,15 @@
   position: relative;
   font-family: $inter;
 
+  &_img {
+    height: 215px;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
   &_absolute {
     bottom: 0;
     width: 100%;
@@ -25,8 +34,8 @@
 
       &_user {
         p {
-          font-size: 20px;
           color: $white;
+          font-size: 20px;
         }
       }
     }

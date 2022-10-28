@@ -1,23 +1,29 @@
 .container {
-  @extend %flex-align;
+  @extend %flex-between;
+  width: 100%;
+  max-width: 1013px;
 
-  &__info {
-    margin-left: 15px;
-    margin-right: 71px;
-
-    &_username {
-      @extend %flex-align;
-      @extend %font-24-large-bold;
-      gap: 10px;
-      color: $blue-dark;
-      margin-bottom: 5px;
-      font-family: $Open-Sans;
-    }
+  &__user {
+    @extend %flex-align;
 
     &_description {
-      @extend %font-22-large;
-      color: $blue-dark;
-      font-family: $Open-Sans;
+      margin-left: 15px;
+      margin-right: 71px;
+
+      &_username {
+        @extend %flex-align;
+        @extend %font-24-large-bold;
+        gap: 10px;
+        color: $blue-dark;
+        margin-bottom: 5px;
+        font-family: $Open-Sans;
+      }
+
+      &_subtitle {
+        @extend %font-22-large;
+        color: $blue-dark;
+        font-family: $Open-Sans;
+      }
     }
   }
 

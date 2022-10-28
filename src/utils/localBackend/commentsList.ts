@@ -10,7 +10,7 @@ export const commentsList: TComments[] = [
     userImg: GuyImg,
     message: 'content',
     userName: 'Username',
-    publishedTime: '5minutesAgo',
+    publishedTime: '5 min ago',
   },
 
   {
@@ -19,7 +19,7 @@ export const commentsList: TComments[] = [
     userImg: GuyImg,
     message: 'content',
     userName: 'Username',
-    publishedTime: '5minutesAgo',
+    publishedTime: '5 min ago',
     replies: [
       {
         id: 1,
@@ -27,7 +27,7 @@ export const commentsList: TComments[] = [
         message: 'content',
         userImg: GuyImgTwo,
         userName: 'Username',
-        publishedTime: '5minutesAgo',
+        publishedTime: '5 min ago',
       },
       {
         id: 2,
@@ -35,7 +35,7 @@ export const commentsList: TComments[] = [
         userImg: GuyImgTwo,
         message: 'content',
         userName: 'Username',
-        publishedTime: '5minutesAgo',
+        publishedTime: '5 min ago',
       },
     ],
   },
@@ -45,7 +45,7 @@ export const commentsList: TComments[] = [
     userImg: GuyImg,
     message: 'content',
     userName: 'Username',
-    publishedTime: '5minutesAgo',
+    publishedTime: '5 min ago',
     replies: [],
   },
 ];

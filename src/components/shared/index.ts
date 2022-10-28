@@ -1,6 +1,7 @@
 export { default as Input } from './Input';
 export { default as Video } from './Video';
 export { default as Loader } from './Loader';
+export { default as Filter } from './Filter';
 export { default as Button } from './Button';
 export { default as TextArea } from './TextArea';
 export { default as Checkbox } from './Checkbox';
@@ -15,4 +16,5 @@ export { default as ForumCard } from './Cards/ForumCard';
 export { default as UserLiveFrame } from './UserLiveFrame';
 export { default as TodayTopCard } from './Cards/TodayTopCard';
 export { default as LiveVideoCard } from './Cards/LiveVideoCard';
+export { default as CommentsFilter } from './Filter/CommentsFilter';
 export { default as LiveChatVideoCard } from './Cards/LiveChatVideoCard';
