@@ -1,5 +1,6 @@
 .container {
   width: 100%;
+  cursor: pointer;
   max-width: 491px;
   border-radius: 16px;
   padding: 18px 25px 20px 23px;
@@ -27,6 +28,12 @@
 
       &_icon {
         opacity: 0.4;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 1;
+        }
       }
     }
 

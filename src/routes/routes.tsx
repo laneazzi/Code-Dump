@@ -9,6 +9,7 @@ import {
   Events,
   Profile,
   Contacts,
+  UserPage,
   TermsOfUse,
   Tournament,
   PrivacyPolicy,
@@ -81,5 +82,10 @@ export const routes: RoutesProps[] = [
     path: Routes.Lives,
     withLayout: true,
     component: <Lives />,
+  },
+  {
+    path: Routes.UserPage,
+    withLayout: true,
+    component: <UserPage />,
   },
 ];

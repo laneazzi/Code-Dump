@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { FC } from 'react';
 import classNames from 'classnames';
 
 import styles from './ProfileStatusButton.module.scss';
 
-const ProfileStatusButton = () => {
-  const [isActive, setIsActive] = useState<boolean>(false);
+type TProfileStatusButtonProps = {
+  isActive: boolean;
+  setIsActive: (value: boolean) => void;
+};
 
+const ProfileStatusButton: FC<TProfileStatusButtonProps> = ({ isActive, setIsActive }) => {
   const activateStatus = () => setIsActive(!isActive);
 
   const statusBarClasses = classNames(styles.status, { [styles.status_active]: isActive });

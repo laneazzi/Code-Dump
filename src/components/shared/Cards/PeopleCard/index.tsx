@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 
 import { MessageIcon } from 'assets/icons';
 import Typography from 'components/shared/Typography';
@@ -10,15 +11,27 @@ import styles from './PeopleCard.module.scss';
 
 type TPeopleCardProps = {
   people: TPeopleCard;
+  startTheChat: boolean;
+  setStartTheChat: (value: boolean) => void;
 };
 
-const PeopleCard: FC<TPeopleCardProps> = ({ people }) => {
+const PeopleCard: FC<TPeopleCardProps> = ({ people, startTheChat, setStartTheChat }) => {
   const liveStatusClassNames = classNames(styles.container__content__user_status, {
     [styles.container__content__user_status_active]: people.userStatus,
   });
 
+  const openChatWithUser = () => setStartTheChat(!startTheChat);
+
+  const navigate = useNavigate();
+
+  const goToTheProfilePage = () => navigate(`/user-page${people.id}`);
+
+  const handlePropagation = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={goToTheProfilePage}>
       <div className={styles.container__content}>
         <div className={styles.container__content_img}>
           <UserImgFrame img={people.userImg} className={styles.container__content_img_item} />
@@ -34,8 +47,11 @@ const PeopleCard: FC<TPeopleCardProps> = ({ people }) => {
             </Typography>
           </div>
           <div>
-            <div>
-              <MessageIcon className={styles.container__content__box_icon} />
+            <div onClick={handlePropagation}>
+              <MessageIcon
+                className={styles.container__content__box_icon}
+                onClick={openChatWithUser}
+              />
             </div>
           </div>
         </div>

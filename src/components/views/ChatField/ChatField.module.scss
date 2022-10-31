@@ -1,6 +1,7 @@
 .container {
   @extend %flex-align;
   gap: 13px;
+  position: relative;
 
   &__content {
     @extend %flex-between;
@@ -17,8 +18,8 @@
       input {
         @extend %font-24-large;
         padding: 0;
-        outline: none;
         width: 100%;
+        outline: none;
         border: none;
         color: $blue-gray;
         padding-right: 5px;
@@ -29,6 +30,21 @@
           color: $blue-gray;
         }
       }
+    }
+
+    &_smile {
+      cursor: pointer;
+    }
+  }
+
+  &__emoji {
+    position: absolute;
+    top: -410px;
+    right: 67px;
+    z-index: 10;
+
+    &_small {
+      top: -310px;
     }
   }
 

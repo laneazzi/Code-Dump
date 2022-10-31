@@ -2,7 +2,12 @@
   @extend %flex-center-column;
   position: sticky;
   top: 0;
+  transition: 0.6s;
   padding: 53px 83px 20px;
+
+  &__focused {
+    padding: 53px 133px 20px 20px;
+  }
 
   &__logo {
     @extend %flex-center;
@@ -22,6 +27,35 @@
     padding: 60px 0;
     border-top: 1px solid $norland-blue-2;
     border-bottom: 1px solid $norland-blue-2;
+
+    &_box {
+      @extend %flex-center;
+      position: relative;
+
+      &_title {
+        @extend %font-20;
+        position: absolute;
+        opacity: 0;
+        width: 0px;
+        color: $white;
+        right: -110px;
+        transition: 0.3s;
+        overflow: hidden;
+        border-radius: 8px;
+        visibility: hidden;
+        font-family: $inter;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 8px 16px 11px 14px;
+        background-color: $red-light;
+
+        &_active {
+          opacity: 1;
+          width: 100px;
+          visibility: visible;
+        }
+      }
+    }
 
     &_item {
       @extend %flex-center;
