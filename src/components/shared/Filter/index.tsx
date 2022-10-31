@@ -21,7 +21,7 @@ const Filter: FC<TFilterProps> = ({ filterItems }) => {
       [styles.container__block__item_active]: isActive === id,
     });
     return (
-      <div onClick={activeItem(id)} key={id} className={activeClasses}>
+      <div onClick={() => activeItem(id)} key={id} className={activeClasses}>
         {name}
       </div>
     );
