@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-import { GuyImgTwo } from 'assets/img';
+import { GuyImg, UserImg } from 'assets/img';
 import Typography from 'components/shared/Typography';
 import UserImgFrame from 'components/shared/UserImgFrame';
 
@@ -9,11 +9,20 @@ import ProfileStatusButton from './ProfileStatusButton/ProfileStatusButton';
 import styles from './ProfileStatus.module.scss';
 
 type TProfileStatusProps = {
+  isActive: boolean;
   className?: string;
+  frameImg?: string;
   frameClassName?: string;
+  setIsActive: (value: boolean) => void;
 };
 
-const ProfileStatus: FC<TProfileStatusProps> = ({ className, frameClassName }) => {
+const ProfileStatus: FC<TProfileStatusProps> = ({
+  isActive,
+  frameImg,
+  className,
+  setIsActive,
+  frameClassName,
+}) => {
   const profileStatusClasses = classNames(styles.container, className);
 
   const frameClasses = classNames(styles.container__content_head_img, frameClassName);
@@ -22,7 +31,7 @@ const ProfileStatus: FC<TProfileStatusProps> = ({ className, frameClassName }) =
     <div className={profileStatusClasses}>
       <div className={styles.container__content}>
         <div className={styles.container__content_head}>
-          <UserImgFrame img={GuyImgTwo} className={frameClasses} />
+          <UserImgFrame img={frameImg || UserImg} className={frameClasses} />
         </div>
         <div className={styles.container__content_info}>
           <Typography className={styles.container__content_info_username}>Username</Typography>
@@ -31,7 +40,7 @@ const ProfileStatus: FC<TProfileStatusProps> = ({ className, frameClassName }) =
         <div className={styles.container__content_status}>
           <div className={styles.container__content_status_inner}>
             <Typography>Open To Fishing</Typography>
-            <ProfileStatusButton />
+            <ProfileStatusButton isActive={isActive} setIsActive={setIsActive} />
           </div>
         </div>
       </div>

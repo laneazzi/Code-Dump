@@ -19,4 +19,5 @@ export enum Routes {
   Tournament = '/tournament',
   TermsOfUse = '/terms-of-use',
   PrivacyPolicy = '/privacy-policy',
+  UserPage = '/user-page:id',
 }

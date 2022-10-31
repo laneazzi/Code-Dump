@@ -1,8 +1,9 @@
 import { FC } from 'react';
+import classNames from 'classnames';
 
-import { OptionsIcon } from 'assets/icons';
 import { Typography } from 'components/shared';
 import { TMessage } from 'types/global/messagesTypes';
+import { ChatCloseIcon, OptionsIcon } from 'assets/icons';
 
 import Message from '../Message';
 import ChatField from '../ChatField';
@@ -10,22 +11,33 @@ import ChatField from '../ChatField';
 import styles from './LiveChat.module.scss';
 
 type TLiveChatProps = {
+  type?: 'global';
   messages: TMessage[];
+  closeTheChat?: () => void;
 };
 
-const LiveChat: FC<TLiveChatProps> = ({ messages }) => {
+const LiveChat: FC<TLiveChatProps> = ({ messages, type, closeTheChat }) => {
   const chatItems = messages.map((message) => <Message key={message.id} user={message} />);
 
+  const liveChatClasses = classNames(styles.chat, { [styles.chat__small]: type === 'global' });
+
+  const chatMainClasses = classNames(styles.chat__content_main, {
+    [styles.chat__content_main_small]: type === 'global',
+  });
+
   return (
-    <div className={styles.chat}>
+    <div className={liveChatClasses}>
       <div className={styles.chat__content}>
+        {type && (
+          <ChatCloseIcon className={styles.chat__content_close} onClick={() => closeTheChat?.()} />
+        )}
         <div className={styles.chat__content_head}>
           <Typography>Live Chat</Typography>
           <OptionsIcon />
         </div>
-        <div className={styles.chat__content_main}>{chatItems}</div>
+        <div className={chatMainClasses}>{chatItems}</div>
         <div className={styles.chat__content_footer}>
-          <ChatField />
+          <ChatField type='global' />
         </div>
       </div>
     </div>

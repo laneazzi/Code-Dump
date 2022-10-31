@@ -1,6 +1,23 @@
 .search {
+  position: relative;
   display: grid;
   gap: 32px 56px;
   margin-bottom: 74px;
   grid-template-columns: repeat(3, minmax(0, 491px));
+
+  &__chat {
+    position: fixed;
+    bottom: 50px;
+    right: -100px;
+    visibility: hidden;
+    transition: 0.3s;
+    opacity: 0;
+
+    &_active {
+      right: 50px;
+      opacity: 1;
+      visibility: visible;
+      z-index: 10;
+    }
+  }
 }
