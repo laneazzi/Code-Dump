@@ -1,7 +1,7 @@
 import { Fragment, useMemo } from 'react';
 
+import { Filter } from 'components';
 import { userSearchCase } from 'utils/localBackend';
-import Filter from 'components/shared/Filter/Filter';
 import { TFilter } from 'components/shared/Filter/types';
 import PeopleCard from 'components/shared/Cards/PeopleCard';
 

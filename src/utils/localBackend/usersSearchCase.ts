@@ -1,4 +1,4 @@
-import { GuyImg } from 'assets/img';
+import { GuyImg, GuyImgTwo, UserImg, topUserImg, topUserThree } from 'assets/img';
 
 import { TPeopleCard } from './../../components/shared/Cards/PeopleCard/types';
 
@@ -11,38 +11,38 @@ export const userSearchCase: TPeopleCard[] = [
   },
   {
     id: 2,
-    userImg: GuyImg,
+    userImg: GuyImgTwo,
     userStatus: false,
     userName: 'Username',
   },
   {
     id: 3,
-    userImg: GuyImg,
+    userImg: UserImg,
     userStatus: false,
     userName: 'Username',
   },
   {
     id: 4,
-    userImg: GuyImg,
+    userImg: topUserImg,
     userStatus: true,
     userName: 'Username',
   },
   {
     id: 5,
-    userImg: GuyImg,
+    userImg: GuyImgTwo,
     userStatus: false,
     userName: 'Username',
   },
   {
     id: 6,
-    userImg: GuyImg,
+    userImg: UserImg,
     userStatus: true,
     userName: 'Username',
   },
   {
     id: 7,
-    userImg: GuyImg,
     userStatus: false,
+    userImg: topUserImg,
     userName: 'Username',
   },
   {
@@ -53,25 +53,25 @@ export const userSearchCase: TPeopleCard[] = [
   },
   {
     id: 9,
-    userImg: GuyImg,
     userStatus: true,
+    userImg: GuyImgTwo,
     userName: 'Username',
   },
   {
     id: 10,
-    userImg: GuyImg,
+    userImg: UserImg,
     userStatus: false,
     userName: 'Username',
   },
   {
     id: 11,
-    userImg: GuyImg,
     userStatus: false,
+    userImg: topUserThree,
     userName: 'Username',
   },
   {
     id: 12,
-    userImg: GuyImg,
+    userImg: UserImg,
     userStatus: true,
     userName: 'Username',
   },
@@ -83,14 +83,14 @@ export const userSearchCase: TPeopleCard[] = [
   },
   {
     id: 14,
-    userImg: GuyImg,
     userStatus: false,
     userName: 'Username',
+    userImg: topUserThree,
   },
   {
     id: 15,
-    userImg: GuyImg,
     userStatus: false,
+    userImg: GuyImgTwo,
     userName: 'Username',
   },
 ];

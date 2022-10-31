@@ -1,6 +1,6 @@
 export type TLiveVideoCard = {
   id: number;
-  img: string;
+  src: string;
   title: string;
   watchCount: number;
 };

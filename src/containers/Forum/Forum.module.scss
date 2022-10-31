@@ -1,8 +1,8 @@
 .forum {
   @extend %flex-justify-between;
   gap: 86px;
-  margin-top: 61px;
-  margin-bottom: 63px;
+  padding: 0 40px;
+  margin: 61px 0 63px 0;
 
   &__posts {
     @extend %flex-column;

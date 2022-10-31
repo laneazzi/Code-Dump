@@ -1,10 +1,10 @@
 import { FC, useRef, useState } from 'react';
 import classNames from 'classnames';
 
+import { useOnClickOutside } from 'hooks';
 import { BlueArrowIcon } from 'assets/icons';
 import { TOption } from 'types/global/options';
 import { Typography } from 'components/shared';
-import { useOnClickOutside } from 'hooks';
 
 import styles from './CreateEventDropDown.module.scss';
 
@@ -53,8 +53,8 @@ const EventDropDown: FC<TEventDropDownProps> = ({ title, optionList, size }) => 
   ));
 
   return (
-    <div className={eventDropDownClasses}>
-      <div className={styles.container__content} onClick={showMenu} ref={dropDownRed}>
+    <div className={eventDropDownClasses} onClick={showMenu} ref={dropDownRed}>
+      <div className={styles.container__content}>
         <div className={styles.container__content_title}>{title}</div>
         <div className={styles.container__content_main}>
           <span className={styles.container__content_main_head}>{activeTitle}</span>

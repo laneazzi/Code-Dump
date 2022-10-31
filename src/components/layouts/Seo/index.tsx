@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { Header, Navbar } from 'components';
 
@@ -10,6 +11,16 @@ type TSeoProps = {
 };
 
 const Seo: React.FC<TSeoProps> = ({ children, withLayout }) => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, [pathname]);
+
   return (
     <>
       {withLayout ? (

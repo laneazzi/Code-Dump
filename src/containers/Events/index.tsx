@@ -1,9 +1,8 @@
 import { Fragment, useMemo } from 'react';
 
-import { EventCard } from 'components';
+import { EventCard, Filter } from 'components';
 import { filterItems } from 'utils/filterItems';
 import { EventCardInfo } from 'utils/localBackend';
-import Filter from 'components/shared/Filter/Filter';
 import { EventTypes } from 'types/global/eventTypes';
 
 import styles from './Events.module.scss';
