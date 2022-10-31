@@ -1,0 +1,19 @@
+.top {
+  &_content {
+    @extend %flex-column;
+    gap: 23px;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 16px;
+    padding: 25px 31px 28px 31px;
+    background-color: $norland-blue-1;
+
+    &_title {
+      @extend %font-24;
+      color: $gray;
+      margin-bottom: 4px;
+      letter-spacing: 0.5;
+      font-family: $inter;
+    }
+  }
+}

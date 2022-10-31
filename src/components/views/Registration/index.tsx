@@ -10,11 +10,11 @@ import { RegistrationForm } from '../../forms';
 
 import styles from './Registration.module.scss';
 
-type IUserRegistrationProps = {
+type TUserRegistrationProps = {
   toggleActive: (value: string) => void;
 };
 
-const Registration: FC<IUserRegistrationProps> = ({ toggleActive }) => {
+const Registration: FC<TUserRegistrationProps> = ({ toggleActive }) => {
   const navigate = useNavigate();
 
   const registrationFormRef = useRef<any>(null);

@@ -54,7 +54,7 @@ const EventFile: React.FC = () => {
                 className={styles.container__content__file_close}
                 onClick={deleteFile}
               />
-              <img src={fileDataURL as string} alt='as' />
+              <img src={fileDataURL as string} alt='event-img' />
             </>
           )}
         </div>

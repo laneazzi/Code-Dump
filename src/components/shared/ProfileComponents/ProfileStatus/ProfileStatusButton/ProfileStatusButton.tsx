@@ -8,10 +8,10 @@ const ProfileStatusButton = () => {
 
   const activateStatus = () => setIsActive(!isActive);
 
-  const statusBarClasses = classNames(styles.status, { [styles.status__active]: isActive });
+  const statusBarClasses = classNames(styles.status, { [styles.status_active]: isActive });
 
   const statusBarBtnClasses = classNames(styles.status__btn, {
-    [styles.status__active_btn]: isActive,
+    [styles.status_active_btn]: isActive,
   });
 
   return (

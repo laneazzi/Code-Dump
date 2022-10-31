@@ -3,11 +3,11 @@ import { FC, useState } from 'react';
 
 import styles from './RadioButton.module.scss';
 
-type IRadioButtonProps = {
+type TRadioButtonProps = {
   className?: string;
 };
 
-const RadioButton: FC<IRadioButtonProps> = ({ className }) => {
+const RadioButton: FC<TRadioButtonProps> = ({ className }) => {
   const [isKeep, setIsKeep] = useState<boolean>(false);
 
   const radioClassNames = classNames(styles.radio, className);

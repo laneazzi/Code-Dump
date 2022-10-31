@@ -10,15 +10,15 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 type TDatePickerSelectProps = {
   title: string;
-  large?: boolean;
+  size?: 'large';
 };
 
-const DatePickerSelect: FC<TDatePickerSelectProps> = ({ title, large }) => {
+const DatePickerSelect: FC<TDatePickerSelectProps> = ({ title, size }) => {
   const [selectedDate, setSelectedDate] = useState<Date>();
 
   const date = dateFormatter(selectedDate as Date);
 
-  const datePickerClasses = classNames(styles.container, { [styles.container__large]: large });
+  const datePickerClasses = classNames(styles.container, { [styles.container__large]: size });
 
   const customInput = <DateIcon className={styles.container__content_main_icon} />;
 
@@ -33,7 +33,6 @@ const DatePickerSelect: FC<TDatePickerSelectProps> = ({ title, large }) => {
           <DatePicker
             selected={selectedDate}
             customInput={customInput}
-            dateFormat='yyyy-MM-dd'
             wrapperClassName={styles.datepicker}
             popperClassName={styles.datepicker__header}
             calendarClassName={styles.datepicker__calendar}

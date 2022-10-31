@@ -11,9 +11,9 @@
   }
   &__primary {
     @extend %font-14-bold;
-    background: transparent;
     color: var(--link-color);
     text-transform: uppercase;
+    background-color: transparent;
     border: 1px solid var(--link-border);
   }
 }

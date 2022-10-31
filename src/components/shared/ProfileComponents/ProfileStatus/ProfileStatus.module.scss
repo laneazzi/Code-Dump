@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 501px;
   border-radius: 16px;
-  border: 1px solid $blue-gray-opacity-02;
+  border: 1px solid $norland-blue-2;
 
   &__content {
     @extend %flex-center-column;
@@ -24,8 +24,8 @@
 
       &_username {
         @extend %font-26;
-        font-family: $Open-Sans;
         color: $blue-dark;
+        font-family: $Open-Sans;
       }
 
       &_location {
@@ -37,7 +37,7 @@
 
     &_status {
       border-radius: 16px;
-      background: $gray-opacity-05;
+      background-color: $light-gray;
 
       &_inner {
         @extend %flex-align;

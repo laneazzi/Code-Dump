@@ -12,7 +12,7 @@ type TEventInputProps = {
 
 const EventInput: FC<TEventInputProps> = ({ small, title }) => {
   const eventInputClasses = classNames(styles.container, {
-    [styles.container__min]: small,
+    [styles.container__small]: small,
   });
 
   return (

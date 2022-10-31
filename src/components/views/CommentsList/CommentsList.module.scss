@@ -1,0 +1,16 @@
+.container {
+  @extend %flex-column;
+  gap: 49px;
+
+  &__items {
+    &_reply {
+      @extend %flex-column;
+      gap: 49px;
+      margin-top: 7px;
+      padding-top: 49px;
+      padding-left: 47px;
+      margin-left: 32px;
+      border-left: 3px solid rgba(96, 128, 160, 0.2);
+    }
+  }
+}

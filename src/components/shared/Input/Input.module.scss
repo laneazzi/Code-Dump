@@ -5,8 +5,8 @@
   border: none;
   outline: none;
   padding: 5px 15px;
+  border: 1px solid;
   transition: all 0.3s;
-  border: 1px solid black;
 
   &__isLabel {
     padding: 11px 9px;
@@ -18,8 +18,8 @@
   &:hover,
   &:active,
   &:focus {
-    background: var(--input-active);
     border-color: var(--input-border);
+    background-color: var(--input-active);
   }
 
   &_with_icon {
@@ -56,17 +56,17 @@
   }
 
   &__right_icon {
+    position: absolute;
     z-index: 5;
     right: 21px;
     cursor: pointer;
-    position: absolute;
     top: calc(50% - 8px);
   }
 }
 .input {
+  position: relative;
   width: 100%;
   color: var(--font);
-  position: relative;
 
   &::placeholder {
     color: var(--placeholder);

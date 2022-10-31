@@ -22,7 +22,7 @@
       width: 100%;
       height: 100%;
       border-radius: 20px;
-      background: $blue-opacity-4;
+      background-color: $blue-light;
     }
   }
 
@@ -47,8 +47,7 @@
 
     &_description {
       @extend %flex-align;
-      padding-left: 21px;
-      padding-bottom: 20px;
+      padding: 54px 0 28px 21px;
       border-radius: 0 0 16px 16px;
       background: linear-gradient(180deg, rgba(14, 39, 96, 0) 0%, #0e2760 100%);
 

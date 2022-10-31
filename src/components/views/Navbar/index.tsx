@@ -6,11 +6,11 @@ import { navBarLinks } from 'constants/navBar';
 
 import styles from './Navbar.module.scss';
 
-type INavBarProps = {
+type TNavBarProps = {
   className?: string;
 };
 
-const Navbar: FC<INavBarProps> = ({ className }) => {
+const Navbar: FC<TNavBarProps> = ({ className }) => {
   const linkItems = navBarLinks.map((link) => (
     <NavLink
       key={link.id}

@@ -14,14 +14,7 @@ type TLiveChatProps = {
 };
 
 const LiveChat: FC<TLiveChatProps> = ({ messages }) => {
-  const chatItems = messages.map((message) => (
-    <Message
-      key={message.id}
-      img={message.userImg}
-      username={message.userName}
-      commentary={message.message}
-    />
-  ));
+  const chatItems = messages.map((message) => <Message key={message.id} user={message} />);
 
   return (
     <div className={styles.chat}>

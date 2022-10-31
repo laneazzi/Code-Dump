@@ -7,14 +7,14 @@ import { THighTodayCards } from '../../../../constants/Cards/todayTopCards/types
 
 import styles from './TodayTopCard.module.scss';
 
-interface ITodayTopCardProps {
+type TTodayTopCardProps = {
   card: THighTodayCards;
-}
+};
 
-const TodayTopCard: FC<ITodayTopCardProps> = ({ card }) => (
+const TodayTopCard: FC<TTodayTopCardProps> = ({ card }) => (
   <div className={styles.top__card}>
     <div>
-      <img src={card.postImg} alt='test' />
+      <img src={card.postImg} alt='post' />
     </div>
     <div className={styles.top__card_absolute}>
       <div className={styles.top__card_absolute_box}>

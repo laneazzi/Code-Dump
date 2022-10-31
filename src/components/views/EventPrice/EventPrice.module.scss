@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   max-width: 258px;
+  max-height: 110px;
   border-radius: 16px;
   border: 1px solid #dfe5f4;
   padding: 19.5px 0 22.5px 18.5px;
@@ -17,6 +18,12 @@
       @extend %font-24;
       color: $blue-dark;
       font-family: $inter;
+
+      &_field {
+        border: none;
+        outline: none;
+        padding: 10px 0;
+      }
     }
   }
 }

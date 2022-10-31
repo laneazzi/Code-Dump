@@ -5,8 +5,8 @@
     max-width: 100%;
     padding: 32.5px 0;
     margin: auto 84px;
-    background: transparent;
-    border-top: 1px solid $white-opacity-2;
+    background-color: transparent;
+    border-top: 1px solid $white-light;
 
     @include breakpoint(wide) {
       display: flex;
@@ -39,8 +39,8 @@
       }
 
       .link {
-        @extend %flex-align;
         @extend %font-22;
+        @extend %flex-align;
         padding: 0 25px;
 
         @include breakpoint(wide-l) {

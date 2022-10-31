@@ -1,18 +1,18 @@
 .login {
-  flex: 1 1 auto;
   @extend %flex-end-center;
+  flex: 1 1 auto;
 
   @include breakpoint(wide) {
     justify-content: center;
   }
 
   &__content {
-    background: $white;
-    padding: 45px;
-    border-radius: 20px;
     width: 100%;
-    max-width: 618px;
+    padding: 45px;
     margin: 25px 0;
+    max-width: 618px;
+    border-radius: 20px;
+    background-color: $white;
 
     @include breakpoint(wide) {
       margin: 20px 0;
@@ -39,7 +39,7 @@
       input {
         @extend %font-24;
         border-radius: 8px;
-        border-color: $light-gray;
+        border-color: $light-gray-fade;
         padding: 15px 46px 15px 22px;
 
         @include breakpoint(tablet-m) {
@@ -54,13 +54,13 @@
 
       button {
         @extend %font-24;
-        border-radius: 8px;
-        color: white;
-        background: $red-light;
-        padding: 12px 0 15px 0;
-        min-width: 100%;
         margin: 0;
+        color: white;
+        min-width: 100%;
+        border-radius: 8px;
         font-family: $inter;
+        padding: 12px 0 15px 0;
+        background-color: $red-light;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
@@ -69,14 +69,14 @@
     }
 
     &_sign {
-      padding-top: 35px;
       @extend %flex-center-column;
-      border-top: 1px solid $blue-gray;
       gap: 11px;
+      padding-top: 35px;
+      border-top: 1px solid $blue-gray;
 
       &_answer {
-        cursor: pointer;
         @extend %font-24;
+        cursor: pointer;
 
         @include breakpoint(tablet-m) {
           font-size: 18px;
@@ -84,10 +84,10 @@
       }
 
       &_item {
-        text-decoration: underline;
         min-width: 100%;
-        text-transform: capitalize !important;
         text-align: center;
+        text-decoration: underline;
+        text-transform: capitalize !important;
 
         &_txt {
           @extend %font-22;

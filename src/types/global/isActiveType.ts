@@ -1,9 +1,9 @@
-export enum EIsActiveType {
+export enum IsActiveType {
   RECOVERY = 'RECOVERY',
   REGISTRATION = 'REGISTRATION',
 }
 
 export type TIsActiveType = {
-  [EIsActiveType.RECOVERY]: boolean;
-  [EIsActiveType.REGISTRATION]: boolean;
+  [IsActiveType.RECOVERY]: boolean;
+  [IsActiveType.REGISTRATION]: boolean;
 };

@@ -3,11 +3,11 @@
   max-width: 211px;
   border-radius: 40px;
   padding: 12px 19px 11px 19px;
-  background: $gray-opacity-1;
+  background-color: $bluestone;
 
   &__content {
-    @extend %font-22-large;
     @extend %flex-align;
+    @extend %font-22-large;
     gap: 3px;
     color: $gray;
     white-space: nowrap;

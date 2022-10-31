@@ -11,6 +11,7 @@ $wide-l: 1440px;
 $font: 'Roboto', sans-serif;
 $inter: 'Inter';
 $Open-Sans: 'Open Sans';
+$Poppins: 'Poppins';
 
 // @extends
 %flex-center {
@@ -26,6 +27,13 @@ $Open-Sans: 'Open Sans';
 }
 
 %flex-center-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+%flex-column-align {
   display: flex;
   align-items: center;
   flex-direction: column;

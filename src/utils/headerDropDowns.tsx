@@ -1,12 +1,12 @@
 import {
-  EventsIcon,
   LivesIcon,
   LogOutIcon,
+  EventsIcon,
   ProfileIcon,
+  SettingsIcon,
   FavoritedIcon,
   AddNewPostIcon,
   HelpCenterIcon,
-  SettingsIcon,
   TournamentIcon,
 } from 'assets/icons';
 import { Routes } from 'types';
@@ -28,7 +28,7 @@ export const EventDropDownItems: THeaderDropDown[] = [
 export const ProfileDropDownItems: THeaderDropDown[] = [
   { id: 1, icon: <ProfileIcon />, description: 'Profile', path: Routes.Home },
   { id: 2, icon: <FavoritedIcon />, description: 'Favorited' },
-  { id: 3, icon: <HelpCenterIcon />, description: 'Help Center' },
+  { id: 3, icon: <HelpCenterIcon />, description: 'Help Center', path: Routes.Help },
   { id: 5, icon: <LogOutIcon />, description: 'Logout', path: Routes.LogIn },
   { id: 4, icon: <SettingsIcon />, description: 'Settings' },
 ];

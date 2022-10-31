@@ -3,11 +3,11 @@
   padding-right: 85px;
 
   &__header {
-    padding: 53px 0 0;
     position: sticky;
     top: 0;
     z-index: 10;
-    background: #fff;
+    padding: 53px 0 0;
+    background-color: $white;
   }
 
   &__wrapper {

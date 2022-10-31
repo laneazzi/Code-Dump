@@ -1,15 +1,15 @@
 .status {
+  position: relative;
   width: 42px;
   height: 24px;
   cursor: pointer;
   transition: 0.3s;
-  position: relative;
-  background: #ccc;
   border-radius: 10px;
   border-radius: 16px;
+  background-color: #ccc;
 
-  &__active {
-    background: $red-light;
+  &_active {
+    background-color: $red-light;
 
     &_btn {
       left: 22px !important;
@@ -24,6 +24,6 @@
     height: 14px;
     transition: 0.3s;
     border-radius: 50%;
-    background: white;
+    background-color: $white;
   }
 }

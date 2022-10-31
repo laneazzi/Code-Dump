@@ -7,15 +7,15 @@ import { Checkbox, LinkButton, Typography } from 'components/shared';
 import passwordRecoveryForm from 'constants/forms/passwordRecoveryForm';
 
 import { RecoveryForm } from '../../forms';
-import { EIsActiveType } from '../../../types/global';
+import { IsActiveType } from '../../../types/global';
 
 import styles from './PasswordRecovery.module.scss';
 
-type IRecoveryProps = {
+type TRecoveryProps = {
   toggleActive: (value: string) => void;
 };
 
-const PasswordRecovery: FC<IRecoveryProps> = ({ toggleActive }) => {
+const PasswordRecovery: FC<TRecoveryProps> = ({ toggleActive }) => {
   const navigate = useNavigate();
 
   const passwordRecoveryRef = useRef<any>(null);
@@ -48,7 +48,7 @@ const PasswordRecovery: FC<IRecoveryProps> = ({ toggleActive }) => {
           <LinkButton
             to='#'
             className={styles.login__content_sign_item}
-            onClick={() => toggleActive(EIsActiveType.REGISTRATION)}
+            onClick={() => toggleActive(IsActiveType.REGISTRATION)}
           >
             <Typography tagName='span' className={styles.login__content_sign_item_txt}>
               Sign Up For Factzz

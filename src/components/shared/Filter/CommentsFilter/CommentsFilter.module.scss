@@ -6,8 +6,20 @@
 
   &__sort {
     position: relative;
+    transition: 0.3s;
+
+    &_active {
+      .container__sort_title {
+        border: 1px solid;
+        border-bottom: none;
+      }
+    }
 
     &_title {
+      @extend %flex-align;
+      cursor: pointer;
+      border: 1px solid transparent;
+
       &_arrow {
         margin-left: 7px;
         transition: 0.3s;
@@ -27,6 +39,11 @@
       display: none;
       position: absolute;
       border: 1px solid;
+      border-top: none;
+
+      &_item {
+        cursor: pointer;
+      }
 
       &_open {
         display: flex;
