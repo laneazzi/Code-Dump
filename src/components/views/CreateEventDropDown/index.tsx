@@ -35,6 +35,7 @@ const EventDropDown: FC<TEventDropDownProps> = ({ title, optionList, size }) => 
   const eventDropDownClasses = classNames(styles.container, {
     [styles.container_open]: isDrop,
     [styles.container__large]: size === 'large',
+    [styles.container__small]: size === 'small',
   });
 
   const eventListClasses = classNames(styles.container__content_list, {

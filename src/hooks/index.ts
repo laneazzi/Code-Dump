@@ -1,6 +1,7 @@
 export { default as useForm } from './useForm';
 export { default as useDebounce } from './useDebounce';
 export { default as useWindowSize } from './useWindowSize';
+export { default as useSliderKeys } from './useSliderKeys';
 export { default as useBeforeLoad } from './useBeforeLoad';
 export { default as useAppDispatch } from './useAppDispatch';
 export { default as useAppSelector } from './useAppSelector';

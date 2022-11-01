@@ -39,6 +39,7 @@ export { ReactComponent as FavoritedIcon } from './Favorited.svg';
 export { ReactComponent as OptionsIcon } from './optionsIcon.svg';
 export { ReactComponent as ChatCloseIcon } from './chatClose.svg';
 export { ReactComponent as MessageIcon } from './messageIcon.svg';
+export { ReactComponent as PaginationNextIcon } from './next.svg';
 export { ReactComponent as OneEllipseIcon } from './oneEllipse.svg';
 export { ReactComponent as LiveCardIcon } from './LiveCardIcon.svg';
 export { ReactComponent as HelpCenterIcon } from './helpCenter.svg';

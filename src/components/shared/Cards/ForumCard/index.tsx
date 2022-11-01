@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 
-import { Typography, UserImgFrame } from 'components/shared';
+import { PostsSlider, Typography, UserImgFrame } from 'components/shared';
 import {
   Verify,
   SaveIcon,
@@ -23,7 +23,26 @@ type TForumCardProps = {
 
 const ForumCard: FC<TForumCardProps> = ({ card, openPost }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
+  const [activeSlide, setActiveSlide] = useState<number>(1);
 
+  const getActiveSlide = (activeSlide: number) => {
+    setActiveSlide(activeSlide);
+  };
+
+  const posts = !Array.isArray(card.postImg) ? (
+    <img src={card.postImg} alt='Fish' />
+  ) : (
+    <>
+      <div className={styles.container__content__image_count}>
+        {activeSlide}/{card.postImg.length}
+      </div>
+      <PostsSlider getActiveSlide={getActiveSlide}>
+        {card.postImg.map((img) => (
+          <img src={img} key={img} />
+        ))}
+      </PostsSlider>
+    </>
+  );
   const takePost = () => setIsSaved(!isSaved);
 
   const handlePropagation = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -56,8 +75,8 @@ const ForumCard: FC<TForumCardProps> = ({ card, openPost }) => {
         </div>
       </div>
       <div className={styles.container__content__text}>{card.postDescription}</div>
-      <div className={styles.container__content__image}>
-        <img src={card.postImg} alt='Fish' />
+      <div className={styles.container__content__image} onClick={handlePropagation}>
+        {posts}
       </div>
       <div className={styles.container__content__footer}>
         <div className={styles.container__content__footer__blog}>
