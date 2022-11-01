@@ -3,7 +3,7 @@ export { default as Video } from './Video';
 export { default as Loader } from './Loader';
 export { default as Filter } from './Filter';
 export { default as Button } from './Button';
-export { default as TextArea } from './TextArea';
+export { default as TextArea } from './Textarea';
 export { default as Checkbox } from './Checkbox';
 export { default as Typography } from './Typography';
 export { default as LinkButton } from './LinkButton';
