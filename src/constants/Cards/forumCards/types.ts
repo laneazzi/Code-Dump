@@ -1,14 +1,14 @@
 export type TForumCards = {
   id: number;
   name: string;
-  nickName: string;
-  postDescription: string;
   userImg: string;
-  isVerified: boolean;
-  postedTime: string;
+  nickName: string;
   isSaved: boolean;
-  commentsCount: number;
+  postedTime: string;
+  isVerified: boolean;
   sharedCount: number;
+  commentsCount: number;
   sharedUpCounts: number;
-  postImg: string;
+  postDescription: string;
+  postImg: string | string[];
 };

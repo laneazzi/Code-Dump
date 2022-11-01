@@ -1,0 +1,15 @@
+.slider {
+  ul {
+    position: absolute;
+    bottom: 25px !important;
+
+    li {
+      button {
+        &::before {
+          color: $white;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}

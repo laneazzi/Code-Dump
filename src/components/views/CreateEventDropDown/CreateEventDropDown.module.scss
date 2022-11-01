@@ -5,6 +5,11 @@
   transition: 0.3s;
   overflow: hidden;
 
+  &__small {
+    filter: drop-shadow(6px 6px 24px rgba(0, 0, 0, 0.051));
+    z-index: 50;
+  }
+
   &__large {
     max-width: 280px;
   }

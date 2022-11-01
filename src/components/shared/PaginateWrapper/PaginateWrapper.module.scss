@@ -1,0 +1,49 @@
+.paginate {
+  @extend %flex-center;
+  padding: 10px 0 30px 0;
+
+  &__box {
+    @extend %flex-justify-between;
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 30px;
+    background: transparent;
+    box-shadow: 7px -2px 42px -12px rgba(0, 0, 0, 0.74);
+    -moz-box-shadow: 7px -2px 42px -12px rgba(0, 0, 0, 0.74);
+    -webkit-box-shadow: 7px -2px 42px -12px rgba(0, 0, 0, 0.74);
+
+    &_item {
+      @extend %flex-center;
+      width: 35px;
+      height: 35px;
+      font-size: 20px;
+      transition: 0.4s;
+      border-radius: 50%;
+      background-color: $white;
+
+      &_active {
+        background-color: $blue-dark;
+
+        a {
+          color: $white !important;
+        }
+      }
+
+      &_next {
+        width: 15px;
+        height: 15px;
+      }
+
+      &_prev {
+        width: 15px;
+        height: 15px;
+        transform: rotate(180deg);
+      }
+
+      a {
+        @extend %flex-center;
+        color: $black;
+      }
+    }
+  }
+}
