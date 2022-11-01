@@ -2,9 +2,9 @@ import { FC, useState } from 'react';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 
-import FilterBy from './FilterBy';
 import { TFilter } from './types';
 import styles from './Filter.module.scss';
+import FilterBy from './filterBy';
 
 type TFilterProps = {
   filterItems: TFilter[];
