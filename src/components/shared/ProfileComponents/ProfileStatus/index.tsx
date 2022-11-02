@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-import { GuyImg, UserImg } from 'assets/img';
+import { UserImg } from 'assets/img';
 import Typography from 'components/shared/Typography';
 import UserImgFrame from 'components/shared/UserImgFrame';
 
@@ -25,6 +25,9 @@ const ProfileStatus: FC<TProfileStatusProps> = ({
 }) => {
   const profileStatusClasses = classNames(styles.container, className);
 
+  const statusTitle = isActive ? 'Open To Fishing' : 'Unavailable';
+  const statusTitleClasses = classNames(styles.title, { [styles.title_active]: isActive });
+
   const frameClasses = classNames(styles.container__content_head_img, frameClassName);
 
   return (
@@ -39,7 +42,7 @@ const ProfileStatus: FC<TProfileStatusProps> = ({
         </div>
         <div className={styles.container__content_status}>
           <div className={styles.container__content_status_inner}>
-            <Typography>Open To Fishing</Typography>
+            <Typography className={statusTitleClasses}>{statusTitle}</Typography>
             <ProfileStatusButton isActive={isActive} setIsActive={setIsActive} />
           </div>
         </div>

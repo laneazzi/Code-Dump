@@ -2,11 +2,12 @@
   @extend %flex-center-column;
   position: sticky;
   top: 0;
+  z-index: 1000;
   transition: 0.6s;
   padding: 53px 83px 20px;
 
-  &__focused {
-    padding: 53px 133px 20px 20px;
+  @include breakpoint(wide-max) {
+    padding: 53px 15px 20px;
   }
 
   &__logo {
@@ -29,7 +30,7 @@
     border-bottom: 1px solid $norland-blue-2;
 
     &_box {
-      @extend %flex-center;
+      @extend %flex-align;
       position: relative;
 
       &_title {
@@ -37,22 +38,22 @@
         position: absolute;
         opacity: 0;
         width: 0px;
+        left: 90px;
+        padding: 0px;
         color: $white;
-        right: -110px;
         transition: 0.3s;
-        overflow: hidden;
         border-radius: 8px;
         visibility: hidden;
         font-family: $inter;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        padding: 8px 16px 11px 14px;
         background-color: $red-light;
 
         &_active {
-          opacity: 1;
-          width: 100px;
-          visibility: visible;
+          @media (min-width: 1600px) {
+            opacity: 1;
+            padding: 8px 16px 11px 14px;
+            visibility: visible;
+            width: fit-content;
+          }
         }
       }
     }
@@ -78,6 +79,7 @@
       }
     }
   }
+
   &__logout {
     cursor: pointer;
     margin: 30px 0;

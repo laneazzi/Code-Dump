@@ -2,6 +2,10 @@
   display: flex;
   padding-right: 85px;
 
+  @include breakpoint(wide-max) {
+    padding-right: 15px;
+  }
+
   &__header {
     position: sticky;
     top: 0;

@@ -2,6 +2,10 @@
   position: relative;
   font-family: $inter;
 
+  @include breakpoint(wide-max) {
+    min-width: 440px;
+  }
+
   &_img {
     height: 215px;
 

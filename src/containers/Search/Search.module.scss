@@ -5,6 +5,15 @@
   margin-bottom: 74px;
   grid-template-columns: repeat(3, minmax(0, 491px));
 
+  @include breakpoint(wide-max) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include breakpoint(desktop) {
+    grid-template-columns: none;
+    gap: 10px;
+  }
+
   &__chat {
     position: fixed;
     bottom: 50px;

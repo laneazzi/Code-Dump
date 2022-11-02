@@ -1,6 +1,16 @@
 .lives {
-  margin: 40px 0 183px 0;
   display: grid;
   gap: 32px 55px;
+  margin: 40px 0 183px 0;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  @include breakpoint(wide-max) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  @include breakpoint(desktop) {
+    grid-template-columns: none;
+    gap: 10px;
+  }
 }

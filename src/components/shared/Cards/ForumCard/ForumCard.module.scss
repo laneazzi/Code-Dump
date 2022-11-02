@@ -8,6 +8,14 @@
   padding: 34px 34px 27px 34px;
   filter: drop-shadow(0px 0px 28px rgba(0, 0, 0, 0.031));
 
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+  }
+
+  @include breakpoint(tablet-m) {
+    padding: 20px;
+  }
+
   &__content {
     @extend %flex-between;
     margin-bottom: 10px;
@@ -69,6 +77,10 @@
       position: relative;
       margin: 12px 0 35px 0;
 
+      @include breakpoint(tablet-m) {
+        margin: 8px 0;
+      }
+
       &_count {
         @extend %font-22-bold;
         @extend %flex-center;
@@ -85,6 +97,11 @@
 
       img {
         height: 442px;
+
+        @include breakpoint(wide-max) {
+          width: 100%;
+          height: auto;
+        }
       }
     }
 

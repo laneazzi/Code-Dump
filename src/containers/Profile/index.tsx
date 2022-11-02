@@ -25,12 +25,14 @@ const Profile = () => {
       <div className={styles.profile__content}>
         <section className={styles.profile__content_head}>
           <ProfileStatus
-            frameClassName={styles.profile__content_head_frame}
             isActive={isActive}
             setIsActive={setIsActive}
+            className={styles.profile__content_head_user}
+            frameClassName={styles.profile__content_head_frame}
           />
-          <ProfileSideImg img={cardImgTwo} />
+          <ProfileSideImg img={cardImgTwo} className={styles.profile__content_head_background} />
         </section>
+
         {isActive && (
           <Fragment>
             <section className={styles.profile__content_info}>
