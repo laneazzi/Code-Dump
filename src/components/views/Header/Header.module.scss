@@ -2,9 +2,13 @@
   @extend %flex-between;
   position: relative;
   gap: 16px;
-  z-index: 10;
-  padding: 0 40px 18px 40px;
+  z-index: 1000;
+  padding: 0 40px 25px 40px;
   border-bottom: 1px solid $norland-blue-2;
+
+  @include breakpoint(tablet) {
+    padding: 0 0 25px 0;
+  }
 
   &__title {
     @extend %flex-align;
@@ -14,19 +18,61 @@
       @extend %font-24;
       color: $blue-dark;
       text-transform: capitalize;
+
+      @include breakpoint(wide-max) {
+        display: none;
+      }
+    }
+
+    &_logo {
+      width: 193px;
+      @include breakpoint(wide-max) {
+        display: none;
+      }
+    }
+
+    &_icon {
+      display: none;
+      width: 66px;
+      height: 66px;
+
+      @include breakpoint(wide-max) {
+        display: block;
+      }
     }
   }
 
   &__field {
-    width: 100%;
-    max-width: 499px;
     border-radius: 8px;
     background-color: $light-gray;
     border: 1px solid $faded-bluestone-light;
+    width: 100%;
+    max-width: 499px;
+    padding: 15px 22px;
+    transition: 0.6s;
+
+    &_active {
+      display: block !important;
+    }
+
+    @include breakpoint(tablet) {
+      display: none;
+    }
+
+    @include breakpoint(tablet-m) {
+      position: absolute;
+      left: 0;
+      top: 95px;
+      max-width: 100%;
+      background: #252849;
+
+      input {
+        color: $blue-gray;
+      }
+    }
 
     div {
       @extend %flex-between;
-      padding: 15px 22px;
 
       svg {
         position: relative;
@@ -41,12 +87,33 @@
       width: 100%;
       border: none;
       padding: 0px;
-      width: 432px;
       font-family: $inter;
       background-color: transparent;
 
       &::placeholder {
         color: $blue-gray;
+      }
+    }
+
+    &_icon {
+      @extend %flex-center;
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      right: 130px;
+      display: none;
+      transition: 0.6s;
+      background-color: light-gray;
+
+      @include breakpoint(tablet) {
+        display: flex;
+        top: -25px;
+        right: 49px;
+      }
+
+      svg {
+        width: 21px;
+        height: 21px;
       }
     }
   }
@@ -57,8 +124,9 @@
 
     &_frame {
       @extend %flex-align;
-      cursor: pointer;
       gap: 10px;
+      cursor: pointer;
+      position: relative;
 
       &_border {
         border: 3px solid $norland-blue-2 !important;
@@ -74,10 +142,24 @@
 
     &_add {
       cursor: pointer;
+
+      @include breakpoint(tablet) {
+        position: absolute;
+        right: 30px;
+        width: 20px;
+        top: -33px;
+      }
     }
 
     &_ring {
       cursor: pointer;
+
+      @include breakpoint(tablet) {
+        position: absolute;
+        right: 60px;
+        width: 20px;
+        top: 47px;
+      }
     }
   }
 
@@ -89,6 +171,10 @@
     display: none;
     overflow: hidden;
 
+    @include breakpoint(tablet) {
+      right: 0;
+    }
+
     &_active {
       display: block;
     }
@@ -96,10 +182,14 @@
 
   &__user_dropdown {
     position: absolute;
-    right: 0;
+    right: 0px;
     top: 100px;
     z-index: 50;
     display: none;
+
+    @include breakpoint(tablet) {
+      right: 0;
+    }
 
     &_active {
       display: block;

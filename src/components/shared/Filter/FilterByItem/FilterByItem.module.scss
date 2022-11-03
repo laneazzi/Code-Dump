@@ -7,15 +7,28 @@
   padding: 20px 22px 23px 19px;
   border: 1px solid $norland-blue-2;
 
+  @include breakpoint(tablet-m) {
+    max-width: 200px;
+    padding: 15px 20px 20px 15px;
+  }
+
   &__title {
     @extend %font-20;
     color: $blue-dark;
     font-family: $Inter;
+
+    @include breakpoint(tablet-m) {
+      font-size: 16px;
+    }
   }
 
   &__main {
     @extend %font-24;
     @extend %flex-between;
     font-family: $Inter;
+
+    @include breakpoint(tablet-m) {
+      font-size: 16px;
+    }
   }
 }

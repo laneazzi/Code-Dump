@@ -16,6 +16,10 @@
         &::before {
           color: $white;
           font-size: 15px;
+
+          @include breakpoint(tablet) {
+            font-size: 10px;
+          }
         }
       }
     }

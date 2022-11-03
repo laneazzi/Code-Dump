@@ -25,6 +25,16 @@
       margin-bottom: 11px;
       letter-spacing: 0.5;
       font-family: $inter;
+
+      @include breakpoint(tablet) {
+        font-size: 20px;
+        line-height: 29px;
+      }
+
+      @include breakpoint(tablet) {
+        font-size: 18px;
+        line-height: 27px;
+      }
     }
 
     &_list {

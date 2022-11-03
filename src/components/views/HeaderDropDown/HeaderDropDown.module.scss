@@ -1,14 +1,22 @@
 .container {
-  max-width: 384px;
-  width: 100%;
+  width: 384px;
   border-radius: 16px;
   background-color: $white;
   border: 1px solid #ccc;
+
+  @include breakpoint(tablet) {
+    width: 270px;
+  }
 
   &__content {
     @extend %flex-column;
     gap: 43px;
     padding: 40px 36px 38px 34px;
+
+    @include breakpoint(tablet) {
+      gap: 10px;
+      padding: 20px;
+    }
 
     &_item {
       @extend %font-24;
@@ -17,6 +25,17 @@
       font-family: $inter;
       color: $blue-dark;
       white-space: nowrap;
+
+      @include breakpoint(tablet) {
+        font-size: 20px;
+        gap: 15px;
+      }
+
+      svg {
+        @include breakpoint(tablet) {
+          width: 20px;
+        }
+      }
     }
   }
 }

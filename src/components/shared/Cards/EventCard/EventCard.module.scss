@@ -9,7 +9,12 @@
   }
 
   @include breakpoint(tablet) {
+    min-height: 250px;
+  }
+
+  @include breakpoint(mobile-m) {
     min-height: auto;
+    height: 200px;
   }
 
   &__background {

@@ -30,6 +30,12 @@
         border-radius: 50%;
         margin-right: 14px;
         border-color: $norland-blue-2;
+
+        @include breakpoint(tablet-m) {
+          width: 50px;
+          height: 50px;
+          margin-right: 5px;
+        }
       }
 
       &__selects {
@@ -37,14 +43,49 @@
         width: 100%;
         max-width: 200px;
 
+        @include breakpoint(tablet-m) {
+          max-width: 100px;
+        }
+
         &_icon {
           width: 23px;
           height: 30px;
           cursor: pointer;
+
+          svg {
+            @include breakpoint(tablet-m) {
+              width: 20px;
+            }
+
+            @include breakpoint(mobile-m) {
+              width: 16px;
+            }
+          }
         }
 
         &__time {
           color: $blue-gray;
+
+          @include breakpoint(tablet-m) {
+            font-size: 12px;
+            line-height: 16px;
+          }
+
+          @include breakpoint(mobile-m) {
+            font-size: 10px;
+          }
+        }
+
+        .options {
+          @include breakpoint(tablet-m) {
+            width: 14px;
+            height: 18px;
+          }
+
+          @include breakpoint(mobile-m) {
+            width: 12px;
+            height: 15px;
+          }
         }
       }
 
@@ -53,6 +94,16 @@
           @extend %font-19;
           color: $green;
           font-family: $inter;
+
+          @include breakpoint(tablet-m) {
+            font-size: 14px;
+            line-height: 18px;
+          }
+
+          @include breakpoint(mobile-m) {
+            font-size: 12px;
+            line-height: 16px;
+          }
         }
 
         &_username {
@@ -61,8 +112,32 @@
           font-family: $Open-Sans;
           color: $dark-blue-magenta;
 
+          @include breakpoint(tablet-m) {
+            font-size: 14px;
+            line-height: 18px;
+          }
+
+          @include breakpoint(mobile-m) {
+            font-size: 12px;
+            line-height: 16px;
+          }
+
           svg {
             margin-left: 8px;
+
+            @include breakpoint(tablet-m) {
+              margin-left: 5px;
+            }
+          }
+
+          .verify {
+            @include breakpoint(tablet-m) {
+              width: 15px;
+            }
+
+            @include breakpoint(mobile-m) {
+              width: 12px;
+            }
           }
         }
       }
@@ -71,6 +146,16 @@
     &__text {
       @extend %font-21;
       color: $green;
+
+      @include breakpoint(tablet-m) {
+        font-size: 14px;
+        line-height: 18px;
+      }
+
+      @include breakpoint(mobile-m) {
+        font-size: 12px;
+        line-height: 16px;
+      }
     }
 
     &__image {
@@ -93,6 +178,19 @@
         border-radius: 25%;
         font-family: $Open-Sans;
         background-color: rgba(38, 55, 77, 0.5);
+
+        @include breakpoint(tablet-m) {
+          top: 9px;
+          right: 5px;
+          font-size: 14px;
+          padding: 4px 8px;
+          line-height: 18px;
+        }
+
+        @include breakpoint(mobile-m) {
+          font-size: 12px;
+          line-height: 16px;
+        }
       }
 
       img {
@@ -111,10 +209,30 @@
       p {
         color: $gray;
         margin: 0 10px;
+        @extend %font-22;
+        font-family: $Open-Sans;
+
+        @include breakpoint(tablet-m) {
+          font-size: 16px;
+        }
+
+        @include breakpoint(mobile-m) {
+          font-size: 12px;
+        }
       }
 
       &__blog {
         @extend %flex-center;
+      }
+
+      svg {
+        @include breakpoint(tablet-m) {
+          width: 14px;
+        }
+
+        @include breakpoint(mobile-m) {
+          width: 12px;
+        }
       }
     }
   }

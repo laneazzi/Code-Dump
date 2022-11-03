@@ -4,15 +4,32 @@
   top: 0;
   z-index: 1000;
   transition: 0.6s;
-  padding: 53px 83px 20px;
+  padding: 53px 20px;
 
   @include breakpoint(wide-max) {
-    padding: 53px 15px 20px;
+    position: static;
+    margin: 0 auto;
+    max-width: 850px;
+    padding: 25px 20px;
+  }
+
+  @include breakpoint(tablet-m) {
+    max-width: 100%;
+    padding: 10px 40px;
+  }
+
+  @include breakpoint(mobile-m) {
+    max-width: 100%;
+    padding: 10px 60px;
   }
 
   &__logo {
     @extend %flex-center;
     padding-bottom: 35px;
+
+    @include breakpoint(wide-max) {
+      display: none;
+    }
 
     &_icon {
       width: 65px;
@@ -28,6 +45,17 @@
     padding: 60px 0;
     border-top: 1px solid $norland-blue-2;
     border-bottom: 1px solid $norland-blue-2;
+
+    @include breakpoint(wide-max) {
+      gap: 30px;
+      padding: 0;
+      border: none;
+      flex-direction: row;
+    }
+
+    @include breakpoint(tablet-m) {
+      gap: 15px;
+    }
 
     &_box {
       @extend %flex-align;
@@ -64,6 +92,28 @@
       height: 66px;
       border-radius: 50%;
 
+      svg {
+        @include breakpoint(tablet-m) {
+          width: 25px;
+          height: 25px;
+        }
+
+        @include breakpoint(mobile-m) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      @include breakpoint(tablet-m) {
+        width: 50px;
+        height: 50px;
+      }
+
+      @include breakpoint(mobile-m) {
+        width: 40px;
+        height: 40px;
+      }
+
       &_active {
         @extend %flex-center;
         width: 66px;
@@ -71,7 +121,27 @@
         border-radius: 50%;
         background-color: #0e2760;
 
+        @include breakpoint(tablet-m) {
+          width: 50px;
+          height: 50px;
+        }
+
+        @include breakpoint(mobile-m) {
+          width: 40px;
+          height: 40px;
+        }
+
         svg {
+          @include breakpoint(tablet-m) {
+            width: 25px;
+            height: 25px;
+          }
+
+          @include breakpoint(mobile-m) {
+            width: 20px;
+            height: 20px;
+          }
+
           path {
             fill: $white;
           }

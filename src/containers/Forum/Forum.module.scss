@@ -5,8 +5,16 @@
   margin: 61px 0 63px 0;
 
   @include breakpoint(wide-max) {
+    padding: 0;
+  }
+
+  @include breakpoint(wide-max) {
     gap: 10px;
     flex-direction: column-reverse;
+  }
+
+  @include breakpoint(tablet) {
+    gap: 20px;
   }
 
   &__posts {

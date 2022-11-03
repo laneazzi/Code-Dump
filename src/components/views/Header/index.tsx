@@ -1,12 +1,14 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import { useLocation } from 'react-router-dom';
 
 import {
   AddIcon,
+  CloseIcon,
   HeaderArrowIcon,
   InputSearchIcon,
   ReelBudTextIcon,
+  ReelBudLogoIcon,
   NotificationsIcon,
 } from 'assets/icons';
 import { UserImg } from 'assets/img';
@@ -19,8 +21,22 @@ import { HeaderDropDown } from '../index';
 import styles from './Header.module.scss';
 
 const Header = () => {
-  const [isEventActive, setIsEventActive] = useState(false);
   const [isUserActive, setIsUserActive] = useState(false);
+  const [isEventActive, setIsEventActive] = useState(false);
+  const [isSearch, setIsSearch] = useState<boolean>(false);
+
+  const inputSearchClasses = classNames(styles.header__field, {
+    [styles.header__field_active]: isSearch,
+  });
+
+  const inputIconClasses = classNames(styles.header__field_icon, {
+    [styles.header__field_icon_active]: isSearch,
+  });
+
+  const openSearch = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    setIsSearch(!isSearch);
+  };
 
   const eventRef = useRef<null>(null);
 
@@ -30,9 +46,9 @@ const Header = () => {
 
   const closeUserDropDown = () => setIsUserActive(false);
 
-  useOnClickOutside(eventRef, closeEventDropDown);
-
   useOnClickOutside(userRef, closeUserDropDown);
+
+  useOnClickOutside(eventRef, closeEventDropDown);
 
   const eventDropDownClasses = classNames(styles.header__events, {
     [styles.header__events_active]: isEventActive,
@@ -57,6 +73,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header__title}>
+        <ReelBudLogoIcon className={styles.header__title_icon} />
         <ReelBudTextIcon className={styles.header__title_logo} />
         <Typography tagName='span' className={styles.header__title_route}>
           /
@@ -71,7 +88,7 @@ const Header = () => {
         type='text'
         placeholder='Search...'
         RightIcon={InputSearchIcon}
-        innerClassName={styles.header__field}
+        innerClassName={inputSearchClasses}
         className={styles.header__field_block}
       />
 
@@ -86,6 +103,9 @@ const Header = () => {
           <HeaderArrowIcon className={headerArrowClasses} />
           <UserImgFrame img={UserImg} className={styles.header__user_frame_border} />
           <HeaderDropDown dropDownList={ProfileDropDownItems} className={userDropDownClasses} />
+          <div className={inputIconClasses} onClick={openSearch}>
+            {isSearch ? <CloseIcon /> : <InputSearchIcon />}
+          </div>
         </div>
       </div>
     </header>

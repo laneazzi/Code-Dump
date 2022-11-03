@@ -10,6 +10,10 @@
   }
 
   @include breakpoint(tablet) {
+    min-height: 250px;
+  }
+
+  @include breakpoint(mobile-m) {
     min-height: auto;
   }
 
@@ -86,11 +90,11 @@
       background: linear-gradient(180deg, rgba(14, 39, 96, 0) 0%, #0e2760 100%);
 
       @include breakpoint(tablet-m) {
-        padding: 10px 0 20px 10px;
+        padding: 30px 0 10px 30px;
       }
 
       @include breakpoint(mobile-m) {
-        padding: 5px 0 10px 5px;
+        padding: 20px 0;
       }
 
       &_main {

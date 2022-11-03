@@ -6,8 +6,16 @@
     min-width: 440px;
   }
 
+  @include breakpoint(tablet-m) {
+    min-width: 300px;
+  }
+
   &_img {
     height: 215px;
+
+    @include breakpoint(wide-max) {
+      height: auto;
+    }
 
     img {
       height: 100%;
@@ -34,12 +42,43 @@
         border-radius: 50%;
         margin-right: 13px;
         border: 4px solid $white-light;
+
+        @include breakpoint(tablet-m) {
+          margin-right: 5px;
+        }
       }
 
       &_user {
-        p {
+        .username {
+          @extend %font-20-large-bold;
           color: $white;
-          font-size: 20px;
+          font-family: $Open-Sans;
+
+          @include breakpoint(tablet) {
+            font-size: 18px;
+            line-height: 24px;
+          }
+
+          @include breakpoint(tablet-m) {
+            font-size: 16px;
+            line-height: 22px;
+          }
+        }
+
+        .nickname {
+          @extend %font-19;
+          color: $white;
+          font-family: $inter;
+
+          @include breakpoint(tablet) {
+            font-size: 17px;
+            line-height: 20px;
+          }
+
+          @include breakpoint(tablet-m) {
+            font-size: 15px;
+            line-height: 18px;
+          }
         }
       }
     }
