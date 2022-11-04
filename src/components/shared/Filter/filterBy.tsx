@@ -19,7 +19,8 @@ const FilterBy: FC = () => {
 
   useOnClickOutside(expandedRef, closeFilter);
 
-  const handleFilterClick = () => {
+  const handleFilterClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
     setExpanded(!expanded);
   };
 
@@ -31,7 +32,7 @@ const FilterBy: FC = () => {
 
   return (
     <div className={styles.filter} onClick={handleFilterClick} ref={expandedRef}>
-      <div className={styles.filter__content} onClick={handlePropagation}>
+      <div className={styles.filter__content}>
         <FilterIcon />
         <Typography>Filter By</Typography>
       </div>

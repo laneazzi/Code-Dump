@@ -4,16 +4,48 @@
   border-radius: 16px;
   border: 1px solid $norland-blue-2;
 
+  @include breakpoint(wide-max) {
+    position: relative;
+    z-index: 3;
+  }
+
+  @include breakpoint(tablet-m) {
+    width: 100%;
+    max-width: none;
+  }
+
   &__content {
     @extend %flex-center-column;
     padding: 38px 116.5px 44px 117.5px;
 
+    @include breakpoint(tablet-m) {
+      padding: 20px 50px;
+    }
+
+    @include breakpoint(mobile-m) {
+      padding: 10px 25px;
+    }
+
     &_head {
       padding-bottom: 13px;
+
+      @include breakpoint(mobile-m) {
+        padding-bottom: 8px;
+      }
 
       &_img {
         width: 117px;
         height: 118px;
+
+        @include breakpoint(tablet-m) {
+          width: 80px;
+          height: 80px;
+        }
+
+        @include breakpoint(mobile-m) {
+          width: 65px;
+          height: 65px;
+        }
       }
     }
 
@@ -22,16 +54,40 @@
       gap: 5px;
       padding-bottom: 24px;
 
+      @include breakpoint(mobile-m) {
+        padding-bottom: 16px;
+      }
+
       &_username {
         @extend %font-26;
         color: $blue-dark;
         font-family: $Open-Sans;
+
+        @include breakpoint(tablet-m) {
+          font-size: 20px;
+          line-height: 29px;
+        }
+
+        @include breakpoint(mobile-m) {
+          font-size: 18px;
+          line-height: 27px;
+        }
       }
 
       &_location {
         @extend %font-22-large;
         color: $red-light;
         font-family: $Open-Sans;
+
+        @include breakpoint(tablet-m) {
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        @include breakpoint(mobile-m) {
+          font-size: 14px;
+          line-height: 22px;
+        }
       }
     }
 
@@ -44,11 +100,25 @@
         gap: 13px;
         padding: 12px 19px 13px 23.85px;
 
+        @include breakpoint(mobile-m) {
+          padding: 10px 18px;
+        }
+
         p {
           @extend %font-23;
           color: $blue-dark;
           white-space: nowrap;
           font-family: $Open-Sans;
+
+          @include breakpoint(tablet-m) {
+            font-size: 18px;
+            line-height: 26px;
+          }
+
+          @include breakpoint(mobile-m) {
+            font-size: 16px;
+            line-height: 24px;
+          }
         }
       }
     }

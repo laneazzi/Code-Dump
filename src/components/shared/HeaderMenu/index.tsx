@@ -1,25 +1,77 @@
-import { useRef } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 
 import { UserImg } from 'assets/img';
+import { useOnClickOutside } from 'hooks';
 
 import UserImgFrame from '../UserImgFrame';
 
-import { menuLinks } from './links';
+import { MenuLinkNames, menuLinks } from './links';
 
 import './HeaderMenu.scss';
 
-const HeaderMenu = () => {
-  const menuRef = useRef(null);
+type THeaderMenu = {
+  user: () => void;
+  create: () => void;
+  search: () => void;
+};
 
-  const renderMenuLinks = menuLinks.map((menuLink) => (
-    <div role='button' key={menuLink.id} className={menuLink.className}>
-      {menuLink.imageSrc}
-    </div>
-  ));
+const HeaderMenu: FC<THeaderMenu> = ({ user, create, search }) => {
+  const [checked, setChecked] = useState(false);
+  const checkedRef = useRef<HTMLInputElement | null>(null);
+
+  const checkedMenu = () => {
+    setChecked(!checked);
+  };
+
+  const closeMenu = () => {
+    setChecked(false);
+  };
+
+  useOnClickOutside(checkedRef, closeMenu);
+
+  useEffect(() => {
+    setChecked(false);
+  }, [create, user, search]);
+
+  const renderMenuLinks = menuLinks.map((menuLink) => {
+    const toggleDependsName = () => {
+      switch (menuLink.name) {
+        case menuLink.name && MenuLinkNames.CREATE:
+          return create();
+
+        case menuLink.name && MenuLinkNames.SEARCH:
+          return search();
+
+        case menuLink.name && MenuLinkNames.USER:
+          return user();
+
+        default:
+          return checkedMenu();
+      }
+    };
+
+    return (
+      <div
+        role='button'
+        key={menuLink.id}
+        onClick={toggleDependsName}
+        className={menuLink.className}
+      >
+        {menuLink.imageSrc}
+      </div>
+    );
+  });
 
   return (
-    <div className='menu' ref={menuRef}>
-      <input id='menu-open' type='checkbox' name='menu-open' className='menu-open' />
+    <div className='menu' ref={checkedRef}>
+      <input
+        id='menu-open'
+        type='checkbox'
+        name='menu-open'
+        checked={checked}
+        className='menu-open'
+        onChange={checkedMenu}
+      />
       <label className='menu-open-button' htmlFor='menu-open'>
         <UserImgFrame img={UserImg} className='menu-bg' />
       </label>

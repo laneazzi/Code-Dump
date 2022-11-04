@@ -7,7 +7,8 @@
   padding: 53px 20px;
 
   @include breakpoint(wide-max) {
-    position: static;
+    position: relative;
+    z-index: 999;
     margin: 0 auto;
     max-width: 850px;
     padding: 25px 20px;
@@ -20,7 +21,7 @@
 
   @include breakpoint(mobile-m) {
     max-width: 100%;
-    padding: 10px 60px;
+    padding: 20px 60px;
   }
 
   &__logo {
@@ -97,11 +98,6 @@
           width: 25px;
           height: 25px;
         }
-
-        @include breakpoint(mobile-m) {
-          width: 20px;
-          height: 20px;
-        }
       }
 
       @include breakpoint(tablet-m) {
@@ -127,19 +123,14 @@
         }
 
         @include breakpoint(mobile-m) {
-          width: 40px;
-          height: 40px;
+          width: 43px;
+          height: 43px;
         }
 
         svg {
           @include breakpoint(tablet-m) {
             width: 25px;
             height: 25px;
-          }
-
-          @include breakpoint(mobile-m) {
-            width: 20px;
-            height: 20px;
           }
 
           path {

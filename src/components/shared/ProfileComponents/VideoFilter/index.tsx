@@ -23,7 +23,9 @@ const VideoFilter: FC<TVideFilterProps> = ({ videoCount, livesCount }) => (
     <label className={styles.container__filters_add} role='button'>
       <input type='file' />
       <VideoAddIcon className={styles.container__filters_add_icon} />
-      <Typography tagName='span'>Add New Video</Typography>
+      <Typography tagName='span' className={styles.container__filters_add_title}>
+        Add New Video
+      </Typography>
     </label>
   </div>
 );

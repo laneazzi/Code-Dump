@@ -5,17 +5,55 @@
   &__content {
     padding: 35px 136px 35px 36px;
 
+    @include breakpoint(wide-max) {
+      padding-right: 50px;
+    }
+
+    @include breakpoint(tablet) {
+      padding: 10px 20px;
+    }
+
     &_title {
       @extend %font-28;
       color: $blue-dark;
       margin-bottom: 10px;
       font-family: $Open-Sans;
+
+      @include breakpoint(wide-max) {
+        font-size: 24px;
+        line-height: 34px;
+      }
+
+      @include breakpoint(tablet) {
+        font-size: 20px;
+        line-height: 30px;
+      }
+
+      @include breakpoint(tablet-m) {
+        font-size: 18px;
+        line-height: 28px;
+      }
     }
 
     &_description {
       @extend %font-24-large;
       color: $blue-dark;
       font-family: $Open-Sans;
+
+      @include breakpoint(wide-max) {
+        font-size: 20px;
+        line-height: 29px;
+      }
+
+      @include breakpoint(tablet) {
+        font-size: 16px;
+        line-height: 25px;
+      }
+
+      @include breakpoint(tablet-m) {
+        font-size: 14px;
+        line-height: 21px;
+      }
     }
   }
 }

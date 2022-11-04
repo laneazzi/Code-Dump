@@ -3,6 +3,10 @@
   position: relative;
   margin: 52px 0;
 
+  @include breakpoint(desktop) {
+    margin: 20px 0;
+  }
+
   &__block {
     display: flex;
     gap: 32px;
@@ -18,9 +22,9 @@
       z-index: 5;
       gap: 0;
       display: none;
-      border-radius: 8px;
       overflow: scroll;
       max-height: 200px;
+      border-radius: 8px;
       flex-direction: column;
       background-color: $white;
       border: 1px solid $blue-dark;
@@ -51,7 +55,7 @@
 
       &_active {
         color: $white;
-        background-color: #0e2760;
+        background-color: $blue;
       }
     }
   }

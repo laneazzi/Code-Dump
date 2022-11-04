@@ -1,8 +1,6 @@
-import { FC, useRef, useState } from 'react';
+import { FC, useState } from 'react';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
-
-import { useOnClickOutside } from 'hooks';
 
 import { TFilter } from './types';
 import styles from './Filter.module.scss';
@@ -16,13 +14,7 @@ const Filter: FC<TFilterProps> = ({ filterItems }) => {
   const [isActive, setIsActive] = useState<number>(0);
   const [isSort, setIsSort] = useState<boolean>(false);
 
-  const sortByRef = useRef<HTMLDivElement | null>(null);
-
-  const closeSortDrop = () => setIsSort(false);
-
-  const sortBy = () => setIsSort(!isSort);
-
-  useOnClickOutside(sortByRef, closeSortDrop);
+  const handleSortClick = () => setIsSort(!isSort);
 
   const navigate = useNavigate();
 
@@ -53,7 +45,7 @@ const Filter: FC<TFilterProps> = ({ filterItems }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.container__sort} onClick={sortBy} ref={sortByRef}>
+      <div className={styles.container__sort} onClick={handleSortClick}>
         Sort By
       </div>
       <div className={blockClasses}>{filterItemsRenderer}</div>

@@ -1,4 +1,5 @@
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 import store from 'store';
 import { ModalContextProvider } from 'context/Modal';
@@ -9,9 +10,11 @@ import './styles/index.global.scss';
 
 const ReelBudApp = () => (
   <Provider store={store}>
-    <ModalContextProvider>
-      <RouterProvider />
-    </ModalContextProvider>
+    <BrowserRouter>
+      <ModalContextProvider>
+        <RouterProvider />
+      </ModalContextProvider>
+    </BrowserRouter>
   </Provider>
 );
 

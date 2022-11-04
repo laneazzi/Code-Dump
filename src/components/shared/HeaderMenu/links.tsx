@@ -4,33 +4,40 @@ type TMenuLinks = {
   id: number;
   className: string;
   imageSrc: React.ReactNode;
-  name: string;
+  name: MenuLinkNames.CREATE | MenuLinkNames.RING | MenuLinkNames.USER | MenuLinkNames.SEARCH;
 };
 const classes = 'menu-item';
+
+export enum MenuLinkNames {
+  RING = 'RING',
+  USER = 'USER',
+  CREATE = 'CREATE',
+  SEARCH = 'SEARCH',
+}
 
 export const menuLinks: TMenuLinks[] = [
   {
     id: 1,
-    imageSrc: <SettingsIcon />,
     className: classes,
-    name: 'user',
+    name: MenuLinkNames.USER,
+    imageSrc: <SettingsIcon />,
   },
   {
     id: 2,
-    imageSrc: <AddIcon />,
     className: classes,
-    name: 'add',
+    imageSrc: <AddIcon />,
+    name: MenuLinkNames.CREATE,
   },
   {
     id: 3,
-    imageSrc: <NotificationsIcon />,
     className: classes,
-    name: 'ring',
+    name: MenuLinkNames.RING,
+    imageSrc: <NotificationsIcon />,
   },
   {
     id: 4,
-    imageSrc: <SearchIcon />,
     className: classes,
-    name: 'search',
+    imageSrc: <SearchIcon />,
+    name: MenuLinkNames.SEARCH,
   },
 ];

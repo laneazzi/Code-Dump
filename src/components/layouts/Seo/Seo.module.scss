@@ -1,6 +1,5 @@
 .layout {
   @extend %flex-justify-between;
-
   gap: 133px;
   margin: 0 auto;
   max-width: 1759px;
@@ -14,10 +13,11 @@
     top: 0;
     z-index: 10;
     padding: 45px 0 0;
-    background-color: $white;
+    background: $white;
 
     @include breakpoint(tablet) {
-      padding-top: 25px;
+      margin: 0 -16px;
+      padding: 15px 16px 0;
     }
   }
 
@@ -27,17 +27,21 @@
     @include breakpoint(wide-max) {
       padding: 0 20px;
     }
+
+    @include breakpoint(tablet) {
+      padding: 0 16px;
+    }
   }
 
   &__navbar {
     @include breakpoint(wide-max) {
       position: fixed;
-
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: 10;
-      background: $white;
+      z-index: 70;
+      background: hsla(0, 0%, 100%, 0.8);
+      backdrop-filter: saturate(180%) blur(5px);
       box-shadow: 0 -3px 10px 3px rgba(0, 0, 0, 0.2);
     }
   }

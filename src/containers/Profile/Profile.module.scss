@@ -1,13 +1,36 @@
 .profile {
   margin: 60px 0 111px 0;
 
+  @include breakpoint(wide-max) {
+    position: relative;
+    margin: 30px 0 200px 0;
+  }
+
+  @include breakpoint(tablet-m) {
+    margin: 30px 0 100px 0;
+  }
+
   &__content {
-    max-width: 1442px;
     margin: 0 auto;
+    max-width: 1442px;
+
+    @include breakpoint(tablet) {
+      margin: 0 10px;
+      max-width: 100%;
+    }
 
     &_head {
       @extend %flex-between;
       padding-bottom: 96px;
+
+      @include breakpoint(wide-max) {
+        justify-content: center;
+      }
+
+      @include breakpoint(tablet) {
+        position: relative;
+        padding-bottom: 30px;
+      }
 
       &_frame {
         border-color: $norland-blue-2;
@@ -17,12 +40,26 @@
     &_filter {
       padding-top: 95px;
       padding-bottom: 32px;
+
+      @include breakpoint(desktop) {
+        padding-top: 65px;
+        padding-bottom: 15px;
+      }
     }
 
     &_videos {
       display: grid;
       gap: 33px;
       grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      @include breakpoint(desktop) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      @include breakpoint(tablet) {
+        grid-template-columns: none;
+      }
     }
   }
 }

@@ -52,4 +52,25 @@
     @extend %flex-align;
     cursor: pointer;
   }
+
+  &__global {
+    .container__content {
+      @include breakpoint(tablet) {
+        padding: 5px;
+        font-size: 18px;
+        max-width: 300px;
+        border-radius: 6px;
+      }
+      div {
+        input {
+          font-size: 16px;
+        }
+      }
+    }
+    .container__icon_item {
+      @include breakpoint(tablet) {
+        width: 35px;
+      }
+    }
+  }
 }

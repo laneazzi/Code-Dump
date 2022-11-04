@@ -6,10 +6,15 @@
 
   @include breakpoint(wide-max) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 150px;
   }
 
   @include breakpoint(desktop) {
     grid-template-columns: none;
     gap: 10px;
+  }
+
+  @include breakpoint(tablet-m) {
+    margin-bottom: 100px;
   }
 }

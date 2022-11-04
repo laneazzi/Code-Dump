@@ -8,6 +8,10 @@
     max-width: 100%;
   }
 
+  @include breakpoint(mobile-m) {
+    height: auto;
+  }
+
   &__item {
     position: relative;
     height: 100%;

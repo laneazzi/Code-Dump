@@ -5,12 +5,17 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 
   @include breakpoint(wide-max) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
+    margin-bottom: 150px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   @include breakpoint(desktop) {
-    grid-template-columns: none;
     gap: 10px;
+    grid-template-columns: none;
+  }
+
+  @include breakpoint(tablet-m) {
+    margin-bottom: 100px;
   }
 }

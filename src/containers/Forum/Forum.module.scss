@@ -6,15 +6,17 @@
 
   @include breakpoint(wide-max) {
     padding: 0;
-  }
-
-  @include breakpoint(wide-max) {
+    margin: 25px 0 150px 0;
     gap: 10px;
     flex-direction: column-reverse;
   }
 
   @include breakpoint(tablet) {
     gap: 20px;
+  }
+
+  @include breakpoint(tablet-m) {
+    margin-bottom: 100px;
   }
 
   &__posts {

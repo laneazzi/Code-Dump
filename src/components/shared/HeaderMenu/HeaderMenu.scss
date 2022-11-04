@@ -1,10 +1,11 @@
 .menu {
   position: fixed;
+  top: 20px;
   width: 64px;
+  right: -6px;
   height: 64px;
-  top: 25px;
-  right: 25px;
   z-index: 999;
+
   &-open-button {
     border-radius: 100%;
     width: 64px;
@@ -20,76 +21,92 @@
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition-duration: 400ms;
     transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+
     &:hover {
       transform: scale(1.2, 1.2) translate3d(0, 0, 0);
     }
   }
+
   &-bg {
     width: unset !important;
     height: unset !important;
-    border-color: gray !important;
+    border-color: $norland-blue-2 !important;
   }
+
   &-item {
     border-radius: 100%;
+    top: 10px;
     width: 40px;
     height: 40px;
-    margin-left: -16px;
-    position: absolute;
-    top: 10px;
-    transform: translate3d(0, 0, 0);
-    transition: transform ease-out 200ms;
     cursor: pointer;
     transition: 0.5s;
+    margin-left: -16px;
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+    transition: transform ease-out 200ms;
+
     &.d_none {
       display: none;
     }
+
     &:nth-child(5) {
       transition-duration: 320ms;
     }
+
     &:nth-child(6) {
       transition-duration: 400ms;
     }
+
     &:nth-child(7) {
       transition-duration: 480ms;
     }
+
     &:nth-child(8) {
       transition-duration: 540ms;
     }
   }
+
   &-open {
     &:checked {
       ~ {
         .menu-item {
           transition-timing-function: cubic-bezier(0.935, 0, 0.34, 1.33);
+
           &:nth-child(5) {
             transition-duration: 320ms;
-            transform: translate3d(-5px, 65px, 0) !important;
+            transform: translate3d(-9px, 64px, 0) !important;
           }
+
           &:nth-child(6) {
             transition-duration: 400ms;
-            transform: translate3d(-55px, 35px, 0) !important;
+            transform: translate3d(-56px, 30px, 0) !important;
           }
+
           &:nth-child(7) {
             transition-duration: 480ms;
-            transform: translate3d(-60px, -15px, 0) !important;
+            transform: translate3d(-55px, -23px, 0) !important;
           }
+
           &:nth-child(8) {
             transition-duration: 540ms;
-            transform: translate3d(45px, 50px, 0) !important;
+            transform: translate3d(36px, 49px, 0) !important;
           }
         }
       }
     }
     display: none;
   }
+
   &--icon {
     width: 25px;
     height: 25px;
+
     &.small {
       width: 20px;
       height: 20px;
     }
   }
+
   &:checked {
     + {
       .menu-open-button {

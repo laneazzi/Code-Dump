@@ -1,10 +1,9 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import classNames from 'classnames';
 import { useLocation } from 'react-router-dom';
 
 import {
   AddIcon,
-  CloseIcon,
   HeaderArrowIcon,
   InputSearchIcon,
   ReelBudTextIcon,
@@ -13,7 +12,7 @@ import {
 } from 'assets/icons';
 import { UserImg } from 'assets/img';
 import { useOnClickOutside } from 'hooks';
-import { Input, Typography, UserImgFrame } from 'components/shared';
+import { HeaderMenu, Input, Typography, UserImgFrame } from 'components/shared';
 import { EventDropDownItems, ProfileDropDownItems } from 'utils/headerDropDowns';
 
 import { HeaderDropDown } from '../index';
@@ -29,12 +28,7 @@ const Header = () => {
     [styles.header__field_active]: isSearch,
   });
 
-  const inputIconClasses = classNames(styles.header__field_icon, {
-    [styles.header__field_icon_active]: isSearch,
-  });
-
-  const openSearch = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
+  const openSearch = () => {
     setIsSearch(!isSearch);
   };
 
@@ -62,7 +56,9 @@ const Header = () => {
     [styles.header__user_frame_arrow_rotate]: isUserActive,
   });
 
-  const toggleEventsDropDown = () => setIsEventActive(!isEventActive);
+  const toggleEventsDropDown = () => {
+    setIsEventActive(!isEventActive);
+  };
 
   const toggleUserDropDown = () => setIsUserActive(!isUserActive);
 
@@ -92,6 +88,10 @@ const Header = () => {
         className={styles.header__field_block}
       />
 
+      <div className={styles.menu__absolute}>
+        <HeaderMenu create={toggleEventsDropDown} user={toggleUserDropDown} search={openSearch} />
+      </div>
+
       <div className={styles.header__user}>
         <div ref={eventRef} onClick={toggleEventsDropDown}>
           <AddIcon className={styles.header__user_add} />
@@ -103,9 +103,6 @@ const Header = () => {
           <HeaderArrowIcon className={headerArrowClasses} />
           <UserImgFrame img={UserImg} className={styles.header__user_frame_border} />
           <HeaderDropDown dropDownList={ProfileDropDownItems} className={userDropDownClasses} />
-          <div className={inputIconClasses} onClick={openSearch}>
-            {isSearch ? <CloseIcon /> : <InputSearchIcon />}
-          </div>
         </div>
       </div>
     </header>
