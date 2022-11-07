@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { Seo } from 'components';
 
@@ -13,11 +13,7 @@ const RouterProvider = () => {
     );
   });
 
-  return (
-    <BrowserRouter>
-      <Routes>{renderRoutes}</Routes>
-    </BrowserRouter>
-  );
+  return <Routes>{renderRoutes}</Routes>;
 };
 
 export default RouterProvider;

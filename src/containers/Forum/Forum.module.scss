@@ -4,8 +4,27 @@
   padding: 0 40px;
   margin: 61px 0 63px 0;
 
+  @include breakpoint(wide-max) {
+    padding: 0;
+    margin: 25px 0 150px 0;
+    gap: 10px;
+    flex-direction: column-reverse;
+  }
+
+  @include breakpoint(tablet) {
+    gap: 20px;
+  }
+
+  @include breakpoint(tablet-m) {
+    margin-bottom: 100px;
+  }
+
   &__posts {
     @extend %flex-column;
     gap: 66px;
+
+    @include breakpoint(wide-max) {
+      gap: 20px;
+    }
   }
 }

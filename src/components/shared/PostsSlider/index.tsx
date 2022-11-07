@@ -3,14 +3,31 @@ import Slider from 'react-slick';
 
 import { useOnClickOutside, useSliderKeys } from 'hooks';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import styles from './PostsSlider.module.scss';
 
 type TPostsSliderProps = {
+  speed?: number;
+  infinite?: boolean;
+  autoplay?: boolean;
+  slideToShow?: number;
+  autoplaySpeed?: number;
+  slideToScroll?: number;
   children: React.ReactNode;
   getActiveSlide: (value: number) => void;
 };
 
-const PostsSlider: FC<TPostsSliderProps> = ({ children, getActiveSlide }) => {
+const PostsSlider: FC<TPostsSliderProps> = ({
+  children,
+  speed = 100,
+  getActiveSlide,
+  slideToShow = 1,
+  autoplay = false,
+  infinite = false,
+  slideToScroll = 1,
+  autoplaySpeed = 2000,
+}) => {
   const sliderBoxRef = useRef<HTMLDivElement | null>(null);
 
   const [disableKeys, setDisableKeys] = useState<boolean>(false);
@@ -29,11 +46,14 @@ const PostsSlider: FC<TPostsSliderProps> = ({ children, getActiveSlide }) => {
 
   const settings = {
     dots: true,
-    speed: 100,
+    speed: speed,
     arrows: false,
-    infinite: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    cssEase: 'linear',
+    infinite: infinite,
+    autoplay: autoplay,
+    slidesToShow: slideToShow,
+    autoplaySpeed: autoplaySpeed,
+    slidesToScroll: slideToScroll,
     accessibility: true,
     beforeChange: (current: number, next: number) => {
       setSlide({ ...slide, oldSlide: current, nextSlide: next });

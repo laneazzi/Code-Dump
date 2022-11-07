@@ -1,16 +1,48 @@
 .layout {
-  display: flex;
-  padding-right: 85px;
+  @extend %flex-justify-between;
+  gap: 133px;
+  margin: 0 auto;
+  max-width: 1759px;
+
+  @include breakpoint(wide-max) {
+    display: block;
+  }
 
   &__header {
     position: sticky;
     top: 0;
     z-index: 10;
-    padding: 53px 0 0;
-    background-color: $white;
+    padding: 45px 0 0;
+    background: $white;
+
+    @include breakpoint(tablet) {
+      margin: 0 -16px;
+      padding: 15px 16px 0;
+    }
   }
 
   &__wrapper {
-    flex: 1;
+    width: 100%;
+
+    @include breakpoint(wide-max) {
+      padding: 0 20px;
+    }
+
+    @include breakpoint(tablet) {
+      padding: 0 16px;
+    }
+  }
+
+  &__navbar {
+    @include breakpoint(wide-max) {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 70;
+      background: hsla(0, 0%, 100%, 0.8);
+      backdrop-filter: saturate(180%) blur(5px);
+      box-shadow: 0 -3px 10px 3px rgba(0, 0, 0, 0.2);
+    }
   }
 }

@@ -7,11 +7,12 @@ import {
   HeaderArrowIcon,
   InputSearchIcon,
   ReelBudTextIcon,
+  ReelBudLogoIcon,
   NotificationsIcon,
 } from 'assets/icons';
 import { UserImg } from 'assets/img';
 import { useOnClickOutside } from 'hooks';
-import { Input, Typography, UserImgFrame } from 'components/shared';
+import { HeaderMenu, Input, Typography, UserImgFrame } from 'components/shared';
 import { EventDropDownItems, ProfileDropDownItems } from 'utils/headerDropDowns';
 
 import { HeaderDropDown } from '../index';
@@ -19,8 +20,17 @@ import { HeaderDropDown } from '../index';
 import styles from './Header.module.scss';
 
 const Header = () => {
-  const [isEventActive, setIsEventActive] = useState(false);
   const [isUserActive, setIsUserActive] = useState(false);
+  const [isEventActive, setIsEventActive] = useState(false);
+  const [isSearch, setIsSearch] = useState<boolean>(false);
+
+  const inputSearchClasses = classNames(styles.header__field, {
+    [styles.header__field_active]: isSearch,
+  });
+
+  const openSearch = () => {
+    setIsSearch(!isSearch);
+  };
 
   const eventRef = useRef<null>(null);
 
@@ -30,9 +40,9 @@ const Header = () => {
 
   const closeUserDropDown = () => setIsUserActive(false);
 
-  useOnClickOutside(eventRef, closeEventDropDown);
-
   useOnClickOutside(userRef, closeUserDropDown);
+
+  useOnClickOutside(eventRef, closeEventDropDown);
 
   const eventDropDownClasses = classNames(styles.header__events, {
     [styles.header__events_active]: isEventActive,
@@ -46,7 +56,9 @@ const Header = () => {
     [styles.header__user_frame_arrow_rotate]: isUserActive,
   });
 
-  const toggleEventsDropDown = () => setIsEventActive(!isEventActive);
+  const toggleEventsDropDown = () => {
+    setIsEventActive(!isEventActive);
+  };
 
   const toggleUserDropDown = () => setIsUserActive(!isUserActive);
 
@@ -57,6 +69,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header__title}>
+        <ReelBudLogoIcon className={styles.header__title_icon} />
         <ReelBudTextIcon className={styles.header__title_logo} />
         <Typography tagName='span' className={styles.header__title_route}>
           /
@@ -71,9 +84,13 @@ const Header = () => {
         type='text'
         placeholder='Search...'
         RightIcon={InputSearchIcon}
-        innerClassName={styles.header__field}
+        innerClassName={inputSearchClasses}
         className={styles.header__field_block}
       />
+
+      <div className={styles.menu__absolute}>
+        <HeaderMenu create={toggleEventsDropDown} user={toggleUserDropDown} search={openSearch} />
+      </div>
 
       <div className={styles.header__user}>
         <div ref={eventRef} onClick={toggleEventsDropDown}>

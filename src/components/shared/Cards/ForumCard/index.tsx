@@ -57,7 +57,7 @@ const ForumCard: FC<TForumCardProps> = ({ card, openPost }) => {
           <div className={styles.container__content__header__title}>
             <Typography className={styles.container__content__header__title_username}>
               {card.name}
-              {card.isVerified && <Verify />}
+              {card.isVerified && <Verify className={styles.verify} />}
             </Typography>
             <Typography className={styles.container__content__header__title_nick}>
               {card.nickName}
@@ -71,7 +71,7 @@ const ForumCard: FC<TForumCardProps> = ({ card, openPost }) => {
           <div className={styles.container__content__header__selects_icon} onClick={takePost}>
             {isSaved ? <SaveActiveIcon /> : <SaveIcon />}
           </div>
-          <OptionsIcon />
+          <OptionsIcon className={styles.options} />
         </div>
       </div>
       <div className={styles.container__content__text}>{card.postDescription}</div>

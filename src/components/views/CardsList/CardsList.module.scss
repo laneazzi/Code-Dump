@@ -6,6 +6,15 @@
     padding: 25px 31px 32px 31px;
     background-color: $norland-blue-1;
 
+    @include breakpoint(wide-max) {
+      min-width: 100%;
+      overflow-x: scroll;
+    }
+
+    @include breakpoint(desktop) {
+      padding: 15px;
+    }
+
     &_active {
       background: $white;
     }
@@ -16,11 +25,32 @@
       margin-bottom: 11px;
       letter-spacing: 0.5;
       font-family: $inter;
+
+      @include breakpoint(tablet) {
+        font-size: 20px;
+        line-height: 29px;
+      }
+
+      @include breakpoint(tablet) {
+        font-size: 18px;
+        line-height: 27px;
+      }
     }
 
     &_list {
       @extend %flex-column;
       gap: 23.5px;
+
+      @include breakpoint(wide-max) {
+        flex-direction: row;
+        max-width: 1575px;
+        overflow: scroll;
+        width: 100%;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
     }
   }
 }

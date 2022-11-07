@@ -47,8 +47,14 @@ $root: &;
   &__content {
     height: 100%;
     overflow: scroll;
-    margin-top: 100px;
     position: absolute;
+    margin-top: 100px;
+
+    div {
+      &:first-child([aria-label='drop']) {
+        overflow: unset;
+      }
+    }
 
     &::-webkit-scrollbar {
       display: none;

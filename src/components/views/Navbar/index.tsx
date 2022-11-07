@@ -14,7 +14,6 @@ type TNavBarProps = {
 
 const Navbar: FC<TNavBarProps> = ({ className }) => {
   const [focused, setFocused] = useState<number | null>(null);
-  const [withFocus, setWithFocus] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -24,19 +23,11 @@ const Navbar: FC<TNavBarProps> = ({ className }) => {
 
   const enteredItem = (idx: number) => {
     setFocused(idx);
-    setWithFocus(true);
   };
 
   const leaveFocus = () => {
     setFocused(null);
-    setWithFocus(false);
   };
-
-  const startFocus = () => {
-    setWithFocus(true);
-  };
-
-  const focusedNavbarClasses = classNames(styles.navbar, { [styles.navbar__focused]: withFocus });
 
   const linkItems = navBarLinks.map((link, idx) => {
     const focusedClasses = classNames(styles.navbar__links_box_title, {
@@ -58,6 +49,7 @@ const Navbar: FC<TNavBarProps> = ({ className }) => {
         >
           {link.icon}
         </NavLink>
+
         <p className={focusedClasses}>{link.title}</p>
       </div>
     );
@@ -65,7 +57,7 @@ const Navbar: FC<TNavBarProps> = ({ className }) => {
 
   return (
     <div className={className}>
-      <nav className={focusedNavbarClasses} onMouseLeave={leaveFocus} onMouseOver={startFocus}>
+      <nav className={styles.navbar} onMouseLeave={leaveFocus}>
         <div className={styles.navbar__logo}>
           <ReelBudLogoIcon onClick={routeToHome} className={styles.navbar__logo_icon} />
         </div>

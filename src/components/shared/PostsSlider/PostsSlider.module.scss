@@ -1,4 +1,12 @@
 .slider {
+  max-width: 100vw;
+  width: 100%;
+  overflow: hidden;
+
+  @include breakpoint(tablet-m) {
+    min-width: 100%;
+  }
+
   ul {
     position: absolute;
     bottom: 25px !important;
@@ -8,6 +16,10 @@
         &::before {
           color: $white;
           font-size: 15px;
+
+          @include breakpoint(tablet) {
+            font-size: 10px;
+          }
         }
       }
     }

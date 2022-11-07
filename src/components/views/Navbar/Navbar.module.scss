@@ -2,16 +2,35 @@
   @extend %flex-center-column;
   position: sticky;
   top: 0;
+  z-index: 1000;
   transition: 0.6s;
-  padding: 53px 83px 20px;
+  padding: 53px 20px;
 
-  &__focused {
-    padding: 53px 133px 20px 20px;
+  @include breakpoint(wide-max) {
+    position: relative;
+    z-index: 999;
+    margin: 0 auto;
+    max-width: 850px;
+    padding: 25px 20px;
+  }
+
+  @include breakpoint(tablet-m) {
+    max-width: 100%;
+    padding: 10px 40px;
+  }
+
+  @include breakpoint(mobile-m) {
+    max-width: 100%;
+    padding: 20px 60px;
   }
 
   &__logo {
     @extend %flex-center;
     padding-bottom: 35px;
+
+    @include breakpoint(wide-max) {
+      display: none;
+    }
 
     &_icon {
       width: 65px;
@@ -28,8 +47,19 @@
     border-top: 1px solid $norland-blue-2;
     border-bottom: 1px solid $norland-blue-2;
 
+    @include breakpoint(wide-max) {
+      gap: 30px;
+      padding: 0;
+      border: none;
+      flex-direction: row;
+    }
+
+    @include breakpoint(tablet-m) {
+      gap: 15px;
+    }
+
     &_box {
-      @extend %flex-center;
+      @extend %flex-align;
       position: relative;
 
       &_title {
@@ -37,22 +67,22 @@
         position: absolute;
         opacity: 0;
         width: 0px;
+        left: 90px;
+        padding: 0px;
         color: $white;
-        right: -110px;
         transition: 0.3s;
-        overflow: hidden;
         border-radius: 8px;
         visibility: hidden;
         font-family: $inter;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        padding: 8px 16px 11px 14px;
         background-color: $red-light;
 
         &_active {
-          opacity: 1;
-          width: 100px;
-          visibility: visible;
+          @media (min-width: 1600px) {
+            opacity: 1;
+            padding: 8px 16px 11px 14px;
+            visibility: visible;
+            width: fit-content;
+          }
         }
       }
     }
@@ -63,6 +93,23 @@
       height: 66px;
       border-radius: 50%;
 
+      svg {
+        @include breakpoint(tablet-m) {
+          width: 25px;
+          height: 25px;
+        }
+      }
+
+      @include breakpoint(tablet-m) {
+        width: 50px;
+        height: 50px;
+      }
+
+      @include breakpoint(mobile-m) {
+        width: 40px;
+        height: 40px;
+      }
+
       &_active {
         @extend %flex-center;
         width: 66px;
@@ -70,7 +117,22 @@
         border-radius: 50%;
         background-color: #0e2760;
 
+        @include breakpoint(tablet-m) {
+          width: 50px;
+          height: 50px;
+        }
+
+        @include breakpoint(mobile-m) {
+          width: 43px;
+          height: 43px;
+        }
+
         svg {
+          @include breakpoint(tablet-m) {
+            width: 25px;
+            height: 25px;
+          }
+
           path {
             fill: $white;
           }
@@ -78,6 +140,7 @@
       }
     }
   }
+
   &__logout {
     cursor: pointer;
     margin: 30px 0;

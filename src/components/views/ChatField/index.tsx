@@ -23,6 +23,10 @@ const ChatField: FC<TChatFieldProps> = ({ type }) => {
     [styles.container__emoji_small]: type === 'global',
   });
 
+  const containerClasses = classNames(styles.container, {
+    [styles.container__global]: type === 'global',
+  });
+
   const onEmojiClick = (emojiObject: any) => {
     setMessage((prevInput) => prevInput + emojiObject.emoji);
   };
@@ -30,7 +34,7 @@ const ChatField: FC<TChatFieldProps> = ({ type }) => {
   const showEmojis = () => setIsShowPicker(!isShowPicker);
 
   return (
-    <div className={styles.container}>
+    <div className={containerClasses}>
       <div className={styles.container__content}>
         <Input
           type='text'

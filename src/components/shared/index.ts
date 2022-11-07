@@ -6,6 +6,7 @@ export { default as Button } from './Button';
 export { default as TextArea } from './Textarea';
 export { default as Checkbox } from './Checkbox';
 export { default as Typography } from './Typography';
+export { default as HeaderMenu } from './HeaderMenu';
 export { default as LinkButton } from './LinkButton';
 export { default as RadioButton } from './RadioButton';
 export { default as PostsSlider } from './PostsSlider';

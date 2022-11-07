@@ -20,8 +20,8 @@ const TodayTopCard: FC<TTodayTopCardProps> = ({ card }) => (
       <div className={styles.top__card_absolute_box}>
         <UserImgFrame img={card.userImg} className={styles.top__card_absolute_box_image} />
         <div className={styles.top__card_absolute_box_user}>
-          <Typography>{card.name}</Typography>
-          <Typography>{card.nickName}</Typography>
+          <Typography className={styles.username}>{card.name}</Typography>
+          <Typography className={styles.nickname}>{card.nickName}</Typography>
         </div>
       </div>
     </div>

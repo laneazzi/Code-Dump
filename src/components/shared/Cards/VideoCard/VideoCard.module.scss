@@ -4,12 +4,25 @@
   max-width: 459px;
   border-radius: 16px;
 
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+  }
+
+  @include breakpoint(mobile-m) {
+    height: auto;
+  }
+
   &__item {
     position: relative;
     height: 100%;
     max-width: 100%;
     object-fit: cover;
     border-radius: 16px;
+
+    @include breakpoint(wide-max) {
+      width: 100%;
+      object-fit: fill;
+    }
   }
 
   &__icon {

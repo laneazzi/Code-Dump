@@ -29,6 +29,6 @@ export const ProfileDropDownItems: THeaderDropDown[] = [
   { id: 1, icon: <ProfileIcon />, description: 'Profile', path: Routes.Profile },
   { id: 2, icon: <FavoritedIcon />, description: 'Favorited' },
   { id: 3, icon: <HelpCenterIcon />, description: 'Help Center', path: Routes.Help },
-  { id: 5, icon: <LogOutIcon />, description: 'Logout', path: Routes.LogIn },
   { id: 4, icon: <SettingsIcon />, description: 'Settings' },
+  { id: 5, icon: <LogOutIcon />, description: 'Logout', path: Routes.LogIn },
 ];

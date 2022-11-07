@@ -7,6 +7,11 @@
   padding: 30px 31px 24px 31px;
   filter: drop-shadow(0px 0px 28px rgba(0, 0, 0, 0.031));
 
+  @include breakpoint(tablet) {
+    padding: 10px 15px;
+    border-radius: 8px;
+  }
+
   &__small {
     position: relative;
     z-index: 10;
@@ -14,8 +19,46 @@
     max-width: 500px;
     box-shadow: 8px 7px 44px -6px rgba(0, 0, 0, 0.75);
 
+    @include breakpoint(wide-max) {
+      position: fixed;
+      right: 25px;
+      bottom: 125px;
+    }
+
+    @include breakpoint(tablet) {
+      height: 300px;
+      max-width: 300px;
+    }
+
+    @include breakpoint(tablet-m) {
+      bottom: 90px;
+      height: 250px;
+      max-width: 250px;
+    }
+
     .chat__content_main {
       height: 330px;
+
+      @include breakpoint(tablet) {
+        height: 160px;
+        padding: 10px 0;
+      }
+
+      @include breakpoint(tablet-m) {
+        height: 130px;
+      }
+    }
+
+    .chat__content_head {
+      @include breakpoint(tablet) {
+        font-size: 18px;
+        padding-bottom: 10px;
+
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+      }
     }
   }
 
@@ -31,6 +74,15 @@
       top: -25px;
       left: -25px;
       cursor: pointer;
+
+      @include breakpoint(tablet) {
+        position: absolute;
+        width: 24px;
+        height: 22px;
+        top: -12px;
+        left: -17px;
+        cursor: pointer;
+      }
     }
 
     &_head {

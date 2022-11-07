@@ -6,12 +6,16 @@
   overflow: hidden;
 
   &__small {
-    filter: drop-shadow(6px 6px 24px rgba(0, 0, 0, 0.051));
     z-index: 50;
+    filter: drop-shadow(6px 6px 24px rgba(0, 0, 0, 0.051));
   }
 
   &__large {
     max-width: 280px;
+
+    @include breakpoint(tablet-m) {
+      max-width: 200px;
+    }
   }
 
   &_open {
@@ -41,6 +45,10 @@
       font-family: $inter;
       color: $blue-dark;
       margin-bottom: 14px;
+
+      @include breakpoint(tablet-m) {
+        font-size: 16px;
+      }
     }
 
     &_main {
@@ -49,6 +57,10 @@
       cursor: pointer;
       font-family: $inter;
       color: $blue-dark;
+
+      @include breakpoint(tablet-m) {
+        font-size: 18px;
+      }
 
       &_icon {
         transition: 0.3s;
@@ -68,8 +80,8 @@
 
       &_inner {
         color: black;
-        overflow-y: scroll;
         max-height: 100%;
+        overflow-y: scroll;
         background-color: $white;
         border-radius: 0 0 14px 14px;
 

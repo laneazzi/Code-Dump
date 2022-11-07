@@ -5,19 +5,33 @@
   margin-bottom: 74px;
   grid-template-columns: repeat(3, minmax(0, 491px));
 
+  @include breakpoint(wide-max) {
+    margin-bottom: 150px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include breakpoint(desktop) {
+    gap: 10px;
+    grid-template-columns: none;
+  }
+
+  @include breakpoint(tablet-m) {
+    margin-bottom: 100px;
+  }
+
   &__chat {
     position: fixed;
+    opacity: 0;
     bottom: 50px;
     right: -100px;
-    visibility: hidden;
     transition: 0.3s;
-    opacity: 0;
+    visibility: hidden;
 
     &_active {
-      right: 50px;
       opacity: 1;
-      visibility: visible;
       z-index: 10;
+      right: 50px;
+      visibility: visible;
     }
   }
 }

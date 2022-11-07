@@ -31,11 +31,9 @@ const PeopleCard: FC<TPeopleCardProps> = ({ people, startTheChat, setStartTheCha
   };
 
   return (
-    <div className={styles.container} onClick={goToTheProfilePage}>
-      <div className={styles.container__content}>
-        <div className={styles.container__content_img}>
-          <UserImgFrame img={people.userImg} className={styles.container__content_img_item} />
-        </div>
+    <div className={styles.container}>
+      <div onClick={goToTheProfilePage} className={styles.container__content}>
+        <UserImgFrame img={people.userImg} className={styles.container__content_img} />
 
         <div className={styles.container__content__box}>
           <div className={styles.container__content__user}>

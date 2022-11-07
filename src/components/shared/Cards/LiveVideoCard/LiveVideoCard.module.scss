@@ -5,6 +5,18 @@
   min-height: 298px;
   border-radius: 20px;
 
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+  }
+
+  @include breakpoint(tablet) {
+    min-height: 250px;
+  }
+
+  @include breakpoint(mobile-m) {
+    min-height: auto;
+  }
+
   &__background {
     position: absolute;
     width: 100%;
@@ -15,6 +27,10 @@
       height: 100%;
       object-fit: cover;
       border-radius: 20px;
+
+      @include breakpoint(desktop) {
+        object-fit: fill;
+      }
     }
 
     &_color {
@@ -31,12 +47,32 @@
   &__info {
     @extend %flex-column-between;
     position: relative;
-    min-height: 298px;
+    min-height: 100%;
 
     &_icon {
       margin-top: 23px;
       margin-right: 24px;
       align-self: flex-end;
+
+      @include breakpoint(tablet-m) {
+        margin-top: 10px;
+        margin-right: 10px;
+      }
+
+      @include breakpoint(mobile-m) {
+        margin-top: 2px;
+        margin-right: 10px;
+      }
+
+      svg {
+        @include breakpoint(tablet-m) {
+          width: 50px;
+        }
+
+        @include breakpoint(mobile-m) {
+          width: 40px;
+        }
+      }
 
       &_item {
         cursor: pointer;
@@ -53,6 +89,14 @@
       border-radius: 0 0 16px 16px;
       background: linear-gradient(180deg, rgba(14, 39, 96, 0) 0%, #0e2760 100%);
 
+      @include breakpoint(tablet-m) {
+        padding: 30px 0 10px 30px;
+      }
+
+      @include breakpoint(mobile-m) {
+        padding: 20px 0;
+      }
+
       &_main {
         @extend %flex-column;
         margin-left: 12px;
@@ -61,6 +105,18 @@
           @extend %font-20-large-bold;
           color: $white;
           font-family: $Open-Sans;
+
+          @include breakpoint(tablet-m) {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 23px;
+          }
+
+          @include breakpoint(mobile-m) {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+          }
         }
 
         &_watches {
@@ -69,6 +125,28 @@
           gap: 3.5px;
           color: $white;
           font-family: $Open-Sans;
+
+          @include breakpoint(tablet-m) {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 22px;
+          }
+
+          @include breakpoint(mobile-m) {
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 20px;
+          }
+
+          svg {
+            @include breakpoint(tablet-m) {
+              width: 20px;
+            }
+
+            @include breakpoint(mobile-m) {
+              width: 16px;
+            }
+          }
         }
       }
     }

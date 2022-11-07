@@ -12,6 +12,9 @@ type TFilterProps = {
 
 const Filter: FC<TFilterProps> = ({ filterItems }) => {
   const [isActive, setIsActive] = useState<number>(0);
+  const [isSort, setIsSort] = useState<boolean>(false);
+
+  const handleSortClick = () => setIsSort(!isSort);
 
   const navigate = useNavigate();
 
@@ -19,6 +22,7 @@ const Filter: FC<TFilterProps> = ({ filterItems }) => {
 
   const activeItem = (id: number, path: string) => {
     setIsActive(id);
+    setIsSort(false);
     if (path) {
       goToPage(path);
     }
@@ -34,9 +38,17 @@ const Filter: FC<TFilterProps> = ({ filterItems }) => {
       </div>
     );
   });
+
+  const blockClasses = classNames(styles.container__block, {
+    [styles.container__block_active]: isSort,
+  });
+
   return (
     <div className={styles.container}>
-      <div className={styles.container__block}>{filterItemsRenderer}</div>
+      <div className={styles.container__sort} onClick={handleSortClick}>
+        Sort By
+      </div>
+      <div className={blockClasses}>{filterItemsRenderer}</div>
       <FilterBy />
     </div>
   );

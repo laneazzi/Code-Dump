@@ -4,6 +4,19 @@
   min-height: 298px;
   border-radius: 20px;
 
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+  }
+
+  @include breakpoint(tablet) {
+    min-height: 250px;
+  }
+
+  @include breakpoint(mobile-m) {
+    min-height: auto;
+    height: 200px;
+  }
+
   &__background {
     width: 100%;
     height: 100%;
@@ -29,12 +42,23 @@
   &__info {
     @extend %flex-column-between;
     position: relative;
-    min-height: 298px;
+    min-height: 100%;
 
     &_icon {
       margin-top: 23px;
       margin-right: 24px;
       align-self: flex-end;
+
+      @include breakpoint(tablet-m) {
+        margin-top: 5px;
+        margin-right: 15px;
+      }
+
+      svg {
+        @include breakpoint(tablet-m) {
+          width: 20px;
+        }
+      }
 
       &_item {
         cursor: pointer;
@@ -51,20 +75,68 @@
       border-radius: 0 0 16px 16px;
       background: linear-gradient(180deg, rgba(14, 39, 96, 0) 0%, #0e2760 100%);
 
+      @include breakpoint(tablet-m) {
+        padding: 10px 0 2px 5px;
+      }
+
+      svg {
+        @include breakpoint(tablet-m) {
+          width: 55px;
+        }
+        @include breakpoint(mobile-m) {
+          width: 45px;
+        }
+      }
+
       &_main {
         @extend %flex-column;
         margin-left: 12px;
+
+        @include breakpoint(tablet-m) {
+          margin-left: 2px;
+        }
 
         &_title {
           @extend %font-20-large-bold;
           color: $white;
           font-family: $Open-Sans;
+
+          @include breakpoint(tablet) {
+            font-size: 18px;
+            line-height: 25px;
+          }
+
+          @include breakpoint(tablet-m) {
+            font-size: 14px;
+            line-height: 21px;
+          }
+
+          @include breakpoint(mobile-m) {
+            font-size: 12px;
+            line-height: 19px;
+          }
         }
 
         &_gen {
           @extend %font-19-large;
+
           color: $white;
           font-family: $Open-Sans;
+
+          @include breakpoint(tablet) {
+            font-size: 17px;
+            line-height: 24px;
+          }
+
+          @include breakpoint(tablet-m) {
+            font-size: 12px;
+            line-height: 19px;
+          }
+
+          @include breakpoint(mobile-m) {
+            font-size: 10px;
+            line-height: 17px;
+          }
         }
       }
     }
