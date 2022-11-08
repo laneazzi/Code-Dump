@@ -10,6 +10,7 @@ export { ReactComponent as ArrowIcon } from './arrow.svg';
 export { ReactComponent as CheckIcon } from './check.svg';
 export { ReactComponent as CloseIcon } from './close.svg';
 export { ReactComponent as FilterIcon } from './filter.svg';
+export { ReactComponent as ScrollIcon } from './scroll.svg';
 export { ReactComponent as SaveIcon } from './saveIcon.svg';
 export { ReactComponent as LoaderIcon } from './loader.svg';
 export { ReactComponent as ForumIcon } from './homeIcon.svg';

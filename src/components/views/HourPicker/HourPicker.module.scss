@@ -6,12 +6,20 @@
   padding: 19px 23.5px 22px 19.5px;
   box-shadow: 6px 6px 24px rgba(0, 0, 0, 0.051);
 
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+  }
+
   &__content {
     &_title {
       @extend %font-20;
       color: $blue-dark;
       margin-bottom: 14px;
       font-family: $inter;
+
+      @include breakpoint(tablet) {
+        font-size: 18px;
+      }
     }
 
     &_hours {
@@ -22,11 +30,23 @@
       color: $blue-dark;
       font-family: $inter;
 
+      @include breakpoint(wide-max) {
+        max-width: 100%;
+      }
+
+      @include breakpoint(tablet) {
+        font-size: 16px;
+      }
+
       &_item {
         @extend %flex-align;
         position: relative;
         cursor: pointer;
         border: 1px solid transparent;
+
+        @include breakpoint(tablet) {
+          padding: 5px 7px;
+        }
 
         &_hour,
         &_minute,
@@ -89,6 +109,11 @@
             cursor: pointer;
             padding: 5px 10px;
 
+            @include breakpoint(tablet) {
+              padding: 5px 6px;
+              font-size: 14px;
+            }
+
             &:hover {
               color: $white;
               background-color: black;
@@ -107,6 +132,10 @@
 
       &_icon {
         margin-left: 3px;
+
+        @include breakpoint(tablet) {
+          width: 10px;
+        }
       }
     }
   }

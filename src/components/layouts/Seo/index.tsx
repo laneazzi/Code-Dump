@@ -1,7 +1,9 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { Header, Navbar } from 'components';
+import { ScrollIcon } from 'assets/icons';
+import { useScrollPosition } from 'hooks';
 
 import styles from './Seo.module.scss';
 
@@ -13,12 +15,18 @@ type TSeoProps = {
 const Seo: React.FC<TSeoProps> = ({ children, withLayout }) => {
   const { pathname } = useLocation();
 
-  useEffect(() => {
+  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: 'smooth',
     });
+  };
+
+  const position = useScrollPosition();
+
+  useEffect(() => {
+    scrollToTop();
   }, [pathname]);
 
   return (
@@ -32,6 +40,11 @@ const Seo: React.FC<TSeoProps> = ({ children, withLayout }) => {
             </div>
             <div className={styles.layout__main}>{children}</div>
           </div>
+          {position >= 50 && (
+            <div className={styles.layout__scroll} onClick={scrollToTop}>
+              <ScrollIcon />
+            </div>
+          )}
         </div>
       ) : (
         <>{children}</>

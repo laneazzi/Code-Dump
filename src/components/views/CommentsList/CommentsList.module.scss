@@ -9,7 +9,6 @@
 
     &_comments {
       @extend %flex-column;
-      @extend %font-23-bold;
       gap: 49px;
       font-family: $Open-Sans;
 

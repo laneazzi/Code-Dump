@@ -3,6 +3,14 @@
   gap: 13px;
   position: relative;
 
+  &__icon {
+    &_item {
+      @include breakpoint(tablet) {
+        width: 35px;
+      }
+    }
+  }
+
   &__content {
     @extend %flex-between;
     width: 100%;
@@ -11,6 +19,13 @@
     border: 1px solid #cccc;
     padding: 18px 19px 15px 20px;
     background-color: $bluestone;
+
+    @include breakpoint(tablet) {
+      padding: 5px;
+      font-size: 18px;
+      max-width: 100%;
+      border-radius: 6px;
+    }
 
     div {
       width: 100%;
@@ -26,6 +41,10 @@
         font-family: $Open-Sans;
         background-color: transparent;
 
+        @include breakpoint(tablet) {
+          font-size: 16px;
+        }
+
         &::placeholder {
           color: $blue-gray;
         }
@@ -37,14 +56,74 @@
     }
   }
 
+  // Modals Emoji
+
   &__emoji {
     position: absolute;
-    top: -410px;
-    right: 67px;
     z-index: 10;
+    transform: scaleY(0);
+    transform-origin: 0 100%;
+    top: calc(100% - 350px - 74px);
+    left: calc(100% - 316px - 64px);
+    transition: 0.4s left ease-in-out, 1s transform ease-in-out;
+
+    &_active {
+      transform: scaleY(1);
+      left: 0;
+      transition: 0.3s transform ease-in, 1s left ease-in;
+    }
+
+    em-emoji-picker {
+      height: 350px;
+    }
 
     &_small {
-      top: -310px;
+      transform: scaleY(0);
+      transform-origin: 0 100%;
+      top: calc(100% - 64px - 370px);
+      left: calc(100% - 316px - 64px);
+      transition: 0.2s left ease-in-out, 1s transform ease-in-out;
+
+      @include breakpoint(wide-max) {
+        left: 0;
+        top: calc(100% - 380px);
+      }
+
+      @include breakpoint(tablet) {
+        top: calc(100% - 355px);
+      }
+
+      &_active {
+        left: 0;
+        transform: scaleY(1);
+        transition: 0.3s transform ease-in, 1s left ease-in;
+
+        @include breakpoint(wide-max) {
+          transform: scaleY(1);
+          transition: 0.3s transform ease-in;
+        }
+      }
+
+      em-emoji-picker {
+        @include breakpoint(wide-max) {
+          height: 300px;
+          max-width: 270px;
+        }
+
+        @include breakpoint(tablet) {
+          width: 100%;
+        }
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      div {
+        &:first-child {
+          max-width: min-content;
+        }
+      }
     }
   }
 
@@ -63,7 +142,9 @@
       }
       div {
         input {
-          font-size: 16px;
+          @include breakpoint(tablet) {
+            font-size: 16px;
+          }
         }
       }
     }

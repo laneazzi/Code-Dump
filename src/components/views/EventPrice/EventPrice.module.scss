@@ -6,6 +6,10 @@
   border: 1px solid #dfe5f4;
   padding: 19.5px 0 22.5px 18.5px;
 
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+  }
+
   &__content {
     &_title {
       @extend %font-20;

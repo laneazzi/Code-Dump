@@ -3,8 +3,17 @@
   gap: 86px;
   margin-bottom: 100px;
 
+  @include breakpoint(wide-max) {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
   &__main {
     @extend %flex-column;
     gap: 56px;
+
+    @include breakpoint(wide-max) {
+      gap: 20px;
+    }
   }
 }

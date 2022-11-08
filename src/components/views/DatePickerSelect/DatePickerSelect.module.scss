@@ -5,12 +5,16 @@
   border: 1px solid #dfe5f4;
   padding: 19.5px 17px 22.5px 18.5px;
 
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+  }
+
   &__large {
     z-index: 1;
     max-width: 280px;
 
     @include breakpoint(tablet-m) {
-      max-width: 200px;
+      max-width: 240px;
     }
   }
 
@@ -22,7 +26,7 @@
       margin-bottom: 14px;
 
       @include breakpoint(tablet-m) {
-        font-size: 16px;
+        font-size: 18px;
       }
     }
 
@@ -53,6 +57,12 @@
       &_icon {
         cursor: pointer;
         width: none;
+      }
+
+      &_description {
+        @include breakpoint(tablet-m) {
+          font-size: 16px;
+        }
       }
     }
   }
