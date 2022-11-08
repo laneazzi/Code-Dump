@@ -16,7 +16,7 @@ type TUserLiveProps = {
 const LiveUser: FC<TUserLiveProps> = ({ img, count, username, isVerified, videoDescription }) => (
   <div className={styles.container}>
     <div className={styles.container__user}>
-      <UserLiveFrame img={img} />
+      <UserLiveFrame img={img} className={styles.container__user_frame} />
       <div className={styles.container__user_description}>
         <Typography className={styles.container__user_description_username}>
           {username} {isVerified && <Verify />}

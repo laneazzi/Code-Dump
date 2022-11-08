@@ -3,11 +3,21 @@
   gap: 24px;
   width: 1577px;
 
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+    flex-direction: column;
+  }
+
   &__live {
     @extend %flex-column;
     gap: 31px;
     border-radius: 16px;
     background-color: $white;
     padding: 31px 29px 38px 29px;
+
+    @include breakpoint(tablet-m) {
+      padding: 16px;
+      gap: 10px;
+    }
   }
 }

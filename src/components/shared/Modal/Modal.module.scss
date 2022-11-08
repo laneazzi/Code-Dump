@@ -46,14 +46,32 @@ $root: &;
 
   &__content {
     height: 100%;
-    overflow: scroll;
+    max-width: 100%;
+    padding: 100px 0;
+    overflow-y: scroll;
     position: absolute;
-    margin-top: 100px;
 
-    div {
-      &:first-child([aria-label='drop']) {
-        overflow: unset;
-      }
+    @include breakpoint(wide-max) {
+      max-width: 100%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      left: 50px;
+      right: 50px;
+    }
+
+    @include breakpoint(desktop) {
+      max-width: 100%;
+      left: 50px;
+      right: 50px;
+      padding: 30px 0 70px 0;
+    }
+
+    @include breakpoint(tablet-m) {
+      left: 20px;
+      right: 25px;
+      top: 25px;
+      padding-top: 0;
+      padding-bottom: 70px;
     }
 
     &::-webkit-scrollbar {

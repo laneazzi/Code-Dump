@@ -7,10 +7,19 @@
 
       &:first-child {
         margin-bottom: 14px;
+
+        @include breakpoint(tablet) {
+          margin-bottom: 8px;
+          font-size: 18px;
+        }
       }
 
       &:last-child {
         @extend %font-24;
+
+        @include breakpoint(tablet) {
+          font-size: 16px;
+        }
       }
     }
     &__wrapper {
@@ -20,6 +29,10 @@
       border-radius: 8px;
       border: 1px solid #dfe5f4;
       padding: 19px 32px 22px 19px;
+
+      @include breakpoint(tablet) {
+        padding: 10px 15px;
+      }
     }
 
     &__file {

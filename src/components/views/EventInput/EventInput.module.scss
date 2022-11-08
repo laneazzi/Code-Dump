@@ -8,6 +8,10 @@
   &__small {
     width: 100%;
     max-width: 258px !important;
+
+    @include breakpoint(wide-max) {
+      max-width: 100% !important;
+    }
   }
 
   &__content {
@@ -21,6 +25,12 @@
     margin-bottom: 0px;
     font-family: $inter;
 
+    @include breakpoint(tablet-m) {
+      font-size: 16px;
+      line-height: 25px;
+      margin-bottom: 5px !important;
+    }
+
     &::placeholder {
       color: $blue-dark;
     }
@@ -30,5 +40,11 @@
     @extend %font-20;
     font-family: $inter;
     margin-bottom: 14px;
+
+    @include breakpoint(tablet-m) {
+      font-size: 18px;
+      line-height: 25px;
+      margin-bottom: 5px !important;
+    }
   }
 }

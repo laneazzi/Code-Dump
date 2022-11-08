@@ -3,12 +3,29 @@
   width: 100%;
   max-width: 1013px;
 
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+  }
+
+  @include breakpoint(tablet) {
+    flex-direction: column;
+  }
+
   &__user {
     @extend %flex-align;
+
+    @include breakpoint(tablet-m) {
+      padding-bottom: 10px;
+    }
 
     &_description {
       margin-left: 15px;
       margin-right: 71px;
+
+      @include breakpoint(desktop) {
+        margin-left: 10px;
+        margin-right: 40px;
+      }
 
       &_username {
         @extend %flex-align;
@@ -17,12 +34,49 @@
         color: $blue-dark;
         margin-bottom: 5px;
         font-family: $Open-Sans;
+
+        @include breakpoint(desktop) {
+          font-size: 20px;
+          line-height: 29px;
+        }
+
+        @include breakpoint(tablet) {
+          font-size: 18px;
+          line-height: 27px;
+        }
+
+        @include breakpoint(tablet-m) {
+          font-size: 16px;
+          line-height: 12px;
+        }
+
+        @include breakpoint(mobile-m) {
+          font-size: 14px;
+        }
       }
 
       &_subtitle {
         @extend %font-22-large;
         color: $blue-dark;
         font-family: $Open-Sans;
+
+        @include breakpoint(desktop) {
+          font-size: 18px;
+          line-height: 26px;
+        }
+
+        @include breakpoint(tablet) {
+          font-size: 16px;
+          line-height: 12px;
+        }
+
+        @include breakpoint(tablet-m) {
+          font-size: 14px;
+        }
+
+        @include breakpoint(mobile-m) {
+          font-size: 12px;
+        }
       }
     }
   }
@@ -30,5 +84,14 @@
   &__watches {
     @extend %flex-align;
     gap: 14px;
+
+    @include breakpoint(tablet) {
+      gap: 8px;
+      align-self: flex-end;
+    }
+
+    @include breakpoint(mobile-m) {
+      gap: 5px;
+    }
   }
 }

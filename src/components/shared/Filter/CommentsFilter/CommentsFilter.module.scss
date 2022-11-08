@@ -4,6 +4,16 @@
   color: $blue-dark;
   font-family: $Open-Sans;
 
+  @include breakpoint(tablet) {
+    font-size: 20px;
+    line-height: 29px;
+  }
+
+  @include breakpoint(mobile-m) {
+    font-size: 14px;
+    line-height: 23px;
+  }
+
   &__sort {
     position: relative;
     transition: 0.3s;
@@ -53,6 +63,14 @@
       -moz-box-shadow: 0px 27px 28px 0px rgba(37, 40, 73, 0.45);
       -webkit-box-shadow: 0px 27px 28px 0px rgba(37, 40, 73, 0.45);
 
+      @include breakpoint(tablet) {
+        font-size: 18px;
+      }
+
+      @include breakpoint(mobile-m) {
+        font-size: 14px;
+      }
+
       &_item {
         cursor: pointer;
         transition: 0.3s;
@@ -68,6 +86,26 @@
       &_open {
         opacity: 1;
         visibility: visible;
+        z-index: 3;
+      }
+    }
+  }
+
+  &__count {
+    @extend %flex-align;
+
+    span {
+      @include breakpoint(tablet-m) {
+        display: none;
+      }
+    }
+    &_icon {
+      display: none;
+
+      @include breakpoint(tablet-m) {
+        display: inline-block;
+        width: 15px;
+        margin-left: 10px;
       }
     }
   }

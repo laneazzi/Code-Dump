@@ -5,6 +5,15 @@
   padding: 12px 19px 11px 19px;
   background-color: $bluestone;
 
+  @include breakpoint(desktop) {
+    max-width: 200px;
+    padding: 15px 10px;
+  }
+
+  @include breakpoint(tablet) {
+    padding: 8px 10px;
+  }
+
   &__content {
     @extend %flex-align;
     @extend %font-22-large;
@@ -12,5 +21,31 @@
     color: $gray;
     white-space: nowrap;
     font-family: $Open-Sans;
+
+    @include breakpoint(desktop) {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    @include breakpoint(tablet) {
+      font-size: 16px;
+      line-height: 25px;
+    }
+
+    @include breakpoint(tablet-m) {
+      font-size: 14px;
+      line-height: 23px;
+    }
+
+    @include breakpoint(mobile-m) {
+      font-size: 12px;
+      line-height: 21px;
+    }
+  }
+
+  svg {
+    @include breakpoint(desktop) {
+      width: 25px;
+    }
   }
 }

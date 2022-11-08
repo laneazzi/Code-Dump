@@ -17,7 +17,7 @@ type TLiveChatProps = {
 };
 
 const LiveChat: FC<TLiveChatProps> = ({ messages, type, closeTheChat }) => {
-  const chatItems = messages.map((message) => <Message key={message.id} user={message} />);
+  const chatItems = messages.map((message) => <Message key={message.id} user={message} inChat />);
 
   const liveChatClasses = classNames(styles.chat, { [styles.chat__small]: type === 'global' });
 
@@ -37,7 +37,7 @@ const LiveChat: FC<TLiveChatProps> = ({ messages, type, closeTheChat }) => {
         </div>
         <div className={chatMainClasses}>{chatItems}</div>
         <div className={styles.chat__content_footer}>
-          <ChatField type='global' />
+          <ChatField type={type} />
         </div>
       </div>
     </div>

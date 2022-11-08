@@ -7,45 +7,55 @@
   padding: 30px 31px 24px 31px;
   filter: drop-shadow(0px 0px 28px rgba(0, 0, 0, 0.031));
 
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+  }
+
   @include breakpoint(tablet) {
-    padding: 10px 15px;
-    border-radius: 8px;
+    height: 500px;
+    padding: 20px;
   }
 
   &__small {
-    position: relative;
+    position: fixed;
     z-index: 10;
-    height: 530px;
+    right: 25px;
+    bottom: 15px;
+    height: 650px;
     max-width: 500px;
     box-shadow: 8px 7px 44px -6px rgba(0, 0, 0, 0.75);
 
     @include breakpoint(wide-max) {
-      position: fixed;
-      right: 25px;
+      right: 15px;
+      max-width: 400px;
+      height: 488px;
       bottom: 125px;
     }
 
     @include breakpoint(tablet) {
-      height: 300px;
+      height: 500px;
       max-width: 300px;
     }
 
     @include breakpoint(tablet-m) {
       bottom: 90px;
-      height: 250px;
-      max-width: 250px;
+    }
+
+    @include breakpoint(mobile-m) {
+      right: 10px;
     }
 
     .chat__content_main {
-      height: 330px;
+      height: 465px;
 
-      @include breakpoint(tablet) {
-        height: 160px;
+      @include breakpoint(wide-max) {
+        height: 315px;
         padding: 10px 0;
       }
 
-      @include breakpoint(tablet-m) {
-        height: 130px;
+      @include breakpoint(tablet) {
+        height: 380px;
+        gap: 10px;
       }
     }
 
@@ -77,10 +87,10 @@
 
       @include breakpoint(tablet) {
         position: absolute;
+        top: -10px;
+        left: -16px;
         width: 24px;
         height: 22px;
-        top: -12px;
-        left: -17px;
         cursor: pointer;
       }
     }
@@ -92,6 +102,16 @@
       padding-bottom: 31px;
       font-family: $Open-Sans;
       border-bottom: 1px solid #cccc;
+
+      @include breakpoint(tablet) {
+        font-size: 18px;
+        padding-bottom: 10px;
+
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+      }
     }
 
     &_main {
@@ -100,6 +120,12 @@
       height: 600px;
       padding: 31px 0;
       overflow-y: scroll;
+
+      @include breakpoint(tablet) {
+        height: 375px;
+        gap: 20px;
+        padding: 10px 0;
+      }
 
       &::-webkit-scrollbar {
         display: none;

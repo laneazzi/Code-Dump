@@ -5,8 +5,9 @@ import DatePicker from 'react-datepicker';
 import { DateIcon } from 'assets/icons';
 import { dateFormatter } from 'utils/dateFormatter';
 
-import styles from './DatePickerSelect.module.scss';
 import 'react-datepicker/dist/react-datepicker.css';
+
+import styles from './DatePickerSelect.module.scss';
 
 type TDatePickerSelectProps = {
   title: string;

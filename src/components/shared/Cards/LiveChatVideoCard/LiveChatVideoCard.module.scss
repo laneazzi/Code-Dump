@@ -4,6 +4,14 @@
   max-width: 1013px;
   border-radius: 16px;
 
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+  }
+
+  @include breakpoint(desktop) {
+    height: auto;
+  }
+
   &__background {
     position: relative;
     height: 100%;
@@ -23,16 +31,82 @@
       gap: 11px;
       padding: 24px 0 32px 23px;
 
+      @include breakpoint(tablet-m) {
+        gap: 8px;
+        width: 100%;
+        padding: 8px 10px;
+        justify-content: space-between;
+      }
+
+      @include breakpoint(mobile-m) {
+        padding: 0 10px;
+      }
+
       &_time {
         @extend %font-22-large;
         color: $white;
         font-family: $Open-Sans;
+
+        @include breakpoint(desktop) {
+          font-size: 18px;
+          line-height: 26px;
+        }
+
+        @include breakpoint(tablet) {
+          font-size: 16px;
+          line-height: 25px;
+        }
+
+        @include breakpoint(tablet-m) {
+          font-size: 14px;
+          line-height: 23px;
+          position: absolute;
+          top: 60px;
+        }
+
+        @include breakpoint(mobile-m) {
+          font-size: 12px;
+          line-height: 21px;
+          top: 40px;
+        }
       }
 
       &_title {
         @extend %font-24-large-bold;
         color: $white;
         font-family: $Open-Sans;
+
+        @include breakpoint(desktop) {
+          font-size: 20px;
+          line-height: 29px;
+        }
+
+        @include breakpoint(tablet) {
+          font-size: 18px;
+          line-height: 27px;
+        }
+
+        @include breakpoint(tablet-m) {
+          font-size: 16px;
+          line-height: 25px;
+        }
+
+        @include breakpoint(mobile-m) {
+          font-size: 12px;
+          line-height: 23px;
+        }
+      }
+
+      &_live {
+        @include breakpoint(tablet-m) {
+          width: 45px;
+        }
+      }
+
+      &_ellipse {
+        @include breakpoint(tablet-m) {
+          display: none;
+        }
       }
     }
   }

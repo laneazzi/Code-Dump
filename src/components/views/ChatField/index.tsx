@@ -1,14 +1,17 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames';
-import EmojiPicker from 'emoji-picker-react';
+import data from '@emoji-mart/data';
+import Picker from '@emoji-mart/react';
 
+import { useWindowSize } from 'hooks';
 import { Input } from 'components/shared';
 import { SendIcon, SmileIcon } from 'assets/icons';
 
+import { IEmoji } from './types';
 import styles from './ChatField.module.scss';
 
 type TChatFieldProps = {
-  type?: 'global';
+  type?: 'global' | 'inLive';
 };
 
 const ChatField: FC<TChatFieldProps> = ({ type }) => {
@@ -19,16 +22,20 @@ const ChatField: FC<TChatFieldProps> = ({ type }) => {
     setMessage(e.target.value);
   };
 
+  const width = useWindowSize().width;
+
   const emojiCaseClasses = classNames(styles.container__emoji, {
+    [styles.container__emoji_active]: isShowPicker,
     [styles.container__emoji_small]: type === 'global',
+    [styles.container__emoji_small_active]: isShowPicker && type === 'global',
   });
 
   const containerClasses = classNames(styles.container, {
     [styles.container__global]: type === 'global',
   });
 
-  const onEmojiClick = (emojiObject: any) => {
-    setMessage((prevInput) => prevInput + emojiObject.emoji);
+  const onEmojiClick = (emojiObject: IEmoji) => {
+    setMessage((prev) => prev + emojiObject.native);
   };
 
   const showEmojis = () => setIsShowPicker(!isShowPicker);
@@ -46,17 +53,19 @@ const ChatField: FC<TChatFieldProps> = ({ type }) => {
         <SmileIcon onClick={showEmojis} className={styles.container__content_smile} />
       </div>
 
-      {isShowPicker && (
-        <div className={emojiCaseClasses}>
-          <EmojiPicker
-            onEmojiClick={onEmojiClick}
-            width={type ? 365 : 300}
-            height={type ? 300 : 400}
-            searchDisabled={type && true}
-            skinTonesDisabled={type && true}
-          />
-        </div>
-      )}
+      <div className={emojiCaseClasses}>
+        <Picker
+          data={data}
+          theme='light'
+          set='native'
+          maxFrequentRows={1}
+          showPreview={false}
+          showSkinTones={false}
+          previewPosition='none'
+          onEmojiSelect={onEmojiClick}
+          perLine={width >= 768 ? 8 : 5}
+        />
+      </div>
 
       <div className={styles.container__icon}>
         <SendIcon className={styles.container__icon_item} />
