@@ -51,7 +51,7 @@ const ForumCard: FC<TForumCardProps> = ({ card, openPost }) => {
 
   return (
     <div className={styles.container} onClick={() => openPost?.(card)}>
-      <div className={styles.container__content} onClick={handlePropagation}>
+      <div className={styles.container__content}>
         <div className={styles.container__content__header}>
           <UserImgFrame img={GuyImg} className={styles.container__content__header__box} />
           <div className={styles.container__content__header__title}>
@@ -64,7 +64,7 @@ const ForumCard: FC<TForumCardProps> = ({ card, openPost }) => {
             </Typography>
           </div>
         </div>
-        <div className={styles.container__content__header__selects}>
+        <div className={styles.container__content__header__selects} onClick={handlePropagation}>
           <Typography className={styles.container__content__header__selects__time}>
             {card.postedTime}
           </Typography>

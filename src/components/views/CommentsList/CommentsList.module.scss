@@ -7,10 +7,18 @@
     gap: 30px;
     padding: 39px 34px 41px 34px;
 
+    @include breakpoint(tablet-m) {
+      padding: 20px;
+    }
+
     &_comments {
       @extend %flex-column;
       gap: 49px;
       font-family: $Open-Sans;
+
+      @include breakpoint(tablet-m) {
+        gap: 20px;
+      }
 
       &_items {
         &_reply {
@@ -21,6 +29,12 @@
           padding-left: 47px;
           margin-left: 32px;
           border-left: 3px solid rgba(96, 128, 160, 0.2);
+
+          @include breakpoint(tablet-m) {
+            gap: 20px;
+            padding-top: 20px;
+            padding-left: 25px;
+          }
         }
       }
     }

@@ -20,10 +20,12 @@
     padding: 18px 19px 15px 20px;
     background-color: $bluestone;
 
+    @include breakpoint(wide-max) {
+      max-width: 100%;
+    }
     @include breakpoint(tablet) {
       padding: 5px;
       font-size: 18px;
-      max-width: 100%;
       border-radius: 6px;
     }
 
@@ -60,17 +62,20 @@
 
   &__emoji {
     position: absolute;
+    left: 0;
     z-index: 10;
     transform: scaleY(0);
     transform-origin: 0 100%;
     top: calc(100% - 350px - 74px);
-    left: calc(100% - 316px - 64px);
-    transition: 0.4s left ease-in-out, 1s transform ease-in-out;
+    transition: 0.3s ease-in-out;
+
+    @include breakpoint(tablet) {
+      top: calc(100% - 350px - 55px);
+    }
 
     &_active {
       transform: scaleY(1);
-      left: 0;
-      transition: 0.3s transform ease-in, 1s left ease-in;
+      transition: 0.3s ease-in;
     }
 
     em-emoji-picker {
@@ -78,14 +83,13 @@
     }
 
     &_small {
+      left: 0;
       transform: scaleY(0);
       transform-origin: 0 100%;
       top: calc(100% - 64px - 370px);
-      left: calc(100% - 316px - 64px);
       transition: 0.2s left ease-in-out, 1s transform ease-in-out;
 
       @include breakpoint(wide-max) {
-        left: 0;
         top: calc(100% - 380px);
       }
 

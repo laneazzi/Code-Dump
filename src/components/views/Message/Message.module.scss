@@ -121,14 +121,22 @@
           div {
             @include breakpoint(desktop) {
               font-size: 18px;
+              line-height: 25px;
             }
 
             @include breakpoint(tablet) {
               font-size: 16px;
+              line-height: 23px;
             }
 
             @include breakpoint(tablet-m) {
               font-size: 14px;
+              line-height: 22px;
+            }
+
+            @include breakpoint(mobile-m) {
+              font-size: 12px;
+              line-height: 20px;
             }
           }
 

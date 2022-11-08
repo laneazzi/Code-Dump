@@ -11,7 +11,7 @@ import { IEmoji } from './types';
 import styles from './ChatField.module.scss';
 
 type TChatFieldProps = {
-  type?: 'global';
+  type?: 'global' | 'inLive';
 };
 
 const ChatField: FC<TChatFieldProps> = ({ type }) => {
@@ -25,8 +25,8 @@ const ChatField: FC<TChatFieldProps> = ({ type }) => {
   const width = useWindowSize().width;
 
   const emojiCaseClasses = classNames(styles.container__emoji, {
-    [styles.container__emoji_small]: type === 'global',
     [styles.container__emoji_active]: isShowPicker,
+    [styles.container__emoji_small]: type === 'global',
     [styles.container__emoji_small_active]: isShowPicker && type === 'global',
   });
 

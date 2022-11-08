@@ -14,7 +14,8 @@
   }
 
   @include breakpoint(mobile-m) {
-    min-height: auto;
+    min-height: 200px;
+    height: 100%;
   }
 
   &__background {

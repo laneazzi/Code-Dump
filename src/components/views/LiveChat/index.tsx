@@ -37,7 +37,7 @@ const LiveChat: FC<TLiveChatProps> = ({ messages, type, closeTheChat }) => {
         </div>
         <div className={chatMainClasses}>{chatItems}</div>
         <div className={styles.chat__content_footer}>
-          <ChatField type='global' />
+          <ChatField type={type} />
         </div>
       </div>
     </div>

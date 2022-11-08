@@ -55,6 +55,8 @@ $root: &;
       max-width: 100%;
       overflow-x: hidden;
       overflow-y: scroll;
+      left: 50px;
+      right: 50px;
     }
 
     @include breakpoint(desktop) {

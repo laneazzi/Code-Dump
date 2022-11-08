@@ -3,15 +3,36 @@
   width: 99px;
   height: 100px;
 
+  @include breakpoint(tablet-m) {
+    min-width: 69px;
+    max-width: 69px;
+    height: 70px;
+  }
+
   &__item {
     position: absolute;
     top: 70px;
     right: 4px;
+
+    @include breakpoint(tablet-m) {
+      width: 15px;
+      height: 15px;
+      top: 42px;
+      right: 13px;
+    }
   }
+
   &__live {
     position: absolute;
     right: 8px;
     top: 75px;
+
+    @include breakpoint(tablet-m) {
+      width: 8px;
+      height: 8px;
+      top: 49px;
+      right: 13px;
+    }
   }
 
   &__img {
@@ -22,8 +43,22 @@
     height: 81px;
     border: none;
 
+    @include breakpoint(tablet-m) {
+      width: 51px;
+      height: 51px;
+      left: 4px;
+      top: 4px;
+    }
+
     div {
       padding: 3px;
+    }
+  }
+
+  &__box {
+    @include breakpoint(tablet-m) {
+      width: 60px;
+      height: 60px;
     }
   }
 }
