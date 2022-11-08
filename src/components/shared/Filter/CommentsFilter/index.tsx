@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import classNames from 'classnames';
 
-import { BlueArrowIcon } from 'assets/icons';
+import { BlueArrowIcon, MessageIcon } from 'assets/icons';
 import Typography from 'components/shared/Typography';
 
 import styles from './CommentsFilter.module.scss';
@@ -49,7 +49,10 @@ const CommentsFilter: FC<TCommentsFilterProps> = ({ commentsCount }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.container__count}>({commentsCount}) Comments</div>
+      <div className={styles.container__count}>
+        ({commentsCount}) <Typography tagName='span'>Comments</Typography>
+        <MessageIcon className={styles.container__count_icon} />
+      </div>
       <div className={titleClasses}>
         <p className={styles.container__sort_title} onClick={openSortMenu}>
           Sort By: {title} <BlueArrowIcon className={arrowClasses} />

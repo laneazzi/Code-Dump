@@ -6,8 +6,6 @@
   overflow: hidden;
 
   &__small {
-    z-index: 4;
-
     @include breakpoint(wide-max) {
       max-width: 100%;
     }

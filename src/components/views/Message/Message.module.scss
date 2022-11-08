@@ -16,6 +16,10 @@
     }
 
     &_box {
+      @include breakpoint(tablet-m) {
+        position: relative;
+      }
+
       svg {
         height: 20px;
       }
@@ -32,6 +36,12 @@
       &_icons {
         @extend %flex-align;
         gap: 42px;
+
+        &_time {
+          position: absolute;
+          top: 7px;
+          right: -35px;
+        }
 
         div {
           @extend %flex-align;
@@ -89,6 +99,11 @@
           width: 70px;
           height: 70px;
           border-width: 2px;
+        }
+
+        @include breakpoint(tablet-m) {
+          width: 50px;
+          height: 50px;
         }
       }
 

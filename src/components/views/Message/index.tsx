@@ -42,7 +42,7 @@ const Message: FC<TMessageProps> = ({ user, type, inChat }) => {
                 <ShareIcon />
                 Reply
               </div>
-              <div>{user.publishedTime}</div>
+              <div className={styles.container__content_box_icons_time}>{user.publishedTime}</div>
               <div>
                 <MessageSettingsIcon />
               </div>
