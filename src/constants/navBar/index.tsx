@@ -9,7 +9,7 @@ import {
 import { Routes } from 'types';
 
 export const navBarLinks = [
-  { id: 1, icon: <ForumIcon />, url: Routes.Home, title: 'Forum' },
+  { id: 1, icon: <ForumIcon />, url: Routes.Home, title: 'Home' },
   { id: 2, icon: <SearchIcon />, url: Routes.Search, title: 'Search' },
   { id: 3, icon: <EventsIcon />, url: Routes.Events, title: 'Events' },
   { id: 4, icon: <TournamentIcon />, url: Routes.Tournament, title: 'Tournament' },
