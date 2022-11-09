@@ -8,6 +8,8 @@ import {
   CreateEventDropDown,
 } from 'components';
 
+import { stateOptions, peopleOptions } from './options';
+
 import styles from './CreateEvent.module.scss';
 
 const CreateEvent = () => (
@@ -22,8 +24,8 @@ const CreateEvent = () => (
             <HourPicker />
           </div>
           <div className={styles.container__content_main_left_item}>
-            <CreateEventDropDown title='State' size='small' />
-            <CreateEventDropDown title='City' size='small' />
+            <CreateEventDropDown title='State' size='small' optionList={stateOptions} />
+            <EventInput title='City' small />
           </div>
           <div className={styles.container__content_main_left_item}>
             <EventInput title='Address' small />
@@ -35,7 +37,7 @@ const CreateEvent = () => (
             <TextArea />
           </div>
           <div className={styles.container__content_main_right_item}>
-            <CreateEventDropDown title='People' size='small' />
+            <CreateEventDropDown title='People' size='small' optionList={peopleOptions} />
             <EventPrice />
           </div>
           <div className={styles.container__content_main_right_elem}>
