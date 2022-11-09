@@ -14,11 +14,10 @@ const Search = () => {
 
   const filterItems: TFilter[] = [
     { id: 0, name: 'People' },
-    { id: 1, name: 'Fish' },
-    { id: 2, name: 'Videos' },
-    { id: 3, name: 'Locations' },
-    { id: 4, name: 'Events', path: Routes.Events },
-    { id: 5, name: 'Tournaments', path: Routes.Tournament },
+    { id: 1, name: 'Videos' },
+    { id: 2, name: 'Locations' },
+    { id: 3, name: 'Events', path: Routes.Events },
+    { id: 4, name: 'Tournaments', path: Routes.Tournament },
   ];
 
   const users = useMemo(
