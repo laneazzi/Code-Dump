@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import classNames from 'classnames';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import {
   AddIcon,
@@ -14,6 +14,7 @@ import { UserImg } from 'assets/img';
 import { useOnClickOutside } from 'hooks';
 import { HeaderMenu, Input, Typography, UserImgFrame } from 'components/shared';
 import { EventDropDownItems, ProfileDropDownItems } from 'utils/headerDropDowns';
+import { Routes } from 'types';
 
 import { HeaderDropDown } from '../index';
 
@@ -64,12 +65,16 @@ const Header = () => {
 
   const { pathname } = useLocation();
 
+  const navigate = useNavigate();
+
+  const goToHomePage = () => navigate(Routes.Home);
+
   const param = pathname.replace('/', '');
 
   return (
     <header className={styles.header}>
       <div className={styles.header__title}>
-        <ReelBudLogoIcon className={styles.header__title_icon} />
+        <ReelBudLogoIcon className={styles.header__title_icon} onClick={goToHomePage} />
         <ReelBudTextIcon className={styles.header__title_logo} />
         <Typography tagName='span' className={styles.header__title_route}>
           /

@@ -1,7 +1,7 @@
 import { Fragment, useMemo, useState } from 'react';
 
-import { VideoCard } from 'components';
 import { cardImgTwo } from 'assets/img';
+import { CalendarPicker, VideoCard } from 'components';
 import {
   ProfileBio,
   VideoFilter,
@@ -42,6 +42,7 @@ const Profile = () => {
               <VideoFilter videoCount={profileVideosData.length} livesCount={0} />
             </section>
             <section className={styles.profile__content_videos}>{profileVideos}</section>
+            <CalendarPicker />
           </Fragment>
         )}
       </div>

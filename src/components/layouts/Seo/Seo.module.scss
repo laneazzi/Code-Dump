@@ -12,8 +12,13 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    padding: 45px 0 0;
+    margin: 0 -16px;
     background: $white;
+    padding: 45px 16px 0;
+
+    @include breakpoint(wide-max) {
+      box-shadow: 0 -6px 10px 5px rgba(0, 0, 0, 0.5);
+    }
 
     @include breakpoint(tablet) {
       margin: 0 -16px;

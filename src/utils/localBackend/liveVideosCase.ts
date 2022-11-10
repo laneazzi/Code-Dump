@@ -10,4 +10,14 @@ export const liveVideosCase: TLiveVideoCard[] = [
   { id: 7, src: 'login.mp4', title: 'Live Title Name', watchCount: 58 },
   { id: 8, src: 'forum.mp4', title: 'Live Title Name', watchCount: 111 },
   { id: 9, src: 'login.mp4', title: 'Live Title Name', watchCount: 98 },
+
+  { id: 10, src: 'forum.mp4', title: 'Live Title Name', watchCount: 98 },
+  { id: 11, src: 'login.mp4', title: 'Live Title Name', watchCount: 240 },
+  { id: 12, src: 'forum.mp4', title: 'Live Title Name', watchCount: 158 },
+  { id: 13, src: 'login.mp4', title: 'Live Title Name', watchCount: 125 },
+  { id: 14, src: 'login.mp4', title: 'Live Title Name', watchCount: 58 },
+  { id: 15, src: 'forum.mp4', title: 'Live Title Name', watchCount: 111 },
+  { id: 16, src: 'login.mp4', title: 'Live Title Name', watchCount: 100 },
+  { id: 17, src: 'login.mp4', title: 'Live Title Name', watchCount: 98 },
+  { id: 18, src: 'login.mp4', title: 'Live Title Name', watchCount: 58 },
 ];

@@ -35,6 +35,7 @@
       display: none;
       width: 66px;
       height: 66px;
+      cursor: pointer;
 
       @include breakpoint(wide-max) {
         display: block;

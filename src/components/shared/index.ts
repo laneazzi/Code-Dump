@@ -16,6 +16,7 @@ export { default as VideoCard } from './Cards/VideoCard';
 export { default as EventCard } from './Cards/EventCard';
 export { default as ForumCard } from './Cards/ForumCard';
 export { default as UserLiveFrame } from './UserLiveFrame';
+export { default as CalendarPicker } from './CalendarPicker';
 export { default as PaginateWrapper } from './PaginateWrapper';
 export { default as TodayTopCard } from './Cards/TodayTopCard';
 export { default as LiveVideoCard } from './Cards/LiveVideoCard';

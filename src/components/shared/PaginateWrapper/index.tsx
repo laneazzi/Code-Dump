@@ -9,17 +9,20 @@ type TPaginateWrapperProps = {
   totalItemsCount: number;
   itemsCountPerPage: number;
   pageRangeDisplayed?: number;
+  changePage: (value: number) => void;
 };
 
 const PaginateWrapper: FC<TPaginateWrapperProps> = ({
   totalItemsCount,
   pageRangeDisplayed,
   itemsCountPerPage = 5,
+  changePage,
 }) => {
   const [activePage, setActivePage] = useState<number>(1);
 
   const handlePageChange = (pageNumber: number) => {
     setActivePage(pageNumber);
+    changePage(pageNumber);
   };
 
   return (
