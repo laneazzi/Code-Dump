@@ -2,15 +2,18 @@
   @extend %flex-center;
   padding: 10px 0 30px 0;
 
+  @include breakpoint(wide-max) {
+    margin-bottom: 100px;
+  }
+
   &__box {
     @extend %flex-justify-between;
     width: 100%;
     max-width: 300px;
     padding: 10px 30px;
+    border-radius: 30px;
     background: transparent;
     box-shadow: 7px -2px 42px -12px rgba(0, 0, 0, 0.74);
-    -moz-box-shadow: 7px -2px 42px -12px rgba(0, 0, 0, 0.74);
-    -webkit-box-shadow: 7px -2px 42px -12px rgba(0, 0, 0, 0.74);
 
     &_item {
       @extend %flex-center;

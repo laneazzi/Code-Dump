@@ -54,6 +54,8 @@ export { ReactComponent as CloseCircleIcon } from './closeCircle.svg';
 export { ReactComponent as EventCardIcon } from './EventCardIcon.svg';
 export { ReactComponent as SaveActiveIcon } from './saveIconActive.svg';
 export { ReactComponent as ActiveSaveIcon } from './ActiveSavedIcon.svg';
+export { ReactComponent as NextMonthCalendarIcon } from './nextMonth.svg';
+export { ReactComponent as PrevMonthCalendarIcon } from './prevMonth.svg';
 export { ReactComponent as FilterByDropIcon } from './filterByDropIcon.svg';
 export { ReactComponent as TournamentCardIcon } from './TournamentIcon.svg';
 export { ReactComponent as BlueArrowIcon } from './CommentsFilterArrow.svg';

@@ -8,7 +8,7 @@
 
     @include breakpoint(wide-max) {
       min-width: 100%;
-      overflow-x: scroll;
+      overflow: hidden;
     }
 
     @include breakpoint(desktop) {
@@ -42,10 +42,10 @@
       gap: 23.5px;
 
       @include breakpoint(wide-max) {
-        flex-direction: row;
-        max-width: 1575px;
-        overflow: scroll;
         width: 100%;
+        overflow: scroll;
+        max-width: 1575px;
+        flex-direction: row;
 
         &::-webkit-scrollbar {
           display: none;

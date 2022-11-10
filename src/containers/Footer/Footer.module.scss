@@ -83,10 +83,18 @@
 
         &:not(:last-child) {
           padding-right: 25px;
+
+          @include breakpoint(mobile-m) {
+            padding: 5px;
+          }
         }
 
         &:last-child {
           padding-left: 25px;
+
+          @include breakpoint(mobile-m) {
+            padding: 5px;
+          }
         }
 
         &:not(:last-child) {

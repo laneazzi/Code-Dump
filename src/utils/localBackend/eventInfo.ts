@@ -5,6 +5,7 @@ import {
   cardImgThree,
   highPostTwoImg,
   highPostThreeImg,
+  highPostFiveImg,
 } from 'assets/img';
 import { TEventCard } from 'components/shared/Cards/EventCard/types';
 
@@ -63,6 +64,60 @@ export const TournamentCardInfo: TEventCard[] = [
     eventTitle: 'Tournament Title Name',
     eventDate: 'September 29, 2022 - 11AM',
   },
+  {
+    id: 10,
+    img: cardImg,
+    eventTitle: 'Tournament Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 12,
+    img: highPostFiveImg,
+    eventTitle: 'Tournament Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 13,
+    img: cardImgThree,
+    eventTitle: 'Tournament Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 14,
+    img: cardImgThree,
+    eventTitle: 'Tournament Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 15,
+    img: highPostFiveImg,
+    eventTitle: 'Tournament Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 16,
+    img: highPostThreeImg,
+    eventTitle: 'Tournament Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 17,
+    img: highPostTwoImg,
+    eventTitle: 'Tournament Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 18,
+    img: cardImgThree,
+    eventTitle: 'Tournament Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 19,
+    img: cardImg,
+    eventTitle: 'Tournament Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
 ];
 
 export const EventCardInfo: TEventCard[] = [
@@ -117,6 +172,60 @@ export const EventCardInfo: TEventCard[] = [
   {
     id: 9,
     img: cardImgTwo,
+    eventTitle: 'Event Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 10,
+    img: cardImg,
+    eventTitle: 'Event Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 12,
+    img: highPostFiveImg,
+    eventTitle: 'Event Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 13,
+    img: cardImgThree,
+    eventTitle: 'Event Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 14,
+    img: cardImgThree,
+    eventTitle: 'Event Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 15,
+    img: highPostFiveImg,
+    eventTitle: 'Event Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 16,
+    img: highPostThreeImg,
+    eventTitle: 'Event Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 17,
+    img: highPostTwoImg,
+    eventTitle: 'Event Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 18,
+    img: cardImgThree,
+    eventTitle: 'Event Title Name',
+    eventDate: 'September 29, 2022 - 11AM',
+  },
+  {
+    id: 19,
+    img: cardImg,
     eventTitle: 'Event Title Name',
     eventDate: 'September 29, 2022 - 11AM',
   },

@@ -40,6 +40,15 @@
       color: $blue-dark;
       font-family: $Open-Sans;
 
+      &_show {
+        border: none;
+        color: blue;
+        cursor: pointer;
+        transition: 0.4s;
+        margin-left: 10px;
+        background: transparent;
+      }
+
       @include breakpoint(wide-max) {
         font-size: 20px;
         line-height: 29px;

@@ -10,7 +10,7 @@
   }
 
   &__large {
-    z-index: 1;
+    z-index: 5;
     max-width: 280px;
 
     @include breakpoint(tablet-m) {
