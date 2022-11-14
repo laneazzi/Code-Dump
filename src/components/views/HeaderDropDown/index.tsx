@@ -6,7 +6,7 @@ import { ModalContext } from 'context/Modal';
 import { Typography } from 'components/shared';
 import { THeaderDropDown } from 'utils/headerDropDowns';
 
-import { CreateEvent } from '../Modals';
+import { CreateEvent, CreateTournament } from '../Modals';
 
 import styles from './HeaderDropDown.module.scss';
 
@@ -21,6 +21,9 @@ const HeaderDropDown: FC<THeaderDropDownProps> = ({ dropDownList, className }) =
     const handleClick = () => {
       if (post.description === 'Create Event') {
         openModal(<CreateEvent />);
+      }
+      if (post.description === 'Create Tournament') {
+        openModal(<CreateTournament />);
       }
     };
 

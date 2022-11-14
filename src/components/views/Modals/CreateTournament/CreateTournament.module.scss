@@ -1,0 +1,127 @@
+.container {
+  width: 1222px;
+  border-radius: 16px;
+  background-color: $white;
+
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+  }
+
+  @include breakpoint(tablet-m) {
+    display: flex;
+    justify-content: center;
+    border-radius: 0px;
+  }
+
+  @include breakpoint(tablet-m) {
+    display: block;
+  }
+
+  &__content {
+    padding: 50px 50px 48px;
+
+    @include breakpoint(tablet-m) {
+      padding: 30px;
+    }
+
+    @include breakpoint(mobile-m) {
+      padding: 30px 15px;
+    }
+
+    &_head {
+      @extend %font-28-large;
+      font-family: $Poppins;
+      color: $blue-dark;
+      text-align: center;
+      margin-bottom: 31px;
+
+      @include breakpoint(tablet) {
+        font-size: 20px;
+        line-height: 34px;
+        margin-bottom: 15px;
+      }
+    }
+
+    &_main {
+      display: flex;
+      width: 100%;
+      gap: 46px;
+      margin-bottom: 48px;
+
+      @include breakpoint(tablet) {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      &_left {
+        @extend %flex-column;
+        gap: 30px;
+        width: 100%;
+        max-width: 538px;
+
+        @include breakpoint(wide-max) {
+          gap: 10px;
+        }
+
+        &_item {
+          @extend %flex-justify-between;
+
+          @include breakpoint(wide-max) {
+            flex-direction: column;
+            gap: 10px;
+          }
+        }
+      }
+
+      &_right {
+        @extend %flex-column;
+        gap: 30px;
+        max-width: 538px;
+        width: 100%;
+
+        @include breakpoint(wide-max) {
+          gap: 10px;
+        }
+
+        &_item {
+          @extend %flex-justify-between;
+
+          @include breakpoint(wide-max) {
+            gap: 10px;
+            flex-direction: column;
+          }
+        }
+      }
+    }
+
+    &_footer {
+      @extend %flex-center;
+      gap: 16px;
+
+      button {
+        @extend %font-24-large;
+        cursor: pointer;
+        padding: 12px 40px;
+        border-radius: 16px;
+        font-family: $Open-Sans;
+
+        @include breakpoint(mobile-m) {
+          padding: 5px 20px;
+          font-size: 16px;
+        }
+
+        &:first-child {
+          color: $blue-dark;
+          background: $white;
+          border: 1px solid $blue-dark;
+        }
+
+        &:last-child {
+          color: $white;
+          border: none;
+          background: $red-light;
+        }
+      }
+    }
+  }
+}
