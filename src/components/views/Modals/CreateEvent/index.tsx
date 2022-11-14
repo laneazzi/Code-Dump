@@ -53,7 +53,7 @@ const CreateEvent = () => {
           </div>
         </div>
         <div className={styles.container__content_footer}>
-          <button onClick={closeModal}>Cancel</button>
+          <button onClick={closeModal}>Close</button>
           <button>Create</button>
         </div>
       </div>
