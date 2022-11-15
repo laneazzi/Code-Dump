@@ -12,7 +12,7 @@ import {
   CreateEventDropDown,
 } from 'components';
 
-import { stateOptions, peopleOptions } from './options';
+import { stateOptions, peopleOptions } from '../options';
 
 import styles from './CreateEvent.module.scss';
 
