@@ -14,18 +14,18 @@ import {
 
 import { stateOptions, peopleOptions } from '../options';
 
-import styles from './CreateEvent.module.scss';
+import styles from './CreateTournament.module.scss';
 
-const CreateEvent = () => {
+const CreateTournament = () => {
   const { closeModal } = useContext(ModalContext);
 
   return (
     <div className={styles.container}>
       <div className={styles.container__content}>
-        <div className={styles.container__content_head}>CREATE EVENT</div>
+        <div className={styles.container__content_head}>CREATE TOURNAMENT</div>
         <div className={styles.container__content_main}>
           <div className={styles.container__content_main_left}>
-            <EventInput title='Event Name' />
+            <EventInput title='Tournament Name' />
             <div className={styles.container__content_main_left_item}>
               <DatePickerSelect title='Date' />
               <HourPicker />
@@ -45,7 +45,7 @@ const CreateEvent = () => {
             </div>
             <div className={styles.container__content_main_right_item}>
               <CreateEventDropDown title='People' size='small' optionList={peopleOptions} />
-              <EventPrice placeholder='Free' />
+              <EventPrice placeholder='$' />
             </div>
             <div className={styles.container__content_main_right_elem}>
               <EventFile />
@@ -61,4 +61,4 @@ const CreateEvent = () => {
   );
 };
 
-export default CreateEvent;
+export default CreateTournament;
