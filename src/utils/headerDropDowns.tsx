@@ -20,9 +20,8 @@ export type THeaderDropDown = {
 
 export const EventDropDownItems: THeaderDropDown[] = [
   { id: 1, icon: <AddNewPostIcon />, description: 'New Post' },
-  { id: 2, icon: <LivesIcon />, description: 'New Live Stream' },
-  { id: 3, icon: <EventsIcon />, description: 'Create Event' },
-  { id: 4, icon: <TournamentIcon />, description: 'Create Tournament' },
+  { id: 2, icon: <EventsIcon />, description: 'Create Event' },
+  { id: 3, icon: <TournamentIcon />, description: 'Create Tournament' },
 ];
 
 export const ProfileDropDownItems: THeaderDropDown[] = [

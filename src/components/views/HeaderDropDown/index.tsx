@@ -6,7 +6,7 @@ import { ModalContext } from 'context/Modal';
 import { Typography } from 'components/shared';
 import { THeaderDropDown } from 'utils/headerDropDowns';
 
-import { CreateEvent, CreateTournament } from '../Modals';
+import { CreateEvent, NewPost, CreateTournament } from '../Modals';
 
 import styles from './HeaderDropDown.module.scss';
 
@@ -24,6 +24,10 @@ const HeaderDropDown: FC<THeaderDropDownProps> = ({ dropDownList, className }) =
       }
       if (post.description === 'Create Tournament') {
         openModal(<CreateTournament />);
+      }
+
+      if (post.description === 'New Post') {
+        openModal(<NewPost />);
       }
     };
 

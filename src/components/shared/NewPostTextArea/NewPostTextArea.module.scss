@@ -1,0 +1,42 @@
+.container {
+  width: 100%;
+  padding: 20px;
+  max-width: 800px;
+  border-radius: 8px;
+  border: 1px solid #dfe5f4;
+
+  &__content {
+    @extend %font-24-large;
+    border: none;
+    width: 100%;
+    resize: none;
+    height: 165.5px;
+    color: $blue-dark;
+    font-family: $inter;
+
+    @include breakpoint(tablet) {
+      font-size: 16px;
+      line-height: 25px;
+    }
+
+    &::placeholder {
+      color: $blue-dark;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__title {
+    @extend %font-20;
+    color: $blue-dark;
+    font-family: $inter;
+    margin-bottom: 14px;
+
+    @include breakpoint(tablet) {
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+.container {
+  &__content {
+    p {
+      @extend %font-20;
+      color: $blue-dark;
+      font-family: $inter;
+
+      &:first-child {
+        margin-bottom: 14px;
+
+        @include breakpoint(tablet) {
+          margin-bottom: 8px;
+          font-size: 18px;
+        }
+      }
+
+      &:last-child {
+        @extend %font-24;
+
+        @include breakpoint(tablet) {
+          font-size: 16px;
+        }
+      }
+    }
+    &__wrapper {
+      @extend %flex-justify-between;
+      width: 100%;
+      max-width: 800px;
+      border-radius: 8px;
+      border: 1px solid #dfe5f4;
+      padding: 19px 32px 22px 19px;
+
+      @include breakpoint(tablet) {
+        padding: 10px 15px;
+      }
+    }
+
+    &__file {
+      @extend %flex-align;
+      position: relative;
+
+      img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+      }
+
+      &__label {
+        @extend %flex-align;
+        cursor: pointer;
+
+        input {
+          display: none;
+        }
+      }
+
+      &_close {
+        position: absolute;
+        top: 2px;
+        right: -6px;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+
+        path {
+          transition: 0.3s;
+        }
+
+        &:hover {
+          path {
+            fill: red;
+          }
+        }
+      }
+    }
+  }
+}
