@@ -4,6 +4,7 @@
       @extend %font-20;
       color: $blue-dark;
       font-family: $inter;
+      width: 150px;
 
       &:first-child {
         margin-bottom: 14px;
@@ -26,6 +27,7 @@
       @extend %flex-justify-between;
       width: 100%;
       max-width: 800px;
+      height: 240px;
       border-radius: 8px;
       border: 1px solid #dfe5f4;
       padding: 19px 32px 22px 19px;
@@ -45,7 +47,7 @@
 
       img {
         width: 100%;
-        height: 100%;
+        height: 200px;
         object-fit: cover;
       }
 
