@@ -6,6 +6,7 @@ export { default as LiveChat } from './LiveChat';
 export { default as LiveUser } from './LiveUser';
 export { default as ChatField } from './ChatField';
 export { default as EventFile } from './EventFile';
+export { default as NewPostFile } from './NewPostFile';
 export { default as CardsList } from './CardsList';
 export { default as EventPrice } from './EventPrice';
 export { default as EventInput } from './EventInput';

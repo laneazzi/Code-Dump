@@ -1,0 +1,87 @@
+.container {
+  &__content {
+    p {
+      @extend %font-20;
+      position: absolute;
+      color: $blue-dark;
+      font-family: $inter;
+      width: 150px;
+
+      &:first-child {
+        margin-bottom: 14px;
+
+        @include breakpoint(tablet) {
+          margin-bottom: 8px;
+          font-size: 18px;
+        }
+      }
+
+      &:last-child {
+        @extend %font-24;
+
+        @include breakpoint(tablet) {
+          font-size: 16px;
+        }
+      }
+    }
+    &__wrapper {
+      @extend %flex-justify-between;
+      width: 100%;
+      max-width: 800px;
+      height: 300px;
+      border-radius: 8px;
+      border: 1px solid #dfe5f4;
+      padding: 19px 32px 22px 19px;
+
+      @include breakpoint(tablet) {
+        padding: 10px 15px;
+      }
+    }
+
+    &__file {
+      @extend %flex-end;
+      position: relative;
+
+      width: 800px;
+      max-width: 800px;
+
+
+      img {
+        width: 100%;
+        min-width:600px;
+        height: 200px;
+        margin-top: 40px;
+        object-fit: contain;
+      }
+
+      &__label {
+        @extend %flex-align;
+        align-self: flex-end;
+        cursor: pointer;
+
+        input {
+          display: none;
+        }
+      }
+
+      &_close {
+        position: absolute;
+        top: 2px;
+        right: -6px;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+
+        path {
+          transition: 0.3s;
+        }
+
+        &:hover {
+          path {
+            fill: red;
+          }
+        }
+      }
+    }
+  }
+}
