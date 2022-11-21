@@ -33,18 +33,16 @@ const Profile = () => {
           <ProfileSideImg img={cardImgTwo} className={styles.profile__content_head_background} />
         </section>
 
-        {isActive && (
-          <Fragment>
-            <section className={styles.profile__content_info}>
-              <ProfileBio info="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 😄🐠" />
-            </section>
-            <section className={styles.profile__content_filter}>
-              <VideoFilter videoCount={profileVideosData.length} livesCount={0} />
-            </section>
-            <section className={styles.profile__content_videos}>{profileVideos}</section>
-            <CalendarPicker />
-          </Fragment>
-        )}
+        <Fragment>
+          <section className={styles.profile__content_info}>
+            <ProfileBio info="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 😄🐠" />
+          </section>
+          <section className={styles.profile__content_filter}>
+            <VideoFilter videoCount={profileVideosData.length} livesCount={0} />
+          </section>
+          <section className={styles.profile__content_videos}>{profileVideos}</section>
+          <CalendarPicker />
+        </Fragment>
       </div>
     </div>
   );
