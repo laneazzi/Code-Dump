@@ -2,6 +2,7 @@
   &__content {
     p {
       @extend %font-20;
+      position: absolute;
       color: $blue-dark;
       font-family: $inter;
       width: 150px;
@@ -27,7 +28,7 @@
       @extend %flex-justify-between;
       width: 100%;
       max-width: 800px;
-      height: 240px;
+      height: 300px;
       border-radius: 8px;
       border: 1px solid #dfe5f4;
       padding: 19px 32px 22px 19px;
@@ -47,8 +48,10 @@
 
       img {
         width: 100%;
+        min-width:600px;
         height: 200px;
-        object-fit: cover;
+        margin-top: 40px;
+        object-fit: contain;
       }
 
       &__label {
