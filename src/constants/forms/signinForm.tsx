@@ -5,9 +5,9 @@ import { Field, Form } from 'components/forms/SignInForm/types';
 
 const fields: Field[] = [
   {
-    name: 'email',
-    type: 'email',
-    placeholder: 'Email...',
+    name: 'username',
+    type: 'text',
+    placeholder: 'Username...',
   },
   {
     name: 'password',
@@ -19,10 +19,7 @@ const fields: Field[] = [
 ];
 
 const schema = yup.object().shape({
-  email: yup
-    .string()
-    .required('The Email is required')
-    .email('The Email must be a valid email address'),
+  username: yup.string().required('The Username is required'),
   password: yup
     .string()
     .required('The Password is required')

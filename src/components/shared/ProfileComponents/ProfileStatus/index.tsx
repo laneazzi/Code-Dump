@@ -2,6 +2,7 @@ import { FC } from 'react';
 import classNames from 'classnames';
 
 import { UserImg } from 'assets/img';
+import { TUserInfo } from 'store/slices/types';
 import Typography from 'components/shared/Typography';
 import UserImgFrame from 'components/shared/UserImgFrame';
 
@@ -10,6 +11,7 @@ import styles from './ProfileStatus.module.scss';
 
 type TProfileStatusProps = {
   isActive: boolean;
+  data?: TUserInfo;
   className?: string;
   frameImg?: string;
   frameClassName?: string;
@@ -17,8 +19,8 @@ type TProfileStatusProps = {
 };
 
 const ProfileStatus: FC<TProfileStatusProps> = ({
+  data,
   isActive,
-  frameImg,
   className,
   setIsActive,
   frameClassName,
@@ -34,10 +36,12 @@ const ProfileStatus: FC<TProfileStatusProps> = ({
     <div className={profileStatusClasses}>
       <div className={styles.container__content}>
         <div className={styles.container__content_head}>
-          <UserImgFrame img={frameImg || UserImg} className={frameClasses} />
+          <UserImgFrame img={data?.profile?.image || UserImg} className={frameClasses} />
         </div>
         <div className={styles.container__content_info}>
-          <Typography className={styles.container__content_info_username}>Username</Typography>
+          <Typography className={styles.container__content_info_username}>
+            {data?.username || 'Username'}
+          </Typography>
           <Typography className={styles.container__content_info_location}>Montana, EUA</Typography>
         </div>
         <div className={styles.container__content_status}>

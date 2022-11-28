@@ -10,10 +10,15 @@ const fields: Field[] = [
     placeholder: 'Email...',
   },
   {
+    type: 'text',
+    name: 'username',
+    placeholder: 'Username...',
+  },
+  {
     name: 'password',
     type: 'password',
-    placeholder: 'Password...',
     RightIcon: EyeShowIcon,
+    placeholder: 'Password...',
     RightToggledIcon: EyeHideIcon,
   },
   {
@@ -30,6 +35,7 @@ const schema = yup.object().shape({
     .string()
     .required('The Email is required')
     .email('The Email must be a valid email address'),
+  username: yup.string().required('The Username is required'),
   password: yup
     .string()
     .required('The Password is required')

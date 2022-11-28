@@ -2,7 +2,9 @@ import { FC, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Routes } from 'types';
+import { useAppDispatch } from 'hooks';
 import signIn from 'constants/forms/signinForm';
+import { signInAuth } from 'store/slices/authSlice';
 import { ReelBudLogoIcon, ReelBudTextIcon } from 'assets/icons';
 import { Checkbox, LinkButton, RadioButton, Typography } from 'components/shared';
 
@@ -16,15 +18,34 @@ type TSignInProps = {
 };
 
 const SignIn: FC<TSignInProps> = ({ toggleActive }) => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const signInRef = useRef<any>(null);
 
-  const handleSignInFormSubmit = useCallback(() => {
-    navigate(Routes.Home);
+  const handleSignInFormSubmit = useCallback(
+    async (values: any) => {
+      const loginData: any = {
+        password: values.password,
+        username: values.username,
+      };
 
-    signInRef.current.onSubmitFailed();
-  }, [navigate]);
+      const form_data = new FormData();
+
+      for (const key in loginData) {
+        form_data.append(key, loginData[key]);
+      }
+
+      const response = await dispatch(signInAuth(form_data));
+
+      if (response) {
+        navigate(Routes.Home);
+      }
+
+      signInRef.current.onSubmitFailed();
+    },
+    [dispatch, navigate],
+  );
 
   return (
     <div className={`${styles.login} container__all`}>

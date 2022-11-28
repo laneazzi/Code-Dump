@@ -1,10 +1,11 @@
-import { FC, useContext } from 'react';
 import classNames from 'classnames';
+import { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { ModalContext } from 'context/Modal';
 import { Typography } from 'components/shared';
 import { THeaderDropDown } from 'utils/headerDropDowns';
+import { BrowserStorageKeys, BrowserStorageService } from 'services';
 
 import { CreateEvent, NewPost, CreateTournament } from '../Modals';
 
@@ -28,6 +29,10 @@ const HeaderDropDown: FC<THeaderDropDownProps> = ({ dropDownList, className }) =
 
       if (post.description === 'New Post') {
         openModal(<NewPost />);
+      }
+
+      if (post.description === 'Logout') {
+        BrowserStorageService.remove(BrowserStorageKeys.AccessToken);
       }
     };
 
