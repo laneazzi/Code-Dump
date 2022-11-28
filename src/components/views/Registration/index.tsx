@@ -2,9 +2,12 @@ import { FC, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Routes } from 'types';
+import { useAppDispatch } from 'hooks';
+import { signUp } from 'store/slices/authSlice';
 import registrationForm from 'constants/forms/registrationForm';
 import { ReelBudLogoIcon, ReelBudTextIcon } from 'assets/icons';
 import { Checkbox, LinkButton, Typography } from 'components/shared';
+import { BrowserStorageKeys, BrowserStorageService } from 'services';
 
 import { RegistrationForm } from '../../forms';
 
@@ -15,15 +18,34 @@ type TUserRegistrationProps = {
 };
 
 const Registration: FC<TUserRegistrationProps> = ({ toggleActive }) => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const registrationFormRef = useRef<any>(null);
 
-  const handleSignInFormSubmit = useCallback(() => {
-    navigate(Routes.LogIn);
+  const handleSignInFormSubmit = useCallback(
+    async (values: any) => {
+      const user = {
+        email: values.email,
+        password: values.password,
+        username: values.username,
+      };
 
-    registrationFormRef.current.onSubmitFailed();
-  }, [navigate]);
+      const response = await dispatch(signUp(user));
+
+      if (response) {
+        navigate(Routes.Home);
+      }
+
+      BrowserStorageService.set(
+        BrowserStorageKeys.AccessToken,
+        JSON.stringify(response.payload.access_token),
+      );
+
+      registrationFormRef.current.onSubmitFailed();
+    },
+    [dispatch, navigate],
+  );
 
   return (
     <div className={`${styles.login} container__all`}>

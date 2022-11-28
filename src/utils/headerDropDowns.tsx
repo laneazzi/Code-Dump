@@ -1,5 +1,4 @@
 import {
-  LivesIcon,
   LogOutIcon,
   EventsIcon,
   ProfileIcon,

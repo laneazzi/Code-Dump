@@ -10,6 +10,7 @@ type TProfileSideImgProps = {
 
 const ProfileSideImg: FC<TProfileSideImgProps> = ({ img, className }) => {
   const backgroundClasses = classNames(styles.container, className);
+
   return (
     <div className={backgroundClasses}>
       <img src={img} alt='user background' />

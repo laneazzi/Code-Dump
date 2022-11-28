@@ -1,9 +1,9 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { Header, Navbar } from 'components';
 import { ScrollIcon } from 'assets/icons';
 import { useScrollPosition } from 'hooks';
+import { Header, Navbar } from 'components';
 
 import styles from './Seo.module.scss';
 
