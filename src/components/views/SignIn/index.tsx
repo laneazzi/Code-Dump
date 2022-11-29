@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { Routes } from 'types';
 import { useAppDispatch } from 'hooks';
 import signIn from 'constants/forms/signinForm';
-import { signInAuth } from 'store/slices/authSlice';
+import { createFormData } from 'utils/createForData';
+import { signInAuth } from 'store/slices/authSlice/authThunks';
 import { ReelBudLogoIcon, ReelBudTextIcon } from 'assets/icons';
-import { Checkbox, LinkButton, RadioButton, Typography } from 'components/shared';
+import { LinkButton, RadioButton, Typography } from 'components/shared';
 
 import { SignInForm } from '../../forms';
 import { IsActiveType } from '../../../types/global';
@@ -20,25 +21,17 @@ type TSignInProps = {
 const SignIn: FC<TSignInProps> = ({ toggleActive }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
   const signInRef = useRef<any>(null);
 
   const handleSignInFormSubmit = useCallback(
     async (values: any) => {
-      const loginData: any = {
-        password: values.password,
-        username: values.username,
-      };
+      const loginData: any = { ...values };
 
-      const form_data = new FormData();
+      const data = createFormData(loginData);
 
-      for (const key in loginData) {
-        form_data.append(key, loginData[key]);
-      }
+      const response = await dispatch(signInAuth(data));
 
-      const response = await dispatch(signInAuth(form_data));
-
-      if (response) {
+      if (response.payload.access_token) {
         navigate(Routes.Home);
       }
 
@@ -60,24 +53,24 @@ const SignIn: FC<TSignInProps> = ({ toggleActive }) => {
           form={signIn}
           submitText='Login'
           onSubmit={handleSignInFormSubmit}
-        />
+        >
+          <div className={styles.login__content_keep}>
+            <div className={styles.login__content_keep_save}>
+              <RadioButton className={styles.login__content_keep_save_btn} />
+              <Typography>Keep Logged in</Typography>
+            </div>
 
-        <div className={styles.login__content_keep}>
-          <div className={styles.login__content_keep_save}>
-            <RadioButton className={styles.login__content_keep_save_btn} />
-            <Typography>Keep Logged in</Typography>
+            <LinkButton
+              to={Routes.LogIn}
+              className={styles.login__content_keep_forgot}
+              onClick={() => toggleActive(IsActiveType.RECOVERY, true)}
+            >
+              <Typography className={styles.login__content_keep_forgot_txt}>
+                Forgot Password?
+              </Typography>
+            </LinkButton>
           </div>
-
-          <LinkButton
-            to={Routes.LogIn}
-            className={styles.login__content_keep_forgot}
-            onClick={() => toggleActive(IsActiveType.RECOVERY, true)}
-          >
-            <Typography className={styles.login__content_keep_forgot_txt}>
-              Forgot Password?
-            </Typography>
-          </LinkButton>
-        </div>
+        </SignInForm>
 
         <div className={styles.login__content_sign}>
           <Typography className={styles.login__content_sign_answer}>
@@ -90,7 +83,6 @@ const SignIn: FC<TSignInProps> = ({ toggleActive }) => {
           >
             <Typography tagName='span' className={styles.login__content_sign_item_txt}>
               Sign Up For Factzz
-              <Checkbox />
             </Typography>
           </LinkButton>
         </div>

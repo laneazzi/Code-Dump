@@ -1,14 +1,19 @@
-import React, { useMemo, useImperativeHandle, useCallback, forwardRef } from 'react';
+import { useMemo, useImperativeHandle, useCallback, forwardRef } from 'react';
 import classNames from 'classnames';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+
+import { Loader } from 'components/shared';
+import { useAppSelector } from 'hooks';
 
 import Input from '../../shared/Input';
 import Button from '../../shared/Button';
 import { IFormProps } from '../FormTypes';
 
 const SignInForm = forwardRef<any, IFormProps>(
-  ({ form: { fields, schema }, onSubmit, submitText, className = '' }, ref) => {
+  ({ form: { fields, schema }, onSubmit, submitText, className = '', children }, ref) => {
+    const { loading } = useAppSelector((state) => state.auth);
+
     const {
       register,
       setFocus,
@@ -55,8 +60,9 @@ const SignInForm = forwardRef<any, IFormProps>(
       <form className={formClasses} onSubmit={handleSubmit(onSubmit)}>
         {renderFields}
         <Button type='submit' className='button'>
-          {submitText}
+          {loading ? <Loader /> : submitText}
         </Button>
+        {children}
       </form>
     );
   },

@@ -7,7 +7,7 @@ const fields: Field[] = [
   {
     name: 'username',
     type: 'text',
-    placeholder: 'Username...',
+    placeholder: 'Email...',
   },
   {
     name: 'password',
@@ -19,7 +19,7 @@ const fields: Field[] = [
 ];
 
 const schema = yup.object().shape({
-  username: yup.string().required('The Username is required'),
+  username: yup.string().required('The Email is required'),
   password: yup
     .string()
     .required('The Password is required')

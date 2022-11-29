@@ -1,5 +1,8 @@
+import { FC } from 'react';
 import classNames from 'classnames';
-import { FC, useState } from 'react';
+
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { keptSignIn } from 'store/slices/authSlice/authSlice';
 
 import styles from './RadioButton.module.scss';
 
@@ -8,16 +11,17 @@ type TRadioButtonProps = {
 };
 
 const RadioButton: FC<TRadioButtonProps> = ({ className }) => {
-  const [isKeep, setIsKeep] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
+  const { rememberMe } = useAppSelector((state) => state.auth);
 
   const radioClassNames = classNames(styles.radio, className);
 
   const radioCheckedClassNames = classNames(styles.radio__btn, {
-    [styles.radio__btn_active]: isKeep,
+    [styles.radio__btn_active]: rememberMe,
   });
 
   const keepTheUser = () => {
-    setIsKeep(!isKeep);
+    dispatch(keptSignIn());
   };
 
   return (

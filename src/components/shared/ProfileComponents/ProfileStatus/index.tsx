@@ -2,8 +2,8 @@ import { FC } from 'react';
 import classNames from 'classnames';
 
 import { UserImg } from 'assets/img';
-import { TUserInfo } from 'store/slices/types';
 import Typography from 'components/shared/Typography';
+import { TUserInfo } from 'store/slices/authSlice/types';
 import UserImgFrame from 'components/shared/UserImgFrame';
 
 import ProfileStatusButton from './ProfileStatusButton/ProfileStatusButton';

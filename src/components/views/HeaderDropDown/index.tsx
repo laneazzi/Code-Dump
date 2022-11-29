@@ -33,6 +33,7 @@ const HeaderDropDown: FC<THeaderDropDownProps> = ({ dropDownList, className }) =
 
       if (post.description === 'Logout') {
         BrowserStorageService.remove(BrowserStorageKeys.AccessToken);
+        BrowserStorageService.remove(BrowserStorageKeys.AccessToken, { session: true });
       }
     };
 

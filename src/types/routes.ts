@@ -1,5 +1,6 @@
 export type RoutesProps = {
   path: string;
+  isProtected: boolean;
   component: JSX.Element;
   withLayout: boolean;
 };
@@ -17,7 +18,7 @@ export enum Routes {
   Contacts = '/contacts',
   SignUpFor = '/sign-up',
   Tournament = '/tournament',
+  UserPage = '/user-page:id',
   TermsOfUse = '/terms-of-use',
   PrivacyPolicy = '/privacy-policy',
-  UserPage = '/user-page:id',
 }
