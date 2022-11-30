@@ -14,5 +14,6 @@ export interface IFormProps<TFieldValues extends FieldValues = FieldValues> {
   form: Form;
   submitText: string;
   className?: string;
+  children?: React.ReactNode;
   onSubmit: SubmitHandler<TFieldValues>;
 }

@@ -1,15 +1,24 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { Seo } from 'components';
+import { ProtectedRoute, PublicRoute, Seo } from 'components';
 
 import { RoutesProps } from '../types';
 
 import { routes } from './routes';
 
 const RouterProvider = () => {
-  const renderRoutes = routes.map(({ path, component, withLayout }: RoutesProps) => {
+  const renderRoutes = routes.map(({ path, component, withLayout, isProtected }: RoutesProps) => {
+    const RoutesWrapper = isProtected ? ProtectedRoute : PublicRoute;
     return (
-      <Route key={path} path={path} element={<Seo withLayout={withLayout}>{component}</Seo>} />
+      <Route
+        key={path}
+        path={path}
+        element={
+          <RoutesWrapper>
+            <Seo withLayout={withLayout}>{component}</Seo>
+          </RoutesWrapper>
+        }
+      />
     );
   });
 

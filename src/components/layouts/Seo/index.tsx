@@ -1,9 +1,13 @@
 import React, { ReactNode, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import { ScrollIcon } from 'assets/icons';
-import { useScrollPosition } from 'hooks';
 import { Header, Navbar } from 'components';
+import 'react-toastify/dist/ReactToastify.css';
+import { useAppDispatch, useScrollPosition } from 'hooks';
+import { getCurrentUser } from 'store/slices/authSlice/authThunks';
+import { BrowserStorageKeys, BrowserStorageService } from 'services';
 
 import styles from './Seo.module.scss';
 
@@ -14,6 +18,20 @@ type TSeoProps = {
 
 const Seo: React.FC<TSeoProps> = ({ children, withLayout }) => {
   const { pathname } = useLocation();
+
+  const dispatch = useAppDispatch();
+
+  const accessToken = JSON.parse(
+    BrowserStorageService.get(BrowserStorageKeys.AccessToken) ||
+      (BrowserStorageService.get(BrowserStorageKeys.AccessToken, { session: true }) as any),
+  );
+
+  useEffect(() => {
+    if (accessToken) {
+      dispatch(getCurrentUser(accessToken || accessToken.access_token));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -47,7 +65,11 @@ const Seo: React.FC<TSeoProps> = ({ children, withLayout }) => {
           )}
         </div>
       ) : (
-        <>{children}</>
+        <>
+          <ToastContainer />
+          {children}
+          <ToastContainer />
+        </>
       )}
     </>
   );

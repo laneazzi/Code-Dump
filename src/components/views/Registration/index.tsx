@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 import { Routes } from 'types';
 import { useAppDispatch } from 'hooks';
-import { signUp } from 'store/slices/authSlice';
+import { signUp } from 'store/slices/authSlice/authThunks';
 import registrationForm from 'constants/forms/registrationForm';
 import { ReelBudLogoIcon, ReelBudTextIcon } from 'assets/icons';
 import { Checkbox, LinkButton, Typography } from 'components/shared';
-import { BrowserStorageKeys, BrowserStorageService } from 'services';
 
 import { RegistrationForm } from '../../forms';
 
@@ -36,11 +35,6 @@ const Registration: FC<TUserRegistrationProps> = ({ toggleActive }) => {
       if (response) {
         navigate(Routes.Home);
       }
-
-      BrowserStorageService.set(
-        BrowserStorageKeys.AccessToken,
-        JSON.stringify(response.payload.access_token),
-      );
 
       registrationFormRef.current.onSubmitFailed();
     },
