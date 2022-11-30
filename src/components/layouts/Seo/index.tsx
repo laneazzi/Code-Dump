@@ -28,7 +28,7 @@ const Seo: React.FC<TSeoProps> = ({ children, withLayout }) => {
 
   useEffect(() => {
     if (accessToken) {
-      dispatch(getCurrentUser(accessToken || accessToken.access_token));
+      dispatch(getCurrentUser());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

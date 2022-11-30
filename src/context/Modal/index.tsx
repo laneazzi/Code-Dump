@@ -1,9 +1,9 @@
 import { createContext } from 'react';
 
-import useModal from 'hooks/useModal';
-import Modal from 'components/shared/Modal';
+import { useModal } from 'hooks';
+import { Modal } from 'components';
 
-import { IModalContext } from './types';
+import { IModalContext, TModal } from './types';
 
 export const ModalContext = createContext<IModalContext>({
   modal: false,
@@ -11,10 +11,6 @@ export const ModalContext = createContext<IModalContext>({
   openModal: () => {},
   closeModal: () => {},
 });
-
-type TModal = {
-  children: React.ReactNode;
-};
 
 export const ModalContextProvider: React.FC<TModal> = ({ children }) => {
   const useModalReturn = useModal();

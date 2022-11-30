@@ -1,4 +1,5 @@
 export { default as useForm } from './useForm';
+export { default as useModal } from './useModal';
 export { default as useDebounce } from './useDebounce';
 export { default as useWindowSize } from './useWindowSize';
 export { default as useSliderKeys } from './useSliderKeys';

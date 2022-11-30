@@ -8,8 +8,8 @@ import { EventCard, Filter, PaginateWrapper } from 'components';
 import styles from './Events.module.scss';
 
 const Events = () => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentPerPage] = useState<number>(9);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const lastIndex = currentPage * currentPerPage;
 

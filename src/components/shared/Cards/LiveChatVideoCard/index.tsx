@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import Video from 'components/shared/Video';
+import { Video } from 'components';
 import { LiveCardIcon, OneEllipseIcon } from 'assets/icons';
 
 import styles from './LiveChatVideoCard.module.scss';

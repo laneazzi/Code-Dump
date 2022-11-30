@@ -1,7 +1,12 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
 import { extraReducers } from 'utils';
-import { signInAuth } from 'store/slices/authSlice/authThunks';
+import {
+  signInAuth,
+  editProfile,
+  getByUserName,
+  getProfileByToken,
+} from 'store/slices/authSlice/authThunks';
 import { BrowserStorageKeys, BrowserStorageService } from 'services';
 
 import { TInitialState } from './types';
@@ -28,9 +33,10 @@ const authSlice = createSlice({
       state.loading = false;
       state.error = null;
       state.users.push(action.payload);
+
       BrowserStorageService.set(
         BrowserStorageKeys.AccessToken,
-        JSON.stringify(action.payload.access_token),
+        JSON.stringify(action.payload?.access_token?.access_token),
         { session: true },
       );
     });
@@ -53,6 +59,18 @@ const authSlice = createSlice({
       );
     });
 
+    builder.addCase(getByUserName.fulfilled, (state, action) => {
+      state.userData = action.payload;
+    });
+
+    builder.addCase(getProfileByToken.fulfilled, (state, action) => {
+      state.userData = action.payload;
+    });
+
+    builder.addCase(editProfile.fulfilled, (state, action) => {
+      state.userData = action.payload;
+    });
+
     builder.addMatcher(
       isAnyOf(signUp.rejected, getCurrentUser.rejected, signInAuth.rejected),
       extraReducers.errorReducer,
@@ -67,4 +85,4 @@ const authSlice = createSlice({
 
 export const { keptSignIn } = authSlice.actions;
 
-export default authSlice;
+export default authSlice.reducer;

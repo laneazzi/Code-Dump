@@ -2,15 +2,13 @@ import { AxiosError } from 'axios';
 import { toast } from 'react-toastify';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { TNewUser } from './types';
-import { client } from './../../../api/client';
-import { endpoints } from './../../../api/endpoints';
+import { authApi } from 'api';
 
-export const signUp = createAsyncThunk('signUp', async (user: TNewUser) => {
+import { TNewUser } from './types';
+
+export const signUp = createAsyncThunk('auth/signUp', async (user: TNewUser) => {
   try {
-    const response = await client.post(endpoints.AuthService.signUp(), {
-      new_user: user,
-    });
+    const response = await authApi.signUpRequest(user);
     return response.data;
   } catch (error) {
     const Error = error as AxiosError;
@@ -28,9 +26,9 @@ export const signUp = createAsyncThunk('signUp', async (user: TNewUser) => {
   }
 });
 
-export const signInAuth = createAsyncThunk('signIn', async (user: FormData) => {
+export const signInAuth = createAsyncThunk('auth/signIn', async (user: FormData) => {
   try {
-    const response = await client.post(endpoints.AuthService.signIn(), user);
+    const response = await authApi.signInRequest(user);
     return response.data;
   } catch (error) {
     const Error = error as AxiosError;
@@ -48,11 +46,42 @@ export const signInAuth = createAsyncThunk('signIn', async (user: FormData) => {
   }
 });
 
-export const getCurrentUser = createAsyncThunk('getUser', async (token: string) => {
+export const getCurrentUser = createAsyncThunk('auth/getUser', async () => {
   try {
-    const response = await client.get(endpoints.AuthService.getUserByToken(), {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const response = await authApi.getUserByTokenRequest();
+    return response.data;
+  } catch (error) {
+    const Error = error as AxiosError;
+    throw Error;
+  }
+});
+
+export const getByUserName = createAsyncThunk(
+  'auth/getDataByUserName',
+  async (username: string) => {
+    try {
+      const response = await authApi.getByUserNameRequest(username);
+      return response.data;
+    } catch (error) {
+      const Error = error as AxiosError;
+      throw Error;
+    }
+  },
+);
+
+export const getProfileByToken = createAsyncThunk('auth/getProfileByToken', async () => {
+  try {
+    const response = await authApi.getProfileByTokenRequest();
+    return response.data;
+  } catch (error) {
+    const Error = error as AxiosError;
+    throw Error;
+  }
+});
+
+export const editProfile = createAsyncThunk('auth/editProfile', async (options: any) => {
+  try {
+    const response = await authApi.editProfileRequest(options);
     return response.data;
   } catch (error) {
     const Error = error as AxiosError;

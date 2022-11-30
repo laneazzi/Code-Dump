@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
 import classNames from 'classnames';
 
+import { Typography } from 'components';
 import { EventTypes } from 'types/global/eventTypes';
-import Typography from 'components/shared/Typography';
 import { EventCardIcon, EventCardSaveIcon, TournamentCardIcon } from 'assets/icons';
 
 import { TEventCard } from './types';

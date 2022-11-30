@@ -1,8 +1,7 @@
 import { FC } from 'react';
 
-import Typography from 'components/shared/Typography';
+import { Typography, Video } from 'components';
 import { LiveCardIcon, WatchIcon } from 'assets/icons';
-import Video from 'components/shared/Video';
 
 import { TLiveVideoCard } from './types';
 import styles from './LiveVideoCard.module.scss';

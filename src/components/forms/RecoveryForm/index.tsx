@@ -1,10 +1,10 @@
-import React, { useMemo, useImperativeHandle, useCallback, forwardRef } from 'react';
+import { useMemo, useImperativeHandle, useCallback, forwardRef } from 'react';
 import classNames from 'classnames';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import Input from '../../shared/Input';
-import Button from '../../shared/Button';
+import { Input, Button } from 'components';
+
 import { IFormProps } from '../FormTypes';
 
 const RecoveryForm = forwardRef<any, IFormProps>(

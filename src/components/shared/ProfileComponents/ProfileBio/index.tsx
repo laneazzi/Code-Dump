@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 
 import { useWindowSize } from 'hooks';
-import Typography from 'components/shared/Typography';
+import { Typography } from 'components';
 
 import styles from './ProfileBio.module.scss';
 

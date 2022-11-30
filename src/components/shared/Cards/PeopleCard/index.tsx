@@ -3,8 +3,7 @@ import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 
 import { MessageIcon } from 'assets/icons';
-import Typography from 'components/shared/Typography';
-import UserImgFrame from 'components/shared/UserImgFrame';
+import { Typography, UserImgFrame } from 'components';
 
 import { TPeopleCard } from './types';
 import styles from './PeopleCard.module.scss';

@@ -3,11 +3,9 @@ import classNames from 'classnames';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { Loader } from 'components/shared';
 import { useAppSelector } from 'hooks';
+import { Loader, Input, Button } from 'components';
 
-import Input from '../../shared/Input';
-import Button from '../../shared/Button';
 import { IFormProps } from '../FormTypes';
 
 const SignInForm = forwardRef<any, IFormProps>(

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import Typography from 'components/shared/Typography';
+import { Typography } from 'components';
 import { FilterByDropIcon } from 'assets/icons';
 
 import styles from './FilterByItem.module.scss';
