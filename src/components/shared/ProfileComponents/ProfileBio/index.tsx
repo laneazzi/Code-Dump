@@ -9,7 +9,7 @@ type TProfileBioProps = {
   info: string;
 };
 
-const ProfileBio: FC<TProfileBioProps> = ({ info }) => {
+const ProfileBio: FC<TProfileBioProps> = ({ info = 'No Bio' }) => {
   const width = useWindowSize().width;
   const [lessText, setLessText] = useState<boolean>(false);
 

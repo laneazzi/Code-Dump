@@ -10,8 +10,8 @@ import {
   ReelBudLogoIcon,
   NotificationsIcon,
 } from 'assets/icons';
-import { UserImg } from 'assets/img';
-import { useOnClickOutside } from 'hooks';
+import { emptyUserImg } from 'assets/img';
+import { useAppSelector, useOnClickOutside } from 'hooks';
 import { HeaderMenu, Input, Typography, UserImgFrame } from 'components/shared';
 import { EventDropDownItems, ProfileDropDownItems } from 'utils/headerDropDowns';
 import { Routes } from 'types';
@@ -21,6 +21,7 @@ import { HeaderDropDown } from '../index';
 import styles from './Header.module.scss';
 
 const Header = () => {
+  const { userData } = useAppSelector((state) => state.auth);
   const [isUserActive, setIsUserActive] = useState(false);
   const [isEventActive, setIsEventActive] = useState(false);
   const [isSearch, setIsSearch] = useState<boolean>(false);
@@ -106,7 +107,10 @@ const Header = () => {
         <NotificationsIcon className={styles.header__user_ring} />
         <div className={styles.header__user_frame} onClick={toggleUserDropDown} ref={userRef}>
           <HeaderArrowIcon className={headerArrowClasses} />
-          <UserImgFrame img={UserImg} className={styles.header__user_frame_border} />
+          <UserImgFrame
+            img={userData?.profile?.image || emptyUserImg}
+            className={styles.header__user_frame_border}
+          />
           <HeaderDropDown dropDownList={ProfileDropDownItems} className={userDropDownClasses} />
         </div>
       </div>

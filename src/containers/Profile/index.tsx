@@ -1,6 +1,5 @@
 import { Fragment, useMemo, useState } from 'react';
 
-import { cardImgTwo } from 'assets/img';
 import { CalendarPicker, VideoCard } from 'components';
 import {
   ProfileBio,
@@ -35,12 +34,15 @@ const Profile = () => {
             className={styles.profile__content_head_user}
             frameClassName={styles.profile__content_head_frame}
           />
-          <ProfileSideImg img={cardImgTwo} className={styles.profile__content_head_background} />
+          <ProfileSideImg
+            img={userData?.profile?.banner_image}
+            className={styles.profile__content_head_background}
+          />
         </section>
 
         <Fragment>
           <section className={styles.profile__content_info}>
-            <ProfileBio info="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 😄🐠" />
+            <ProfileBio info={userData?.profile?.bio ? userData?.profile?.bio : 'No Bio'} />
           </section>
           <section className={styles.profile__content_filter}>
             <VideoFilter videoCount={profileVideosData.length} livesCount={0} />

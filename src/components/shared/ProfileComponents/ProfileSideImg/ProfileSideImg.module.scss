@@ -3,6 +3,13 @@
   height: 363px;
   max-width: 855px;
 
+  &__banner {
+    @extend %flex-center;
+    @extend %font-20;
+    height: 100%;
+    background-color: rgba(96, 128, 160, 0.05);
+  }
+
   @include breakpoint(wide-max) {
     position: absolute;
     opacity: 0.4;
