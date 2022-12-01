@@ -1,6 +1,6 @@
 import { FC, useRef, useState } from 'react';
 
-import Video from 'components/shared/Video';
+import { Video } from 'components';
 import { VideoPauseIcon, VideoPlayIcon } from 'assets/icons';
 
 import styles from './VideoCard.module.scss';

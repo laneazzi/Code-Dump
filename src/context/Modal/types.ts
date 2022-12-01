@@ -4,3 +4,7 @@ export interface IModalContext {
   modalContent?: JSX.Element | null;
   openModal: (content?: JSX.Element) => void;
 }
+
+export type TModal = {
+  children: React.ReactNode;
+};

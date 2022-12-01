@@ -4,10 +4,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { useAppSelector } from 'hooks';
-import { Loader } from 'components/shared';
+import { Input, Button, Loader } from 'components';
 
-import Input from '../../shared/Input';
-import Button from '../../shared/Button';
 import { IFormProps } from '../FormTypes';
 
 const RegistrationForm = forwardRef<any, IFormProps>(

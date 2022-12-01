@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
-import Typography from 'components/shared/Typography';
-import UserImgFrame from 'components/shared/UserImgFrame';
+import { Typography, UserImgFrame } from 'components';
 
 import { THighTodayCards } from '../../../../constants/Cards/todayTopCards/types';
 

@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
 import classNames from 'classnames';
 
+import { Typography } from 'components';
 import { BlueArrowIcon, MessageIcon } from 'assets/icons';
-import Typography from 'components/shared/Typography';
 
 import styles from './CommentsFilter.module.scss';
 
