@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-import { UserImg } from 'assets/img';
+import { emptyUserImg } from 'assets/img';
 import { Typography, UserImgFrame } from 'components';
 import { TUserInfo } from 'store/slices/authSlice/types';
 
@@ -35,7 +35,7 @@ const ProfileStatus: FC<TProfileStatusProps> = ({
     <div className={profileStatusClasses}>
       <div className={styles.container__content}>
         <div className={styles.container__content_head}>
-          <UserImgFrame img={data?.profile?.image || UserImg} className={frameClasses} />
+          <UserImgFrame img={data?.profile?.image || emptyUserImg} className={frameClasses} />
         </div>
         <div className={styles.container__content_info}>
           <Typography className={styles.container__content_info_username}>

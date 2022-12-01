@@ -21,4 +21,28 @@ export const endpoints = {
     createEventInvitation: (): string => '/events-api/rb/events_invitation/create_invitation/',
     createEventsReminder: (): string => '/events-api/rb/events_reminder/create_events_reminder/',
   },
+
+  ActivitiesService: {
+    createActivityPost: (): string => '/activities-api/rb/activity_post/create_activity_post/',
+    getActivityPostById: (): string =>
+      '/activities-api/rb/activity_post/get_activity_post/post_id/',
+    getActivityPostByUserId: (): string =>
+      '/activities-api/rb/activity_post/get_activity_post/user_id/',
+    getAllActivityPosts: (): string =>
+      '/activities-api/rb/activity_post/get_activity_post/all_post/',
+    updateActivityPost: (): string => '/activities-api/rb/activity_post/update_activity_post/',
+    deleteActivityPost: (): string => '/activities-api/rb/activity_post/delete_activity_post/',
+    createPostComment: (): string =>
+      '/activities-api/rb/activity_post_comment/create_activity_post_comment/',
+    getPostCommentById: (): string =>
+      '/activities-api/rb/activity_post_comment/get_activity_post_comment/comment_id/',
+    getPostCommentByParentPostId: (): string =>
+      '/activities-api/rb/activity_post_comment/get_activity_post_comment/parent_post_id/',
+    getPostCommentByParentCommentId: (): string =>
+      '/activities-api/rb/activity_post_comment/get_activity_post_comments/parent_comment_comments/',
+    editPostComment: (): string =>
+      '/activities-api/rb/activity_post_comment/update_activity_post_comment/',
+    deletePostComment: (): string =>
+      '/activities-api/rb/activity_post_comment/delete_activity_post_comment/',
+  },
 };

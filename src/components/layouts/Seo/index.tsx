@@ -30,6 +30,7 @@ const Seo: React.FC<TSeoProps> = ({ children, withLayout }) => {
     if (accessToken) {
       dispatch(getCurrentUser());
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
