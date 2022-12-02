@@ -38,9 +38,11 @@
         gap: 42px;
 
         &_time {
-          position: absolute;
-          top: 7px;
-          right: -35px;
+          @include breakpoint(mobile-m) {
+            position: absolute;
+            top: 7px;
+            right: -35px;
+          }
         }
 
         div {

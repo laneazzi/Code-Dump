@@ -43,6 +43,7 @@ const ForumCard: FC<TForumCardProps> = ({ card, openPost }) => {
       </PostsSlider>
     </>
   );
+
   const takePost = () => setIsSaved(!isSaved);
 
   const handlePropagation = (e: React.MouseEvent<HTMLDivElement>) => {
