@@ -1,5 +1,5 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { activitiesApi } from 'api';
 
@@ -7,22 +7,25 @@ import {
   TNewPost,
   TUpdatePost,
   TPostGetParams,
-  TUpdateComment,
   TNewPostComment,
   TAllPostsParams,
   TParenCommentParams,
+  TRemovePostCommentArgs,
   TParenPostCommentParams,
+  TUpdatePostCommentArgs,
 } from './types';
 
 export const createActivityPost = createAsyncThunk(
   'activities/createPost',
-  async (new_activity_post: TNewPost) => {
+  async (new_activity_post: TNewPost, { dispatch }) => {
     try {
       const response = await activitiesApi.createActivityPostRequest(new_activity_post);
+      dispatch(getAllPosts({ limit: 20, offset: 0 }));
+
       return response.data;
     } catch (error) {
       const Error = error as AxiosError;
-      throw Error;
+      return Error.response?.data;
     }
   },
 );
@@ -35,7 +38,7 @@ export const getActivityPostById = createAsyncThunk(
       return response.data;
     } catch (error) {
       const Error = error as AxiosError;
-      throw Error;
+      return Error.response?.data;
     }
   },
 );
@@ -48,20 +51,21 @@ export const getActivityPostByUserId = createAsyncThunk(
       return response.data;
     } catch (error) {
       const Error = error as AxiosError;
-      throw Error;
+      return Error.response?.data;
     }
   },
 );
 
 export const getAllPosts = createAsyncThunk(
   'activities/getAllPosts',
-  async (params: TAllPostsParams = {}) => {
+  async (params: TAllPostsParams) => {
     try {
       const response = await activitiesApi.allPostsRequest(params);
+
       return response.data;
     } catch (error) {
       const Error = error as AxiosError;
-      throw Error;
+      return Error.response?.data;
     }
   },
 );
@@ -74,33 +78,39 @@ export const updateActivityPost = createAsyncThunk(
       return response.data;
     } catch (error) {
       const Error = error as AxiosError;
-      throw Error;
+      return Error.response?.data;
     }
   },
 );
 
 export const deleteActivityPost = createAsyncThunk(
   'activities/deleteActivityPost',
-  async (activity_post_id: number) => {
+  async (activity_post_id: number, { dispatch }) => {
     try {
       const response = await activitiesApi.deletePostRequest(activity_post_id);
+      dispatch(getAllPosts({ limit: 10, offset: 0 }));
       return response.data;
     } catch (error) {
       const Error = error as AxiosError;
-      throw Error;
+      return Error.response?.data;
     }
   },
 );
 
 export const createPostComment = createAsyncThunk(
   'activities/createPostComment',
-  async (new_activity_post_comment: TNewPostComment) => {
+  async (new_activity_post_comment: TNewPostComment, { dispatch }) => {
     try {
       const response = await activitiesApi.createCommentRequest(new_activity_post_comment);
+      dispatch(
+        getPostCommentByParentPostId({
+          parent_post_id: new_activity_post_comment.user_activity_post_id,
+        }),
+      );
       return response.data;
     } catch (error) {
       const Error = error as AxiosError;
-      throw Error;
+      return Error.response?.data;
     }
   },
 );
@@ -113,7 +123,7 @@ export const getPostCommentById = createAsyncThunk(
       return response.data;
     } catch (error) {
       const Error = error as AxiosError;
-      throw Error;
+      return Error.response?.data;
     }
   },
 );
@@ -125,8 +135,7 @@ export const getPostCommentByParentPostId = createAsyncThunk(
       const response = await activitiesApi.postCommentByParentPostIdRequest(params);
       return response.data;
     } catch (error) {
-      const Error = error as AxiosError;
-      throw Error;
+      return [];
     }
   },
 );
@@ -139,33 +148,35 @@ export const getPostCommentByParentCommentId = createAsyncThunk(
       return response.data;
     } catch (error) {
       const Error = error as AxiosError;
-      throw Error;
+      return Error.response?.data;
     }
   },
 );
 
 export const editPostComment = createAsyncThunk(
   'activities/editPostComment',
-  async (activity_post_comment_update: TUpdateComment) => {
+  async (args: TUpdatePostCommentArgs, { dispatch }) => {
     try {
-      const response = await activitiesApi.editCommentRequest(activity_post_comment_update);
+      const response = await activitiesApi.editCommentRequest(args.activity_post_comment_id as any);
+      dispatch(getPostCommentByParentPostId({ parent_post_id: args.postId }));
       return response.data;
     } catch (error) {
       const Error = error as AxiosError;
-      throw Error;
+      return Error.response?.data;
     }
   },
 );
 
 export const deletePostComment = createAsyncThunk(
   'activities/deletePostComment',
-  async (activity_post_comment_id: number) => {
+  async (args: TRemovePostCommentArgs, { dispatch }) => {
     try {
-      const response = await activitiesApi.deletePostCommentRequest(activity_post_comment_id);
+      const response = await activitiesApi.deletePostCommentRequest(args.activity_post_comment_id);
+      dispatch(getPostCommentByParentPostId({ parent_post_id: args.postId }));
       return response.data;
     } catch (error) {
       const Error = error as AxiosError;
-      throw Error;
+      return Error.response?.data;
     }
   },
 );

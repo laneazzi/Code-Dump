@@ -40,11 +40,10 @@
 
       &__selects {
         @extend %flex-between;
-        width: 100%;
-        max-width: 200px;
+        gap: 35px;
 
         @include breakpoint(tablet-m) {
-          max-width: 100px;
+          gap: 10px;
         }
 
         &_icon {
@@ -77,14 +76,46 @@
         }
 
         .options {
-          @include breakpoint(tablet-m) {
-            width: 14px;
-            height: 18px;
+          position: relative;
+          z-index: 10;
+
+          &__menu {
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            top: 50px;
+            right: -20px;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: $white;
+            box-shadow: 2px 1px 17px -1px rgba(0, 0, 0, 0.75);
+
+            &_active {
+              visibility: visible;
+              opacity: 1;
+            }
+
+            &__item {
+              padding: 15px;
+              transition: 0.6s;
+
+              &:hover {
+                background-color: $black;
+                color: $white;
+              }
+            }
           }
 
-          @include breakpoint(mobile-m) {
-            width: 12px;
-            height: 15px;
+          &__icon {
+            @include breakpoint(tablet-m) {
+              width: 14px;
+              height: 18px;
+            }
+
+            @include breakpoint(mobile-m) {
+              width: 12px;
+              height: 15px;
+            }
           }
         }
       }
@@ -163,9 +194,26 @@
       overflow: hidden;
       border-radius: 16px;
       margin: 12px 0 35px 0;
+      height: 422px;
+      width: 786px;
+
+      @include breakpoint(wide-max) {
+        width: 100%;
+      }
 
       @include breakpoint(tablet-m) {
+        height: 150px;
         margin: 8px 0;
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
+
+        @include breakpoint(wide-max) {
+          max-width: 100%;
+          height: 100%;
+        }
       }
 
       &_count {
@@ -200,7 +248,8 @@
 
         @include breakpoint(wide-max) {
           width: 100%;
-          height: auto;
+          height: 100%;
+          object-fit: cover;
         }
       }
     }

@@ -25,11 +25,11 @@ export type TAllPostsParams = {
 };
 
 export type TNewPostComment = {
-  user_id: number;
+  user_id?: number;
   content: string;
   on_main_post: boolean;
   reaction_icon: string;
-  parent_comment_id: number;
+  parent_comment_id?: number;
   user_activity_post_id: number;
 };
 
@@ -54,10 +54,11 @@ export type TParenCommentParams = {
 
 export type TInitialState = {
   loading: boolean;
-  currentActivity: TPost | null;
-  currentActivityComments: TNewPostComment[];
+  isChanged: boolean;
   error: null | Error;
   allActivities: TPost[];
+  currentActivity: TPost | null;
+  currentActivityComments: TNewPostComment[];
 };
 
 export type TPost = {
@@ -68,4 +69,15 @@ export type TPost = {
   description: string;
   content_url: string;
   content_type: string;
+  currentCommentsList: any;
+};
+
+export type TRemovePostCommentArgs = {
+  postId: number;
+  activity_post_comment_id: number;
+};
+
+export type TUpdatePostCommentArgs = {
+  postId: number;
+  activity_post_comment_id: TUpdatePost;
 };

@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
+import { emptyUserImg } from 'assets/img';
+
 import styles from './UserImgFrame.module.scss';
 
 type TUserImgFrameProps = {
@@ -16,7 +18,7 @@ const UserImgFrame: FC<TUserImgFrameProps> = ({ img, className, innerClassName }
 
   return (
     <div className={frameClassNames}>
-      <img src={img} alt='user' className={innerClasses} />
+      <img src={img || emptyUserImg} alt='user' className={innerClasses} />
     </div>
   );
 };

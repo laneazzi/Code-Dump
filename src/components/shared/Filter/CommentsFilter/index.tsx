@@ -50,7 +50,7 @@ const CommentsFilter: FC<TCommentsFilterProps> = ({ commentsCount }) => {
   return (
     <div className={styles.container}>
       <div className={styles.container__count}>
-        ({commentsCount}) <Typography tagName='span'>Comments</Typography>
+        ({commentsCount}) <Typography tagName='span'>Comment{commentsCount > 1 && 's'}</Typography>
         <MessageIcon className={styles.container__count_icon} />
       </div>
       <div className={titleClasses}>

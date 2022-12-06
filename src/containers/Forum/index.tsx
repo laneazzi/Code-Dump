@@ -1,22 +1,30 @@
-import { useContext } from 'react';
+import { useEffect, useMemo } from 'react';
 
-import { ModalContext } from 'context/Modal';
-import { CardsList, ForumCard } from 'components';
-import { PostModal } from 'components/views/Modals';
-import { forumCardsData } from 'constants/Cards/forumCards';
+import { CardsList } from 'components';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { todayTopCards } from 'constants/Cards/todayTopCards';
-import { TForumCards } from 'constants/Cards/forumCards/types';
+import { getAllPosts } from 'store/slices/activitiesSlice/activitiesThunks';
 
+import Post from './Post';
 import styles from './Forum.module.scss';
 
 const Forum = () => {
-  const { openModal } = useContext(ModalContext);
+  const dispatch = useAppDispatch();
+  const { allActivities } = useAppSelector((state) => state.activities);
 
-  const openPost = (post: TForumCards) => openModal(<PostModal post={post} />);
+  useEffect(() => {
+    dispatch(getAllPosts({ limit: 20, offset: 0 }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const cards = forumCardsData.map((card) => (
-    <ForumCard key={card.id} card={card} openPost={openPost} />
-  ));
+  const cards = useMemo(
+    () =>
+      allActivities.map((card) => {
+        return <Post key={card.id} card={card} />;
+      }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [allActivities],
+  );
 
   return (
     <div className={styles.forum}>

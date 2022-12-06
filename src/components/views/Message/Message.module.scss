@@ -119,6 +119,12 @@
           @include breakpoint(tablet) {
             font-size: 14px;
           }
+
+          .edit__field {
+            @extend %font-20-large;
+            border: none;
+            outline: none;
+          }
         }
 
         &_icons {
@@ -169,6 +175,53 @@
             }
           }
         }
+      }
+    }
+  }
+
+  .options {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+
+    &__menu {
+      position: absolute;
+      opacity: 0;
+      top: 50px;
+      right: -20px;
+      font-size: 16px;
+      overflow: hidden;
+      visibility: hidden;
+      border-radius: 8px;
+      background-color: $white;
+      box-shadow: 2px 1px 17px -1px rgba(0, 0, 0, 0.75);
+
+      &_active {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      &__item {
+        padding: 15px;
+        transition: 0.6s;
+        white-space: nowrap;
+
+        &:hover {
+          background-color: $black;
+          color: $white;
+        }
+      }
+    }
+
+    &__icon {
+      @include breakpoint(tablet-m) {
+        width: 14px;
+        height: 18px;
+      }
+
+      @include breakpoint(mobile-m) {
+        width: 12px;
+        height: 15px;
       }
     }
   }

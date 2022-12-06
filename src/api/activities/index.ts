@@ -51,9 +51,13 @@ export const postCommentByIdRequest = (activity_post_comment_id: number) =>
     params: { activity_post_comment_id },
   });
 
-export const postCommentByParentPostIdRequest = (params: TParenPostCommentParams) =>
+export const postCommentByParentPostIdRequest = ({
+  limit = 10,
+  offset = 0,
+  parent_post_id,
+}: TParenPostCommentParams) =>
   client.get(endpoints.ActivitiesService.getPostCommentByParentPostId(), {
-    params,
+    params: { limit, offset, parent_post_id },
   });
 
 export const postCommentByParentCommentIdRequest = (params: TParenCommentParams) =>

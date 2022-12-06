@@ -19,7 +19,7 @@ const eventsSlice = createSlice({
     });
 
     builder.addCase(getMyEvents.fulfilled, (state, action) => {
-      state.events.push(action.payload);
+      state.events = action.payload;
     });
 
     builder.addCase(getEventById.fulfilled, (state, action) => {
