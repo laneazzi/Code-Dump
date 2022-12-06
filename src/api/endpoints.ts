@@ -45,4 +45,16 @@ export const endpoints = {
     deletePostComment: (): string =>
       '/activities-api/rb/activity_post_comment/delete_activity_post_comment/',
   },
+
+  FriendsService: {
+    inviteFriend: (): string => '/friends-api/rb/friends/invite_friend/',
+    updateFriendStatus: (): string => '/friends-api/rb/friends/update_friend_status/',
+    getFriendsByUserId: (): string => '/friends-api/rb/friends/get_friends_by_user_id/',
+  },
+
+  LakesService: {
+    getLake: (): string => '/lakes-api/rb/lakes/get_lake/',
+    addFavoriteLake: (): string => '/lakes-api/rb/lakes/add_favorite_lake/',
+    getMyFavoriteLake: (): string => '/lakes-api/rb/lakes/get_my_favorite_lakes/',
+  },
 };

@@ -198,17 +198,17 @@
       display: block;
 
       @include breakpoint(tablet) {
-        top: calc(100% - 219px - 116px) !important;
+        top: calc(100% - 170px - 116px) !important;
         visibility: visible;
         opacity: 1;
       }
 
       @include breakpoint(tablet-m) {
-        top: calc(100% - 219px - 70px) !important;
+        top: calc(100% - 170px - 70px) !important;
       }
 
       @include breakpoint(mobile-m) {
-        top: calc(100% - 219px - 83px) !important;
+        top: calc(100% - 170px - 83px) !important;
       }
     }
   }

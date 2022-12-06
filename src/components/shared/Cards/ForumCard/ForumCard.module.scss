@@ -160,6 +160,8 @@
 
     &__image {
       position: relative;
+      overflow: hidden;
+      border-radius: 16px;
       margin: 12px 0 35px 0;
 
       @include breakpoint(tablet-m) {

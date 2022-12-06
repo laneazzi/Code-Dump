@@ -32,3 +32,19 @@ export type TInvitationArgs = {
   event_id: number;
   friend_id: number;
 };
+
+export type TInitialState = {
+  events: TEvent[];
+  currentEvent: TEvent | null;
+  createdEvent: TEvent | null;
+};
+
+export type TInvitationResponse = {
+  id: number;
+  status: string;
+  user_id: number;
+  event_id: number;
+  friend_id: number;
+  created_at: Date | null;
+  updated_at: Date | null;
+};
