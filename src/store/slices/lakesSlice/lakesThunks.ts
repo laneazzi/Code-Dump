@@ -37,13 +37,3 @@ export const getMyFavLakes = createAsyncThunk('lakes/getMyFavLakes', async () =>
     throw Error;
   }
 });
-
-export const removeFavLake = createAsyncThunk('lakes/deleteFavLake', async (lake_id: number) => {
-  try {
-    const response = await lakesApi.removeMyFavLakeRequest(lake_id);
-    return response.data;
-  } catch (error) {
-    const Error = error as AxiosError;
-    throw Error;
-  }
-});

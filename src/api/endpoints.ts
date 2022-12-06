@@ -55,7 +55,6 @@ export const endpoints = {
   LakesService: {
     getLake: (): string => '/lakes-api/rb/lakes/get_lake/',
     addFavoriteLake: (): string => '/lakes-api/rb/lakes/add_favorite_lake/',
-    removeFromFavoriteLake: (): string => '/lakes-api/rb/lakes/delete_favorite_lake',
     getMyFavoriteLake: (): string => '/lakes-api/rb/lakes/get_my_favorite_lakes/',
   },
 };
