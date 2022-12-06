@@ -54,11 +54,8 @@ export const endpoints = {
 
   LakesService: {
     getLake: (): string => '/lakes-api/rb/lakes/get_lake/',
-    deleteLake: (): string => '/lakes-api/rb/lakes/delete_lake',
-    createLake: (): string => '/lakes-api/rb/lakes/create_lake/',
-    updateLake: (): string => '/lakes-api/rb/lakes/update_lake/',
     addFavoriteLake: (): string => '/lakes-api/rb/lakes/add_favorite_lake/',
-    deleteFavoriteLake: (): string => '/lakes-api/rb/lakes/delete_favorite_lake',
+    removeFromFavoriteLake: (): string => '/lakes-api/rb/lakes/delete_favorite_lake',
     getMyFavoriteLake: (): string => '/lakes-api/rb/lakes/get_my_favorite_lakes/',
   },
 };

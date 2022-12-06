@@ -3,41 +3,11 @@ import { AxiosError } from 'axios';
 
 import { lakesApi } from 'api';
 
-import { TLake, TFavoriteLake } from './types';
-
-export const createLake = createAsyncThunk('lakes/createLake', async (new_lake: TLake) => {
-  try {
-    const response = await lakesApi.createLakeRequest(new_lake);
-    return response.data;
-  } catch (error) {
-    const Error = error as AxiosError;
-    throw Error;
-  }
-});
+import { TFavoriteLake } from './types';
 
 export const getLake = createAsyncThunk('lakes/getLake', async (lake_id: number) => {
   try {
     const response = await lakesApi.getLakeRequest(lake_id);
-    return response.data;
-  } catch (error) {
-    const Error = error as AxiosError;
-    throw Error;
-  }
-});
-
-export const updateLake = createAsyncThunk('lakes/updateLake', async (update_a_lake: TLake) => {
-  try {
-    const response = await lakesApi.updateLakeRequest(update_a_lake);
-    return response.data;
-  } catch (error) {
-    const Error = error as AxiosError;
-    throw Error;
-  }
-});
-
-export const deleteLake = createAsyncThunk('lakes/deleteLake', async (lake_id: number) => {
-  try {
-    const response = await lakesApi.deleteLakeRequest(lake_id);
     return response.data;
   } catch (error) {
     const Error = error as AxiosError;
@@ -68,9 +38,9 @@ export const getMyFavLakes = createAsyncThunk('lakes/getMyFavLakes', async () =>
   }
 });
 
-export const deleteFavLake = createAsyncThunk('lakes/deleteFavLake', async (lake_id: number) => {
+export const removeFavLake = createAsyncThunk('lakes/deleteFavLake', async (lake_id: number) => {
   try {
-    const response = await lakesApi.deleteMyFavLakeRequest(lake_id);
+    const response = await lakesApi.removeMyFavLakeRequest(lake_id);
     return response.data;
   } catch (error) {
     const Error = error as AxiosError;
