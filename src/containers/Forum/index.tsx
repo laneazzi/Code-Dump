@@ -1,11 +1,10 @@
 import { useEffect, useMemo } from 'react';
 
-import { CardsList } from 'components';
+import { CardsList, Post } from 'components';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { todayTopCards } from 'constants/Cards/todayTopCards';
 import { getAllPosts } from 'store/slices/activitiesSlice/activitiesThunks';
 
-import Post from './Post';
 import styles from './Forum.module.scss';
 
 const Forum = () => {

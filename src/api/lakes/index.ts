@@ -10,6 +10,3 @@ export const addFavLakeRequest = (add_a_favorite_lake: TFavoriteLake) =>
   client.post(endpoints.LakesService.addFavoriteLake(), { add_a_favorite_lake });
 
 export const getMyFavLakeRequest = () => client.get(endpoints.LakesService.getMyFavoriteLake());
-
-export const removeMyFavLakeRequest = (lake_id: number) =>
-  client.delete(endpoints.LakesService.removeFromFavoriteLake(), { params: { lake_id } });

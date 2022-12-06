@@ -38,6 +38,7 @@ const CommentsList: FC<TCommentsListProps> = ({ list, post, addComment, removeCo
         <div>
           <ChatField postId={post?.id} addComment={addComment} />
         </div>
+
         <div>
           <CommentsFilter commentsCount={list.length} />
         </div>

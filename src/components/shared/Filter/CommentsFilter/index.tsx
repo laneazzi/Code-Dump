@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import { Typography } from 'components';
 import { BlueArrowIcon, MessageIcon } from 'assets/icons';
+import { useAppSelector } from 'hooks';
 
 import styles from './CommentsFilter.module.scss';
 
@@ -17,6 +18,8 @@ const sortItems = [
 ];
 
 const CommentsFilter: FC<TCommentsFilterProps> = ({ commentsCount }) => {
+  const { currentActivityComments } = useAppSelector((state) => state.activities);
+
   const [title, setTitle] = useState<string>(sortItems[0].title);
 
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
@@ -53,12 +56,14 @@ const CommentsFilter: FC<TCommentsFilterProps> = ({ commentsCount }) => {
         ({commentsCount}) <Typography tagName='span'>Comment{commentsCount > 1 && 's'}</Typography>
         <MessageIcon className={styles.container__count_icon} />
       </div>
-      <div className={titleClasses}>
-        <p className={styles.container__sort_title} onClick={openSortMenu}>
-          Sort By: {title} <BlueArrowIcon className={arrowClasses} />
-        </p>
-        <div className={menuClasses}>{sortOptions}</div>
-      </div>
+      {currentActivityComments.length > 0 && (
+        <div className={titleClasses}>
+          <p className={styles.container__sort_title} onClick={openSortMenu}>
+            Sort By: {title} <BlueArrowIcon className={arrowClasses} />
+          </p>
+          <div className={menuClasses}>{sortOptions}</div>
+        </div>
+      )}
     </div>
   );
 };

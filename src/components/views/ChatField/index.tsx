@@ -33,8 +33,10 @@ const ChatField: FC<TChatFieldProps> = ({ type, postId, addComment }) => {
       user_activity_post_id: postId as number,
     };
 
-    addComment?.(comment);
-    setMessage('');
+    if (message.trim()) {
+      addComment?.(comment);
+      setMessage('');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

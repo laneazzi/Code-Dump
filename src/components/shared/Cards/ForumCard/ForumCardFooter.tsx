@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import Typography from 'components/shared/Typography';
-import { CommentIcon, ShareDownIcon, ShareIcon, ShareUpIcon } from 'assets/icons';
+import { CommentIcon, ShareIcon } from 'assets/icons';
 
 import styles from './ForumCard.module.scss';
 

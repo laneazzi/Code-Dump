@@ -32,18 +32,24 @@ const Message: FC<TMessageProps> = ({ user, type, inChat, commentId, postId, rem
   };
 
   const submitEdits = () => {
-    setIsEditable(false);
+    if (editValue.trim()) {
+      setIsEditable(false);
+      setIsDrop(false);
 
-    const editedComment = {
-      content: editValue,
-      reaction_icon: 'string',
-      id: commentId as number,
-      user_id: userData?.id as number,
-    };
+      const editedComment = {
+        content: editValue,
+        reaction_icon: 'string',
+        id: commentId as number,
+        user_id: userData?.id as number,
+      };
 
-    dispatch(
-      editPostComment({ activity_post_comment_id: editedComment as any, postId: postId as number }),
-    );
+      dispatch(
+        editPostComment({
+          activity_post_comment_id: editedComment as any,
+          postId: postId as number,
+        }),
+      );
+    }
   };
 
   const remove = () => {
@@ -95,7 +101,7 @@ const Message: FC<TMessageProps> = ({ user, type, inChat, commentId, postId, rem
                 <ShareIcon />
                 Reply
               </div>
-              <div className={styles.container__content_box_icons_time}>{user?.created_at}</div>
+              <div className={styles.container__content_box_icons_time}>1 minutes ago</div>
               <div className={styles.options} onClick={showOptions} ref={menuRef}>
                 <MessageSettingsIcon />
                 <div className={dropDownClasses} onClick={stopPropagation}>
