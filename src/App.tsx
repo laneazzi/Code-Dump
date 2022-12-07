@@ -1,4 +1,5 @@
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import { BrowserRouter } from 'react-router-dom';
 
 import store from 'store';
@@ -12,6 +13,7 @@ const ReelBudApp = () => (
   <Provider store={store}>
     <BrowserRouter>
       <ModalContextProvider>
+        <ToastContainer />
         <RouterProvider />
       </ModalContextProvider>
     </BrowserRouter>

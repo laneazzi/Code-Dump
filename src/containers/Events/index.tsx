@@ -37,15 +37,22 @@ const Events = () => {
   const paginateEvents = event.slice(firstIndex, lastIndex);
 
   return (
-    <Fragment>
+    <>
       <Filter filterItems={filterItems} />
-      <div className={styles.events}>{paginateEvents}</div>
-      <PaginateWrapper
-        changePage={changePage}
-        totalItemsCount={events.length}
-        itemsCountPerPage={currentPerPage}
-      />
-    </Fragment>
+      {paginateEvents.length <= 0 ? (
+        <div className={styles.events__empty}>No Events added yet</div>
+      ) : (
+        <>
+          <div className={styles.events}>{paginateEvents}</div>
+
+          <PaginateWrapper
+            changePage={changePage}
+            totalItemsCount={events.length}
+            itemsCountPerPage={currentPerPage}
+          />
+        </>
+      )}
+    </>
   );
 };
 

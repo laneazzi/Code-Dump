@@ -1,5 +1,5 @@
 export type TEvent = {
-  id: number;
+  id?: number;
   title: string;
   lake_id: number;
   user_id: number;
@@ -36,6 +36,8 @@ export type TInvitationArgs = {
 
 export type TInitialState = {
   events: TEvent[];
+  loading: boolean;
+  error: Error | null;
   currentEvent: TEvent | null;
   createdEvent: TEvent | null;
 };

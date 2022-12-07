@@ -7,3 +7,4 @@ export * as lakesApi from './lakes';
 export * as eventsApi from './events';
 export * as friendsApi from './friends';
 export * as activitiesApi from './activities';
+export * as tournamentsApi from './tournaments';

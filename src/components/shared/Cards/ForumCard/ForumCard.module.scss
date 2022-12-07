@@ -47,8 +47,7 @@
         }
 
         &_icon {
-          width: 23px;
-          height: 30px;
+          @extend %flex-center;
           cursor: pointer;
 
           svg {
@@ -77,6 +76,7 @@
 
         .options {
           position: relative;
+          display: flex;
           z-index: 10;
 
           &__menu {
@@ -85,6 +85,7 @@
             opacity: 0;
             top: 50px;
             right: -20px;
+            transition: 0.6s;
             overflow: hidden;
             border-radius: 8px;
             background-color: $white;
@@ -177,6 +178,8 @@
     &__text {
       @extend %font-21;
       color: $green;
+      max-width: 100%;
+      word-break: break-all;
 
       @include breakpoint(tablet-m) {
         font-size: 14px;

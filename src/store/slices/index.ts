@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 
 import eventsSlice from './eventsSlice';
-import authSlice from './authSlice/authSlice';
-import lakesSlice from './lakesSlice/lakesSlice';
-import friendsSlice from './friendsSlice/friendsSlice';
-import activitiesSlice from './activitiesSlice/activitiesSlice';
+import authSlice from './authSlice';
+import lakesSlice from './lakesSlice';
+import friendsSlice from './friendsSlice';
+import activitiesSlice from './activitiesSlice';
+import tournamentsSlice from './tournamentsSlice';
 
 export const rootReducer = combineReducers({
   auth: authSlice,
@@ -12,4 +13,5 @@ export const rootReducer = combineReducers({
   events: eventsSlice,
   friends: friendsSlice,
   activities: activitiesSlice,
+  tournaments: tournamentsSlice,
 });

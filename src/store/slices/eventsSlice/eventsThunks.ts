@@ -1,20 +1,34 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
+import { toast } from 'react-toastify';
 
 import { eventsApi } from 'api';
 
 import { TEvent, TEventReminder, TInvitationArgs } from './types';
 
-export const createEvent = createAsyncThunk('events/createEvent', async (event: TEvent) => {
-  try {
-    const response = await eventsApi.createEventRequest(event);
-
-    return response.data;
-  } catch (error) {
-    const Error = error as AxiosError;
-    throw Error;
-  }
-});
+export const createEvent = createAsyncThunk(
+  'events/createEvent',
+  async (event: TEvent, { dispatch }) => {
+    try {
+      const response = await eventsApi.createEventRequest(event);
+      dispatch(getMyEvents());
+      return response.data;
+    } catch (error) {
+      const Error = error as AxiosError;
+      toast.error('Event creation failed', {
+        position: 'top-left',
+        theme: 'dark',
+        autoClose: 3000,
+        draggable: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+        hideProgressBar: false,
+      });
+      throw Error;
+    }
+  },
+);
 
 export const getMyEvents = createAsyncThunk('events/getMyEvents', async () => {
   try {
@@ -23,6 +37,17 @@ export const getMyEvents = createAsyncThunk('events/getMyEvents', async () => {
     return response.data;
   } catch (error) {
     const Error = error as AxiosError;
+    toast.error('Something went wrong please update the page', {
+      position: 'top-left',
+      theme: 'dark',
+      autoClose: 3000,
+      draggable: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      progress: undefined,
+      hideProgressBar: false,
+    });
+
     throw Error;
   }
 });

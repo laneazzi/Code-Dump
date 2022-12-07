@@ -85,7 +85,7 @@ const Message: FC<TMessageProps> = ({ user, type, inChat, commentId, postId, rem
         </div>
         <div className={styles.container__content_box}>
           <div className={styles.container__content_box_info}>
-            <p className={styles.container__content_box_info_username}>{user?.userName}</p>
+            <p className={styles.container__content_box_info_username}>Username</p>
 
             <p className={styles.container__content_box_info_commentary}>
               {type === 'comment' && isEditable ? (

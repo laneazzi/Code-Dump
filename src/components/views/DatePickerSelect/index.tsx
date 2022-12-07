@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import moment from 'moment';
 import classNames from 'classnames';
 import DatePicker from 'react-datepicker';
 
@@ -12,10 +13,17 @@ import styles from './DatePickerSelect.module.scss';
 type TDatePickerSelectProps = {
   title: string;
   size?: 'large';
+  getDate?: (date: string) => void;
 };
 
-const DatePickerSelect: FC<TDatePickerSelectProps> = ({ title, size }) => {
+const DatePickerSelect: FC<TDatePickerSelectProps> = ({ title, size, getDate }) => {
   const [selectedDate, setSelectedDate] = useState<Date>();
+
+  const setDate = (date: Date) => {
+    setSelectedDate(date);
+    const formattedDate = moment(selectedDate).format('MMMM D, YYYY');
+    getDate?.(formattedDate);
+  };
 
   const date = dateFormatter(selectedDate as Date);
 
@@ -35,9 +43,9 @@ const DatePickerSelect: FC<TDatePickerSelectProps> = ({ title, size }) => {
             selected={selectedDate}
             customInput={customInput}
             wrapperClassName={styles.datepicker}
+            onChange={(date: Date) => setDate(date)}
             popperClassName={styles.datepicker__header}
             calendarClassName={styles.datepicker__calendar}
-            onChange={(date: Date) => setSelectedDate(date)}
           />
         </div>
       </div>

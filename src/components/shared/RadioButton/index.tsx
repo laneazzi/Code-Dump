@@ -2,7 +2,7 @@ import { FC } from 'react';
 import classNames from 'classnames';
 
 import { useAppDispatch, useAppSelector } from 'hooks';
-import { keptSignIn } from 'store/slices/authSlice/authSlice';
+import { keptSignIn } from 'store/slices/authSlice';
 
 import styles from './RadioButton.module.scss';
 
