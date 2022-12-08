@@ -35,9 +35,9 @@
         @extend %font-23-bold;
         display: flex;
         gap: 10px;
-        font-family: $Open-Sans;
-        color: #000000;
+        color: $black;
         margin-bottom: 5px;
+        font-family: $Open-Sans;
 
         &_commentary {
           max-width: 545px;

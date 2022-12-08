@@ -4,7 +4,7 @@
   top: 0;
   z-index: 1000;
   transition: 0.6s;
-  padding: 53px 20px;
+  padding: 53px 20px 0 20px;
 
   @include breakpoint(wide-max) {
     position: relative;
@@ -41,11 +41,10 @@
 
   &__links {
     @extend %flex-center-column;
-    gap: 52px;
+    gap: 24px;
     width: 100%;
     padding: 60px 0;
     border-top: 1px solid $norland-blue-2;
-    border-bottom: 1px solid $norland-blue-2;
 
     @include breakpoint(wide-max) {
       gap: 30px;
@@ -59,8 +58,12 @@
     }
 
     &_box {
-      @extend %flex-align;
+      @extend %flex-center;
       position: relative;
+      width: 66px;
+      height: 66px;
+      overflow: hidden;
+      border-radius: 50%;
 
       &_title {
         @extend %font-20;
@@ -74,6 +77,7 @@
         border-radius: 8px;
         visibility: hidden;
         font-family: $inter;
+        white-space: nowrap;
         background-color: $red-light;
 
         &_active {
@@ -89,9 +93,8 @@
 
     &_item {
       @extend %flex-center;
-      width: 66px;
-      height: 66px;
-      border-radius: 50%;
+      width: 100%;
+      height: 100%;
 
       svg {
         @include breakpoint(tablet-m) {
@@ -112,10 +115,9 @@
 
       &_active {
         @extend %flex-center;
-        width: 66px;
-        height: 66px;
-        border-radius: 50%;
-        background-color: #0e2760;
+        width: 100%;
+        height: 100%;
+        background-color: $blue;
 
         @include breakpoint(tablet-m) {
           width: 50px;

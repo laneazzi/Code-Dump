@@ -9,8 +9,8 @@
 
   @include breakpoint(tablet-m) {
     display: flex;
-    justify-content: center;
     border-radius: 0px;
+    justify-content: center;
   }
 
   @include breakpoint(tablet-m) {

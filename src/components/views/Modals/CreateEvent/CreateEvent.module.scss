@@ -44,8 +44,8 @@
 
     &_main {
       display: flex;
-      width: 100%;
       gap: 46px;
+      width: 100%;
       margin-bottom: 48px;
 
       @include breakpoint(tablet) {
@@ -76,8 +76,8 @@
       &_right {
         @extend %flex-column;
         gap: 30px;
-        max-width: 538px;
         width: 100%;
+        max-width: 538px;
 
         @include breakpoint(wide-max) {
           gap: 10px;

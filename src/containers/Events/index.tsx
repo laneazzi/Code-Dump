@@ -44,12 +44,13 @@ const Events = () => {
       ) : (
         <>
           <div className={styles.events}>{paginateEvents}</div>
-
-          <PaginateWrapper
-            changePage={changePage}
-            totalItemsCount={events.length}
-            itemsCountPerPage={currentPerPage}
-          />
+          {events.length > 6 && (
+            <PaginateWrapper
+              changePage={changePage}
+              totalItemsCount={events.length}
+              itemsCountPerPage={currentPerPage}
+            />
+          )}
         </>
       )}
     </>

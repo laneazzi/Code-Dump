@@ -56,9 +56,11 @@
 
     &__user {
       &_name {
+        @extend %flex-align;
         @extend %font-25-bold;
-        font-family: $Open-Sans;
+        gap: 6px;
         color: $gray;
+        font-family: $Open-Sans;
 
         @include breakpoint(tablet-m) {
           font-size: 20px;

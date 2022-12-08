@@ -1,11 +1,18 @@
-.lives {
+.guides {
   display: grid;
   gap: 32px 36px;
-  margin: 40px 0 183px 0;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 63px;
+  grid-template-columns: repeat(3, minmax(492px, 1fr));
+
+  &__empty {
+    @extend %flex-center;
+    @extend %font-24-large-bold;
+    margin-top: 100px;
+    color: $blue;
+    font-family: $Poppins;
+  }
 
   @include breakpoint(wide-max) {
-    gap: 20px;
     margin-bottom: 90px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

@@ -1,11 +1,16 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import classNames from 'classnames';
 
 import { Typography } from 'components';
 import { notFoundImg } from 'assets/img';
 import { EventTypes } from 'types/global/eventTypes';
 import { TEvent } from 'store/slices/eventsSlice/types';
-import { EventCardIcon, EventCardSaveIcon, TournamentCardIcon } from 'assets/icons';
+import {
+  EventCardIcon,
+  EventCardSaveIcon,
+  TournamentCardIcon,
+  FishingGuideCardIcon,
+} from 'assets/icons';
 
 import styles from './EventCard.module.scss';
 
@@ -17,6 +22,10 @@ type TEventCardProps = {
 const EventCard: FC<TEventCardProps> = ({ event, type }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
+
+  const descriptionClasses = classNames(styles.card__info_description_main, {
+    [styles.card__info_description_main_guide]: type === 'GUIDE',
+  });
 
   const handleLoaded = () => {
     setIsLoaded(true);
@@ -51,8 +60,10 @@ const EventCard: FC<TEventCardProps> = ({ event, type }) => {
             <EventCardIcon />
           ) : type === EventTypes.TOURNAMENT ? (
             <TournamentCardIcon />
+          ) : type === EventTypes.GUIDE ? (
+            <FishingGuideCardIcon />
           ) : null}
-          <div className={styles.card__info_description_main}>
+          <div className={descriptionClasses}>
             <Typography className={styles.card__info_description_main_title}>
               {event?.title || event?.eventTitle}
             </Typography>
