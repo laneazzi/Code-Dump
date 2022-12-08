@@ -3,20 +3,41 @@ import classNames from 'classnames';
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
 
-import { useWindowSize } from 'hooks';
 import { Input } from 'components/shared';
 import { SendIcon, SmileIcon } from 'assets/icons';
+import { useAppSelector, useWindowSize } from 'hooks';
+import { TNewPostComment } from 'store/slices/activitiesSlice/types';
 
 import { IEmoji } from './types';
 import styles from './ChatField.module.scss';
 
 type TChatFieldProps = {
+  postId?: number;
   type?: 'global' | 'inLive';
+  addComment?: (comment: TNewPostComment) => void;
 };
 
-const ChatField: FC<TChatFieldProps> = ({ type }) => {
+const ChatField: FC<TChatFieldProps> = ({ type, postId, addComment }) => {
+  const { userData } = useAppSelector((state) => state.auth);
+
   const [message, setMessage] = useState<string>('');
   const [isShowPicker, setIsShowPicker] = useState<boolean>(false);
+
+  const createComment = () => {
+    const comment: TNewPostComment = {
+      content: message,
+      on_main_post: true,
+      parent_comment_id: 0,
+      user_id: userData?.id,
+      reaction_icon: 'string',
+      user_activity_post_id: postId as number,
+    };
+
+    if (message.trim()) {
+      addComment?.(comment);
+      setMessage('');
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value);
@@ -68,7 +89,7 @@ const ChatField: FC<TChatFieldProps> = ({ type }) => {
       </div>
 
       <div className={styles.container__icon}>
-        <SendIcon className={styles.container__icon_item} />
+        <SendIcon className={styles.container__icon_item} onClick={createComment} />
       </div>
     </div>
   );

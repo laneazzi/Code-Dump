@@ -3,14 +3,14 @@ import classNames from 'classnames';
 
 import { Typography } from 'components';
 import { EventTypes } from 'types/global/eventTypes';
+import { TEvent } from 'store/slices/eventsSlice/types';
 import { EventCardIcon, EventCardSaveIcon, TournamentCardIcon } from 'assets/icons';
 
-import { TEventCard } from './types';
 import styles from './EventCard.module.scss';
 
 type TEventCardProps = {
-  event: TEventCard;
   type: EventTypes;
+  event: TEvent | any;
 };
 
 const EventCard: FC<TEventCardProps> = ({ event, type }) => {
@@ -25,7 +25,11 @@ const EventCard: FC<TEventCardProps> = ({ event, type }) => {
   return (
     <div className={styles.card}>
       <div className={styles.card__background}>
-        <img src={event.img} alt='background' className={styles.card__background_img} />
+        <img
+          src={event?.location_url || event?.img}
+          alt='background'
+          className={styles.card__background_img}
+        />
         <div className={styles.card__background_color} />
       </div>
       <div className={styles.card__info}>
@@ -39,11 +43,11 @@ const EventCard: FC<TEventCardProps> = ({ event, type }) => {
             <TournamentCardIcon />
           ) : null}
           <div className={styles.card__info_description_main}>
-            <Typography tagName='p' className={styles.card__info_description_main_title}>
-              {event.eventTitle}
+            <Typography className={styles.card__info_description_main_title}>
+              {event?.title || event?.eventTitle}
             </Typography>
-            <Typography tagName='p' className={styles.card__info_description_main_gen}>
-              {event.eventDate}
+            <Typography className={styles.card__info_description_main_gen}>
+              {event?.title || event?.eventDate}
             </Typography>
           </div>
         </div>

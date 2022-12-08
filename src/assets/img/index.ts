@@ -6,6 +6,7 @@ export { default as GuyImgTwo } from './GuyImg2.png';
 export { default as cardImgThree } from './Post3.png';
 export { default as topUserImg } from './topUser.png';
 export { default as overlayImg } from './overlay.png';
+export { default as notFoundImg } from './not_found.png';
 export { default as topUserTwo } from './topUserTwo.png';
 export { default as emptyUserImg } from './emptyUser.png';
 export { default as highPostSixImg } from './topPost6.png';

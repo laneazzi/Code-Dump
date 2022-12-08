@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 
 import { ModalContext } from 'context/Modal';
-
 import {
   TextArea,
   EventFile,

@@ -1,4 +1,5 @@
 export type TEvent = {
+  id: number;
   title: string;
   lake_id: number;
   user_id: number;

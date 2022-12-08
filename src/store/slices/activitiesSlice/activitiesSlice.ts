@@ -8,6 +8,7 @@ import { getAllPosts, getActivityPostById, getPostCommentByParentPostId } from '
 const initialState: TInitialState = {
   error: null,
   loading: false,
+  isChanged: false,
   allActivities: [],
   currentActivity: null,
   currentActivityComments: [],
@@ -30,9 +31,15 @@ const activitiesSlice = createSlice({
       state.currentActivityComments = action.payload;
     });
 
-    builder.addMatcher(isAnyOf(getAllPosts.rejected), extraReducers.errorReducer);
+    builder.addMatcher(
+      isAnyOf(getAllPosts.rejected, getPostCommentByParentPostId.rejected),
+      extraReducers.errorReducer,
+    );
 
-    builder.addMatcher(isAnyOf(getAllPosts.pending), extraReducers.pendingReducer);
+    builder.addMatcher(
+      isAnyOf(getAllPosts.pending, getPostCommentByParentPostId.rejected),
+      extraReducers.pendingReducer,
+    );
   },
 });
 
