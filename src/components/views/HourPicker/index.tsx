@@ -1,13 +1,21 @@
-import { useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import { BlueArrowIcon } from 'assets/icons';
 import { hourCreator, minutesCreator } from 'utils/timeCreators';
 
 import styles from './HourPicker.module.scss';
+import { THourPickerProps } from './types';
 
-const HourPicker = () => {
+const HourPicker: FC<THourPickerProps> = ({ getTime }) => {
   const [time, setTime] = useState({ hour: 0, minute: 0, type: 'AM' });
+
+  useEffect(() => {
+    if (time) {
+      getTime?.(time?.hour.toString(), time?.type);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [time]);
 
   const [isActive, setIsActive] = useState({ hour: false, minutes: false, type: false });
 

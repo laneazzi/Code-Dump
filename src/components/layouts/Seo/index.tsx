@@ -1,6 +1,5 @@
 import React, { ReactNode, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 
 import { ScrollIcon } from 'assets/icons';
 import { Header, Navbar } from 'components';
@@ -66,11 +65,7 @@ const Seo: React.FC<TSeoProps> = ({ children, withLayout }) => {
           )}
         </div>
       ) : (
-        <>
-          <ToastContainer />
-          {children}
-          <ToastContainer />
-        </>
+        <>{children}</>
       )}
     </>
   );

@@ -1,17 +1,24 @@
-import { Fragment, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 
-import { useAppSelector } from 'hooks';
 import { filterItems } from 'utils/filterItems';
 import { EventTypes } from 'types/global/eventTypes';
-import { TournamentCardInfo } from 'utils/localBackend';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { EventCard, Filter, PaginateWrapper } from 'components';
+import { getMyTournaments } from 'store/slices/tournamentsSlice/tournamentsThunks';
 
 import styles from './Tournament.module.scss';
 
 const Tournament = () => {
+  const dispatch = useAppDispatch();
+
   const [currentPerPage] = useState<number>(9);
 
-  const { events } = useAppSelector((state) => state.events);
+  const { tournaments } = useAppSelector((state) => state.tournaments);
+
+  useEffect(() => {
+    dispatch(getMyTournaments());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -21,26 +28,33 @@ const Tournament = () => {
 
   const changePage = (page: number) => setCurrentPage(page);
 
-  const tournaments = useMemo(
+  const tournamentItems = useMemo(
     () =>
-      TournamentCardInfo.map((tournament) => (
+      tournaments.map((tournament) => (
         <EventCard key={tournament?.id} event={tournament} type={EventTypes.TOURNAMENT} />
       )),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [events],
+    [tournaments],
   );
 
-  const filteredTournaments = tournaments.slice(firstIndex, lastIndex);
+  const filteredTournaments = tournamentItems.slice(firstIndex, lastIndex);
 
   return (
     <Fragment>
       <Filter filterItems={filterItems} />
-      <div className={styles.tournament}>{filteredTournaments}</div>
-      <PaginateWrapper
-        changePage={changePage}
-        totalItemsCount={tournaments.length}
-        itemsCountPerPage={currentPerPage}
-      />
+      {filteredTournaments.length <= 0 ? (
+        <div className={styles.tournament__empty}>No Tournaments added yet</div>
+      ) : (
+        <>
+          <div className={styles.tournament}>{filteredTournaments}</div>
+
+          <PaginateWrapper
+            changePage={changePage}
+            totalItemsCount={tournaments.length}
+            itemsCountPerPage={currentPerPage}
+          />
+        </>
+      )}
     </Fragment>
   );
 };

@@ -1,7 +1,8 @@
-import { FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 
 import { Typography } from 'components';
+import { notFoundImg } from 'assets/img';
 import { EventTypes } from 'types/global/eventTypes';
 import { TEvent } from 'store/slices/eventsSlice/types';
 import { EventCardIcon, EventCardSaveIcon, TournamentCardIcon } from 'assets/icons';
@@ -15,6 +16,11 @@ type TEventCardProps = {
 
 const EventCard: FC<TEventCardProps> = ({ event, type }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+
+  const handleLoaded = () => {
+    setIsLoaded(true);
+  };
 
   const savedIconClassNames = classNames(styles.card__info_icon_item, {
     [styles.card__info_icon_item_active]: isSaved,
@@ -25,9 +31,13 @@ const EventCard: FC<TEventCardProps> = ({ event, type }) => {
   return (
     <div className={styles.card}>
       <div className={styles.card__background}>
+        {!isLoaded && (
+          <img src={notFoundImg} alt='background' className={styles.card__background_img} />
+        )}
         <img
-          src={event?.location_url || event?.img}
           alt='background'
+          onLoad={handleLoaded}
+          src={event?.location_url}
           className={styles.card__background_img}
         />
         <div className={styles.card__background_color} />
@@ -47,7 +57,7 @@ const EventCard: FC<TEventCardProps> = ({ event, type }) => {
               {event?.title || event?.eventTitle}
             </Typography>
             <Typography className={styles.card__info_description_main_gen}>
-              {event?.title || event?.eventDate}
+              {event?.scheduled_at || event?.eventDate}
             </Typography>
           </div>
         </div>

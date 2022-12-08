@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
 import classNames from 'classnames';
 
+import { useAppSelector } from 'hooks';
 import { Typography } from 'components';
 import { BlueArrowIcon, MessageIcon } from 'assets/icons';
-import { useAppSelector } from 'hooks';
 
 import styles from './CommentsFilter.module.scss';
 
@@ -58,9 +58,11 @@ const CommentsFilter: FC<TCommentsFilterProps> = ({ commentsCount }) => {
       </div>
       {currentActivityComments.length > 0 && (
         <div className={titleClasses}>
-          <p className={styles.container__sort_title} onClick={openSortMenu}>
-            Sort By: {title} <BlueArrowIcon className={arrowClasses} />
-          </p>
+          <div className={styles.container__sort_title} onClick={openSortMenu}>
+            <Typography>Sort By:</Typography>
+            <Typography> {title}</Typography>
+            <BlueArrowIcon className={arrowClasses} />
+          </div>
           <div className={menuClasses}>{sortOptions}</div>
         </div>
       )}

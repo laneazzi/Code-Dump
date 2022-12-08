@@ -57,4 +57,12 @@ export const endpoints = {
     addFavoriteLake: (): string => '/lakes-api/rb/lakes/add_favorite_lake/',
     getMyFavoriteLake: (): string => '/lakes-api/rb/lakes/get_my_favorite_lakes/',
   },
+
+  TournamentsService: {
+    createTournament: (): string => '/tournaments-api/rb/tournaments/create_tournament/',
+    getMyTournaments: (): string => '/tournaments-api/rb/tournaments/get_my_tournaments/',
+    getTournamentById: (): string => '/tournaments-api/rb/tournaments/get_tournament_by_id/',
+    updateMyTournament: (): string => '/tournaments-api/rb/tournaments/update_my_tournament',
+    removeFromMyTournaments: (): string => '/tournaments-api/rb/tournaments/delete_my_tournament',
+  },
 };
