@@ -2,21 +2,20 @@ import { FC, useState } from 'react';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 
-import { TFilter } from './types';
-import styles from './Filter.module.scss';
+import { SearchField } from '../../shared';
+
 import FilterBy from './filterBy';
+import { TFilterProps } from './types';
+import styles from './Filter.module.scss';
 
-type TFilterProps = {
-  filterItems: TFilter[];
-};
-
-const Filter: FC<TFilterProps> = ({ filterItems }) => {
+const Filter: FC<TFilterProps> = ({ filterItems, withSearch = false }) => {
   const [isActive, setIsActive] = useState<number>(0);
   const [isSort, setIsSort] = useState<boolean>(false);
 
-  const handleSortClick = () => setIsSort(!isSort);
+  const containerClasses = classNames(styles.container, { [styles.container__search]: withSearch });
 
   const navigate = useNavigate();
+  const handleSortClick = () => setIsSort(!isSort);
 
   const goToPage = (path: string) => navigate(path);
 
@@ -33,6 +32,7 @@ const Filter: FC<TFilterProps> = ({ filterItems }) => {
       [styles.container__block__item_active]: isActive === id,
     });
     return (
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       <div onClick={() => activeItem(id, path!)} key={id} className={activeClasses}>
         {name}
       </div>
@@ -44,12 +44,19 @@ const Filter: FC<TFilterProps> = ({ filterItems }) => {
   });
 
   return (
-    <div className={styles.container}>
+    <div className={containerClasses}>
       <div className={styles.container__sort} onClick={handleSortClick}>
         Sort By
       </div>
       <div className={blockClasses}>{filterItemsRenderer}</div>
-      <FilterBy />
+      {withSearch ? (
+        <div className={styles.search__field}>
+          <SearchField placeholder='Search by Tournament...' withBox />
+          <FilterBy />
+        </div>
+      ) : (
+        <FilterBy />
+      )}
     </div>
   );
 };

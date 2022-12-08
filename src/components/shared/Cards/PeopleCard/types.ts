@@ -5,3 +5,10 @@ export type TPeopleCard = {
   userName: string;
   userStatus: boolean;
 };
+
+export type TPeopleCardProps = {
+  status?: 'Pro';
+  people: TPeopleCard;
+  startTheChat: boolean;
+  setStartTheChat: (value: boolean) => void;
+};

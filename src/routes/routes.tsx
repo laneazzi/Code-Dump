@@ -10,9 +10,12 @@ import {
   Profile,
   Contacts,
   UserPage,
-  TermsOfUse,
+  ProUsers,
   Tournament,
+  TermsOfUse,
+  FishingGuide,
   PrivacyPolicy,
+  TournamentPartner,
 } from '../containers';
 import { RoutesProps, Routes } from '../types';
 
@@ -101,5 +104,26 @@ export const routes: RoutesProps[] = [
     withLayout: true,
     isProtected: true,
     component: <UserPage />,
+  },
+
+  {
+    path: Routes.FishingGuide,
+    withLayout: true,
+    isProtected: true,
+    component: <FishingGuide />,
+  },
+
+  {
+    path: Routes.ProUsers,
+    withLayout: true,
+    isProtected: true,
+    component: <ProUsers />,
+  },
+
+  {
+    path: Routes.TournamentPartner,
+    withLayout: true,
+    isProtected: true,
+    component: <TournamentPartner />,
   },
 ];

@@ -1,6 +1,7 @@
 .card {
   position: relative;
   max-width: 492px;
+  width: 100%;
   min-height: 298px;
   border-radius: 20px;
 
@@ -137,6 +138,19 @@
           @include breakpoint(mobile-m) {
             font-size: 10px;
             line-height: 17px;
+          }
+        }
+
+        &_guide {
+          .card__info_description_main_title {
+            @extend %font-24-large-bold;
+            font-family: $Open-Sans;
+          }
+
+          .card__info_description_main_gen {
+            @extend %font-22-large;
+            color: $red-light;
+            font-family: $Open-Sans;
           }
         }
       }

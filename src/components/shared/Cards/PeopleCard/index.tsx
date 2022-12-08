@@ -2,19 +2,13 @@ import React, { FC } from 'react';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 
-import { MessageIcon } from 'assets/icons';
+import { MessageIcon, Verify } from 'assets/icons';
 import { Typography, UserImgFrame } from 'components';
 
-import { TPeopleCard } from './types';
+import { TPeopleCardProps } from './types';
 import styles from './PeopleCard.module.scss';
 
-type TPeopleCardProps = {
-  people: TPeopleCard;
-  startTheChat: boolean;
-  setStartTheChat: (value: boolean) => void;
-};
-
-const PeopleCard: FC<TPeopleCardProps> = ({ people, startTheChat, setStartTheChat }) => {
+const PeopleCard: FC<TPeopleCardProps> = ({ people, startTheChat, setStartTheChat, status }) => {
   const liveStatusClassNames = classNames(styles.container__content__user_status, {
     [styles.container__content__user_status_active]: people.userStatus,
   });
@@ -37,7 +31,7 @@ const PeopleCard: FC<TPeopleCardProps> = ({ people, startTheChat, setStartTheCha
         <div className={styles.container__content__box}>
           <div className={styles.container__content__user}>
             <Typography className={styles.container__content__user_name}>
-              {people.userName}
+              {people.userName} {status === 'Pro' && <Verify />}
             </Typography>
             <Typography className={liveStatusClassNames}>
               {people.userStatus ? 'Open to Fishing' : 'Unavailable'}

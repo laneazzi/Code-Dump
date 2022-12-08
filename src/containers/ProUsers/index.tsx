@@ -1,15 +1,14 @@
-import { Fragment, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import classNames from 'classnames';
 
-import { Routes } from 'types';
+import { proUsersFilters } from 'utils/filterItems';
 import { userSearchCase } from 'utils/localBackend';
-import { TFilter } from 'components/shared/Filter/types';
 import PeopleCard from 'components/shared/Cards/PeopleCard';
 import { Filter, LiveChat, PaginateWrapper } from 'components';
 
-import styles from './Search.module.scss';
+import styles from './ProUsers.module.scss';
 
-const Search = () => {
+const ProUsers = () => {
   const [currentPerPage] = useState<number>(15);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [startTheChat, setStartTheChat] = useState<boolean>(false);
@@ -19,24 +18,19 @@ const Search = () => {
   const lastIndex = currentPage * currentPerPage;
   const firstIndex = lastIndex - currentPerPage;
 
-  const filterItems: TFilter[] = [
-    { id: 0, name: 'People' },
-    { id: 1, name: 'Videos' },
-    { id: 2, name: 'Locations' },
-    { id: 3, name: 'Events', path: Routes.Events },
-    { id: 4, name: 'Tournaments', path: Routes.Tournament },
-  ];
-
   const users = useMemo(
     () =>
-      userSearchCase.map((user) => (
-        <PeopleCard
-          key={user.id}
-          people={user}
-          startTheChat={startTheChat}
-          setStartTheChat={setStartTheChat}
-        />
-      )),
+      userSearchCase.map((user) => {
+        return (
+          <PeopleCard
+            status='Pro'
+            key={user.id}
+            people={user}
+            startTheChat={startTheChat}
+            setStartTheChat={setStartTheChat}
+          />
+        );
+      }),
     // eslint-disable-next-line
     [],
   );
@@ -45,14 +39,14 @@ const Search = () => {
 
   const closeTheChat = () => setStartTheChat(false);
 
-  const chatClasses = classNames(styles.search__chat, {
-    [styles.search__chat_active]: startTheChat,
+  const chatClasses = classNames(styles.pro__chat, {
+    [styles.pro__chat_active]: startTheChat,
   });
 
   return (
-    <Fragment>
-      <Filter filterItems={filterItems} />
-      <div className={styles.search}>{filteredUsers}</div>
+    <>
+      <Filter filterItems={proUsersFilters} />
+      <div className={styles.pro}>{filteredUsers}</div>
 
       <div className={chatClasses}>
         <LiveChat messages={[]} type='global' closeTheChat={closeTheChat} />
@@ -62,8 +56,8 @@ const Search = () => {
         itemsCountPerPage={currentPerPage}
         totalItemsCount={userSearchCase.length}
       />
-    </Fragment>
+    </>
   );
 };
 
-export default Search;
+export default ProUsers;

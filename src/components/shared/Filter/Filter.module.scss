@@ -10,6 +10,7 @@
   &__block {
     display: flex;
     gap: 32px;
+    width: 100%;
 
     &_active {
       display: flex !important;
@@ -85,12 +86,15 @@
 }
 
 .filter {
+  position: relative;
   z-index: 3;
+  width: 100%;
   color: $white;
   cursor: pointer;
+  max-width: 183px;
   user-select: none;
   border-radius: 8px;
-  position: relative;
+  white-space: nowrap;
   padding: 11.5px 26px;
   background-color: $blue;
 
@@ -147,4 +151,10 @@
       }
     }
   }
+}
+
+.search__field {
+  @extend %flex-align;
+  width: 100%;
+  gap: 26px;
 }

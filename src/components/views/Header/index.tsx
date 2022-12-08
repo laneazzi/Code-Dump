@@ -5,16 +5,15 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import {
   AddIcon,
   HeaderArrowIcon,
-  InputSearchIcon,
   ReelBudTextIcon,
   ReelBudLogoIcon,
   NotificationsIcon,
 } from 'assets/icons';
+import { Routes } from 'types';
 import { emptyUserImg } from 'assets/img';
 import { useAppSelector, useOnClickOutside } from 'hooks';
-import { HeaderMenu, Input, Typography, UserImgFrame } from 'components/shared';
 import { EventDropDownItems, ProfileDropDownItems } from 'utils/headerDropDowns';
-import { Routes } from 'types';
+import { HeaderMenu, SearchField, Typography, UserImgFrame } from 'components/shared';
 
 import { HeaderDropDown } from '../index';
 
@@ -23,20 +22,17 @@ import styles from './Header.module.scss';
 const Header = () => {
   const { userData } = useAppSelector((state) => state.auth);
   const [isUserActive, setIsUserActive] = useState(false);
-  const [isEventActive, setIsEventActive] = useState(false);
   const [isSearch, setIsSearch] = useState<boolean>(false);
 
-  const inputSearchClasses = classNames(styles.header__field, {
-    [styles.header__field_active]: isSearch,
-  });
-
-  const openSearch = () => {
-    setIsSearch(!isSearch);
-  };
+  const [isEventActive, setIsEventActive] = useState(false);
 
   const eventRef = useRef<null>(null);
 
   const userRef = useRef<null>(null);
+
+  const openSearch = () => {
+    setIsSearch(!isSearch);
+  };
 
   const closeEventDropDown = () => setIsEventActive(false);
 
@@ -70,7 +66,7 @@ const Header = () => {
 
   const goToHomePage = () => navigate(Routes.Home);
 
-  const param = pathname.replace('/', '');
+  const param = pathname.replace('/', '').replace('-', ' ');
 
   return (
     <header className={styles.header}>
@@ -85,14 +81,7 @@ const Header = () => {
         </Typography>
       </div>
 
-      <Input
-        anyIcon
-        type='text'
-        placeholder='Search...'
-        RightIcon={InputSearchIcon}
-        innerClassName={inputSearchClasses}
-        className={styles.header__field_block}
-      />
+      <SearchField isSearch={isSearch} />
 
       <div className={styles.menu__absolute}>
         <HeaderMenu create={toggleEventsDropDown} user={toggleUserDropDown} search={openSearch} />

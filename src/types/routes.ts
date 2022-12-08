@@ -17,8 +17,11 @@ export enum Routes {
   Profile = '/profile',
   Contacts = '/contacts',
   SignUpFor = '/sign-up',
+  ProUsers = '/pro-users',
   Tournament = '/tournament',
   UserPage = '/user-page:id',
   TermsOfUse = '/terms-of-use',
+  FishingGuide = '/fishing-guide',
   PrivacyPolicy = '/privacy-policy',
+  TournamentPartner = '/tournament-partner',
 }
