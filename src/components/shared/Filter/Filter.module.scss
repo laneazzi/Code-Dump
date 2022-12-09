@@ -12,6 +12,10 @@
     gap: 32px;
     width: 100%;
 
+    @include breakpoint(wide-max) {
+      max-width: fit-content;
+    }
+
     &_active {
       display: flex !important;
     }
@@ -157,4 +161,8 @@
   @extend %flex-align;
   width: 100%;
   gap: 26px;
+
+  @include breakpoint(wide-max) {
+    width: fit-content;
+  }
 }

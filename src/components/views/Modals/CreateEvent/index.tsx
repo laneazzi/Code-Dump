@@ -66,6 +66,7 @@ const CreateEvent = () => {
 
     if (condition) {
       dispatch(createEvent(newEvent));
+
       closeModal();
     }
   };

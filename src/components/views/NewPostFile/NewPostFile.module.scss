@@ -33,6 +33,10 @@
       border: 1px solid #dfe5f4;
       padding: 19px 32px 22px 19px;
 
+      @include breakpoint(wide-max) {
+        max-width: 100%;
+      }
+
       @include breakpoint(tablet) {
         padding: 10px 15px;
       }
@@ -45,10 +49,9 @@
       width: 800px;
       max-width: 800px;
 
-
       img {
         width: 100%;
-        min-width:600px;
+        min-width: 600px;
         height: 200px;
         margin-top: 40px;
         object-fit: contain;

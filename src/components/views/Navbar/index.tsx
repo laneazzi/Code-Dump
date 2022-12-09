@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { NavLink, useNavigate } from 'react-router-dom';
 
@@ -13,7 +13,9 @@ type TNavBarProps = {
 };
 
 const Navbar: FC<TNavBarProps> = ({ className }) => {
+  const [idx, setIdx] = useState<number>(0);
   const [focused, setFocused] = useState<number | null>(null);
+  const navRef = useRef<null | HTMLDivElement>(null);
 
   const navigate = useNavigate();
 
@@ -29,6 +31,19 @@ const Navbar: FC<TNavBarProps> = ({ className }) => {
     setFocused(null);
   };
 
+  const scrollTo = (idx: number) => {
+    setIdx(idx);
+    let scrollPosition = 0;
+
+    if (idx === 0) {
+      scrollPosition = 0;
+    } else {
+      scrollPosition = 66 * idx + 25;
+    }
+
+    navRef.current?.scrollTo(scrollPosition, 0);
+  };
+
   const linkItems = navBarLinks.map((link, idx) => {
     const focusedClasses = classNames(styles.navbar__links_box_title, {
       [styles.navbar__links_box_title_active]: idx === focused,
@@ -36,6 +51,7 @@ const Navbar: FC<TNavBarProps> = ({ className }) => {
 
     return (
       <div
+        onClick={() => scrollTo(idx)}
         className={styles.navbar__links_box}
         key={link.id}
         onMouseLeave={leaveFocus}
@@ -57,13 +73,11 @@ const Navbar: FC<TNavBarProps> = ({ className }) => {
 
   return (
     <div className={className}>
-      <nav className={styles.navbar} onMouseLeave={leaveFocus}>
+      <nav ref={navRef} className={styles.navbar} onMouseLeave={leaveFocus}>
         <div className={styles.navbar__logo}>
           <ReelBudLogoIcon onClick={routeToHome} className={styles.navbar__logo_icon} />
         </div>
-        <div className={styles.navbar__wrapper}>
-          <div className={styles.navbar__links}>{linkItems}</div>
-        </div>
+        <div className={styles.navbar__links}>{linkItems}</div>
       </nav>
     </div>
   );

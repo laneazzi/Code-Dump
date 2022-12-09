@@ -43,9 +43,13 @@ const Filter: FC<TFilterProps> = ({ filterItems, withSearch = false }) => {
     [styles.container__block_active]: isSort,
   });
 
+  const sortClasses = classNames(styles.container__sort, {
+    [styles.container__sort__with__search]: withSearch,
+  });
+
   return (
     <div className={containerClasses}>
-      <div className={styles.container__sort} onClick={handleSortClick}>
+      <div className={sortClasses} onClick={handleSortClick}>
         Sort By
       </div>
       <div className={blockClasses}>{filterItemsRenderer}</div>

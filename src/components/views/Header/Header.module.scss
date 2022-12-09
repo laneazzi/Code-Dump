@@ -122,9 +122,9 @@
       display: block;
 
       @include breakpoint(tablet) {
-        top: calc(100% - 170px - 116px) !important;
-        visibility: visible;
         opacity: 1;
+        visibility: visible;
+        top: calc(100% - 170px - 80px) !important;
       }
 
       @include breakpoint(tablet-m) {
@@ -132,7 +132,7 @@
       }
 
       @include breakpoint(mobile-m) {
-        top: calc(100% - 170px - 83px) !important;
+        top: calc(100% - 170px - 77px) !important;
       }
     }
   }
@@ -163,7 +163,7 @@
         position: fixed;
         left: 0;
         width: 100%;
-        top: calc(100% - 254px - 116px) !important;
+        top: calc(100% - 254px - 70px) !important;
       }
 
       @include breakpoint(tablet-m) {
@@ -171,7 +171,7 @@
       }
 
       @include breakpoint(mobile-m) {
-        top: calc(100% - 254px - 83px) !important;
+        top: calc(100% - 254px - 70px) !important;
       }
     }
   }

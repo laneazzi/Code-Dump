@@ -6,6 +6,18 @@
   max-width: 492px;
   transform-style: preserve-3d;
 
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+  }
+
+  @include breakpoint(tablet-m) {
+    height: 450px;
+  }
+
+  @include breakpoint(mobile-m) {
+    height: 350px;
+  }
+
   &_active {
     .card__front {
       transform: perspective(1000px) rotateY(180deg);
@@ -64,17 +76,29 @@
       padding: 21px 35px 33px 32px;
       background: linear-gradient(180deg, rgba(14, 39, 96, 0) 0%, #0e2760 100%);
 
+      @include breakpoint(tablet-m) {
+        padding: 0 15px;
+      }
+
       &__description {
         &__name {
           @extend %font-34-large;
           color: $white;
           margin-right: 7px;
+
+          @include breakpoint(tablet-m) {
+            font-size: 28px;
+          }
         }
 
         &__age {
           @extend %font-28-regular;
           font-family: $Open-Sans;
           color: $white;
+
+          @include breakpoint(tablet-m) {
+            font-size: 22px;
+          }
         }
 
         &__location {
@@ -82,12 +106,27 @@
           color: $white;
           font-family: $Open-Sans;
           margin-bottom: 1px;
+
+          @include breakpoint(tablet-m) {
+            font-size: 18px;
+          }
         }
       }
 
       &__icons {
         display: flex;
         gap: 16px;
+
+        @include breakpoint(tablet-m) {
+          flex-direction: column;
+          gap: 0;
+        }
+
+        svg {
+          @include breakpoint(tablet-m) {
+            width: 50px;
+          }
+        }
       }
     }
   }
@@ -97,6 +136,10 @@
     padding: 31px 34px 28px 36px;
     transform: perspective(800px) rotateY(180deg);
 
+    @include breakpoint(mobile-m) {
+      padding: 10px 20px;
+    }
+
     &__head {
       @extend %flex-between;
       @extend %font-34-large;
@@ -104,6 +147,14 @@
       padding-bottom: 20px;
       font-family: $Open-Sans;
       border-bottom: 1px solid rgba(149, 174, 199, 0.5);
+
+      @include breakpoint(tablet-m) {
+        font-size: 28px;
+      }
+
+      @include breakpoint(mobile-m) {
+        display: none;
+      }
 
       &__btn {
         @extend %flex-align;
@@ -124,11 +175,24 @@
       gap: 33px;
       margin-top: 22px;
 
+      @include breakpoint(tablet-m) {
+        gap: 10px;
+        margin-top: 10px;
+      }
+
       &__item {
         @extend %flex-between;
         @extend %font-24-large;
         color: $white;
         font-family: $Open-Sans;
+
+        @include breakpoint(tablet-m) {
+          font-size: 18px;
+        }
+
+        @include breakpoint(mobile-m) {
+          font-size: 14px;
+        }
 
         &__subtitle {
           color: $red-light;
