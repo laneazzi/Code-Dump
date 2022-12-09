@@ -10,18 +10,17 @@
     position: relative;
     z-index: 999;
     margin: 0 auto;
-    max-width: 850px;
     padding: 25px 20px;
   }
 
-  @include breakpoint(tablet-m) {
-    max-width: 100%;
-    padding: 10px 40px;
-  }
+  @include breakpoint(tablet) {
+    position: relative;
+    height: 100%;
+    overflow-x: auto;
 
-  @include breakpoint(mobile-m) {
-    max-width: 100%;
-    padding: 20px 60px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &__logo {
@@ -47,14 +46,18 @@
     border-top: 1px solid $norland-blue-2;
 
     @include breakpoint(wide-max) {
-      gap: 30px;
       padding: 0;
       border: none;
       flex-direction: row;
+      justify-content: space-around;
     }
 
-    @include breakpoint(tablet-m) {
+    @include breakpoint(tablet) {
+      position: absolute;
+      left: 0;
       gap: 15px;
+      padding: 0 10px;
+      width: max-content;
     }
 
     &_box {
@@ -97,20 +100,6 @@
       height: 100%;
 
       svg {
-        @include breakpoint(tablet-m) {
-          width: 25px;
-          height: 25px;
-        }
-      }
-
-      @include breakpoint(tablet-m) {
-        width: 50px;
-        height: 50px;
-      }
-
-      @include breakpoint(mobile-m) {
-        width: 40px;
-        height: 40px;
       }
 
       &_active {
@@ -119,22 +108,7 @@
         height: 100%;
         background-color: $blue;
 
-        @include breakpoint(tablet-m) {
-          width: 50px;
-          height: 50px;
-        }
-
-        @include breakpoint(mobile-m) {
-          width: 43px;
-          height: 43px;
-        }
-
         svg {
-          @include breakpoint(tablet-m) {
-            width: 25px;
-            height: 25px;
-          }
-
           path {
             fill: $white;
           }

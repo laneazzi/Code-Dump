@@ -13,7 +13,7 @@ type TEventInputProps = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const EventInput: FC<TEventInputProps> = ({ small, title, name, onChange, required }) => {
+const EventInput: FC<TEventInputProps> = ({ small, title, name, onChange }) => {
   const eventInputClasses = classNames(styles.container, {
     [styles.container__small]: small,
   });
@@ -27,7 +27,6 @@ const EventInput: FC<TEventInputProps> = ({ small, title, name, onChange, requir
         placeholder='Write...'
         className={styles.container__content}
       />
-      {!required && <span>Error</span>}
     </div>
   );
 };

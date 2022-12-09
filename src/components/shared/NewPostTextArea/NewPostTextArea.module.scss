@@ -5,6 +5,10 @@
   border-radius: 8px;
   border: 1px solid #dfe5f4;
 
+  @include breakpoint(wide-max) {
+    max-width: 100%;
+  }
+
   &__content {
     @extend %font-24-large;
     border: none;

@@ -145,12 +145,42 @@
           .card__info_description_main_title {
             @extend %font-24-large-bold;
             font-family: $Open-Sans;
+
+            @include breakpoint(tablet) {
+              font-size: 18px;
+              line-height: 25px;
+            }
+
+            @include breakpoint(tablet-m) {
+              font-size: 14px;
+              line-height: 21px;
+            }
+
+            @include breakpoint(mobile-m) {
+              font-size: 12px;
+              line-height: 19px;
+            }
           }
 
           .card__info_description_main_gen {
             @extend %font-22-large;
             color: $red-light;
             font-family: $Open-Sans;
+
+            @include breakpoint(tablet) {
+              font-size: 17px;
+              line-height: 24px;
+            }
+
+            @include breakpoint(tablet-m) {
+              font-size: 12px;
+              line-height: 19px;
+            }
+
+            @include breakpoint(mobile-m) {
+              font-size: 10px;
+              line-height: 17px;
+            }
           }
         }
       }
