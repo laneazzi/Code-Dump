@@ -1,25 +1,34 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
 
-import { Input } from 'components/shared';
 import { SendIcon, SmileIcon } from 'assets/icons';
+import { Input, Typography } from 'components/shared';
 import { useAppSelector, useWindowSize } from 'hooks';
 import { TNewPostComment } from 'store/slices/activitiesSlice/types';
 
-import { IEmoji } from './types';
+import { IEmoji, TChatFieldProps } from './types';
 import styles from './ChatField.module.scss';
 
-type TChatFieldProps = {
-  postId?: number;
-  type?: 'global' | 'inLive';
-  addComment?: (comment: TNewPostComment) => void;
-};
-
-const ChatField: FC<TChatFieldProps> = ({ type, postId, addComment }) => {
+const ChatField: FC<TChatFieldProps> = ({
+  type,
+  postId,
+  repliedId,
+  addComment,
+  setIsReply,
+  replyComment,
+  isReply = false,
+}) => {
   const { userData } = useAppSelector((state) => state.auth);
 
+  useEffect(() => {
+    if (isReply) {
+      fieldRef.current?.focus();
+    }
+  }, [isReply]);
+
+  const fieldRef = useRef<HTMLInputElement | null>(null);
   const [message, setMessage] = useState<string>('');
   const [isShowPicker, setIsShowPicker] = useState<boolean>(false);
 
@@ -36,6 +45,31 @@ const ChatField: FC<TChatFieldProps> = ({ type, postId, addComment }) => {
     if (message.trim()) {
       addComment?.(comment);
       setMessage('');
+    }
+  };
+
+  const reply = () => {
+    const comment: TNewPostComment = {
+      content: message,
+      on_main_post: false,
+      user_id: userData?.id,
+      reaction_icon: 'string',
+      parent_comment_id: repliedId,
+      user_activity_post_id: postId as number,
+    };
+
+    if (message.trim()) {
+      replyComment?.(comment);
+      setMessage('');
+      setIsReply && setIsReply(false);
+    }
+  };
+
+  const handleClick = () => {
+    if (isReply) {
+      reply();
+    } else {
+      createComment();
     }
   };
 
@@ -63,12 +97,16 @@ const ChatField: FC<TChatFieldProps> = ({ type, postId, addComment }) => {
 
   return (
     <div className={containerClasses}>
+      {isReply && (
+        <Typography className={styles.container__reply}>Replying to {repliedId}</Typography>
+      )}
       <div className={styles.container__content}>
         <Input
           type='text'
-          placeholder='Type a message...'
+          ref={fieldRef}
           value={message}
           onChange={handleChange}
+          placeholder='Type a message...'
         />
 
         <SmileIcon onClick={showEmojis} className={styles.container__content_smile} />
@@ -89,7 +127,7 @@ const ChatField: FC<TChatFieldProps> = ({ type, postId, addComment }) => {
       </div>
 
       <div className={styles.container__icon}>
-        <SendIcon className={styles.container__icon_item} onClick={createComment} />
+        <SendIcon className={styles.container__icon_item} onClick={handleClick} />
       </div>
     </div>
   );

@@ -44,8 +44,8 @@
 
     &_main {
       display: flex;
-      width: 100%;
       gap: 46px;
+      width: 100%;
       margin-bottom: 48px;
 
       @include breakpoint(tablet) {
@@ -67,8 +67,8 @@
           @extend %flex-justify-between;
 
           @include breakpoint(wide-max) {
-            gap: 10px;
             flex-direction: column;
+            gap: 10px;
           }
         }
       }
@@ -76,8 +76,8 @@
       &_right {
         @extend %flex-column;
         gap: 30px;
-        max-width: 538px;
         width: 100%;
+        max-width: 538px;
 
         @include breakpoint(wide-max) {
           gap: 10px;
@@ -98,28 +98,29 @@
       @extend %flex-center;
       gap: 16px;
 
+      &_close {
+        color: $blue-dark !important;
+        background: $white !important;
+        border: 1px solid $blue-dark !important;
+      }
+
+      &_submit {
+        border: none !important;
+        color: $white !important;
+        background: $red-light !important;
+      }
+
       button {
         @extend %font-24-large;
         cursor: pointer;
         padding: 12px 40px;
         border-radius: 16px;
+        max-width: fit-content;
         font-family: $Open-Sans;
 
         @include breakpoint(mobile-m) {
           padding: 5px 20px;
           font-size: 16px;
-        }
-
-        &:first-child {
-          color: $blue-dark;
-          background: $white;
-          border: 1px solid $blue-dark;
-        }
-
-        &:last-child {
-          color: $white;
-          border: none;
-          background: $red-light;
         }
       }
     }

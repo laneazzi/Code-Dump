@@ -4,7 +4,7 @@ import { CloseCircleIcon, FileIcon } from 'assets/icons';
 
 import styles from './EventFile.module.scss';
 
-const EventFile: React.FC = () => {
+const EventFile = () => {
   const [file, setFile] = useState<File | null>(null);
   const [fileDataURL, setFileDataURL] = useState<string | null>(null);
 

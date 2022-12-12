@@ -2,19 +2,14 @@ import classNames from 'classnames';
 import { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+import { Typography } from 'components';
 import { ModalContext } from 'context/Modal';
-import { Typography } from 'components/shared';
-import { THeaderDropDown } from 'utils/headerDropDowns';
 import { BrowserStorageKeys, BrowserStorageService } from 'services';
 
 import { CreateEvent, NewPost, CreateTournament } from '../Modals';
 
+import { THeaderDropDownProps } from './types';
 import styles from './HeaderDropDown.module.scss';
-
-type THeaderDropDownProps = {
-  className?: string;
-  dropDownList: THeaderDropDown[];
-};
 
 const HeaderDropDown: FC<THeaderDropDownProps> = ({ dropDownList, className }) => {
   const { openModal } = useContext(ModalContext);

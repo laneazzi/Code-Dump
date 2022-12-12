@@ -1,16 +1,11 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import { GuyImg } from 'assets/img';
-import LiveUser from 'components/views/LiveUser';
-import LiveChat from 'components/views/LiveChat';
-import { LiveChatVideoCard } from 'components/shared';
-import { liveChatMessages } from 'utils/liveChatMessages';
+import { liveChatMessages } from 'utils';
+import { LiveChatVideoCard, LiveChat, LiveUser } from 'components';
 
+import { TLiveModalProps } from './types';
 import styles from './LiveModal.module.scss';
-
-type TLiveModalProps = {
-  src: string;
-};
 
 const LiveModal: FC<TLiveModalProps> = ({ src }) => (
   <div className={styles.container}>

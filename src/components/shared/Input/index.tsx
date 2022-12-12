@@ -12,21 +12,24 @@ const Input = React.forwardRef<any, IInputProps>(
   (
     {
       name,
+      onBlur,
       error,
-      disabled,
-      RightIcon = EyeShowIcon,
-      RightToggledIcon = EyeHideIcon,
-      placeholder,
-      isDisabledError,
-      type = 'text',
-      className = '',
-      defaultValue,
-      innerClassName = '',
-      haveRightIcon = false,
-      anyIcon = false,
       label,
       isSmall,
       onChange,
+      disabled,
+      placeholder,
+      defaultValue,
+      type = 'text',
+      className = '',
+      anyIcon = false,
+      isDisabledError,
+      anyError = false,
+      innerClassName = '',
+      haveRightIcon = false,
+      anyErrorMessage = '',
+      RightIcon = EyeShowIcon,
+      RightToggledIcon = EyeHideIcon,
       ...rest
     },
     ref,
@@ -76,13 +79,15 @@ const Input = React.forwardRef<any, IInputProps>(
               id={name}
               ref={ref}
               name={name}
-              defaultValue={defaultValue}
+              onBlur={onBlur}
               disabled={disabled}
+              onChange={onChange}
               className={inputClasses}
               placeholder={placeholder}
-              onChange={onChange}
+              defaultValue={defaultValue}
               type={isToggledIcon ? 'text' : type}
             />
+
             {(haveRightIcon || anyIcon) && (
               <RightIconComponent
                 role='button'
@@ -97,6 +102,11 @@ const Input = React.forwardRef<any, IInputProps>(
           {error && !isDisabledError && (
             <Typography type='Small' className={styles.container__error__text}>
               {error}
+            </Typography>
+          )}
+          {anyError && (
+            <Typography type='Small' className={styles.container__error__text}>
+              {anyErrorMessage}
             </Typography>
           )}
         </div>

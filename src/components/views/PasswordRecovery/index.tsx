@@ -2,18 +2,15 @@ import { FC, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Routes } from 'types';
+import { Checkbox, LinkButton, Typography } from 'components';
 import { ReelBudLogoIcon, ReelBudTextIcon } from 'assets/icons';
-import { Checkbox, LinkButton, Typography } from 'components/shared';
 import passwordRecoveryForm from 'constants/forms/passwordRecoveryForm';
 
 import { RecoveryForm } from '../../forms';
 import { IsActiveType } from '../../../types/global';
 
+import { TRecoveryProps } from './types';
 import styles from './PasswordRecovery.module.scss';
-
-type TRecoveryProps = {
-  toggleActive: (value: string) => void;
-};
 
 const PasswordRecovery: FC<TRecoveryProps> = ({ toggleActive }) => {
   const navigate = useNavigate();

@@ -1,7 +1,16 @@
 .container {
   @extend %flex-align;
-  gap: 13px;
   position: relative;
+  gap: 13px;
+
+  &__reply {
+    @extend %font-12;
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    color: $blue-gray;
+    font-family: $Open-Sans;
+  }
 
   &__icon {
     &_item {

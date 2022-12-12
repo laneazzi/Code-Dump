@@ -1,10 +1,10 @@
-import classNames from 'classnames';
 import React, { FC, useState } from 'react';
+import classNames from 'classnames';
 
-import { searchList } from 'utils/searchList';
+import { searchList } from 'utils';
 import { InputSearchIcon } from 'assets/icons';
 
-import { Input, Typography } from '..';
+import { Input, Typography } from '../index';
 
 import { TSearchFiledProps } from './types';
 import styles from './SearchField.module.scss';
@@ -40,10 +40,10 @@ const SearchField: FC<TSearchFiledProps> = ({
       ) : (
         <div className={styles.search}>
           <Input
-            onChange={handleChange}
-            value={value}
             anyIcon
             type='text'
+            value={value}
+            onChange={handleChange}
             placeholder={placeholder}
             RightIcon={InputSearchIcon}
             innerClassName={inputSearchClasses}

@@ -25,7 +25,7 @@
 
   &__logo {
     @extend %flex-center;
-    padding-bottom: 35px;
+    padding-bottom: 24px;
 
     @include breakpoint(wide-max) {
       display: none;
@@ -42,7 +42,7 @@
     @extend %flex-center-column;
     gap: 24px;
     width: 100%;
-    padding: 60px 0;
+    padding-top: 24px;
     border-top: 1px solid $norland-blue-2;
 
     @include breakpoint(wide-max) {
@@ -98,9 +98,6 @@
       @extend %flex-center;
       width: 100%;
       height: 100%;
-
-      svg {
-      }
 
       &_active {
         @extend %flex-center;

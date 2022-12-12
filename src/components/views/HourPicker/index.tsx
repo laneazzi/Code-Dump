@@ -2,10 +2,10 @@ import { FC, useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import { BlueArrowIcon } from 'assets/icons';
-import { hourCreator, minutesCreator } from 'utils/timeCreators';
+import { hourCreator, minutesCreator } from 'utils';
 
-import styles from './HourPicker.module.scss';
 import { THourPickerProps } from './types';
+import styles from './HourPicker.module.scss';
 
 const HourPicker: FC<THourPickerProps> = ({ getTime }) => {
   const [time, setTime] = useState({ hour: 0, minute: 0, type: 'AM' });

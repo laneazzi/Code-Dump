@@ -4,17 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { Routes } from 'types';
 import { useAppDispatch } from 'hooks';
 import { signUp } from 'store/slices/authSlice/authThunks';
+import { Checkbox, LinkButton, Typography } from 'components';
 import registrationForm from 'constants/forms/registrationForm';
 import { ReelBudLogoIcon, ReelBudTextIcon } from 'assets/icons';
-import { Checkbox, LinkButton, Typography } from 'components/shared';
 
 import { RegistrationForm } from '../../forms';
 
+import { TUserRegistrationProps } from './types';
 import styles from './Registration.module.scss';
-
-type TUserRegistrationProps = {
-  toggleActive: (value: string) => void;
-};
 
 const Registration: FC<TUserRegistrationProps> = ({ toggleActive }) => {
   const dispatch = useAppDispatch();

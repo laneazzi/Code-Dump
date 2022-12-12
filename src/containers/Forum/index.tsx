@@ -9,7 +9,7 @@ import styles from './Forum.module.scss';
 
 const Forum = () => {
   const dispatch = useAppDispatch();
-  const [limit, setLimit] = useState<number>(5);
+  const [limit, setLimit] = useState<number>(10);
   const [offset, setOffset] = useState<number>(0);
   const { allActivities } = useAppSelector((state) => state.activities);
 

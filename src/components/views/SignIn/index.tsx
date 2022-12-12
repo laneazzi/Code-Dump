@@ -2,21 +2,18 @@ import { FC, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Routes } from 'types';
+import { createFormData } from 'utils';
 import { useAppDispatch } from 'hooks';
 import signIn from 'constants/forms/signinForm';
-import { createFormData } from 'utils/createForData';
 import { signInAuth } from 'store/slices/authSlice/authThunks';
 import { ReelBudLogoIcon, ReelBudTextIcon } from 'assets/icons';
-import { LinkButton, RadioButton, Typography } from 'components/shared';
+import { LinkButton, RadioButton, Typography } from 'components';
 
 import { SignInForm } from '../../forms';
 import { IsActiveType } from '../../../types/global';
 
+import { TSignInProps } from './types';
 import styles from './SignIn.module.scss';
-
-type TSignInProps = {
-  toggleActive: (value: string, bool: boolean) => void;
-};
 
 const SignIn: FC<TSignInProps> = ({ toggleActive }) => {
   const dispatch = useAppDispatch();

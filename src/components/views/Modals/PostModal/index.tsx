@@ -1,24 +1,20 @@
 import { FC, useEffect } from 'react';
 
-import { CommentsList } from 'components';
-import { ForumCard } from 'components/shared';
-import CardsList from 'components/views/CardsList';
 import { useAppDispatch, useAppSelector } from 'hooks';
+import { CommentsList, ForumCard, CardsList } from 'components';
 import { recommendedPosts } from 'constants/Cards/todayTopCards';
-import { TNewPostComment, TPost } from 'store/slices/activitiesSlice/types';
 import { getPostCommentByParentPostId } from 'store/slices/activitiesSlice/activitiesThunks';
 
+import { TPostModal } from './types';
 import styles from './PostModal.module.scss';
 
-type TPostModal = {
-  post: TPost;
-  comments: TNewPostComment[];
-  deletePost: (id: number) => void;
-  addComment: (comment: TNewPostComment) => void;
-  removeComment: (commentId: number, postId: number) => void;
-};
-
-const PostModal: FC<TPostModal> = ({ post, deletePost, addComment, removeComment }) => {
+const PostModal: FC<TPostModal> = ({
+  post,
+  deletePost,
+  addComment,
+  replyComment,
+  removeComment,
+}) => {
   const dispatch = useAppDispatch();
   const { currentActivityComments } = useAppSelector((state) => state.activities);
 
@@ -38,6 +34,7 @@ const PostModal: FC<TPostModal> = ({ post, deletePost, addComment, removeComment
             post={post}
             addComment={addComment}
             removeComment={removeComment}
+            replyComment={replyComment}
             list={currentActivityComments}
           />
         </div>

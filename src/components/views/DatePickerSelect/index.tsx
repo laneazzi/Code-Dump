@@ -3,20 +3,15 @@ import moment from 'moment';
 import classNames from 'classnames';
 import DatePicker from 'react-datepicker';
 
+import { dateFormatter } from 'utils';
 import { DateIcon } from 'assets/icons';
-import { dateFormatter } from 'utils/dateFormatter';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
+import { TDatePickerSelectProps } from './types';
 import styles from './DatePickerSelect.module.scss';
 
-type TDatePickerSelectProps = {
-  title: string;
-  size?: 'large';
-  getDate?: (date: string) => void;
-};
-
-const DatePickerSelect: FC<TDatePickerSelectProps> = ({ title, size, getDate }) => {
+const DatePickerSelect: FC<TDatePickerSelectProps> = ({ title, size, getDate, field }) => {
   const [selectedDate, setSelectedDate] = useState<Date>();
 
   const setDate = (date: Date) => {

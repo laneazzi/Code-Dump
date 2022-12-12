@@ -1,29 +1,30 @@
 import React, { FC, useRef, useState } from 'react';
 import classNames from 'classnames';
 
+import { dateBetween } from 'utils';
 import { Typography, UserImgFrame } from 'components/shared';
 import { MessageSettingsIcon, ShareIcon } from 'assets/icons';
 import { useAppDispatch, useAppSelector, useOnClickOutside } from 'hooks';
 import { editPostComment } from 'store/slices/activitiesSlice/activitiesThunks';
 
 import styles from './Message.module.scss';
+import { TMessageProps } from './types';
 
-type TMessageProps = {
-  user: any;
-  postId?: number;
-  inChat?: boolean;
-  type?: 'comment';
-  commentId?: number;
-  removeComment?: (commentId: number, postId: number) => void;
-};
-
-const Message: FC<TMessageProps> = ({ user, type, inChat, commentId, postId, removeComment }) => {
+const Message: FC<TMessageProps> = ({
+  comment,
+  type,
+  getId,
+  inChat,
+  postId,
+  removeComment,
+  parentName = 0,
+}) => {
   const dispatch = useAppDispatch();
   const { userData } = useAppSelector((state) => state.auth);
 
   const [isDrop, setIsDrop] = useState<boolean>(false);
   const [isEditable, setIsEditable] = useState<boolean>(false);
-  const [editValue, setEditValue] = useState<string>(user?.content);
+  const [editValue, setEditValue] = useState<string>(comment?.content);
 
   const editComment = () => setIsEditable(!isEditable);
 
@@ -39,7 +40,7 @@ const Message: FC<TMessageProps> = ({ user, type, inChat, commentId, postId, rem
       const editedComment = {
         content: editValue,
         reaction_icon: 'string',
-        id: commentId as number,
+        id: comment?.id as number,
         user_id: userData?.id as number,
       };
 
@@ -52,8 +53,10 @@ const Message: FC<TMessageProps> = ({ user, type, inChat, commentId, postId, rem
     }
   };
 
+  const time = dateBetween(comment?.created_at as Date);
+
   const remove = () => {
-    removeComment?.(commentId as number, postId as number);
+    removeComment?.(comment?.id as number, postId as number);
   };
 
   const closeDropDown = () => setIsDrop(false);
@@ -65,7 +68,11 @@ const Message: FC<TMessageProps> = ({ user, type, inChat, commentId, postId, rem
     [styles.options__menu_active]: isDrop,
   });
 
-  const showOptions = () => setIsDrop(!isDrop);
+  const showOptions = (id: number) => {
+    if (userData?.id === id) {
+      setIsDrop(!isDrop);
+    }
+  };
 
   const stopPropagation = (e: React.SyntheticEvent<HTMLDivElement>) => {
     e.stopPropagation();
@@ -77,11 +84,24 @@ const Message: FC<TMessageProps> = ({ user, type, inChat, commentId, postId, rem
     { [styles.container__comments]: type === 'comment' },
   );
 
+  const innerText =
+    parentName === 0 ? (
+      editValue
+    ) : (
+      <Typography tagName='span'>
+        to
+        <Typography tagName='span' className={styles.replied__user}>
+          @{parentName}
+        </Typography>
+        <Typography tagName='span'>{editValue}</Typography>
+      </Typography>
+    );
+
   return (
     <div className={inChatMessages}>
       <div className={styles.container__content}>
         <div className={styles.container__content_user}>
-          <UserImgFrame img={user?.userImg} className={styles.container__content_user_img} />
+          <UserImgFrame img={''} className={styles.container__content_user_img} />
         </div>
         <div className={styles.container__content_box}>
           <div className={styles.container__content_box_info}>
@@ -91,18 +111,25 @@ const Message: FC<TMessageProps> = ({ user, type, inChat, commentId, postId, rem
               {type === 'comment' && isEditable ? (
                 <input value={editValue} onChange={handelChange} className={styles.edit__field} />
               ) : (
-                editValue
+                innerText
               )}
             </p>
           </div>
           {type === 'comment' && (
             <div className={styles.container__content_box_icons}>
-              <div className={styles.container__content_box_icons_reply}>
+              <div
+                className={styles.container__content_box_icons_reply}
+                onClick={() => getId && getId(comment?.id)}
+              >
                 <ShareIcon />
                 Reply
               </div>
-              <div className={styles.container__content_box_icons_time}>1 minutes ago</div>
-              <div className={styles.options} onClick={showOptions} ref={menuRef}>
+              <div className={styles.container__content_box_icons_time}>{time}</div>
+              <div
+                className={styles.options}
+                onClick={() => showOptions(comment?.user_id as number)}
+                ref={menuRef}
+              >
                 <MessageSettingsIcon />
                 <div className={dropDownClasses} onClick={stopPropagation}>
                   {isEditable ? (

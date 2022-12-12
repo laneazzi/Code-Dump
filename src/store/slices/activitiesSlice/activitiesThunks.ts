@@ -141,7 +141,7 @@ export const getPostCommentByParentPostId = createAsyncThunk(
 );
 
 export const getPostCommentByParentCommentId = createAsyncThunk(
-  'activities/getPostCommentByParentPostId',
+  'activities/getPostCommentByParentCommentId',
   async (params: TParenCommentParams) => {
     try {
       const response = await activitiesApi.postCommentByParentCommentIdRequest(params);

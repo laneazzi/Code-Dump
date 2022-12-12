@@ -1,9 +1,9 @@
-import { Fragment, useContext, useMemo, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 
-import { LiveVideoCard, PaginateWrapper } from 'components';
 import { ModalContext } from 'context/Modal';
 import { liveVideosCase } from 'utils/localBackend';
 import { LiveModal } from 'components/views/Modals';
+import { LiveVideoCard, PaginateWrapper } from 'components';
 
 import styles from './Lives.module.scss';
 
@@ -35,14 +35,14 @@ const Lives = () => {
   const filteredLives = liveVideos.slice(firstIndex, lastIndex);
 
   return (
-    <Fragment>
+    <>
       <div className={styles.lives}>{filteredLives}</div>
       <PaginateWrapper
         totalItemsCount={liveVideosCase.length}
         itemsCountPerPage={currentPerPage}
         changePage={changePage}
       />
-    </Fragment>
+    </>
   );
 };
 

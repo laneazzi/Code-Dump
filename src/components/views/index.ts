@@ -1,3 +1,4 @@
+export * from './Modals';
 export { default as Post } from './Post';
 export { default as SignIn } from './SignIn';
 export { default as Header } from './Header';

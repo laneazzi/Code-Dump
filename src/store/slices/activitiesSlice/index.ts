@@ -10,6 +10,7 @@ const initialState: TInitialState = {
   loading: false,
   isChanged: false,
   allActivities: [],
+  repliedComments: [],
   currentActivity: null,
   currentActivityComments: [],
 };

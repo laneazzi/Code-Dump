@@ -12,10 +12,8 @@ import {
 import { Routes } from 'types';
 import { emptyUserImg } from 'assets/img';
 import { useAppSelector, useOnClickOutside } from 'hooks';
-import { EventDropDownItems, ProfileDropDownItems } from 'utils/headerDropDowns';
-import { HeaderMenu, SearchField, Typography, UserImgFrame } from 'components/shared';
-
-import { HeaderDropDown } from '../index';
+import { EventDropDownItems, ProfileDropDownItems } from 'utils';
+import { HeaderMenu, SearchField, Typography, UserImgFrame, HeaderDropDown } from 'components';
 
 import styles from './Header.module.scss';
 

@@ -2,6 +2,10 @@
   max-width: 719px;
   width: 100%;
 
+  @include breakpoint(tablet-m) {
+    max-width: 100%;
+  }
+
   &__content {
     display: flex;
     gap: 13px;
@@ -71,6 +75,7 @@
 
         &_reply {
           gap: 7px;
+          cursor: pointer;
         }
       }
     }
@@ -244,4 +249,9 @@
       }
     }
   }
+}
+
+.replied__user {
+  color: blue;
+  margin: 0 5px;
 }
