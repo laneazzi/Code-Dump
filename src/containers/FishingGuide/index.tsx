@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
 
+import { fishingGuideFilters } from 'utils';
 import { GuideCardInfo } from 'utils/localBackend';
 import { EventTypes } from 'types/global/eventTypes';
-import { fishingGuideFilters } from 'utils/filterItems';
 import { EventCard, Filter, PaginateWrapper } from 'components';
 
 import styles from './FishingGuide.module.scss';

@@ -1,8 +1,9 @@
 import React, { FC, useRef, useState } from 'react';
 import classNames from 'classnames';
 
-import { useOnClickOutside } from 'hooks';
+import { dateBetween } from 'utils';
 import { GuyImg, notFoundImg } from 'assets/img';
+import { useAppSelector, useOnClickOutside } from 'hooks';
 import { TPost } from 'store/slices/activitiesSlice/types';
 import { SaveIcon, OptionsIcon, SaveActiveIcon } from 'assets/icons';
 import { PostsSlider, Typography, UserImgFrame } from 'components/shared';
@@ -19,6 +20,7 @@ type TForumCardProps = {
 
 const ForumCard: FC<TForumCardProps> = ({ card, comments, openPost, deletePost }) => {
   const [isDrop, setIsDrop] = useState<boolean>(false);
+  const { userData } = useAppSelector((state) => state.auth);
   const [isLoad, setIsLoad] = useState<boolean>(false);
   const [isSaved, setIsSaved] = useState<boolean>(false);
   const [activeSlide, setActiveSlide] = useState<number>(1);
@@ -35,7 +37,11 @@ const ForumCard: FC<TForumCardProps> = ({ card, comments, openPost, deletePost }
     [styles.options__menu_active]: isDrop,
   });
 
-  const showOptions = () => setIsDrop(!isDrop);
+  const showOptions = (id: number) => {
+    if (userData?.id === id) {
+      setIsDrop(!isDrop);
+    }
+  };
   const stopPropagation = (e: React.SyntheticEvent<HTMLDivElement>) => {
     e.stopPropagation();
   };
@@ -68,6 +74,8 @@ const ForumCard: FC<TForumCardProps> = ({ card, comments, openPost, deletePost }
     e.stopPropagation();
   };
 
+  const time = dateBetween(card.created_at);
+
   return (
     <div className={styles.container} onClick={() => openPost?.(card)}>
       <div className={styles.container__content}>
@@ -84,12 +92,12 @@ const ForumCard: FC<TForumCardProps> = ({ card, comments, openPost, deletePost }
         </div>
         <div className={styles.container__content__header__selects} onClick={handlePropagation}>
           <Typography className={styles.container__content__header__selects__time}>
-            {card?.created_at ? card?.created_at : '1 min ago'}
+            {time}
           </Typography>
           <div className={styles.container__content__header__selects_icon} onClick={takePost}>
             {isSaved ? <SaveActiveIcon /> : <SaveIcon />}
           </div>
-          <div className={styles.options} onClick={showOptions} ref={menuRef}>
+          <div className={styles.options} onClick={() => showOptions(card.user_id)} ref={menuRef}>
             <OptionsIcon className={styles.options__icon} />
             <div className={dropDownClasses} onClick={stopPropagation}>
               <Typography className={styles.options__menu__item}>Edit</Typography>

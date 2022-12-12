@@ -1,6 +1,6 @@
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
-import { filterItems } from 'utils/filterItems';
+import { filterItems } from 'utils';
 import { EventTypes } from 'types/global/eventTypes';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { EventCard, Filter, PaginateWrapper } from 'components';
@@ -17,6 +17,7 @@ const Tournament = () => {
 
   useEffect(() => {
     dispatch(getMyTournaments());
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -40,7 +41,7 @@ const Tournament = () => {
   const filteredTournaments = tournamentItems.slice(firstIndex, lastIndex);
 
   return (
-    <Fragment>
+    <>
       <Filter filterItems={filterItems} />
       {filteredTournaments.length <= 0 ? (
         <div className={styles.tournament__empty}>No Tournaments added yet</div>
@@ -55,7 +56,7 @@ const Tournament = () => {
           />
         </>
       )}
-    </Fragment>
+    </>
   );
 };
 

@@ -1,9 +1,8 @@
 import { FC, useContext, useEffect, useState } from 'react';
 
 import { useAppDispatch } from 'hooks';
-import { ForumCard } from 'components';
 import { ModalContext } from 'context/Modal';
-import { PostModal } from 'components/views/Modals';
+import { ForumCard, PostModal } from 'components';
 import { TNewPostComment, TPost } from 'store/slices/activitiesSlice/types';
 import {
   createPostComment,
@@ -12,9 +11,7 @@ import {
   getPostCommentByParentPostId,
 } from 'store/slices/activitiesSlice/activitiesThunks';
 
-type TPostProps = {
-  card: TPost;
-};
+import { TPostProps } from './types';
 
 const Post: FC<TPostProps> = ({ card }) => {
   const dispatch = useAppDispatch();
@@ -24,6 +21,12 @@ const Post: FC<TPostProps> = ({ card }) => {
 
   const addComment = async (comment: TNewPostComment) => {
     await dispatch(createPostComment(comment)).unwrap();
+    getComments();
+  };
+
+  const replyComment = async (comment: TNewPostComment) => {
+    await dispatch(createPostComment(comment)).unwrap();
+
     getComments();
   };
 
@@ -60,23 +63,22 @@ const Post: FC<TPostProps> = ({ card }) => {
     openModal(
       <PostModal
         post={post}
+        comments={commentList}
         deletePost={deletePost}
         addComment={addComment}
-        comments={commentList}
+        replyComment={replyComment}
         removeComment={removeComment}
       />,
     );
 
   return (
-    <div>
-      <ForumCard
-        key={card.id}
-        card={card}
-        openPost={openPost}
-        comments={commentList}
-        deletePost={deletePost}
-      />
-    </div>
+    <ForumCard
+      key={card.id}
+      card={card}
+      openPost={openPost}
+      comments={commentList}
+      deletePost={deletePost}
+    />
   );
 };
 

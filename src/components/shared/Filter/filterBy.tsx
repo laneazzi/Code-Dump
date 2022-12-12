@@ -1,10 +1,10 @@
 import React, { FC, useRef, useState } from 'react';
 import classNames from 'classnames';
 
-import { useOnClickOutside } from 'hooks';
 import { FilterIcon } from 'assets/icons';
+import { useOnClickOutside } from 'hooks';
+import { locationsOptionsList, statusBarOptionsList } from 'utils';
 import { CreateEventDropDown, DatePickerSelect } from 'components/views';
-import { locationsOptionsList, statusBarOptionsList } from 'utils/optionsList';
 
 import Typography from '../Typography';
 

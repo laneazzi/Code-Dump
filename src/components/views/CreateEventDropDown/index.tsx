@@ -1,18 +1,12 @@
-import { FC, useRef, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import classNames from 'classnames';
 
+import { Typography } from 'components';
 import { useOnClickOutside } from 'hooks';
 import { BlueArrowIcon } from 'assets/icons';
-import { TOption } from 'types/global/options';
-import { Typography } from 'components/shared';
 
+import { TEventDropDownProps } from './types';
 import styles from './CreateEventDropDown.module.scss';
-
-type TEventDropDownProps = {
-  title: string;
-  size?: 'large' | 'small';
-  optionList?: TOption[];
-};
 
 const EventDropDown: FC<TEventDropDownProps> = ({ title, optionList, size }) => {
   const [activeTitle, setActiveTitle] = useState<string>('Select');

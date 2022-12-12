@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   width: 100%;
   padding: 20px;
   max-width: 538px;
@@ -38,5 +39,12 @@
       font-size: 18px;
       line-height: 27px;
     }
+  }
+
+  &__error {
+    @extend %font-10;
+    position: absolute;
+    top: 42px;
+    color: $red-light;
   }
 }

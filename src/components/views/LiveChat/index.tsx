@@ -1,23 +1,16 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-import { Typography } from 'components/shared';
-import { TMessage } from 'types/global/messagesTypes';
 import { ChatCloseIcon, OptionsIcon } from 'assets/icons';
+import { ChatField, Message, Typography } from 'components';
 
-import Message from '../Message';
-import ChatField from '../ChatField';
-
+import { TLiveChatProps } from './types';
 import styles from './LiveChat.module.scss';
 
-type TLiveChatProps = {
-  type?: 'global';
-  messages: TMessage[];
-  closeTheChat?: () => void;
-};
-
 const LiveChat: FC<TLiveChatProps> = ({ messages, type, closeTheChat }) => {
-  const chatItems = messages.map((message) => <Message key={message.id} user={message} inChat />);
+  const chatItems = messages.map((message: any) => (
+    <Message key={message.id} comment={message} inChat />
+  ));
 
   const liveChatClasses = classNames(styles.chat, { [styles.chat__small]: type === 'global' });
 

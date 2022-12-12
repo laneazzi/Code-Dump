@@ -1,16 +1,10 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-import { TodayTopCard, Typography } from 'components/shared';
-import { THighTodayCards } from 'constants/Cards/todayTopCards/types';
+import { TodayTopCard, Typography } from 'components';
 
+import { TCardsListProps } from './types';
 import styles from './CardsList.module.scss';
-
-type TCardsListProps = {
-  title: string;
-  inModal?: boolean;
-  cardsList: THighTodayCards[];
-};
 
 const CardsList: FC<TCardsListProps> = ({ cardsList, title, inModal }) => {
   const topCards = cardsList.map((card) => <TodayTopCard key={card.id} card={card} />);

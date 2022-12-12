@@ -6,16 +6,12 @@ import { Routes } from 'types';
 import { ReelBudLogoIcon } from 'assets/icons';
 import { navBarLinks } from 'constants/navBar';
 
+import { TNavBarProps } from './types';
 import styles from './Navbar.module.scss';
 
-type TNavBarProps = {
-  className: string;
-};
-
 const Navbar: FC<TNavBarProps> = ({ className }) => {
-  const [idx, setIdx] = useState<number>(0);
-  const [focused, setFocused] = useState<number | null>(null);
   const navRef = useRef<null | HTMLDivElement>(null);
+  const [focused, setFocused] = useState<number | null>(null);
 
   const navigate = useNavigate();
 
@@ -32,7 +28,6 @@ const Navbar: FC<TNavBarProps> = ({ className }) => {
   };
 
   const scrollTo = (idx: number) => {
-    setIdx(idx);
     let scrollPosition = 0;
 
     if (idx === 0) {

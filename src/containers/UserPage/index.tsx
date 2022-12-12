@@ -1,4 +1,4 @@
-import { Fragment, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { VideoCard } from 'components';
@@ -9,8 +9,8 @@ import {
   ProfileStatus,
   ProfileSideImg,
 } from 'components/shared/ProfileComponents';
-import { profileVideosData } from 'utils/localBackend/profileVideosData';
 import { userSearchCase } from 'utils/localBackend';
+import { profileVideosData } from 'utils/localBackend/profileVideosData';
 
 import styles from './UserPage.module.scss';
 
@@ -38,7 +38,7 @@ const UserPage = () => {
             <ProfileSideImg img={cardImgTwo} />
           </section>
           {isActive && (
-            <Fragment>
+            <>
               <section className={styles.profile__content_info}>
                 <ProfileBio info="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 😄🐠" />
               </section>
@@ -46,7 +46,7 @@ const UserPage = () => {
                 <VideoFilter videoCount={profileVideosData.length} livesCount={0} />
               </section>
               <section className={styles.profile__content_videos}>{profileVideos}</section>
-            </Fragment>
+            </>
           )}
         </div>
       );

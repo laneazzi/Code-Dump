@@ -1,19 +1,12 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import classNames from 'classnames';
 
-import { Input } from 'components/shared';
+import { Input, Typography } from 'components';
 
+import { TEventInputProps } from './types';
 import styles from './EventInput.module.scss';
 
-type TEventInputProps = {
-  title: string;
-  name?: string;
-  small?: boolean;
-  required?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
-
-const EventInput: FC<TEventInputProps> = ({ small, title, name, onChange }) => {
+const EventInput: FC<TEventInputProps> = ({ small, title, name, field, type = 'string' }) => {
   const eventInputClasses = classNames(styles.container, {
     [styles.container__small]: small,
   });
@@ -21,10 +14,20 @@ const EventInput: FC<TEventInputProps> = ({ small, title, name, onChange }) => {
   return (
     <div className={eventInputClasses}>
       <p className={styles.container__title}>{title}</p>
+
+      {field?.isEmpty && field.isBlur && (
+        <Typography tagName='span' className={styles.container__title__error}>
+          {field.errorMessage}
+        </Typography>
+      )}
+
       <Input
         name={name}
-        onChange={onChange}
+        type={type}
+        value={field?.value}
+        onBlur={field?.onBlur}
         placeholder='Write...'
+        onChange={field?.onChange}
         className={styles.container__content}
       />
     </div>

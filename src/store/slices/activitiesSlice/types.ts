@@ -25,12 +25,29 @@ export type TAllPostsParams = {
 };
 
 export type TNewPostComment = {
-  user_id?: number;
+  id?: number;
   content: string;
+  user_id?: number;
   on_main_post: boolean;
   reaction_icon: string;
   parent_comment_id?: number;
   user_activity_post_id: number;
+};
+
+export type TNewPostCommentResponse = {
+  id: number;
+  user_id?: number;
+  content: string;
+  on_main_post: boolean;
+  reaction_icon: string;
+  parent_comment_id: number;
+  user_activity_post_id: number;
+  created_at?: Date | null;
+  updated_at?: Date | null;
+};
+
+export type TNewPostCommentParent = TNewPostCommentResponse & {
+  replies: TNewPostCommentResponse[];
 };
 
 export type TUpdateComment = {
@@ -58,7 +75,8 @@ export type TInitialState = {
   error: null | Error;
   allActivities: TPost[];
   currentActivity: TPost | null;
-  currentActivityComments: TNewPostComment[];
+  repliedComments: TNewPostComment[];
+  currentActivityComments: TNewPostCommentResponse[];
 };
 
 export type TPost = {

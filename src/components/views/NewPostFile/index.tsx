@@ -4,7 +4,7 @@ import { CloseCircleIcon, FileIcon } from 'assets/icons';
 
 import styles from './NewPostFile.module.scss';
 
-const NewPostFile: React.FC = () => {
+const NewPostFile = () => {
   const [file, setFile] = useState<File | null>(null);
   const [fileDataURL, setFileDataURL] = useState<string | null>(null);
 

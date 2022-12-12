@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import classNames from 'classnames';
 
-import { proUsersFilters } from 'utils/filterItems';
+import { proUsersFilters } from 'utils';
 import { userSearchCase } from 'utils/localBackend';
 import PeopleCard from 'components/shared/Cards/PeopleCard';
 import { Filter, LiveChat, PaginateWrapper } from 'components';

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import { NextMonthCalendarIcon, PrevMonthCalendarIcon } from 'assets/icons';
 import {
   range,
   Months,
@@ -9,8 +8,9 @@ import {
   getDaysInMonth,
   dateFormatting,
   datesAreOnSameDay,
-} from 'utils/calendar';
+} from 'utils';
 import { calendarEvents } from 'utils/localBackend';
+import { NextMonthCalendarIcon, PrevMonthCalendarIcon } from 'assets/icons';
 
 import Typography from '../Typography';
 import UserImgFrame from '../UserImgFrame';

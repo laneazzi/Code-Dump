@@ -1,4 +1,5 @@
-.container {
+.container__content {
+  position: relative;
   width: 100%;
   max-width: 258px;
   max-height: 110px;
@@ -10,24 +11,29 @@
     max-width: 100%;
   }
 
-  &__content {
-    &_title {
-      @extend %font-20;
-      color: $blue-dark;
-      font-family: $inter;
-      margin-bottom: 14px;
-    }
+  &_title {
+    @extend %font-20;
+    color: $blue-dark;
+    font-family: $inter;
+    margin-bottom: 14px;
+  }
 
-    &_info {
-      @extend %font-24;
-      color: $blue-dark;
-      font-family: $inter;
+  &_info {
+    @extend %font-24;
+    color: $blue-dark;
+    font-family: $inter;
 
-      &_field {
-        border: none;
-        outline: none;
-        padding: 10px 0;
-      }
+    &_field {
+      border: none;
+      outline: none;
+      padding: 10px 0;
     }
+  }
+
+  &__error {
+    @extend %font-10;
+    position: absolute;
+    top: 42px;
+    color: $red-light;
   }
 }

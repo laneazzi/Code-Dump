@@ -1,6 +1,6 @@
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
-import { filterItems } from 'utils/filterItems';
+import { filterItems } from 'utils';
 import { EventTypes } from 'types/global/eventTypes';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { EventCard, Filter, PaginateWrapper } from 'components';

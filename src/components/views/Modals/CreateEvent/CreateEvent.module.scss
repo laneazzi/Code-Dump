@@ -98,9 +98,22 @@
       @extend %flex-center;
       gap: 16px;
 
+      &_close {
+        color: $blue-dark !important;
+        background: $white !important;
+        border: 1px solid $blue-dark !important;
+      }
+
+      &_submit {
+        border: none !important;
+        color: $white !important;
+        background: $red-light !important;
+      }
+
       button {
         @extend %font-24-large;
         cursor: pointer;
+        max-width: fit-content;
         padding: 12px 40px;
         border-radius: 16px;
         font-family: $Open-Sans;
@@ -108,18 +121,6 @@
         @include breakpoint(mobile-m) {
           padding: 5px 20px;
           font-size: 16px;
-        }
-
-        &:first-child {
-          color: $blue-dark;
-          background: $white;
-          border: 1px solid $blue-dark;
-        }
-
-        &:last-child {
-          color: $white;
-          border: none;
-          background: $red-light;
         }
       }
     }

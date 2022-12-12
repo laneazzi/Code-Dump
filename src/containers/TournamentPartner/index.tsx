@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 
-import { partnersFilters } from 'utils/filterItems';
+import { partnersFilters } from 'utils';
 import { partners } from 'utils/localBackend/partners';
 import { Filter, PaginateWrapper, PartnerCard } from 'components';
 

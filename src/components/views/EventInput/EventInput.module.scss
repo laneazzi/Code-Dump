@@ -1,8 +1,9 @@
 .container {
   width: 100%;
+  position: relative;
   max-width: 538px;
   border-radius: 8px;
-  padding: 19px 0px 22px 19px;
+  padding: 19px 19px 22px 19px;
   border: 1px solid #dfe5f4;
 
   &__small {
@@ -45,6 +46,13 @@
       font-size: 18px;
       line-height: 25px;
       margin-bottom: 5px !important;
+    }
+
+    &__error {
+      @extend %font-10;
+      position: absolute;
+      top: 42px;
+      color: $red-light;
     }
   }
 }

@@ -77,6 +77,10 @@
       font-family: $inter;
       color: $blue-dark;
 
+      &_head {
+        border: none;
+      }
+
       @include breakpoint(tablet-m) {
         font-size: 18px;
       }
