@@ -11,7 +11,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { TDatePickerSelectProps } from './types';
 import styles from './DatePickerSelect.module.scss';
 
-const DatePickerSelect: FC<TDatePickerSelectProps> = ({ title, size, getDate, field }) => {
+const DatePickerSelect: FC<TDatePickerSelectProps> = ({ title, size, getDate }) => {
   const [selectedDate, setSelectedDate] = useState<Date>();
 
   const setDate = (date: Date) => {
