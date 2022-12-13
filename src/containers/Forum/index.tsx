@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import { CardsList, Post } from 'components';
 import { useAppDispatch, useAppSelector } from 'hooks';
@@ -9,8 +9,8 @@ import styles from './Forum.module.scss';
 
 const Forum = () => {
   const dispatch = useAppDispatch();
-  const [limit, setLimit] = useState<number>(10);
-  const [offset, setOffset] = useState<number>(0);
+  const limit = 10;
+  const offset = 0;
   const { allActivities } = useAppSelector((state) => state.activities);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Forum = () => {
 
   const cards = useMemo(
     () =>
-      allActivities?.map((card) => {
+      allActivities?.map((card: any) => {
         return <Post key={card.id} card={card} />;
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
